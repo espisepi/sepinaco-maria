@@ -33,6 +33,7 @@ Proyecto nicho Bar
 
 - Tour Virtual Krpano
 
+- Sistema de Formulario de Contacto (Nodemailer)
 
 - Prueba de rendimiento de usuarios (
   - Por 50€ soportas 50 usuarios simultaneos
