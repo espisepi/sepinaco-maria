@@ -135,7 +135,7 @@
          
          ath="109.81008947002647" atv="6.158143775624392" scale="0.10499999999999976" rx="0" ry="0" rz="0"
          width="500"
-         height="1000"
+         height="1080"
          alpha="1"
          chromakey="0x00ff00|1.5|0.15"
          distorted="true"
@@ -155,17 +155,17 @@
 </hotspot>
 
 
-	<!-- Hotspot con el video agujero negro -->
-<hotspot name="agujero_negro"
+	<!-- Hotspot con el video humo -->
+<hotspot name="humo"
          url.html5="plugins/videoplayer.js"
          url.flash="plugins/videoplayer.swf"
-         videourl="recursos/video/agujero_negro.mov"
+         videourl="recursos/video/humo.mov"
          
-         ath="149.39049791142844" atv="11.492072084815879" scale="0.8467000000000159" rx="0" ry="0" rz="-88"
+         ath="149.58077949958857" atv="3.118322451440942" scale="0.17190000000001526" rx="-180.35000000000093" ry="0" rz="-0.4499999999999992"
          width="1920"
          height="1080"
          alpha="1"
-         chromakey="0x00ff00|1.5|1.5"
+         chromakey="0x00ff00|0.99|0.99"
          distorted="true"
          zorder="6"
          pausedonstart="false"
