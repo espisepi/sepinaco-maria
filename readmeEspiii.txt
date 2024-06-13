@@ -1,0 +1,1 @@
+- El hotspot "movil" Es una imagen "movil.png" que supuestamente no tiene fondo, sin embargo cuando trato de arrastrar la escena para navegar por ella pero me sale una especie de fondo cuadrado alrededor que me putea
