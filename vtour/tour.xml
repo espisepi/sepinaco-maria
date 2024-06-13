@@ -71,7 +71,7 @@
 	<!-- <include url="skin/vtourskin_design_117round.xml"    /> -->
 	<!-- <include url="skin/vtourskin_design_black.xml"       /> -->
 	
-
+	<style name="chromakey" chroma="0x00ff00" chromathreshold="0.1" />
 	
 	<scene name="scene_cabina" title="cabina" onstart="" thumburl="panos/cabina.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
 		
@@ -85,6 +85,42 @@
 			<cube url="panos/cabina.tiles/pano_%s.jpg" />
 		</image>
 
+		<hotspot name="movil"
+               url="recursos/imagen/movil.png"
+               ath="109.7919914725201" atv="12.684660758666018" scale="0.6349999999999999" rx="0" ry="0" rz="0"
+               width="500"
+               height="500"
+               distorted="true"
+			   chromakey="0x00ff00|1.6|0.0" 
+               onloaded="addpng('recursos/imagen/movil.png');"
+			   handcursor="false"
+			   capture="false"
+               onclick=""
+               onhover=""
+			   visible="true">
+         <style>chromakey</style>
+      </hotspot>
+
+	  <hotspot name="movil_llamada"
+               url="recursos/imagen/movil_llamada.png"
+               ath="109.7919914725201" atv="12.684660758666018" scale="0.6349999999999999" rx="0" ry="0" rz="0"
+               width="500"
+               height="500"
+               distorted="true"
+			   chromakey="0x00ff00|1.6|0.0" 
+               onloaded="addpng('recursos/imagen/movil.png');"
+			   handcursor="false"
+			   capture="false"
+               onclick=""
+               onhover=""
+			   visible="false">
+         <style>chromakey</style>
+      </hotspot>
+
+	<hotspot name="manolo" url.html5="plugins/videoplayer.js" url.flash="plugins/videoplayer.swf" videourl="recursos/video/manolo.mp4" posterurl="recursos/imagenes/play.png" ath="86.560" atv="15.000" scale="0.35" width="450" height="1000" alpha="1" chromakey="0x00ff00|1.5|0.15" distorted="true" zorder="6" visible="true" pausedonstart="false" loop="false" volume="1.0" directionalsound="true" range="90.0" rangefalloff="1.0" outofrangevolume="0.0" onhover="showtext(Play/Pause, default); " onvideoready="" onvideoplay="5" onvideopaused="" onvideocomplete="closevid_zocal();" onerror="" onclick="togglepause(vid_zocal);"/>
+		
+		<hotspot name="manolo_movil" devices="mobile" url.html5="plugins/videoplayer.js" url.flash="plugins/videoplayer.swf" videourl="recursos/video/manolo.mp4" posterurl="recursos/imagenes/play.png" ath="86.560" atv="15.000" scale="0.35" width="450" height="1000" alpha="1" chromakey="0x00ff00|1.5|0.15" distorted="true" zorder="6" visible="true" pausedonstart="false" loop="false" volume="1.0" directionalsound="true" range="90.0" rangefalloff="1.0" outofrangevolume="0.0" onhover="showtext(Play/Pause, default); " onvideoready="" onvideoplay="" onvideopaused="" onvideocomplete="closevid_zocal();" onerror="" onclick="togglepause(vid_zocal);"/>
+	
 	</scene>
 
 	<scene name="scene_menu" title="menu" onstart="" thumburl="panos/menu.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
