@@ -15,6 +15,8 @@ function krpanoplugin()
 	var device = null;
 	var plugin = null;
 
+	var engine = null
+
 
 	local.registerplugin = function(krpanointerface, pluginpath, pluginobject)
 	{
@@ -40,6 +42,12 @@ function krpanoplugin()
 
 		// load the requiered three.js scripts
 		load_scripts(["three.min.js"], start);
+
+		load_scripts(["ParticleEngine.js"], ()=>null);
+		load_scripts(["ParticleEngineExamples.js"], create_particle_engine);
+
+		// 	<script src="js/ParticleEngine.js"></script>
+		// <script src="js/ParticleEngineExamples.js"></script>
 	}
 
 	local.unloadplugin = function()
@@ -101,6 +109,8 @@ function krpanoplugin()
 	var krpano_depthbuffer_scale = 1.0001;				// depthbuffer scaling (use ThreeJS defaults: znear=0.1, zfar=2000)
 	var krpano_depthbuffer_offset = -0.2;
 
+	var clock = null;
+
 
 	function start()
 	{
@@ -142,6 +152,23 @@ function krpanoplugin()
 		
 		// restore the krpano WebGL settings (for correct krpano rendering)
 		restore_krpano_WebGL_state();
+
+		// Sepinaco code
+		clock = new THREE.Clock();
+
+
+	}
+
+	
+	// Sepinaco code
+	// Create particle engine
+	function create_particle_engine() 
+	{
+		console.log("PUTAA LA ESCENA",{scene})
+		engine = new ParticleEngine(scene);
+		engine.setValues( Examples.smoke );
+		engine.initialize();
+		alert("CREADO");
 	}
 
 
@@ -576,7 +603,6 @@ function krpanoplugin()
 		}
 	}
 
-
 	function update_scene()
 	{
 		// animate objects
@@ -595,5 +621,15 @@ function krpanoplugin()
 		}
 
 		handle_mouse_hovering();
+
+		if(engine) {
+			var dt = clock.getDelta();
+			engine.update( dt * 0.5 );	
+			// console.log({engine});
+		}
+	
+
+		// TODO: Yo creo que aqui manejaria la gestion de objectos (object pool) cuando se cambia de escena
 	}
+
 }
