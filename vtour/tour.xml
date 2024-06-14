@@ -553,4 +553,9 @@
             <cube url="panos/papel.tiles/pano_%s.jpg" />
         </image>
     </scene>
+
+    
+	<!-- add the custom ThreeJS plugin -->
+	<plugin name="threejs" url="plugin-threejs/three.krpanoplugin.js" keep="true" />
+
 </krpano>
