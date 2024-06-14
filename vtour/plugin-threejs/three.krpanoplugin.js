@@ -7,10 +7,16 @@
 
 function krpanoplugin()
 {
+
+	var path_folder_plugin = 'plugin-threejs/';
+
 	var local  = this;
 	var krpano = null;
 	var device = null;
 	var plugin = null;
+
+	// sepinaco-code
+	var currentSceneKrpano = null;
 
 
 	local.registerplugin = function(krpanointerface, pluginpath, pluginobject)
@@ -55,7 +61,7 @@ function krpanoplugin()
 		if (url.charAt(0) != "/" && url.indexOf("://") < 0)
 		{
 			// adjust relative url path
-			url = krpano.parsepath("%CURRENTXML%/" + url);
+			url = krpano.parsepath("%CURRENTXML%/" + path_folder_plugin + url);
 		}
 
 		return url;
@@ -308,6 +314,9 @@ function krpanoplugin()
 	var animatedobjects = [];
 	var box = null;
 
+	// sepinaco-code
+	var sceneObjects = [];
+
 
 	// add a krpano hotspot like handling for the 3d objects
 	function assign_object_properties(obj, name, properties)
@@ -394,6 +403,9 @@ function krpanoplugin()
 				donecall(obj);
 			}
 
+			// sepinaco-code
+			obj.name = url;
+			sceneObjects.push( obj );
 		});
 	}
 
@@ -411,6 +423,10 @@ function krpanoplugin()
 		box = new THREE.Mesh(new THREE.BoxGeometry(500,500,500), new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture(resolve_url_path("box.jpg"))}));
 		assign_object_properties(box, "box", {ath:160, atv:-3, depth:2000, ondown:function(obj){ obj.properties.scale *= 1.2; }, onup:function(obj){ obj.properties.scale /= 1.2; }});
 		scene.add( box );
+
+		// sepinaco-code
+		box.name = "box";
+		sceneObjects.push(box);
 
 		// add scene lights
 		scene.add( new THREE.AmbientLight(0x333333) );
@@ -592,5 +608,90 @@ function krpanoplugin()
 		}
 
 		handle_mouse_hovering();
+
+		// sepinaco-code
+		// Solo se ejecutara cuando se carguen todos los objetos threejs
+		if(sceneObjects.length > 0)
+		{
+			checkCurrentKrpanoScene();
+		}
 	}
+
+	// sepinaco-code de aqui para abajo ===========================
+
+	function checkCurrentKrpanoScene() {
+		// Update current scene krpano
+		// Obtén el nombre de la escena actual.
+		var _currentSceneKrpano = krpano.get('xml.scene');
+		var isSceneChanged = false;
+		if(currentSceneKrpano !== _currentSceneKrpano) {
+			currentSceneKrpano = _currentSceneKrpano;
+			isSceneChanged = true;
+		}
+
+		if(!isSceneChanged) { return; }
+
+		// Este codigo solo se ejecuta si isSceneChanged = true
+
+		// Clean Scene
+		// LO IDEAL: https://threejs.org/manual/#en/cleanup
+		cleanScene();
+
+		// Populate Scene
+		if( currentSceneKrpano ===  'scene_menu')
+		{
+			initSceneMenu();
+		} else if (currentSceneKrpano === 'scene_papel')
+		{
+			initScenePapel();
+		} else if (currentSceneKrpano === 'scene_cabina')
+		{
+			initSceneCabina();
+		}
+		else 
+		{
+			console.log(" NO ENTRO EN NINGUNA ESCENA KRPANO - THREEJS ")
+		}
+	}
+
+	function initSceneMenu() {
+		// Populate scene
+		populateScene(['horse','flamingo','box']);
+
+	}
+
+	function initScenePapel() {
+		// Populate scene
+		populateScene(['monster']);
+	}
+
+	function initSceneCabina() {
+		// Populate scene
+		populateScene(['monster','box']);
+	}
+
+	function populateScene(names = [])
+	{
+		if(names.length !== 0)
+		{
+			for (var i=0; i < sceneObjects.length; i++)
+			{
+				var object = sceneObjects[i];
+				var isInclude = names.some(name => object.name.includes(name));
+				if(isInclude) {
+					object.visible = true;
+				}
+			}
+		}
+	}
+
+	function cleanScene()
+	{
+		for (var i=0; i < sceneObjects.length; i++)
+		{
+			sceneObjects[i].visible = false;
+		}
+	}
+
+	// FIN sepinaco-code ======================================================
 }

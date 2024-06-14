@@ -1,6 +1,5 @@
 
 
-
 0 - Los planes de precio por mantenimiento mensual y desarrollo.
 
 1,2,3 - Diseño de UI interfaz de usuario, pantallas, figma.
