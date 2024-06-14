@@ -1,1 +1,4 @@
 - El hotspot "movil" Es una imagen "movil.png" que supuestamente no tiene fondo, sin embargo cuando trato de arrastrar la escena para navegar por ella pero me sale una especie de fondo cuadrado alrededor que me putea
+- Pausar video rata (hotspot rata y portal). 
+- Comometer 3Js en krpano para poder hacer lo de la nieve pero con humo en el scape room y que se vea en 360 porque este en 3d
+- Conseguir que funcione la siguiente logica de juego: los clic penalizan (cada área interactiva asociada a un hotspot de daño que se clique será penalizada haciendose visible y contabilizando un daño en la cabina) Llegados a un limite de daños activados el usuario pierde.

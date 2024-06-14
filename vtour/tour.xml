@@ -205,6 +205,99 @@
          capture="true">
 </hotspot>
 
+<!-- Hotspot con el video de portal2 -->
+<hotspot name="portal2"
+         url.html5="plugins/videoplayer.js"
+         url.flash="plugins/videoplayer.swf"
+         videourl="recursos/video/portal.mov"
+         ath="-57.30206183694213" atv="-0.37213080994616593" scale="-0.17029999999999962" rx="115.85000000000053" ry="-211.20000000000016" rz="-77"
+         height="1080"
+         alpha="1"
+         chromakey="0x010500|0.1|0.1"
+         distorted="true"
+         zorder="6"
+         visible="true"
+         pausedonstart="false"
+         loop="true"
+         volume="1.0"
+         directionalsound="true"
+         range="90.0"
+         rangefalloff="1.0"
+         outofrangevolume="0.0"
+         onhover=""
+         onclick="
+            if(ismedia.paused(hotspot[rata].videourl) == true,
+                playmedia(hotspot[rata].videourl); playmedia(hotspot[portal].videourl),
+                pausemedia(hotspot[rata].videourl); pausemedia(hotspot[portal].videourl)
+            );"
+         onvideocomplete="set(hotspot[movil_apagado].visible, true); set(hotspot[movil].visible, false); pausevideo(manolo); set(hotspot[play_movil].capture, false);"
+         onerror=""
+         handcursor="true"
+         capture="true">
+</hotspot>
+
+<!-- Hotspot con el video de portal_linea -->
+<hotspot name="portal_linea"
+         url.html5="plugins/videoplayer.js"
+         url.flash="plugins/videoplayer.swf"
+         videourl="recursos/video/portal_linea.mov"
+         ath="-92.98673923988349" atv="-2.7020133905208956" scale="-0.05479999999999764" rx="186.35000000000053" ry="0" rz="-88.45000000000014"
+         height="1080"
+         alpha="1"
+         chromakey="0x010500|0.2|0.2"
+         distorted="true"
+         zorder="6"
+         visible="true"
+         pausedonstart="false"
+         loop="true"
+         volume="1.0"
+         directionalsound="true"
+         range="90.0"
+         rangefalloff="1.0"
+         outofrangevolume="0.0"
+         onhover=""
+         onclick="
+            if(ismedia.paused(hotspot[rata].videourl) == true,
+                playmedia(hotspot[rata].videourl); playmedia(hotspot[portal].videourl),
+                pausemedia(hotspot[rata].videourl); pausemedia(hotspot[portal].videourl)
+            );"
+         onvideocomplete="set(hotspot[movil_apagado].visible, true); set(hotspot[movil].visible, false); pausevideo(manolo); set(hotspot[play_movil].capture, false);"
+         onerror=""
+         handcursor="true"
+         capture="true">
+</hotspot>
+
+<!-- Hotspot con el video de portal_linea2 -->
+<hotspot name="portal_linea2"
+         url.html5="plugins/videoplayer.js"
+         url.flash="plugins/videoplayer.swf"
+         videourl="recursos/video/portal_linea.mov"
+         ath="-31.73656637695194" atv="-79.92942543089794" scale="0.7552000000000029" rx="185.85000000000053" ry="73" rz="-94.45000000000016"
+         height="1080"
+         alpha="1"
+         chromakey="0x010500|0.3|0.3"
+         distorted="true"
+         zorder="6"
+         visible="true"
+         pausedonstart="false"
+         loop="true"
+         volume="1.0"
+         directionalsound="true"
+         range="90.0"
+         rangefalloff="1.0"
+         outofrangevolume="0.0"
+         onhover=""
+         onclick="
+            if(ismedia.paused(hotspot[rata].videourl) == true,
+                playmedia(hotspot[rata].videourl); playmedia(hotspot[portal].videourl),
+                pausemedia(hotspot[rata].videourl); pausemedia(hotspot[portal].videourl)
+            );"
+         onvideocomplete="set(hotspot[movil_apagado].visible, true); set(hotspot[movil].visible, false); pausevideo(manolo); set(hotspot[play_movil].capture, false);"
+         onerror=""
+         handcursor="false"
+         capture="false">
+</hotspot>
+
 <!-- Hotspot con el video de rata -->
 <hotspot name="rata"
          url.html5="plugins/videoplayer.js"
@@ -241,6 +334,68 @@
          capture="false">
 </hotspot>
 
+<!-- Hotspot con el video de rata2 -->
+<hotspot name="rata2"
+         url.html5="plugins/videoplayer.js"
+         url.flash="plugins/videoplayer.swf"
+         videourl="recursos/video/rata.mov"
+         ath="-103.24240891539205" atv="1.8102561849945453" scale="0.09089999999999936" rx="0" ry="1.5" rz="0"
+         width="1920"
+         height="1080"
+         alpha="1"
+         chromakey="0x00ff00|1.5|0.15"
+         distorted="true"
+         zorder="6"
+         visible="true"
+         pausedonstart="false"
+         loop="true"
+         volume="1.0"
+         directionalsound="true"
+         range="90.0"
+         rangefalloff="1.0"
+         outofrangevolume="0.0"
+         onhover=""
+         onclick="if(ismedia.paused(hotspot[rata].videourl) == true,
+                playmedia(hotspot[rata].videourl); playmedia(hotspot[portal].videourl),
+                pausemedia(hotspot[rata].videourl); pausemedia(hotspot[portal].videourl)
+            );"
+         onvideocomplete="set(hotspot[movil_apagado].visible, true); set(hotspot[movil].visible, false); pausevideo(manolo); set(hotspot[play_movil].capture, false);"
+         onerror=""
+         handcursor="false"
+         capture="false">
+</hotspot>
+
+
+<!-- Hotspot con el video de rata3 -->
+<hotspot name="rata3"
+         url.html5="plugins/videoplayer.js"
+         url.flash="plugins/videoplayer.swf"
+         videourl="recursos/video/rata.mov"
+         ath="-75.3522136019439" atv="0.471581414902378" scale="0.16780000000000028" rx="0" ry="1.5" rz="0"
+         width="1920"
+         height="1080"
+         alpha="1"
+         chromakey="0x00ff00|1.5|0.15"
+         distorted="true"
+         zorder="6"
+         visible="true"
+         pausedonstart="false"
+         loop="true"
+         volume="1.0"
+         directionalsound="true"
+         range="90.0"
+         rangefalloff="1.0"
+         outofrangevolume="0.0"
+         onhover=""
+         onclick="if(ismedia.paused(hotspot[rata].videourl) == true,
+                playmedia(hotspot[rata].videourl); playmedia(hotspot[portal].videourl),
+                pausemedia(hotspot[rata].videourl); pausemedia(hotspot[portal].videourl)
+            );"
+         onvideocomplete="set(hotspot[movil_apagado].visible, true); set(hotspot[movil].visible, false); pausevideo(manolo); set(hotspot[play_movil].capture, false);"
+         onerror=""
+         handcursor="false"
+         capture="false">
+</hotspot>
 
 
 	<!-- Hotspot con el video fuego -->
@@ -306,7 +461,7 @@
          url.flash="plugins/videoplayer.swf"
          videourl="recursos/video/cristal_roto.mov"
          
-         ath="144.43338716548095" atv="-0.839260630705929" scale="0.08999999999999994" rx="-180.35000000000093" ry="0" rz="-0.4499999999999992"
+         ath="127.98231796738156" atv="8.335425478755967" scale="0.0843000000000002" rx="-180.35000000000093" ry="0" rz="-0.4499999999999992"
          width="1920"
          height="1080"
          alpha="1"
