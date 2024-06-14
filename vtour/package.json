@@ -1,0 +1,14 @@
+{
+  "name": "vtour",
+  "version": "1.0.0",
+  "description": "",
+  "main": "tour.js",
+  "scripts": {
+    "start": "nodemon --watch . --exec \"serve -s .\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^3.1.3"
+  }
+}
