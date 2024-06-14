@@ -1,568 +1,556 @@
 ﻿<krpano version="1.21" title="Virtual Tour">
 
-	<include url="skin/vtourskin.xml" />
-	<include url="toolbox/toolbox.xml" />
+    <include url="skin/vtourskin.xml" />
+    <include url="toolbox/toolbox.xml" />
 
+    <!-- customize skin settings: maps, gyro, webvr, thumbnails, tooltips, layout, design, ... -->
+    <skin_settings maps="false"
+                   maps_type="google"
+                   maps_bing_api_key=""
+                   maps_google_api_key=""
+                   maps_zoombuttons="false"
+                   maps_loadonfirstuse="true"
+                   gyro="true"
+                   gyro_keeplookingdirection="false"
+                   webvr="true"
+                   webvr_keeplookingdirection="true"
+                   webvr_prev_next_hotspots="true"
+                   autotour="false"
+                   littleplanetintro="false"
+                   followmousecontrol="false"
+                   title="true"
+                   thumbs="true"
+                   thumbs_width="120" thumbs_height="80" thumbs_padding="10" thumbs_crop="0|40|240|160"
+                   thumbs_opened="false"
+                   thumbs_text="false"
+                   thumbs_dragging="true"
+                   thumbs_onhoverscrolling="false"
+                   thumbs_scrollbuttons="false"
+                   thumbs_scrollindicator="false"
+                   thumbs_loop="false"
+                   tooltips_buttons="false"
+                   tooltips_thumbs="false"
+                   tooltips_hotspots="false"
+                   tooltips_mapspots="false"
+                   deeplinking="false"
+                   loadscene_flags="MERGE"
+                   loadscene_blend="OPENBLEND(0.5, 0.0, 0.75, 0.05, linear)"
+                   loadscene_blend_prev="SLIDEBLEND(0.5, 180, 0.75, linear)"
+                   loadscene_blend_next="SLIDEBLEND(0.5, 0, 0.75, linear)"
+                   loadingtext=""
+                   layout_width="100%"
+                   layout_maxwidth="814"
+                   controlbar_width="-24"
+                   controlbar_height="40"
+                   controlbar_offset="20"
+                   controlbar_offset_closed="-40"
+                   controlbar_overlap.no-fractionalscaling="10"
+                   controlbar_overlap.fractionalscaling="0"
+                   design_skin_images="vtourskin.png"
+                   design_bgcolor="0x2D3E50"
+                   design_bgalpha="0.8"
+                   design_bgborder="0"
+                   design_bgroundedge="1"
+                   design_bgshadow="0 4 10 0x000000 0.3"
+                   design_thumbborder_bgborder="3 0xFFFFFF 1.0"
+                   design_thumbborder_padding="2"
+                   design_thumbborder_bgroundedge="0"
+                   design_text_css="color:#FFFFFF; font-family:Arial;"
+                   design_text_shadow="1" />
 
-	<!-- customize skin settings: maps, gyro, webvr, thumbnails, tooltips, layout, design, ... -->
-	<skin_settings maps="false"
-	               maps_type="google"
-	               maps_bing_api_key=""
-	               maps_google_api_key=""
-	               maps_zoombuttons="false"
-	               maps_loadonfirstuse="true"
-	               gyro="true"
-	               gyro_keeplookingdirection="false"
-	               webvr="true"
-	               webvr_keeplookingdirection="true"
-	               webvr_prev_next_hotspots="true"
-	               autotour="false"
-	               littleplanetintro="false"
-	               followmousecontrol="false"
-	               title="true"
-	               thumbs="true"
-	               thumbs_width="120" thumbs_height="80" thumbs_padding="10" thumbs_crop="0|40|240|160"
-	               thumbs_opened="false"
-	               thumbs_text="false"
-	               thumbs_dragging="true"
-	               thumbs_onhoverscrolling="false"
-	               thumbs_scrollbuttons="false"
-	               thumbs_scrollindicator="false"
-	               thumbs_loop="false"
-	               tooltips_buttons="false"
-	               tooltips_thumbs="false"
-	               tooltips_hotspots="false"
-	               tooltips_mapspots="false"
-	               deeplinking="false"
-	               loadscene_flags="MERGE"
-	               loadscene_blend="OPENBLEND(0.5, 0.0, 0.75, 0.05, linear)"
-	               loadscene_blend_prev="SLIDEBLEND(0.5, 180, 0.75, linear)"
-	               loadscene_blend_next="SLIDEBLEND(0.5,   0, 0.75, linear)"
-	               loadingtext=""
-	               layout_width="100%"
-	               layout_maxwidth="814"
-	               controlbar_width="-24"
-	               controlbar_height="40"
-	               controlbar_offset="20"
-	               controlbar_offset_closed="-40"
-	               controlbar_overlap.no-fractionalscaling="10"
-	               controlbar_overlap.fractionalscaling="0"
-	               design_skin_images="vtourskin.png"
-	               design_bgcolor="0x2D3E50"
-	               design_bgalpha="0.8"
-	               design_bgborder="0"
-	               design_bgroundedge="1"
-	               design_bgshadow="0 4 10 0x000000 0.3"
-	               design_thumbborder_bgborder="3 0xFFFFFF 1.0"
-	               design_thumbborder_padding="2"
-	               design_thumbborder_bgroundedge="0"
-	               design_text_css="color:#FFFFFF; font-family:Arial;"
-	               design_text_shadow="1"
-	               />
-
-	<!--
-	    For an alternative skin design either change the <skin_settings> values 
-	    from above or optionally include one of the predefined designs from below.
-	-->
-	<!-- <include url="skin/vtourskin_design_flat_light.xml"  /> -->
-	<!-- <include url="skin/vtourskin_design_glass.xml"       /> -->
-	<!-- <include url="skin/vtourskin_design_ultra_light.xml" /> -->
-	<!-- <include url="skin/vtourskin_design_117.xml"         /> -->
-	<!-- <include url="skin/vtourskin_design_117round.xml"    /> -->
-	<!-- <include url="skin/vtourskin_design_black.xml"       /> -->
-	
-	<style name="chromakey" chroma="0x00ff00" chromathreshold="0.1" />
-	
+    <!--
+        For an alternative skin design either change the <skin_settings> values 
+        from above or optionally include one of the predefined designs from below.
+    -->
+    <!-- <include url="skin/vtourskin_design_flat_light.xml"  /> -->
+    <!-- <include url="skin/vtourskin_design_glass.xml"       /> -->
+    <!-- <include url="skin/vtourskin_design_ultra_light.xml" /> -->
+    <!-- <include url="skin/vtourskin_design_117.xml"         /> -->
+    <!-- <include url="skin/vtourskin_design_117round.xml"    /> -->
+    <!-- <include url="skin/vtourskin_design_black.xml"       /> -->
+    
+    <style name="chromakey" chroma="0x00ff00" chromathreshold="0.1" />
+    
     <layer name="intro"
-			type="container"
-			keep="true"
-			width="100%"
-			height="100%"
-			bgcolor="0x000000"
-			bgalpha="0.8"
-			zorder="9999"
-			enabled="true"
-			bgcapture="true"
-			onloaded="on_intro_loaded()"
-			onclick="on_intro_click()"
-			>
+           type="container"
+           keep="true"
+           width="100%"
+           height="100%"
+           bgcolor="0x000000"
+           bgalpha="0.8"
+           zorder="9999"
+           enabled="true"
+           bgcapture="true"
+           onloaded="on_intro_loaded()"
+           onclick="on_intro_click()">
 
-		<layer name="intro_logo" 
-			enabled="false"
-			alpha="0"
-			url= "gidUSC.png" align="center" y="-80" scale="0.1" />
-			
-		<layer name="intro_start" url= "clickstart.png"
-			enabled="false"
-			alpha="0"
-			align="center" y="80" scale="0.4" />
+        <layer name="intro_logo" 
+               enabled="true"
+               alpha="1"
+               url="recursos/imagen/logo_usc.png" 
+               align="center" 
+               y="-80" 
+               scale="0.1" />
+            
+        <layer name="intro_start" 
+               url="recursos/imagen/clickstart.png"
+               enabled="false"
+               alpha="0"
+               align="center" 
+               y="80" 
+               scale="0.4" />
 
-		<layer name="intro_start" url= "clickstart_mobile.png"
-			devices="mobile" 
-			enabled="false"
-			alpha="0"
-			align="center" y="100" scale="0.2"
-			/>
-		</layer>
-	
+        <layer name="intro_start_mobile" 
+               url="recursos/imagenes/clickstart_mobile.png"
+               devices="mobile" 
+               enabled="false"
+               alpha="0"
+               align="center" 
+               y="100" 
+               scale="0.2" />
+    </layer>
 
+    <action name="on_intro_click">
+        tween(layer[intro].alpha,0);
+        set(layer[intro].enabled, false);
+    </action> 
+    
+    <action name="on_intro_loaded">
+        delayedcall(1.5, 
+            tween(layer[intro_logo].alpha,1);
+            tween(layer[intro_start].alpha,1);
+        );
+    </action>
 
-	<action name="on_intro_click">
-		<!--set(layer[intro].alpha,0);-->
-		tween(layer[intro].alpha,0);
-		set (layer[intro].enabled, false);
-	</action> 
-	
-	<action name="on_intro_loaded">
-		delayedcall(1.5, 
-			tween(layer[intro_logo].alpha,1);
-			tween(layer[intro_start].alpha,1);
-		);
-		
-	</action>
+    <scene name="scene_cabina" title="cabina" onstart="" thumburl="panos/cabina.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+        
+        <control bouncinglimits="calc:image.cube ? true : false" />
 
+        <view hlookat="119.5956898359671" vlookat="13.954128089007272" fov="67.34103672188499" fovtype="MFOV" maxpixelzoom="2.0" fovmin="70" fovmax="67.34103672188499" limitview="auto" />
 
-	<scene name="scene_cabina" title="cabina" onstart="" thumburl="panos/cabina.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
-		
-		<control bouncinglimits="calc:image.cube ? true : false" />
+        <preview url="panos/cabina.tiles/preview.jpg" />
 
-		<view hlookat="119.5956898359671" vlookat="13.954128089007272" fov="67.34103672188499" fovtype="MFOV" maxpixelzoom="2.0" fovmin="70" fovmax="67.34103672188499" limitview="auto" />
+        <image>
+            <cube url="panos/cabina.tiles/pano_%s.jpg" />
+        </image>
 
-		<preview url="panos/cabina.tiles/preview.jpg" />
+        <!-- Hotspot con el móvil encendido -->
+        <hotspot name="movil"
+                 url="recursos/imagen/movil.png"
+                 ath="109.7919914725201"
+                 atv="12.684660758666018"
+                 scale="0.6349999999999999"
+                 rx="0"
+                 ry="0"
+                 rz="0"
+                 width="500"
+                 height="500"
+                 distorted="true"
+                 chromakey="0x02FD03|1.4|0.0"
+                 handcursor="false"
+                 capture="false"
+                 visible="true">
+            <style>chromakey</style>
+        </hotspot>
 
-		<image>
-			<cube url="panos/cabina.tiles/pano_%s.jpg" />
-		</image>
+        <hotspot name="play_movil"
+                 url="recursos/imagen/play_movil.png"
+                 ath="109.79496548171795" atv="5.716512305399737" scale="0.12580000000000133" rx="0" ry="0" rz="0"
+                 width="500"
+                 height="1000"
+                 distorted="true"
+                 chromakey="0x02FD03|1.4|0.0"
+                 handcursor="true"
+                 capture="true"
+                 visible="true"
+                 onclick="set(hotspot[manolo].visible, true);">
+            <style>chromakey</style>
+        </hotspot>
 
-		<!-- Hotspot con el móvil encendido -->
-<hotspot name="movil"
-         url="recursos/imagen/movil.png"
-         ath="109.7919914725201"
-         atv="12.684660758666018"
-         scale="0.6349999999999999"
-         rx="0"
-         ry="0"
-         rz="0"
-         width="500"
-         height="500"
-         distorted="true"
-         chromakey="0x02FD03|1.4|0.0"
-         onloaded="addpng('recursos/imagen/movil.png');"
-         handcursor="false"
-         capture="false"
-         visible="true">
-    <style>chromakey</style>
-</hotspot>
+        <!-- Hotspot con el móvil apagado -->
+        <hotspot name="movil_apagado"
+                 url="recursos/imagen/movil_apagado.png"
+                 ath="109.7919914725201"
+                 atv="12.684660758666018"
+                 scale="0.6349999999999999"
+                 rx="0"
+                 ry="0"
+                 rz="0"
+                 width="500"
+                 height="500"
+                 distorted="true"
+                 chromakey="0x00ff00|1.4|0.0"
+                 handcursor="false"
+                 capture="false"
+                 visible="false">
+            <style>chromakey</style>
+        </hotspot>
 
-<hotspot name="play_movil"
-         url="recursos/imagen/play_movil.png"
-         ath="109.79496548171795" atv="5.716512305399737" scale="0.12580000000000133" rx="0" ry="0" rz="0"
-         width="500"
-         height="1000"
-         distorted="true"
-         chromakey="0x02FD03|1.4|0.0"
-         onloaded="addpng('recursos/imagen/play_movil.png');"
-         handcursor="true"
-         capture="true"
-         visible="true"
-		 onclick="set(hotspot[manolo].visible, true);">
-    <style>chromakey</style>
-</hotspot>
+        <!-- Hotspot con el video de manolo -->
+        <hotspot name="manolo"
+                 url.html5="plugins/videoplayer.js"
+                 url.flash="plugins/videoplayer.swf"
+                 videourl="recursos/video/manolo.mp4"
+                 ath="109.89443946146719" atv="6.448632800398121" scale="0.09089999999999936" rx="0" ry="0" rz="0"
+                 width="500"
+                 height="1080"
+                 alpha="1"
+                 chromakey="0x00ff00|1.5|0.15"
+                 distorted="true"
+                 zorder="6"
+                 visible="false"
+                 pausedonstart="false"
+                 loop="false"
+                 volume="1.0"
+                 directionalsound="true"
+                 range="90.0"
+                 rangefalloff="1.0"
+                 outofrangevolume="0.0"
+                 onhover=""
+                 onclick=""
+                 onvideocomplete="set(hotspot[movil_apagado].visible, true); set(hotspot[movil].visible, false); pausevideo(manolo); set(hotspot[play_movil].capture, false);"
+                 onerror="">
+        </hotspot>
+<!-- Hotspot con imagen de ventana aula futuro -->
+        <hotspot name="ventana"
+                 url="recursos/imagen/ventana.png"
+                 ath="148.5433568291743" atv="0.30218157197549855" scale="0.3444999999999986" rx="0" ry="6.5" rz="0"
+                 width="1141"
+                 height="584"
+                 distorted="true"
+                 chromakey="0x02FD03|1.4|0.0"
+                 handcursor="true"
+                 capture="true"
+                 visible="true">
+            <style>chromakey</style>
+        </hotspot>
 
-<!-- Hotspot con el móvil apagado -->
-<hotspot name="movil_apagado"
-         url="recursos/imagen/movil_apagado.png"
-         ath="109.7919914725201"
-         atv="12.684660758666018"
-         scale="0.6349999999999999"
-         rx="0"
-         ry="0"
-         rz="0"
-         width="500"
-         height="500"
-         distorted="true"
-         chromakey="0x00ff00|1.4|0.0"
-         onloaded="addpng('recursos/imagen/movil.png');"
-         handcursor="false"
-         capture="false"
-         visible="false">
-    <style>chromakey</style>
-</hotspot>
+        <!-- Hotspot con el video de portal -->
+        <hotspot name="portal"
+                 url.html5="plugins/videoplayer.js"
+                 url.flash="plugins/videoplayer.swf"
+                 videourl="recursos/video/portal.mov"
+                 ath="-166.62067496970002" 
+                 atv="30.357724540029338" 
+                 scale="0.07589999999999933" 
+                 rx="-161.5" 
+                 ry="-136.5" 
+                 rz="1.5"
+                 height="1080"
+                 alpha="1"
+                 chromakey="0x010500|0.1|0.1"
+                 distorted="true"
+                 zorder="6"
+                 visible="true"
+                 pausedonstart="false"
+                 loop="true"
+                 volume="1.0"
+                 directionalsound="true"
+                 range="90.0"
+                 rangefalloff="1.0"
+                 outofrangevolume="0.0"
+                 onhover=""
+                 onclick="
+                    if(ismedia.paused(hotspot[rata].videourl) == true,
+                        playmedia(hotspot[rata].videourl); playmedia(hotspot[portal].videourl),
+                        pausemedia(hotspot[rata].videourl); pausemedia(hotspot[portal].videourl)
+                    );"
+                 onvideocomplete="set(hotspot[movil_apagado].visible, true); set(hotspot[movil].visible, false); pausevideo(manolo); set(hotspot[play_movil].capture, false);"
+                 onerror=""
+                 handcursor="true"
+                 capture="true">
+        </hotspot>
 
+        <!-- Hotspot con el video de portal2 -->
+        <hotspot name="portal2"
+                 url.html5="plugins/videoplayer.js"
+                 url.flash="plugins/videoplayer.swf"
+                 videourl="recursos/video/portal.mov"
+                 ath="-57.30206183694213" atv="-0.37213080994616593" scale="-0.17029999999999962" rx="115.85000000000053" ry="-211.20000000000016" rz="-77"
+                 height="1080"
+                 alpha="1"
+                 chromakey="0x010500|0.1|0.1"
+                 distorted="true"
+                 zorder="6"
+                 visible="true"
+                 pausedonstart="false"
+                 loop="true"
+                 volume="1.0"
+                 directionalsound="true"
+                 range="90.0"
+                 rangefalloff="1.0"
+                 outofrangevolume="0.0"
+                 onhover=""
+                 onclick="
+                    if(ismedia.paused(hotspot[rata].videourl) == true,
+                        playmedia(hotspot[rata].videourl); playmedia(hotspot[portal].videourl),
+                        pausemedia(hotspot[rata].videourl); pausemedia(hotspot[portal].videourl)
+                    );"
+                 onvideocomplete="set(hotspot[movil_apagado].visible, true); set(hotspot[movil].visible, false); pausevideo(manolo); set(hotspot[play_movil].capture, false);"
+                 onerror=""
+                 handcursor="true"
+                 capture="true">
+        </hotspot>
 
+        <!-- Hotspot con el video de portal_linea -->
+        <hotspot name="portal_linea"
+                 url.html5="plugins/videoplayer.js"
+                 url.flash="plugins/videoplayer.swf"
+                 videourl="recursos/video/portal_linea.mov"
+                 ath="-92.98673923988349" atv="-2.7020133905208956" scale="-0.05479999999999764" rx="186.35000000000053" ry="0" rz="-88.45000000000014"
+                 height="1080"
+                 alpha="1"
+                 chromakey="0x010500|0.2|0.2"
+                 distorted="true"
+                 zorder="6"
+                 visible="true"
+                 pausedonstart="false"
+                 loop="true"
+                 volume="1.0"
+                 directionalsound="true"
+                 range="90.0"
+                 rangefalloff="1.0"
+                 outofrangevolume="0.0"
+                 onhover=""
+                 onclick="
+                    if(ismedia.paused(hotspot[rata].videourl) == true,
+                        playmedia(hotspot[rata].videourl); playmedia(hotspot[portal].videourl),
+                        pausemedia(hotspot[rata].videourl); pausemedia(hotspot[portal].videourl)
+                    );"
+                 onvideocomplete="set(hotspot[movil_apagado].visible, true); set(hotspot[movil].visible, false); pausevideo(manolo); set(hotspot[play_movil].capture, false);"
+                 onerror=""
+                 handcursor="true"
+                 capture="true">
+        </hotspot>
 
-	<!-- Hotspot con el video de manolo -->
-<hotspot name="manolo"
-         url.html5="plugins/videoplayer.js"
-         url.flash="plugins/videoplayer.swf"
-         videourl="recursos/video/manolo.mp4"
-         
-         ath="109.89443946146719" atv="6.448632800398121" scale="0.09089999999999936" rx="0" ry="0" rz="0"
-         width="500"
-         height="1080"
-         alpha="1"
-         chromakey="0x00ff00|1.5|0.15"
-         distorted="true"
-         zorder="6"
-         visible="false"
-         pausedonstart="false"
-         loop="false"
-         volume="1.0"
-         directionalsound="true"
-         range="90.0"
-         rangefalloff="1.0"
-         outofrangevolume="0.0"
-         onhover=""
-         onclick=""
-         onvideocomplete="set(hotspot[movil_apagado].visible, true); set(hotspot[movil].visible, false); pausevideo(manolo); set(hotspot[play_movil].capture, false);"
-         onerror="">
-</hotspot>
+        <!-- Hotspot con el video de portal_linea2 -->
+        <hotspot name="portal_linea2"
+                 url.html5="plugins/videoplayer.js"
+                 url.flash="plugins/videoplayer.swf"
+                 videourl="recursos/video/portal_linea.mov"
+                 ath="-31.73656637695194" atv="-79.92942543089794" scale="0.7552000000000029" rx="185.85000000000053" ry="73" rz="-94.45000000000016"
+                 height="1080"
+                 alpha="1"
+                 chromakey="0x010500|0.3|0.3"
+                 distorted="true"
+                 zorder="6"
+                 visible="true"
+                 pausedonstart="false"
+                 loop="true"
+                 volume="1.0"
+                 directionalsound="true"
+                 range="90.0"
+                 rangefalloff="1.0"
+                 outofrangevolume="0.0"
+                 onhover=""
+                 onclick="
+                    if(ismedia.paused(hotspot[rata].videourl) == true,
+                        playmedia(hotspot[rata].videourl); playmedia(hotspot[portal].videourl),
+                        pausemedia(hotspot[rata].videourl); pausemedia(hotspot[portal].videourl)
+                    );"
+                 onvideocomplete="set(hotspot[movil_apagado].visible, true); set(hotspot[movil].visible, false); pausevideo(manolo); set(hotspot[play_movil].capture, false);"
+                 onerror=""
+                 handcursor="false"
+                 capture="false">
+        </hotspot>
 
-<!-- Hotspot con el video de portal -->
-<hotspot name="portal"
-         url.html5="plugins/videoplayer.js"
-         url.flash="plugins/videoplayer.swf"
-         videourl="recursos/video/portal.mov"
-         ath="-166.62067496970002" 
-         atv="30.357724540029338" 
-         scale="0.07589999999999933" 
-         rx="-161.5" 
-         ry="-136.5" 
-         rz="1.5"
-         height="1080"
-         alpha="1"
-         chromakey="0x010500|0.1|0.1"
-         distorted="true"
-         zorder="6"
-         visible="true"
-         pausedonstart="false"
-         loop="true"
-         volume="1.0"
-         directionalsound="true"
-         range="90.0"
-         rangefalloff="1.0"
-         outofrangevolume="0.0"
-         onhover=""
-         onclick="
-            if(ismedia.paused(hotspot[rata].videourl) == true,
-                playmedia(hotspot[rata].videourl); playmedia(hotspot[portal].videourl),
-                pausemedia(hotspot[rata].videourl); pausemedia(hotspot[portal].videourl)
-            );"
-         onvideocomplete="set(hotspot[movil_apagado].visible, true); set(hotspot[movil].visible, false); pausevideo(manolo); set(hotspot[play_movil].capture, false);"
-         onerror=""
-         handcursor="true"
-         capture="true">
-</hotspot>
+        <!-- Hotspot con el video de rata -->
+        <hotspot name="rata"
+                 url.html5="plugins/videoplayer.js"
+                 url.flash="plugins/videoplayer.swf"
+                 videourl="recursos/video/rata.mov"
+                 ath="-155.4969590849794" 
+                 atv="32.77661613555185" 
+                 scale="0.09089999999999936" 
+                 rx="0" 
+                 ry="10" 
+                 rz="3.5"
+                 width="1920"
+                 height="1080"
+                 alpha="1"
+                 chromakey="0x00ff00|1.5|0.15"
+                 distorted="true"
+                 zorder="6"
+                 visible="true"
+                 pausedonstart="false"
+                 loop="true"
+                 volume="1.0"
+                 directionalsound="true"
+                 range="90.0"
+                 rangefalloff="1.0"
+                 outofrangevolume="0.0"
+                 onhover=""
+                 onclick="if(ismedia.paused(hotspot[rata].videourl) == true,
+                        playmedia(hotspot[rata].videourl); playmedia(hotspot[portal].videourl),
+                        pausemedia(hotspot[rata].videourl); pausemedia(hotspot[portal].videourl)
+                    );"
+                 onvideocomplete="set(hotspot[movil_apagado].visible, true); set(hotspot[movil].visible, false); pausevideo(manolo); set(hotspot[play_movil].capture, false);"
+                 onerror=""
+                 handcursor="false"
+                 capture="false">
+        </hotspot>
 
-<!-- Hotspot con el video de portal2 -->
-<hotspot name="portal2"
-         url.html5="plugins/videoplayer.js"
-         url.flash="plugins/videoplayer.swf"
-         videourl="recursos/video/portal.mov"
-         ath="-57.30206183694213" atv="-0.37213080994616593" scale="-0.17029999999999962" rx="115.85000000000053" ry="-211.20000000000016" rz="-77"
-         height="1080"
-         alpha="1"
-         chromakey="0x010500|0.1|0.1"
-         distorted="true"
-         zorder="6"
-         visible="true"
-         pausedonstart="false"
-         loop="true"
-         volume="1.0"
-         directionalsound="true"
-         range="90.0"
-         rangefalloff="1.0"
-         outofrangevolume="0.0"
-         onhover=""
-         onclick="
-            if(ismedia.paused(hotspot[rata].videourl) == true,
-                playmedia(hotspot[rata].videourl); playmedia(hotspot[portal].videourl),
-                pausemedia(hotspot[rata].videourl); pausemedia(hotspot[portal].videourl)
-            );"
-         onvideocomplete="set(hotspot[movil_apagado].visible, true); set(hotspot[movil].visible, false); pausevideo(manolo); set(hotspot[play_movil].capture, false);"
-         onerror=""
-         handcursor="true"
-         capture="true">
-</hotspot>
+        <!-- Hotspot con el video de rata2 -->
+        <hotspot name="rata2"
+                 url.html5="plugins/videoplayer.js"
+                 url.flash="plugins/videoplayer.swf"
+                 videourl="recursos/video/rata.mov"
+                 ath="-103.24240891539205" atv="1.8102561849945453" scale="0.09089999999999936" rx="0" ry="1.5" rz="0"
+                 width="1920"
+                 height="1080"
+                 alpha="1"
+                 chromakey="0x00ff00|1.5|0.15"
+                 distorted="true"
+                 zorder="6"
+                 visible="true"
+                 pausedonstart="false"
+                 loop="true"
+                 volume="1.0"
+                 directionalsound="true"
+                 range="90.0"
+                 rangefalloff="1.0"
+                 outofrangevolume="0.0"
+                 onhover=""
+                 onclick="if(ismedia.paused(hotspot[rata].videourl) == true,
+                        playmedia(hotspot[rata].videourl); playmedia(hotspot[portal].videourl),
+                        pausemedia(hotspot[rata].videourl); pausemedia(hotspot[portal].videourl)
+                    );"
+                 onvideocomplete="set(hotspot[movil_apagado].visible, true); set(hotspot[movil].visible, false); pausevideo(manolo); set(hotspot[play_movil].capture, false);"
+                 onerror=""
+                 handcursor="false"
+                 capture="false">
+        </hotspot>
 
-<!-- Hotspot con el video de portal_linea -->
-<hotspot name="portal_linea"
-         url.html5="plugins/videoplayer.js"
-         url.flash="plugins/videoplayer.swf"
-         videourl="recursos/video/portal_linea.mov"
-         ath="-92.98673923988349" atv="-2.7020133905208956" scale="-0.05479999999999764" rx="186.35000000000053" ry="0" rz="-88.45000000000014"
-         height="1080"
-         alpha="1"
-         chromakey="0x010500|0.2|0.2"
-         distorted="true"
-         zorder="6"
-         visible="true"
-         pausedonstart="false"
-         loop="true"
-         volume="1.0"
-         directionalsound="true"
-         range="90.0"
-         rangefalloff="1.0"
-         outofrangevolume="0.0"
-         onhover=""
-         onclick="
-            if(ismedia.paused(hotspot[rata].videourl) == true,
-                playmedia(hotspot[rata].videourl); playmedia(hotspot[portal].videourl),
-                pausemedia(hotspot[rata].videourl); pausemedia(hotspot[portal].videourl)
-            );"
-         onvideocomplete="set(hotspot[movil_apagado].visible, true); set(hotspot[movil].visible, false); pausevideo(manolo); set(hotspot[play_movil].capture, false);"
-         onerror=""
-         handcursor="true"
-         capture="true">
-</hotspot>
+        <!-- Hotspot con el video de rata3 -->
+        <hotspot name="rata3"
+                 url.html5="plugins/videoplayer.js"
+                 url.flash="plugins/videoplayer.swf"
+                 videourl="recursos/video/rata.mov"
+                 ath="-75.3522136019439" atv="0.471581414902378" scale="0.16780000000000028" rx="0" ry="1.5" rz="0"
+                 width="1920"
+                 height="1080"
+                 alpha="1"
+                 chromakey="0x00ff00|1.5|0.15"
+                 distorted="true"
+                 zorder="6"
+                 visible="true"
+                 pausedonstart="false"
+                 loop="true"
+                 volume="1.0"
+                 directionalsound="true"
+                 range="90.0"
+                 rangefalloff="1.0"
+                 outofrangevolume="0.0"
+                 onhover=""
+                 onclick="if(ismedia.paused(hotspot[rata].videourl) == true,
+                        playmedia(hotspot[rata].videourl); playmedia(hotspot[portal].videourl),
+                        pausemedia(hotspot[rata].videourl); pausemedia(hotspot[portal].videourl)
+                    );"
+                 onvideocomplete="set(hotspot[movil_apagado].visible, true); set(hotspot[movil].visible, false); pausevideo(manolo); set(hotspot[play_movil].capture, false);"
+                 onerror=""
+                 handcursor="false"
+                 capture="false">
+        </hotspot>
 
-<!-- Hotspot con el video de portal_linea2 -->
-<hotspot name="portal_linea2"
-         url.html5="plugins/videoplayer.js"
-         url.flash="plugins/videoplayer.swf"
-         videourl="recursos/video/portal_linea.mov"
-         ath="-31.73656637695194" atv="-79.92942543089794" scale="0.7552000000000029" rx="185.85000000000053" ry="73" rz="-94.45000000000016"
-         height="1080"
-         alpha="1"
-         chromakey="0x010500|0.3|0.3"
-         distorted="true"
-         zorder="6"
-         visible="true"
-         pausedonstart="false"
-         loop="true"
-         volume="1.0"
-         directionalsound="true"
-         range="90.0"
-         rangefalloff="1.0"
-         outofrangevolume="0.0"
-         onhover=""
-         onclick="
-            if(ismedia.paused(hotspot[rata].videourl) == true,
-                playmedia(hotspot[rata].videourl); playmedia(hotspot[portal].videourl),
-                pausemedia(hotspot[rata].videourl); pausemedia(hotspot[portal].videourl)
-            );"
-         onvideocomplete="set(hotspot[movil_apagado].visible, true); set(hotspot[movil].visible, false); pausevideo(manolo); set(hotspot[play_movil].capture, false);"
-         onerror=""
-         handcursor="false"
-         capture="false">
-</hotspot>
+        <!-- Hotspot con el video fuego -->
+        <hotspot name="fuego"
+                 url.html5="plugins/videoplayer.js"
+                 url.flash="plugins/videoplayer.swf"
+                 videourl="recursos/video/fuego.mov"
+                 ath="150.095073178134" atv="3.3711701452226976" scale="0.07190000000001517" rx="-180.35000000000093" ry="0" rz="-180.2000000000004"
+                 width="1920"
+                 height="1080"
+                 alpha="1"
+                 chromakey="0x010500|1.0|0.1"
+                 distorted="true"
+                 zorder="6"
+                 pausedonstart="false"
+                 loop="true"
+                 volume="1.0"
+                 directionalsound="true"
+                 range="90.0"
+                 rangefalloff="1.0"
+                 outofrangevolume="0.0"
+                 onhover=""
+                 onclick=""
+                 onvideocomplete=""
+                 onerror=""
+                 visible="true"
+                 handcursor="false"
+                 capture="false">
+        </hotspot>
 
-<!-- Hotspot con el video de rata -->
-<hotspot name="rata"
-         url.html5="plugins/videoplayer.js"
-         url.flash="plugins/videoplayer.swf"
-         videourl="recursos/video/rata.mov"
-         ath="-155.4969590849794" 
-         atv="32.77661613555185" 
-         scale="0.09089999999999936" 
-         rx="0" 
-         ry="10" 
-         rz="3.5"
-         width="1920"
-         height="1080"
-         alpha="1"
-         chromakey="0x00ff00|1.5|0.15"
-         distorted="true"
-         zorder="6"
-         visible="true"
-         pausedonstart="false"
-         loop="true"
-         volume="1.0"
-         directionalsound="true"
-         range="90.0"
-         rangefalloff="1.0"
-         outofrangevolume="0.0"
-         onhover=""
-         onclick="if(ismedia.paused(hotspot[rata].videourl) == true,
-                playmedia(hotspot[rata].videourl); playmedia(hotspot[portal].videourl),
-                pausemedia(hotspot[rata].videourl); pausemedia(hotspot[portal].videourl)
-            );"
-         onvideocomplete="set(hotspot[movil_apagado].visible, true); set(hotspot[movil].visible, false); pausevideo(manolo); set(hotspot[play_movil].capture, false);"
-         onerror=""
-         handcursor="false"
-         capture="false">
-</hotspot>
+        <hotspot name="humo"
+                 url.html5="plugins/videoplayer.js"
+                 url.flash="plugins/videoplayer.swf"
+                 videourl="recursos/video/humo.mov"
+                 ath="149.0102844646322" atv="2.8608405469324953" scale="0.16900000000001836" rx="-180.35000000000093" ry="0" rz="-0.4499999999999992"
+                 width="1920"
+                 height="1080"
+                 alpha="1"
+                 chromakey="0x00ff00|0.99|0.99"
+                 distorted="true"
+                 zorder="6"
+                 pausedonstart="false"
+                 loop="true"
+                 volume="1.0"
+                 directionalsound="true"
+                 range="90.0"
+                 rangefalloff="1.0"
+                 outofrangevolume="0.0"
+                 onhover=""
+                 onclick=""
+                 onvideocomplete=""
+                 onerror=""
+                 visible="true"
+                 handcursor="false"
+                 capture="false">
+        </hotspot>
 
-<!-- Hotspot con el video de rata2 -->
-<hotspot name="rata2"
-         url.html5="plugins/videoplayer.js"
-         url.flash="plugins/videoplayer.swf"
-         videourl="recursos/video/rata.mov"
-         ath="-103.24240891539205" atv="1.8102561849945453" scale="0.09089999999999936" rx="0" ry="1.5" rz="0"
-         width="1920"
-         height="1080"
-         alpha="1"
-         chromakey="0x00ff00|1.5|0.15"
-         distorted="true"
-         zorder="6"
-         visible="true"
-         pausedonstart="false"
-         loop="true"
-         volume="1.0"
-         directionalsound="true"
-         range="90.0"
-         rangefalloff="1.0"
-         outofrangevolume="0.0"
-         onhover=""
-         onclick="if(ismedia.paused(hotspot[rata].videourl) == true,
-                playmedia(hotspot[rata].videourl); playmedia(hotspot[portal].videourl),
-                pausemedia(hotspot[rata].videourl); pausemedia(hotspot[portal].videourl)
-            );"
-         onvideocomplete="set(hotspot[movil_apagado].visible, true); set(hotspot[movil].visible, false); pausevideo(manolo); set(hotspot[play_movil].capture, false);"
-         onerror=""
-         handcursor="false"
-         capture="false">
-</hotspot>
+        <!-- Hotspot con el video cristal_roto -->
+        <hotspot name="cristal_roto"
+                 url.html5="plugins/videoplayer.js"
+                 url.flash="plugins/videoplayer.swf"
+                 videourl="recursos/video/cristal_roto.mov"
+                 ath="127.98231796738156" atv="8.335425478755967" scale="0.0843000000000002" rx="-180.35000000000093" ry="0" rz="-0.4499999999999992"
+                 width="1920"
+                 height="1080"
+                 alpha="1"
+                 chromakey="0x00ff00|0.99|0.99"
+                 distorted="true"
+                 zorder="6"
+                 pausedonstart="false"
+                 loop="false"
+                 volume="1.0"
+                 directionalsound="true"
+                 range="90.0"
+                 rangefalloff="1.0"
+                 outofrangevolume="0.0"
+                 onhover=""
+                 onclick=""
+                 onvideocomplete=""
+                 onerror=""
+                 visible="true"
+                 handcursor="false"
+                 capture="false">
+        </hotspot>
+    </scene>
 
+    <scene name="scene_menu" title="menu" onstart="" thumburl="panos/menu.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+        <control bouncinglimits="calc:image.cube ? true : false" />
+        <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+        <preview url="panos/menu.tiles/preview.jpg" />
+        <image>
+            <cube url="panos/menu.tiles/pano_%s.jpg" />
+        </image>
+    </scene>
 
-<!-- Hotspot con el video de rata3 -->
-<hotspot name="rata3"
-         url.html5="plugins/videoplayer.js"
-         url.flash="plugins/videoplayer.swf"
-         videourl="recursos/video/rata.mov"
-         ath="-75.3522136019439" atv="0.471581414902378" scale="0.16780000000000028" rx="0" ry="1.5" rz="0"
-         width="1920"
-         height="1080"
-         alpha="1"
-         chromakey="0x00ff00|1.5|0.15"
-         distorted="true"
-         zorder="6"
-         visible="true"
-         pausedonstart="false"
-         loop="true"
-         volume="1.0"
-         directionalsound="true"
-         range="90.0"
-         rangefalloff="1.0"
-         outofrangevolume="0.0"
-         onhover=""
-         onclick="if(ismedia.paused(hotspot[rata].videourl) == true,
-                playmedia(hotspot[rata].videourl); playmedia(hotspot[portal].videourl),
-                pausemedia(hotspot[rata].videourl); pausemedia(hotspot[portal].videourl)
-            );"
-         onvideocomplete="set(hotspot[movil_apagado].visible, true); set(hotspot[movil].visible, false); pausevideo(manolo); set(hotspot[play_movil].capture, false);"
-         onerror=""
-         handcursor="false"
-         capture="false">
-</hotspot>
-
-
-	<!-- Hotspot con el video fuego -->
-<hotspot name="fuego"
-         url.html5="plugins/videoplayer.js"
-         url.flash="plugins/videoplayer.swf"
-         videourl="recursos/video/fuego.mov"
-         
-         ath="150.095073178134" atv="3.3711701452226976" scale="0.07190000000001517" rx="-180.35000000000093" ry="0" rz="-180.2000000000004"
-         width="1920"
-         height="1080"
-         alpha="1"
-         chromakey="0x010500|1.0|0.1"
-         distorted="true"
-         zorder="6"
-         pausedonstart="false"
-         loop="true"
-         volume="1.0"
-         directionalsound="true"
-         range="90.0"
-         rangefalloff="1.0"
-         outofrangevolume="0.0"
-         onhover=""
-         onclick=""
-         onvideocomplete=""
-         onerror=""
-		 visible="true"
-         handcursor="false"
-         capture="false">
-</hotspot>
-
-<hotspot name="humo"
-         url.html5="plugins/videoplayer.js"
-         url.flash="plugins/videoplayer.swf"
-         videourl="recursos/video/humo.mov"
-         
-         ath="149.0102844646322" atv="2.8608405469324953" scale="0.16900000000001836" rx="-180.35000000000093" ry="0" rz="-0.4499999999999992"
-         width="1920"
-         height="1080"
-         alpha="1"
-         chromakey="0x00ff00|0.99|0.99"
-         distorted="true"
-         zorder="6"
-         pausedonstart="false"
-         loop="true"
-         volume="1.0"
-         directionalsound="true"
-         range="90.0"
-         rangefalloff="1.0"
-         outofrangevolume="0.0"
-         onhover=""
-         onclick=""
-         onvideocomplete=""
-         onerror=""
-		 visible="true"
-         handcursor="false"
-         capture="false">
-</hotspot>
-
-<!-- Hotspot con el video cristal_roto -->
-<hotspot name="cristal_roto"
-         url.html5="plugins/videoplayer.js"
-         url.flash="plugins/videoplayer.swf"
-         videourl="recursos/video/cristal_roto.mov"
-         
-         ath="127.98231796738156" atv="8.335425478755967" scale="0.0843000000000002" rx="-180.35000000000093" ry="0" rz="-0.4499999999999992"
-         width="1920"
-         height="1080"
-         alpha="1"
-         chromakey="0x00ff00|0.99|0.99"
-         distorted="true"
-         zorder="6"
-         pausedonstart="false"
-         loop="false"
-         volume="1.0"
-         directionalsound="true"
-         range="90.0"
-         rangefalloff="1.0"
-         outofrangevolume="0.0"
-         onhover=""
-         onclick=""
-         onvideocomplete=""
-         onerror=""
-		 visible="true"
-         handcursor="false"
-         capture="false">
-</hotspot>
-
-
-	</scene>
-
-	<scene name="scene_menu" title="menu" onstart="" thumburl="panos/menu.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
-		
-		<control bouncinglimits="calc:image.cube ? true : false" />
-
-		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
-
-		<preview url="panos/menu.tiles/preview.jpg" />
-
-		<image>
-			<cube url="panos/menu.tiles/pano_%s.jpg" />
-		</image>
-
-	</scene>
-
-	<scene name="scene_papel" title="papel" onstart="" thumburl="panos/papel.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
-		
-		<control bouncinglimits="calc:image.cube ? true : false" />
-
-		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
-
-		<preview url="panos/papel.tiles/preview.jpg" />
-
-		<image>
-			<cube url="panos/papel.tiles/pano_%s.jpg" />
-		</image>
-
-	</scene>
-
-
+    <scene name="scene_papel" title="papel" onstart="" thumburl="panos/papel.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+        <control bouncinglimits="calc:image.cube ? true : false" />
+        <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+        <preview url="panos/papel.tiles/preview.jpg" />
+        <image>
+            <cube url="panos/papel.tiles/pano_%s.jpg" />
+        </image>
+    </scene>
 </krpano>
