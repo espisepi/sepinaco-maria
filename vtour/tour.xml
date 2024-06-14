@@ -73,6 +73,55 @@
 	
 	<style name="chromakey" chroma="0x00ff00" chromathreshold="0.1" />
 	
+    <layer name="intro"
+			type="container"
+			keep="true"
+			width="100%"
+			height="100%"
+			bgcolor="0x000000"
+			bgalpha="0.8"
+			zorder="9999"
+			enabled="true"
+			bgcapture="true"
+			onloaded="on_intro_loaded()"
+			onclick="on_intro_click()"
+			>
+
+		<layer name="intro_logo" 
+			enabled="false"
+			alpha="0"
+			url= "gidUSC.png" align="center" y="-80" scale="0.1" />
+			
+		<layer name="intro_start" url= "clickstart.png"
+			enabled="false"
+			alpha="0"
+			align="center" y="80" scale="0.4" />
+
+		<layer name="intro_start" url= "clickstart_mobile.png"
+			devices="mobile" 
+			enabled="false"
+			alpha="0"
+			align="center" y="100" scale="0.2"
+			/>
+		</layer>
+	
+
+
+	<action name="on_intro_click">
+		<!--set(layer[intro].alpha,0);-->
+		tween(layer[intro].alpha,0);
+		set (layer[intro].enabled, false);
+	</action> 
+	
+	<action name="on_intro_loaded">
+		delayedcall(1.5, 
+			tween(layer[intro_logo].alpha,1);
+			tween(layer[intro_start].alpha,1);
+		);
+		
+	</action>
+
+
 	<scene name="scene_cabina" title="cabina" onstart="" thumburl="panos/cabina.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
