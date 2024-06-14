@@ -1,0 +1,12 @@
+{
+    "projects": [
+      {
+        "name": "krpano-project",
+        "source": "./vtour"
+      }
+    ],
+    "rewrites": [
+      { "source": "/(.*)", "destination": "/index.html" }
+    ]
+  }
+  
