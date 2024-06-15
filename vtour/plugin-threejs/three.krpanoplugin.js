@@ -18,6 +18,8 @@ function krpanoplugin()
 	// sepinaco-code
 	var currentSceneKrpano = null;
 
+	var THREEJS_VERSION_KRPANO = null;
+
 
 	local.registerplugin = function(krpanointerface, pluginpath, pluginobject)
 	{
@@ -107,8 +109,16 @@ function krpanoplugin()
 
 	function start()
 	{
+
+		// ===========================================
+		THREEJS_VERSION_KRPANO = window.THREEJS_VERSION_KRPANO;
+		// delete THREE;
+		// delete window.THREE;
+		// ===========================================
+
+
 		// create the ThreeJS WebGL renderer, but use the WebGL context from krpano
-		renderer = new THREE.WebGLRenderer({canvas:krpano.webGL.canvas, context:krpano.webGL.context});
+		renderer = new THREEJS_VERSION_KRPANO.WebGLRenderer({canvas:krpano.webGL.canvas, context:krpano.webGL.context});
 		renderer.autoClear = false;
 		renderer.setPixelRatio(1);	// krpano handles the pixel ratio scaling
 
@@ -116,9 +126,9 @@ function krpanoplugin()
 		restore_krpano_WebGL_state();
 
 		// use the krpano onviewchanged event as render-frame callback (this event will be directly called after the krpano pano rendering)
-		krpano.set("events[__threejs__].keep", true);
-		krpano.set("events[__threejs__].onviewchange", adjust_krpano_rendering);	// correct krpano view settings before the rendering
-		krpano.set("events[__threejs__].onviewchanged", render_frame);
+		krpano.set("events[__THREEJS_VERSION_KRPANOjs__].keep", true);
+		krpano.set("events[__THREEJS_VERSION_KRPANOjs__].onviewchange", adjust_krpano_rendering);	// correct krpano view settings before the rendering
+		krpano.set("events[__THREEJS_VERSION_KRPANOjs__].onviewchanged", render_frame);
 
 		// enable continuous rendering (that means render every frame, not just when the view has changed)
 		krpano.view.continuousupdates = true;
@@ -134,17 +144,29 @@ function krpanoplugin()
 		}
 
 		// basic ThreeJS objects
-		scene = new THREE.Scene();
-		camera = new THREE.Camera();
-		stereocamera = new THREE.Camera();
-		camera_hittest_raycaster = new THREE.Raycaster();
-		krpano_panoview_euler = new THREE.Euler();
+		scene = new THREEJS_VERSION_KRPANO.Scene();
+		camera = new THREEJS_VERSION_KRPANO.Camera();
+		stereocamera = new THREEJS_VERSION_KRPANO.Camera();
+		camera_hittest_raycaster = new THREEJS_VERSION_KRPANO.Raycaster();
+		krpano_panoview_euler = new THREEJS_VERSION_KRPANO.Euler();
 
 		// build the ThreeJS scene (start adding custom code there)
 		build_scene();
 		
 		// restore the krpano WebGL settings (for correct krpano rendering)
 		restore_krpano_WebGL_state();
+
+		// sepinaco-code
+		saveGlobalVariables(scene);
+	}
+
+	function saveGlobalVariables(scene) 
+	{
+		window.krpanoplugin = {};
+		console.log({windowKrpanoPlugin: window.krpanoplugin})
+
+		window.krpanoplugin.scene = scene;
+		window.krpanoplugin.sceneObjects = sceneObjects;
 	}
 
 
@@ -369,7 +391,7 @@ function krpanoplugin()
 	{
 		url = resolve_url_path(url);
 
-		var loader = new THREE.JSONLoader();
+		var loader = new THREEJS_VERSION_KRPANO.JSONLoader();
 		loader.load(url, function (geometry, materials)
 		{
 			var material = materials[0];
@@ -383,7 +405,7 @@ function krpanoplugin()
 
 			geometry.computeVertexNormals();
 
-			var obj = new THREE.MorphAnimMesh(geometry, material);
+			var obj = new THREEJS_VERSION_KRPANO.MorphAnimMesh(geometry, material);
 
 			if (animated)
 			{
@@ -412,7 +434,7 @@ function krpanoplugin()
 
 	function build_scene()
 	{
-		clock = new THREE.Clock();
+		clock = new THREEJS_VERSION_KRPANO.Clock();
 
 		// load 3d objects
 		load_object_json("monster.js",  true, {ath:+30,  atv:+15, depth:500,  scale:0.1, rx:180, ry:60  ,rz:0,   ondown:function(obj){ obj.properties.scale *= 1.2; update_object_properties(obj); }, onup:function(obj){ obj.properties.scale /= 1.2; update_object_properties(obj); }});
@@ -420,7 +442,7 @@ function krpanoplugin()
 		load_object_json("horse.js",    true, {ath:-58,  atv:+7,  depth:1000, scale:1.0, rx:180, ry:233, rz:0,   ondown:function(obj){ obj.properties.scale *= 1.2; update_object_properties(obj); }, onup:function(obj){ obj.properties.scale /= 1.2; update_object_properties(obj); }}, function(obj){ obj.material.color.setHex(0xAA5522); } );
 
 		// create a textured 3d box
-		box = new THREE.Mesh(new THREE.BoxGeometry(500,500,500), new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture(resolve_url_path("box.jpg"))}));
+		box = new THREEJS_VERSION_KRPANO.Mesh(new THREEJS_VERSION_KRPANO.BoxGeometry(500,500,500), new THREEJS_VERSION_KRPANO.MeshBasicMaterial({map:THREEJS_VERSION_KRPANO.ImageUtils.loadTexture(resolve_url_path("box.jpg"))}));
 		assign_object_properties(box, "box", {ath:160, atv:-3, depth:2000, ondown:function(obj){ obj.properties.scale *= 1.2; }, onup:function(obj){ obj.properties.scale /= 1.2; }});
 		scene.add( box );
 
@@ -429,9 +451,9 @@ function krpanoplugin()
 		sceneObjects.push(box);
 
 		// add scene lights
-		scene.add( new THREE.AmbientLight(0x333333) );
+		scene.add( new THREEJS_VERSION_KRPANO.AmbientLight(0x333333) );
 
-		var directionalLight = new THREE.DirectionalLight(0xFFFFFF);
+		var directionalLight = new THREEJS_VERSION_KRPANO.DirectionalLight(0xFFFFFF);
 		directionalLight.position.x = 0.5;
 		directionalLight.position.y = -1;
 		directionalLight.position.z = 0;
@@ -650,7 +672,7 @@ function krpanoplugin()
 		}
 		else 
 		{
-			console.log(" NO ENTRO EN NINGUNA ESCENA KRPANO - THREEJS ")
+			console.log(" NO ENTRO EN NINGUNA ESCENA KRPANO - THREEJS_VERSION_KRPANOJS ")
 		}
 	}
 

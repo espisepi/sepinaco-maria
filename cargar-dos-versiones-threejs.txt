@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Multiple Three.js Versions</title>
+  <script>
+    // Función para cargar un script y devolver una promesa
+    function loadScript(url) {
+      return new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = url;
+        script.onload = () => resolve();
+        script.onerror = () => reject(new Error(`Failed to load script: ${url}`));
+        document.head.appendChild(script);
+      });
+    }
+
+    // Cargar y aislar la primera versión de Three.js
+    const loadThreeVersion1 = async () => {
+      await loadScript('https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js');
+      window.THREE_Version1 = window.THREE;
+      delete window.THREE;
+    };
+
+    // Cargar y aislar la segunda versión de Three.js
+    const loadThreeVersion2 = async () => {
+      await loadScript('https://cdnjs.cloudflare.com/ajax/libs/three.js/r120/three.min.js');
+      window.THREE_Version2 = window.THREE;
+      delete window.THREE;
+    };
+
+    // Cargar ambas versiones
+    const loadBothVersions = async () => {
+      await loadThreeVersion1();
+      await loadThreeVersion2();
+
+      // Ahora puedes usar THREE_Version1 y THREE_Version2
+      console.log('Version 1:', THREE_Version1);
+      console.log('Version 2:', THREE_Version2);
+
+      // Ejemplo de uso
+      const scene1 = new THREE_Version1.Scene();
+      const scene2 = new THREE_Version2.Scene();
+
+      console.log('Scene 1:', scene1);
+      console.log('Scene 2:', scene2);
+    };
+
+    loadBothVersions().catch(err => console.error(err));
+  </script>
+</head>
+<body>
+</body>
+</html>

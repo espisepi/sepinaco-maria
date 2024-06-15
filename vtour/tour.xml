@@ -557,6 +557,8 @@
     
 	<!-- add the custom ThreeJS plugin -->
     <!-- Descomentar para ver los elementos threejs -->
-	<!-- <plugin name="threejs" url="plugin-threejs/three.krpanoplugin.js" keep="true" /> -->
+	<plugin name="threejs" url="plugin-threejs/three.krpanoplugin.js" keep="true" />
+    <!-- <plugin name="threejs-gltf-loader" url="plugin-threejs/three.gltfloader.js" keep="true" /> -->
+
 
 </krpano>
