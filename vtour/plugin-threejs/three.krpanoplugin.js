@@ -7,6 +7,16 @@
 
 function krpanoplugin()
 {
+	
+	// sepinaco-code
+	var gltfObjectsDefinition = [
+		{
+			url: "Soldier.glb",
+			animated: true, 
+			properties: {ath:+30,  atv:+15, depth:500,  scale:0.1, rx:180, ry:60  ,rz:0,   ondown:function(obj){ obj.properties.scale *= 1.2; update_object_properties(obj); }, onup:function(obj){ obj.properties.scale /= 1.2; update_object_properties(obj); }},
+			donecall:  function(obj){ obj.material.color.setHex(0xAA5522); } 
+		}
+	]
 
 	var path_folder_plugin = 'plugin-threejs/';
 
@@ -17,6 +27,14 @@ function krpanoplugin()
 
 	// sepinaco-code
 	var currentSceneKrpano = null;
+
+	var THREE = null;
+
+	import("three").then((mod) => {
+		console.log("OYEEEEEE",mod); // true
+		THREE = mod;
+		start();
+	});
 
 
 	local.registerplugin = function(krpanointerface, pluginpath, pluginobject)
@@ -42,7 +60,9 @@ function krpanoplugin()
 		krpano.trace(0, "ThreeJS krpano plugin");
 
 		// load the requiered three.js scripts
-		load_scripts(["three.min.js"], start);
+		// load_scripts(["three.min.js"], start);
+
+		// start();
 	}
 
 	local.unloadplugin = function()
@@ -104,9 +124,12 @@ function krpanoplugin()
 	var krpano_depthbuffer_scale = 1.0001;				// depthbuffer scaling (use ThreeJS defaults: znear=0.1, zfar=2000)
 	var krpano_depthbuffer_offset = -0.2;
 
+	var THREE = window.THREE;
+
 
 	function start()
 	{
+		console.log("HOLIIIII",{THREE, webgl: krpano.webGL.context})
 		// create the ThreeJS WebGL renderer, but use the WebGL context from krpano
 		renderer = new THREE.WebGLRenderer({canvas:krpano.webGL.canvas, context:krpano.webGL.context});
 		renderer.autoClear = false;
@@ -180,7 +203,7 @@ function krpanoplugin()
 		gl.clearDepth(1);
 		gl.clear(gl.DEPTH_BUFFER_BIT);
 
-		renderer.resetGLState();
+		// renderer.resetGLState();
 	}
 
 
@@ -414,13 +437,18 @@ function krpanoplugin()
 	{
 		clock = new THREE.Clock();
 
+		console.log(THREE)
+
+		// sepinaco-code
+		// load_gltf_objects();
+
 		// load 3d objects
-		load_object_json("monster.js",  true, {ath:+30,  atv:+15, depth:500,  scale:0.1, rx:180, ry:60  ,rz:0,   ondown:function(obj){ obj.properties.scale *= 1.2; update_object_properties(obj); }, onup:function(obj){ obj.properties.scale /= 1.2; update_object_properties(obj); }});
-		load_object_json("flamingo.js", true, {ath:-110, atv:-20, depth:700,  scale:1.0, rx:-10, ry:250, rz:180, ondown:function(obj){ obj.properties.scale *= 1.2; update_object_properties(obj); }, onup:function(obj){ obj.properties.scale /= 1.2; update_object_properties(obj); }});
-		load_object_json("horse.js",    true, {ath:-58,  atv:+7,  depth:1000, scale:1.0, rx:180, ry:233, rz:0,   ondown:function(obj){ obj.properties.scale *= 1.2; update_object_properties(obj); }, onup:function(obj){ obj.properties.scale /= 1.2; update_object_properties(obj); }}, function(obj){ obj.material.color.setHex(0xAA5522); } );
+		// load_object_json("monster.js",  true, {ath:+30,  atv:+15, depth:500,  scale:0.1, rx:180, ry:60  ,rz:0,   ondown:function(obj){ obj.properties.scale *= 1.2; update_object_properties(obj); }, onup:function(obj){ obj.properties.scale /= 1.2; update_object_properties(obj); }});
+		// load_object_json("flamingo.js", true, {ath:-110, atv:-20, depth:700,  scale:1.0, rx:-10, ry:250, rz:180, ondown:function(obj){ obj.properties.scale *= 1.2; update_object_properties(obj); }, onup:function(obj){ obj.properties.scale /= 1.2; update_object_properties(obj); }});
+		// load_object_json("horse.js",    true, {ath:-58,  atv:+7,  depth:1000, scale:1.0, rx:180, ry:233, rz:0,   ondown:function(obj){ obj.properties.scale *= 1.2; update_object_properties(obj); }, onup:function(obj){ obj.properties.scale /= 1.2; update_object_properties(obj); }}, function(obj){ obj.material.color.setHex(0xAA5522); } );
 
 		// create a textured 3d box
-		box = new THREE.Mesh(new THREE.BoxGeometry(500,500,500), new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture(resolve_url_path("box.jpg"))}));
+		box = new THREE.Mesh(new THREE.BoxGeometry(500,500,500), new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load(resolve_url_path("box.jpg"))}));
 		assign_object_properties(box, "box", {ath:160, atv:-3, depth:2000, ondown:function(obj){ obj.properties.scale *= 1.2; }, onup:function(obj){ obj.properties.scale /= 1.2; }});
 		scene.add( box );
 
@@ -619,6 +647,68 @@ function krpanoplugin()
 
 	// sepinaco-code de aqui para abajo ===========================
 
+	// SEPINACO GLTF LOADER
+	function load_gltf_objects()
+	{
+		gltfObjectsDefinition.forEach( objectDefinition => {
+			load_gltf_object(objectDefinition);
+		});
+	}
+
+	function load_gltf_object(objectDefinition) {
+
+		var objectUrl = resolve_url_path(objectDefinition.url);
+
+		const loader = new THREE.GLTFLoader();
+		loader.load( objectUrl, function ( gltf ) {
+
+					model = gltf.scene;
+					scene.add( model );
+
+					obj.name = objectDefinition.url;
+					sceneObjects.push( model );
+
+					assign_object_properties(model, objectDefinition.url, objectDefinition.properties);
+
+					model.traverse( function ( object ) {
+
+						if ( object.isMesh ) object.castShadow = true;
+
+					} );
+
+					//
+
+					// skeleton = new THREE.SkeletonHelper( model );
+					// skeleton.visible = false;
+					// scene.add( skeleton );
+
+					//
+
+					// createPanel();
+
+
+					//
+
+					// const animations = gltf.animations;
+
+					// mixer = new THREE.AnimationMixer( model );
+
+					// idleAction = mixer.clipAction( animations[ 0 ] );
+					// walkAction = mixer.clipAction( animations[ 3 ] );
+					// runAction = mixer.clipAction( animations[ 1 ] );
+
+					// actions = [ idleAction, walkAction, runAction ];
+
+					// activateAllActions();
+
+					// renderer.setAnimationLoop( animate );
+
+				} );
+
+	}
+
+	// SEPINACO SCENE MANAGER =====================
+
 	function checkCurrentKrpanoScene() {
 		// Update current scene krpano
 		// Obtén el nombre de la escena actual.
@@ -667,7 +757,8 @@ function krpanoplugin()
 
 	function initSceneCabina() {
 		// Populate scene
-		populateScene(['monster','box']);
+		populateScene(['monster','box','Soldier']);
+		// populateScene(['monster','box']);
 	}
 
 	function populateScene(names = [])
