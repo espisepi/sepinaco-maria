@@ -6,6 +6,7 @@ var juego = {
     puntaje: PUNTUACION_INICIAL,
   
     itemClick: function(itemName) {
+        console.log({krpano:window.krpano})
       switch(itemName) {
         case 'item1':
           this.puntaje--;
@@ -22,16 +23,16 @@ var juego = {
     },
 
     render: function() {
-        this.showUI();
+        this.showUIContador();
         this.updateContador();
     },
 
-    showUI: function() {
+    showUIContador: function() {
         var divContadorElement = document.querySelector('.juego-contador');
         divContadorElement.style.display = 'block';
     },
 
-    hiddenUI: function() {
+    hiddenUIContador: function() {
         var divContadorElement = document.querySelector('.juego-contador');
         divContadorElement.style.display = 'none';
     },
@@ -41,10 +42,23 @@ var juego = {
         h1ContadorElement.textContent = this.puntaje;
     },
 
-    restore: function() {
+    restartGame: function() {
+
+        // restore contador
+        this,hiddenUIContador();
         this.puntaje = PUNTUACION_INICIAL;
-        this.render();
-    }
+        this.updateContador();
+
+        // restore scene krpano
+
+    },
+
+    showUIGameover: function() {
+        
+    },
+    hiddenUIGameover: function() {
+
+    },
 
     
   };
