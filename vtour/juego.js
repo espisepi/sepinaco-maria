@@ -10,36 +10,34 @@ var juego = {
       switch(itemName) {
         case 'item1':
           this.puntaje--;
-        //   alert("¡Te quedan " +  this.puntaje + " puntos!" );
           break;
         case 'item2':
           this.puntaje--;
-        //   alert("¡Te quedan " +  this.puntaje + " puntos!" );
           break;
-        // Maneja otros ítems aquí
       }
       // render ui
       this.render();
     },
 
     render: function() {
-        this.showUIContador();
-        this.updateContador();
+        this.updateHotspotText();
+        // this.showUIContador();
+        // this.updateContador();
     },
 
     showUIContador: function() {
-        var divContadorElement = document.querySelector('.juego-contador');
-        divContadorElement.style.display = 'block';
+        // var divContadorElement = document.querySelector('.juego-contador');
+        // divContadorElement.style.display = 'block';
     },
 
     hiddenUIContador: function() {
-        var divContadorElement = document.querySelector('.juego-contador');
-        divContadorElement.style.display = 'none';
+        // var divContadorElement = document.querySelector('.juego-contador');
+        // divContadorElement.style.display = 'none';
     },
 
     updateContador: function() {
-        var h1ContadorElement = document.querySelector('.juego-contador h1');
-        h1ContadorElement.textContent = this.puntaje;
+        // var h1ContadorElement = document.querySelector('.juego-contador h1');
+        // h1ContadorElement.textContent = this.puntaje;
     },
 
     restartGame: function() {
@@ -54,11 +52,25 @@ var juego = {
     },
 
     showUIGameover: function() {
-        
+
     },
     hiddenUIGameover: function() {
 
     },
+
+    // krpano ======================
+
+    updateHotspotText: function() {
+        var hotspotName = "puntuacion";
+        var hotspot = krpano.get("hotspot[" + hotspotName + "]");
+        if (hotspot) {
+        //   hotspot.html = '<div style="background: rgba(0,0,0,0.5); padding: 5px; border-radius: 5px; color: white;">' + this.puntaje + '</div>';
+        hotspot.html = '<div class="hotspot-puntuacion-container"><div class="hotspot-puntuacion">' + this.puntaje + '</div></div>';
+        }
+    },
+
+      // Example of changing the text of the hotspot
+    //   changeHotspotText("text_hotspot", "New Text Here");
 
     
   };

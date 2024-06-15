@@ -1,0 +1,1 @@
+Poner bonito y que te siga el hotspot te puntuacion (si no se puede, crea uno libremente y yo le asigno los datos despues)
