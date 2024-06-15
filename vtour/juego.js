@@ -10,13 +10,10 @@ var juego = {
       switch(itemName) {
         case 'item1':
           this.puntaje--;
-        //   alert("¡Te quedan " +  this.puntaje + " puntos!" );
           break;
         case 'item2':
           this.puntaje--;
-        //   alert("¡Te quedan " +  this.puntaje + " puntos!" );
           break;
-        // Maneja otros ítems aquí
       }
       // render ui
       this.render();
@@ -28,18 +25,18 @@ var juego = {
     },
 
     showUIContador: function() {
-        var divContadorElement = document.querySelector('.juego-contador');
-        divContadorElement.style.display = 'block';
+        // var divContadorElement = document.querySelector('.juego-contador');
+        // divContadorElement.style.display = 'block';
     },
 
     hiddenUIContador: function() {
-        var divContadorElement = document.querySelector('.juego-contador');
-        divContadorElement.style.display = 'none';
+        // var divContadorElement = document.querySelector('.juego-contador');
+        // divContadorElement.style.display = 'none';
     },
 
     updateContador: function() {
-        var h1ContadorElement = document.querySelector('.juego-contador h1');
-        h1ContadorElement.textContent = this.puntaje;
+        // var h1ContadorElement = document.querySelector('.juego-contador h1');
+        // h1ContadorElement.textContent = this.puntaje;
     },
 
     restartGame: function() {
@@ -54,7 +51,7 @@ var juego = {
     },
 
     showUIGameover: function() {
-        
+
     },
     hiddenUIGameover: function() {
 
