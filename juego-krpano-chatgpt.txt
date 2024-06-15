@@ -1,0 +1,159 @@
+Crear una lógica de juego basada en clics con krpano, una herramienta popular para visualizar contenido panorámico, puede ser un proceso muy enriquecedor. Aquí tienes una guía paso a paso para ayudarte a empezar:
+
+### 1. Preparación del Entorno
+Antes de comenzar, asegúrate de tener instalado krpano y de familiarizarte con su estructura básica de archivos. Asegúrate también de tener conocimientos básicos de XML y JavaScript, ya que krpano usa estos lenguajes para la configuración y la lógica.
+
+### 2. Definir la Estructura del Proyecto
+Crea una estructura de archivos organizada. Un ejemplo básico podría ser:
+```
+/mi-juego-krpano/
+  /panos/
+    - panorama1.jpg
+    - panorama2.jpg
+  /xml/
+    - juego.xml
+  /js/
+    - juego.js
+  - index.html
+```
+
+### 3. Configuración Inicial de krpano
+En tu archivo `index.html`, incluye el script de krpano y carga el archivo XML principal:
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mi Juego con krpano</title>
+  <script src="krpano.js"></script>
+</head>
+<body>
+  <script>
+    embedpano({ 
+      swf: "krpano.swf", 
+      xml: "xml/juego.xml", 
+      target: "pano", 
+      html5: "only" 
+    });
+  </script>
+</body>
+</html>
+```
+
+### 4. Crear el Archivo XML del Juego
+En tu archivo `juego.xml`, define la configuración inicial del panorama y los elementos interactivos:
+
+```xml
+<krpano version="1.20">
+  <scene name="scene1" title="Primer Panorama">
+    <image>
+      <cube url="panos/panorama1.jpg" />
+    </image>
+    <hotspot name="item1" ath="0" atv="0" style="hotspotstyle" onclick="js(juego.itemClick('item1'));" />
+    <!-- Agrega más hotspots según sea necesario -->
+  </scene>
+</krpano>
+```
+
+### 5. Definir la Lógica del Juego en JavaScript
+Crea un archivo `juego.js` donde definirá la lógica de tu juego. Aquí un ejemplo simple para manejar clics en hotspots:
+
+```javascript
+var juego = {
+  puntaje: 0,
+
+  itemClick: function(itemName) {
+    switch(itemName) {
+      case 'item1':
+        this.puntaje += 10;
+        alert("¡Has ganado 10 puntos! Puntuación: " + this.puntaje);
+        break;
+      // Maneja otros ítems aquí
+    }
+  }
+};
+```
+
+Asegúrate de incluir este archivo en tu `index.html`:
+
+```html
+<script src="js/juego.js"></script>
+```
+
+### 6. Personalizar el Estilo de los Hotspots
+En el archivo XML, puedes definir un estilo para los hotspots para que sean visualmente atractivos:
+
+```xml
+<style name="hotspotstyle" url="hotspot.png" scale="0.5" />
+```
+
+### 7. Pruebas y Depuración
+Carga tu `index.html` en un navegador y prueba la funcionalidad. Asegúrate de revisar la consola del navegador para identificar y corregir errores.
+
+### 8. Extender la Lógica del Juego
+Conforme te sientas más cómodo, puedes añadir más complejidad a tu juego. Por ejemplo:
+- **Contadores de tiempo:** Agregar un temporizador que limite el tiempo para completar una tarea.
+- **Niveles:** Crear múltiples escenas que representen diferentes niveles del juego.
+- **Puntos de Control:** Añadir checkpoints o misiones que el jugador debe completar.
+
+### Ejemplo Completo
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mi Juego con krpano</title>
+  <script src="krpano.js"></script>
+  <script src="js/juego.js"></script>
+</head>
+<body>
+  <script>
+    embedpano({ 
+      swf: "krpano.swf", 
+      xml: "xml/juego.xml", 
+      target: "pano", 
+      html5: "only" 
+    });
+  </script>
+</body>
+</html>
+```
+
+`juego.xml`:
+```xml
+<krpano version="1.20">
+  <scene name="scene1" title="Primer Panorama">
+    <image>
+      <cube url="panos/panorama1.jpg" />
+    </image>
+    <hotspot name="item1" ath="0" atv="0" style="hotspotstyle" onclick="js(juego.itemClick('item1'));" />
+    <hotspot name="item2" ath="30" atv="10" style="hotspotstyle" onclick="js(juego.itemClick('item2'));" />
+  </scene>
+  <style name="hotspotstyle" url="hotspot.png" scale="0.5" />
+</krpano>
+```
+
+`j
+
+`juego.js`:
+
+```javascript
+var juego = {
+  puntaje: 0,
+
+  itemClick: function(itemName) {
+    switch(itemName) {
+      case 'item1':
+        this.puntaje += 10;
+        alert("¡Has ganado 10 puntos! Puntuación: " + this.puntaje);
+        break;
+      case 'item2':
+        this.puntaje += 20;
+        alert("¡Has ganado 20 puntos! Puntuación: " + this.puntaje);
+        break;
+      // Maneja otros ítems aquí
+    }
+  }
+};
+```
+
+### Conclusión
+Siguiendo estos pasos, deberías poder crear una lógica de juego básica basada en clics con krpano. A medida que te familiarices con krpano y sus capacidades, podrás ampliar y mejorar la lógica de tu juego para crear experiencias más complejas y atractivas.
