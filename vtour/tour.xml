@@ -527,12 +527,13 @@
                  rangefalloff="1.0"
                  outofrangevolume="0.0"
                  onhover=""
-                 onclick=""
+                 onclick="js(juego.itemClick('item1'));"
                  onvideocomplete=""
                  onerror=""
                  visible="true"
                  handcursor="false"
-                 capture="false">
+                 capture="false"
+                 >
         </hotspot>
     </scene>
 
@@ -554,9 +555,5 @@
         </image>
     </scene>
 
-    
-	<!-- add the custom ThreeJS plugin -->
-    <!-- Descomentar para ver los elementos threejs -->
-	<!-- <plugin name="threejs" url="plugin-threejs/three.krpanoplugin.js" keep="true" /> -->
 
 </krpano>
