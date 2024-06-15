@@ -122,7 +122,7 @@
         );
     </action>
 
-    <scene name="scene_cabina" title="cabina" onstart="" thumburl="panos/cabina.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+    <scene name="scene_cabina" title="cabina" onstart="js(juego.updateHotspotText());" thumburl="panos/cabina.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
         
         <control bouncinglimits="calc:image.cube ? true : false" />
 
@@ -152,6 +152,9 @@
                  visible="true">
             <style>chromakey</style>
         </hotspot>
+
+        <!-- <hotspot name="intro_recurso_explicacion" ath="0" atv="0" edge="center" html="[p align=[dq]center[dq][br][br] La espectrorradiometría es una técnica que se utiliza para[br] medir, a distancia, la cantidad de radiación electromagnética[br] que emite un objeto en diferentes longitudes de onda.[br][br] Esta radiación electromagnética puede ser emitida, [br] reflejada o transmitida por el objeto en cuestión.[br][br] La luz es detectada por el espectrorradiómetro y transformada[br] en un espectro que muestra su distribución energética[br] para cada longitud de onda medida.[br] [br] [b]Pulsa para comenzar con el recurso.[/[/b][/p]" scale.mobile="0.5" type="text" visible="true"/> -->
+        <hotspot name="puntuacion" ath="0" atv="0" edge="center" html="r] en un espectro que muestra su distribución energética[br] para cada longitud de onda medida.[br] [br] [b]Pulsa para comenzar con el recurso.[/[/b][/p]" scale.mobile="0.5" type="text" visible="true"/>
 
         <hotspot name="play_movil"
                  url="recursos/imagen/play_movil.png"

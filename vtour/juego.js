@@ -20,8 +20,9 @@ var juego = {
     },
 
     render: function() {
-        this.showUIContador();
-        this.updateContador();
+        this.updateHotspotText();
+        // this.showUIContador();
+        // this.updateContador();
     },
 
     showUIContador: function() {
@@ -56,6 +57,20 @@ var juego = {
     hiddenUIGameover: function() {
 
     },
+
+    // krpano ======================
+
+    updateHotspotText: function() {
+        var hotspotName = "puntuacion";
+        var hotspot = krpano.get("hotspot[" + hotspotName + "]");
+        if (hotspot) {
+        //   hotspot.html = '<div style="background: rgba(0,0,0,0.5); padding: 5px; border-radius: 5px; color: white;">' + this.puntaje + '</div>';
+        hotspot.html = '<div class="hotspot-puntuacion-container"><div class="hotspot-puntuacion">' + this.puntaje + '</div></div>';
+        }
+    },
+
+      // Example of changing the text of the hotspot
+    //   changeHotspotText("text_hotspot", "New Text Here");
 
     
   };
