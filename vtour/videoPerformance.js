@@ -2,8 +2,6 @@
 
 var videoPerformance = {
 
-  videos_exception: ["portal_linea2"],
-
   krpano: null,
 
   checkVideoVisibility: function() {
@@ -31,12 +29,10 @@ var videoPerformance = {
 
       var exit = false;
 
+      // Videos excepciones que no queremos que se paren
       if(hotspot.name == "portal_linea2") {
           exit = true;
       }
-      // if(videos_exception.includes(hotspot.name)) {
-      //   exit = true;
-      // }
 
       if(!exit && hotspot.url === "plugins/videoplayer.js") {
         var videoAth = hotspot.ath;
