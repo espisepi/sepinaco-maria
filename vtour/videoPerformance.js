@@ -28,8 +28,17 @@ var videoPerformance = {
     var self = this;
 
     hotspots.forEach(function(hotspot) {
-      // if (hotspot.videourl) {
-      if(hotspot.url === "plugins/videoplayer.js" && videos_exception.includes(hotspot.name)) {
+
+      var exit = false;
+
+      // if(hotspot.name == "portal_linea2") {
+      //     exit = true;
+      // }
+      if(videos_exception.includes(hotspot.name)) {
+        exit = true;
+      }
+
+      if(!exit && hotspot.url === "plugins/videoplayer.js") {
         var videoAth = hotspot.ath;
         var videoAtv = hotspot.atv;
 
@@ -38,6 +47,7 @@ var videoPerformance = {
         // console.log({videoVisible});
         self.controlVideoPlayback(hotspot.name, videoVisible);
       }
+      
     });
 
   },
