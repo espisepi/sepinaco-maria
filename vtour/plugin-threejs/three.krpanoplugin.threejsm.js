@@ -108,6 +108,8 @@ function krpanoplugin()
 
 	var threejsm = null;
 
+	var box = null;
+
 
 	function start()
 	{
@@ -156,9 +158,10 @@ function krpanoplugin()
 		stereocamera = threejsm.stereocamera;
 		camera_hittest_raycaster = threejsm.camera_hittest_raycaster;
 		krpano_panoview_euler = threejsm.krpano_panoview_euler;
+		clock = threejsm.clock;
 
 		// build the ThreeJS scene (start adding custom code there)
-		// build_scene();
+		build_scene();
 		
 		// restore the krpano WebGL settings (for correct krpano rendering)
 		restore_krpano_WebGL_state();
@@ -273,7 +276,7 @@ function krpanoplugin()
 
 
 		// do scene updates
-		// update_scene();
+		update_scene();
 
 
 		// render the scene
@@ -383,18 +386,22 @@ function krpanoplugin()
 
 	function update_object_properties(obj)
 	{
-		var p = obj.properties;
+		if(obj.position) {
+			console.log("TUUUUUUUU",obj);
 
-		var px = p.depth * Math.cos(p.atv * M_RAD)*Math.cos((180-p.ath) * M_RAD);
-		var py = p.depth * Math.sin(p.atv * M_RAD);
-		var pz = p.depth * Math.cos(p.atv * M_RAD)*Math.sin((180-p.ath) * M_RAD);
-		obj.position.set(px,py,pz);
+			var p = obj.properties;
 
-		obj.rotation.set(p.rx*M_RAD, p.ry*M_RAD, p.rz*M_RAD, p.rorder);
-
-		obj.scale.set(p.scale, p.scale, p.scale);
-
-		obj.updateMatrix();
+			var px = p.depth * Math.cos(p.atv * M_RAD)*Math.cos((180-p.ath) * M_RAD);
+			var py = p.depth * Math.sin(p.atv * M_RAD);
+			var pz = p.depth * Math.cos(p.atv * M_RAD)*Math.sin((180-p.ath) * M_RAD);
+			obj.position.set(px,py,pz);
+	
+			obj.rotation.set(p.rx*M_RAD, p.ry*M_RAD, p.rz*M_RAD, p.rorder);
+	
+			obj.scale.set(p.scale, p.scale, p.scale);
+	
+			obj.updateMatrix();
+		}
 	}
 
 
@@ -442,9 +449,32 @@ function krpanoplugin()
 	// 	});
 	// }
 
+	// Función para encontrar todos los objetos por nombre
+	function findObjectsByName(name, parent) {
+		let results = [];
+		parent.children.forEach(child => {
+			if (child.name === name) {
+				results.push(child);
+			}
+			if (child.children.length > 0) {
+				results = results.concat(findObjectsByName(name, child));
+			}
+		});
+		return results;
+	}
 
-	// function build_scene()
-	// {
+	function build_scene()
+	{
+		console.log("LA ESCENA============", scene);
+		
+		// Uso de la función para encontrar objetos en la escena con un nombre específico
+		box = findObjectsByName('box', scene);
+
+		// Ahora 'objectsWithName' contiene una lista de todos los objetos con el nombre especificado
+		console.log(box);
+
+		assign_object_properties(box, "box", {ath:160, atv:-3, depth:2000, ondown:function(obj){ obj.properties.scale *= 1.2; }, onup:function(obj){ obj.properties.scale /= 1.2; }});
+
 	// 	clock = new THREEJS_VERSION_KRPANO.Clock();
 
 	// 	// load 3d objects
@@ -470,7 +500,7 @@ function krpanoplugin()
 	// 	directionalLight.position.z = 0;
 	// 	directionalLight.position.normalize();
 	// 	scene.add( directionalLight );
-	// }
+	}
 
 
 	function do_object_hittest(mx, my)
@@ -625,28 +655,30 @@ function krpanoplugin()
 
 	function update_scene()
 	{
-		// animate objects
-		var delta = clock.getDelta();
+		if(clock) {
+			// animate objects
+			var delta = clock.getDelta();
 
-		if (box)
-		{
-			box.properties.rx += 50 * delta;
-			box.properties.ry += 10 * delta;
-			update_object_properties(box);
-		}
+			if (box)
+			{
+				box.properties.rx += 50 * delta;
+				box.properties.ry += 10 * delta;
+				update_object_properties(box);
+			}
 
-		for (var i=0; i < animatedobjects.length; i++)
-		{
-			animatedobjects[i].updateAnimation(1000 * delta);
-		}
+			// for (var i=0; i < animatedobjects.length; i++)
+			// {
+			// 	animatedobjects[i].updateAnimation(1000 * delta);
+			// }
 
-		handle_mouse_hovering();
+			// handle_mouse_hovering();
 
-		// sepinaco-code
-		// Solo se ejecutara cuando se carguen todos los objetos threejs
-		if(sceneObjects.length > 0)
-		{
-			checkCurrentKrpanoScene();
+			// sepinaco-code
+			// Solo se ejecutara cuando se carguen todos los objetos threejs
+			// if(sceneObjects.length > 0)
+			// {
+			// 	checkCurrentKrpanoScene();
+			// }
 		}
 	}
 

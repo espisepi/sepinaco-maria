@@ -7,7 +7,8 @@ import {
 	WebGLRenderer,
 	Raycaster,
 	Euler,
-	Camera
+	Camera,
+	Clock
 } from 'three';
 
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
@@ -25,6 +26,7 @@ class App {
 		this.stereocamera = new Camera();
 		this.camera_hittest_raycaster = new Raycaster();
 		this.krpano_panoview_euler = new Euler();
+		this.clock = new Clock();
 
 		this.init();
 	}
@@ -41,6 +43,8 @@ class App {
 
 		const mesh = new Mesh( geometry, material );
 		scene.add( mesh );
+
+		mesh.name = "box";
 
 		renderer = new WebGLRenderer( { antialias: true } );
 		renderer.setPixelRatio( window.devicePixelRatio );
