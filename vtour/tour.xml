@@ -160,7 +160,11 @@
         </hotspot>
 
         <!-- <hotspot name="intro_recurso_explicacion" ath="0" atv="0" edge="center" html="[p align=[dq]center[dq][br][br] La espectrorradiometría es una técnica que se utiliza para[br] medir, a distancia, la cantidad de radiación electromagnética[br] que emite un objeto en diferentes longitudes de onda.[br][br] Esta radiación electromagnética puede ser emitida, [br] reflejada o transmitida por el objeto en cuestión.[br][br] La luz es detectada por el espectrorradiómetro y transformada[br] en un espectro que muestra su distribución energética[br] para cada longitud de onda medida.[br] [br] [b]Pulsa para comenzar con el recurso.[/[/b][/p]" scale.mobile="0.5" type="text" visible="true"/> -->
-        <hotspot name="puntuacion" ath="0" atv="0" edge="center" html="r] en un espectro que muestra su distribución energética[br] para cada longitud de onda medida.[br] [br] [b]Pulsa para comenzar con el recurso.[/[/b][/p]" scale.mobile="0.5" type="text" visible="true"/>
+        <hotspot name="puntuacion" distorted="true" ath="0" atv="90" edge="center" scale.mobile="0.5" type="text" visible="true" scale="0.5" rotate="0.0" />
+
+        <!-- onviewchange event - update logo rotation on pano rotation -->
+	    <events name="puntuacion" keep="true" onviewchange="copy(hotspot[puntuacion].rotate, view.hlookat);" />
+
 
         <hotspot name="play_movil"
                  url="recursos/imagen/play_movil.png"
@@ -462,7 +466,7 @@
         </hotspot>
 
         <!-- Hotspot con el video fuego -->
-        <hotspot name="fuego"
+            <hotspot name="fuego"
                  url.html5="plugins/videoplayer.js"
                  url.flash="plugins/videoplayer.swf"
                  videourl="recursos/video/fuego.mov"
