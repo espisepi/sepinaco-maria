@@ -107,7 +107,7 @@
                scale="0.4" />
 
         <layer name="intro_start_mobile" 
-               url="recursos/imagenes/clickstart_mobile.png"
+               url="recursos/imagene/clickstart_mobile.png"
                devices="mobile" 
                enabled="false"
                alpha="0"
