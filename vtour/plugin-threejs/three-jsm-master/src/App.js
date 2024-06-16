@@ -13,6 +13,15 @@ let camera, scene, renderer;
 
 class App {
 
+	// Constructor
+	constructor() {
+		this.renderer = null;
+		this.camera = null;
+		this.scene = null;
+
+		this.init();
+	}
+
 	init() {
 
 		camera = new PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.01, 10 );
@@ -34,6 +43,11 @@ class App {
 		window.addEventListener( 'resize', onWindowResize, false );
 
 		const controls = new OrbitControls( camera, renderer.domElement );
+
+		// save variables
+		this.renderer = renderer;
+		this.scene = scene;
+		this.camera = camera;
 
 		animate();
 

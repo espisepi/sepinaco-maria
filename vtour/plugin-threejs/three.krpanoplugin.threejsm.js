@@ -44,7 +44,7 @@ function krpanoplugin()
 		krpano.trace(0, "ThreeJS krpano plugin");
 
 		// load the requiered three.js scripts
-		load_scripts(["three.min.js"], start);
+		load_scripts(["three-jsm-master/build/bundle.js"], start);
 	}
 
 	local.unloadplugin = function()
@@ -106,58 +106,65 @@ function krpanoplugin()
 	var krpano_depthbuffer_scale = 1.0001;				// depthbuffer scaling (use ThreeJS defaults: znear=0.1, zfar=2000)
 	var krpano_depthbuffer_offset = -0.2;
 
+	var threejsm = null;
+
 
 	function start()
 	{
 
 		// ===========================================
-		THREEJS_VERSION_KRPANO = window.THREEJS_VERSION_KRPANO;
-		// delete THREE;
-		// delete window.THREE;
-		// ===========================================
+		threejsm = window.threejsm;
+		console.log("threejskrpano plugin threejsm: ",threejsm);
+
+		// THREEJS_VERSION_KRPANO = window.THREE;
+		// // delete THREE;
+		// // delete window.THREE;
+		// // ===========================================
 
 
-		// create the ThreeJS WebGL renderer, but use the WebGL context from krpano
-		renderer = new THREEJS_VERSION_KRPANO.WebGLRenderer({canvas:krpano.webGL.canvas, context:krpano.webGL.context});
+		// // create the ThreeJS WebGL renderer, but use the WebGL context from krpano
+		// renderer = new THREEJS_VERSION_KRPANO.WebGLRenderer({canvas:krpano.webGL.canvas, context:krpano.webGL.context});
+		renderer = threejsm.renderer;
+		console.log("threejskrpano plugin threejsm renderer: ",renderer);
 		renderer.autoClear = false;
 		renderer.setPixelRatio(1);	// krpano handles the pixel ratio scaling
 
-		// restore the krpano WebGL settings (for correct krpano rendering)
-		restore_krpano_WebGL_state();
+		// // restore the krpano WebGL settings (for correct krpano rendering)
+		// restore_krpano_WebGL_state();
 
-		// use the krpano onviewchanged event as render-frame callback (this event will be directly called after the krpano pano rendering)
-		krpano.set("events[__THREEJS_VERSION_KRPANOjs__].keep", true);
-		krpano.set("events[__THREEJS_VERSION_KRPANOjs__].onviewchange", adjust_krpano_rendering);	// correct krpano view settings before the rendering
-		krpano.set("events[__THREEJS_VERSION_KRPANOjs__].onviewchanged", render_frame);
+		// // use the krpano onviewchanged event as render-frame callback (this event will be directly called after the krpano pano rendering)
+		// krpano.set("events[__THREEJS_VERSION_KRPANOjs__].keep", true);
+		// krpano.set("events[__THREEJS_VERSION_KRPANOjs__].onviewchange", adjust_krpano_rendering);	// correct krpano view settings before the rendering
+		// krpano.set("events[__THREEJS_VERSION_KRPANOjs__].onviewchanged", render_frame);
 
-		// enable continuous rendering (that means render every frame, not just when the view has changed)
-		krpano.view.continuousupdates = true;
+		// // enable continuous rendering (that means render every frame, not just when the view has changed)
+		// krpano.view.continuousupdates = true;
 
-		// register mouse and touch events
-		if (device.browser.events.mouse)
-		{
-			krpano.control.layer.addEventListener("mousedown", handle_mouse_touch_events, true);
-		}
-		if (device.browser.events.touch)
-		{
-			krpano.control.layer.addEventListener(device.browser.events.touchstart, handle_mouse_touch_events, true);
-		}
+		// // register mouse and touch events
+		// if (device.browser.events.mouse)
+		// {
+		// 	krpano.control.layer.addEventListener("mousedown", handle_mouse_touch_events, true);
+		// }
+		// if (device.browser.events.touch)
+		// {
+		// 	krpano.control.layer.addEventListener(device.browser.events.touchstart, handle_mouse_touch_events, true);
+		// }
 
-		// basic ThreeJS objects
-		scene = new THREEJS_VERSION_KRPANO.Scene();
-		camera = new THREEJS_VERSION_KRPANO.Camera();
-		stereocamera = new THREEJS_VERSION_KRPANO.Camera();
-		camera_hittest_raycaster = new THREEJS_VERSION_KRPANO.Raycaster();
-		krpano_panoview_euler = new THREEJS_VERSION_KRPANO.Euler();
+		// // basic ThreeJS objects
+		// scene = new THREEJS_VERSION_KRPANO.Scene();
+		// camera = new THREEJS_VERSION_KRPANO.Camera();
+		// stereocamera = new THREEJS_VERSION_KRPANO.Camera();
+		// camera_hittest_raycaster = new THREEJS_VERSION_KRPANO.Raycaster();
+		// krpano_panoview_euler = new THREEJS_VERSION_KRPANO.Euler();
 
-		// build the ThreeJS scene (start adding custom code there)
-		build_scene();
+		// // build the ThreeJS scene (start adding custom code there)
+		// build_scene();
 		
-		// restore the krpano WebGL settings (for correct krpano rendering)
-		restore_krpano_WebGL_state();
+		// // restore the krpano WebGL settings (for correct krpano rendering)
+		// restore_krpano_WebGL_state();
 
-		// sepinaco-code
-		saveGlobalVariables(scene);
+		// // sepinaco-code
+		// saveGlobalVariables(scene);
 	}
 
 	function saveGlobalVariables(scene) 
