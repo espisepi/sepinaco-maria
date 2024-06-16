@@ -31,12 +31,12 @@ var videoPerformance = {
 
       var exit = false;
 
-      // if(hotspot.name == "portal_linea2") {
-      //     exit = true;
-      // }
-      if(videos_exception.includes(hotspot.name)) {
-        exit = true;
+      if(hotspot.name == "portal_linea2") {
+          exit = true;
       }
+      // if(videos_exception.includes(hotspot.name)) {
+      //   exit = true;
+      // }
 
       if(!exit && hotspot.url === "plugins/videoplayer.js") {
         var videoAth = hotspot.ath;
