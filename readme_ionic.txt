@@ -130,3 +130,156 @@ Para la integración de Krpano en tu proyecto Ionic, es recomendable utilizar **
 - **Optimización**: Considera minificar y optimizar los archivos Krpano y los recursos de tu aplicación para mejorar el rendimiento y reducir el tamaño del APK.
 
 Con estos pasos, deberías poder integrar tu aplicación Krpano dentro de un proyecto Ionic con Angular utilizando NgModule, sin modificar los archivos originales de Krpano y encapsulándolos en un iframe dentro de tu aplicación Ionic.
+
+
+
+
+
+
+
+
+=====================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+=====================================================
+
+
+
+
+
+
+como puedo hacer este paso: Permisos: Asegúrate de que tu aplicación tenga los permisos necesarios en el archivo AndroidManifest.xml para acceder a la red si es necesario.
+
+Si prefieres hacer la build desde Android Studio, aquí tienes los pasos detallados para asegurarte de que tu aplicación tiene los permisos necesarios y generar el APK desde Android Studio.
+
+### Paso 1: Localizar el archivo `AndroidManifest.xml`
+
+1. **Abrir Android Studio**.
+2. **Importar tu proyecto**:
+    - Selecciona `Open an existing project`.
+    - Navega al directorio de tu proyecto y selecciona la carpeta `android`.
+
+3. **Localizar `AndroidManifest.xml`**:
+    - En el panel de proyecto de Android Studio, navega a `app/src/main/AndroidManifest.xml`.
+
+### Paso 2: Agregar los permisos necesarios
+
+En el archivo `AndroidManifest.xml`, agrega los permisos necesarios para acceder a la red. Aquí está el ejemplo de cómo puedes hacerlo:
+
+1. **Permiso de Internet**:
+    ```xml
+    <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+        package="com.example.myKrpanoApp">
+
+        <uses-permission android:name="android.permission.INTERNET" />
+
+        <application
+            android:allowBackup="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:roundIcon="@mipmap/ic_launcher_round"
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme">
+            <activity
+                android:name=".MainActivity">
+                <intent-filter>
+                    <action android:name="android.intent.action.MAIN" />
+
+                    <category android:name="android.intent.category.LAUNCHER" />
+                </intent-filter>
+            </activity>
+        </application>
+    </manifest>
+    ```
+
+2. **Permiso de Acceso a la Red (opcional)**:
+    ```xml
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    ```
+
+### Paso 3: Guardar y Sincronizar el Proyecto
+
+1. **Guardar los cambios**:
+    - Asegúrate de guardar los cambios realizados en el archivo `AndroidManifest.xml`.
+
+2. **Sincronizar el proyecto con Gradle**:
+    - En Android Studio, selecciona `File > Sync Project with Gradle Files` para asegurarte de que todos los cambios se aplican correctamente.
+
+### Paso 4: Generar el APK desde Android Studio
+
+1. **Construir el APK**:
+    - En el menú superior de Android Studio, selecciona `Build > Build Bundle(s) / APK(s) > Build APK(s)`.
+    - Espera a que Android Studio complete el proceso de compilación.
+
+2. **Ubicar el APK generado**:
+    - Una vez que la compilación se complete, Android Studio te proporcionará un enlace para ir directamente a la carpeta donde se encuentra el APK generado.
+    - El APK estará en el directorio `app/build/outputs/apk/`.
+
+### Consideraciones Adicionales
+
+- **Firmar el APK de Lanzamiento**: Si estás generando un APK de lanzamiento, necesitarás firmarlo. Puedes configurar esto en `Build > Generate Signed Bundle / APK`.
+- **Optimización**: Considera minificar y optimizar los archivos Krpano y los recursos de tu aplicación para mejorar el rendimiento y reducir el tamaño del APK.
+
+### Archivo completo de ejemplo `AndroidManifest.xml`
+
+Aquí tienes un ejemplo completo de cómo podría verse tu archivo `AndroidManifest.xml` después de agregar los permisos:
+
+```xml
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.myKrpanoApp">
+
+    <!-- Permisos necesarios -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>
+```
+
+Con estos pasos, puedes asegurarte de que tu aplicación tiene los permisos necesarios para acceder a la red y generar el APK desde Android Studio.
+
+
+
+
+
+
+
+dime el shortcut para buscar por nombre de fichero
+
+
+
+El atajo de teclado para buscar archivos por nombre en Android Studio es:
+
+### Para Windows/Linux
+- **Ctrl + Shift + N**
+
+### Para macOS
+- **Command (⌘) + Shift + O**
+
+Este atajo abrirá un cuadro de diálogo de búsqueda donde puedes escribir el nombre del archivo que deseas encontrar.
