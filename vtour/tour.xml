@@ -1,5 +1,11 @@
 ﻿<krpano version="1.21" title="Virtual Tour">
 
+    <events onviewchange="checkVideoVisibility();" />
+
+    <action name="checkVideoVisibility">
+        js(videoPerformance.checkVideoVisibility());
+    </action>
+
     <include url="skin/vtourskin.xml" />
     <include url="toolbox/toolbox.xml" />
 
