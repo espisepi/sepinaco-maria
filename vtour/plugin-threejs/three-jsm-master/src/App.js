@@ -4,7 +4,10 @@ import {
 	MeshBasicMaterial,
 	PerspectiveCamera,
 	Scene,
-	WebGLRenderer
+	WebGLRenderer,
+	Raycaster,
+	Euler,
+	Camera
 } from 'three';
 
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
@@ -18,6 +21,10 @@ class App {
 		this.renderer = null;
 		this.camera = null;
 		this.scene = null;
+
+		this.stereocamera = new Camera();
+		this.camera_hittest_raycaster = new Raycaster();
+		this.krpano_panoview_euler = new Euler();
 
 		this.init();
 	}

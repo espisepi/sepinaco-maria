@@ -130,41 +130,41 @@ function krpanoplugin()
 		renderer.setPixelRatio(1);	// krpano handles the pixel ratio scaling
 
 		// // restore the krpano WebGL settings (for correct krpano rendering)
-		// restore_krpano_WebGL_state();
+		restore_krpano_WebGL_state();
 
 		// // use the krpano onviewchanged event as render-frame callback (this event will be directly called after the krpano pano rendering)
-		// krpano.set("events[__THREEJS_VERSION_KRPANOjs__].keep", true);
-		// krpano.set("events[__THREEJS_VERSION_KRPANOjs__].onviewchange", adjust_krpano_rendering);	// correct krpano view settings before the rendering
-		// krpano.set("events[__THREEJS_VERSION_KRPANOjs__].onviewchanged", render_frame);
+		krpano.set("events[__THREEJS_VERSION_KRPANOjs__].keep", true);
+		krpano.set("events[__THREEJS_VERSION_KRPANOjs__].onviewchange", adjust_krpano_rendering);	// correct krpano view settings before the rendering
+		krpano.set("events[__THsREEJS_VERSION_KRPANOjs__].onviewchanged", render_frame);
 
-		// // enable continuous rendering (that means render every frame, not just when the view has changed)
-		// krpano.view.continuousupdates = true;
+		// enable continuous rendering (that means render every frame, not just when the view has changed)
+		krpano.view.continuousupdates = true;
 
-		// // register mouse and touch events
-		// if (device.browser.events.mouse)
-		// {
-		// 	krpano.control.layer.addEventListener("mousedown", handle_mouse_touch_events, true);
-		// }
-		// if (device.browser.events.touch)
-		// {
-		// 	krpano.control.layer.addEventListener(device.browser.events.touchstart, handle_mouse_touch_events, true);
-		// }
+		// register mouse and touch events
+		if (device.browser.events.mouse)
+		{
+			krpano.control.layer.addEventListener("mousedown", handle_mouse_touch_events, true);
+		}
+		if (device.browser.events.touch)
+		{
+			krpano.control.layer.addEventListener(device.browser.events.touchstart, handle_mouse_touch_events, true);
+		}
 
-		// // basic ThreeJS objects
-		// scene = new THREEJS_VERSION_KRPANO.Scene();
-		// camera = new THREEJS_VERSION_KRPANO.Camera();
-		// stereocamera = new THREEJS_VERSION_KRPANO.Camera();
-		// camera_hittest_raycaster = new THREEJS_VERSION_KRPANO.Raycaster();
-		// krpano_panoview_euler = new THREEJS_VERSION_KRPANO.Euler();
+		// basic ThreeJS objects
+		scene = threejsm.scene;
+		camera = threejsm.camera;
+		stereocamera = threejsm.stereocamera;
+		camera_hittest_raycaster = threejsm.camera_hittest_raycaster;
+		krpano_panoview_euler = threejsm.krpano_panoview_euler;
 
-		// // build the ThreeJS scene (start adding custom code there)
+		// build the ThreeJS scene (start adding custom code there)
 		// build_scene();
 		
-		// // restore the krpano WebGL settings (for correct krpano rendering)
-		// restore_krpano_WebGL_state();
+		// restore the krpano WebGL settings (for correct krpano rendering)
+		restore_krpano_WebGL_state();
 
-		// // sepinaco-code
-		// saveGlobalVariables(scene);
+		// sepinaco-code
+		saveGlobalVariables(scene);
 	}
 
 	function saveGlobalVariables(scene) 
@@ -209,7 +209,11 @@ function krpanoplugin()
 		gl.clearDepth(1);
 		gl.clear(gl.DEPTH_BUFFER_BIT);
 
-		renderer.resetGLState();
+		if(renderer) {
+			// console.log("OYE",renderer.domElement)
+			// renderer.resetGLState();
+			renderer.resetState();
+		}
 	}
 
 
@@ -269,7 +273,7 @@ function krpanoplugin()
 
 
 		// do scene updates
-		update_scene();
+		// update_scene();
 
 
 		// render the scene
@@ -394,79 +398,79 @@ function krpanoplugin()
 	}
 
 
-	function load_object_json(url, animated, properties, donecall)
-	{
-		url = resolve_url_path(url);
+	// function load_object_json(url, animated, properties, donecall)
+	// {
+	// 	url = resolve_url_path(url);
 
-		var loader = new THREEJS_VERSION_KRPANO.JSONLoader();
-		loader.load(url, function (geometry, materials)
-		{
-			var material = materials[0];
+	// 	var loader = new THREEJS_VERSION_KRPANO.JSONLoader();
+	// 	loader.load(url, function (geometry, materials)
+	// 	{
+	// 		var material = materials[0];
 
-			if (animated)
-			{
-				material.morphTargets = true;
-				material.morphNormals = true;
-				geometry.computeMorphNormals();
-			}
+	// 		if (animated)
+	// 		{
+	// 			material.morphTargets = true;
+	// 			material.morphNormals = true;
+	// 			geometry.computeMorphNormals();
+	// 		}
 
-			geometry.computeVertexNormals();
+	// 		geometry.computeVertexNormals();
 
-			var obj = new THREEJS_VERSION_KRPANO.MorphAnimMesh(geometry, material);
+	// 		var obj = new THREEJS_VERSION_KRPANO.MorphAnimMesh(geometry, material);
 
-			if (animated)
-			{
-				obj.duration = 1000;
-				obj.time = 0;
-				obj.matrixAutoUpdate = false;
+	// 		if (animated)
+	// 		{
+	// 			obj.duration = 1000;
+	// 			obj.time = 0;
+	// 			obj.matrixAutoUpdate = false;
 
-				animatedobjects.push(obj);
-			}
+	// 			animatedobjects.push(obj);
+	// 		}
 
-			assign_object_properties(obj, url, properties);
+	// 		assign_object_properties(obj, url, properties);
 
-			scene.add( obj );
+	// 		scene.add( obj );
 
-			if (donecall)
-			{
-				donecall(obj);
-			}
+	// 		if (donecall)
+	// 		{
+	// 			donecall(obj);
+	// 		}
 
-			// sepinaco-code
-			obj.name = url;
-			sceneObjects.push( obj );
-		});
-	}
+	// 		// sepinaco-code
+	// 		obj.name = url;
+	// 		sceneObjects.push( obj );
+	// 	});
+	// }
 
 
-	function build_scene()
-	{
-		clock = new THREEJS_VERSION_KRPANO.Clock();
+	// function build_scene()
+	// {
+	// 	clock = new THREEJS_VERSION_KRPANO.Clock();
 
-		// load 3d objects
-		load_object_json("monster.js",  true, {ath:+30,  atv:+15, depth:500,  scale:0.1, rx:180, ry:60  ,rz:0,   ondown:function(obj){ obj.properties.scale *= 1.2; update_object_properties(obj); }, onup:function(obj){ obj.properties.scale /= 1.2; update_object_properties(obj); }});
-		load_object_json("flamingo.js", true, {ath:-110, atv:-20, depth:700,  scale:1.0, rx:-10, ry:250, rz:180, ondown:function(obj){ obj.properties.scale *= 1.2; update_object_properties(obj); }, onup:function(obj){ obj.properties.scale /= 1.2; update_object_properties(obj); }});
-		load_object_json("horse.js",    true, {ath:-58,  atv:+7,  depth:1000, scale:1.0, rx:180, ry:233, rz:0,   ondown:function(obj){ obj.properties.scale *= 1.2; update_object_properties(obj); }, onup:function(obj){ obj.properties.scale /= 1.2; update_object_properties(obj); }}, function(obj){ obj.material.color.setHex(0xAA5522); } );
+	// 	// load 3d objects
+	// 	load_object_json("monster.js",  true, {ath:+30,  atv:+15, depth:500,  scale:0.1, rx:180, ry:60  ,rz:0,   ondown:function(obj){ obj.properties.scale *= 1.2; update_object_properties(obj); }, onup:function(obj){ obj.properties.scale /= 1.2; update_object_properties(obj); }});
+	// 	load_object_json("flamingo.js", true, {ath:-110, atv:-20, depth:700,  scale:1.0, rx:-10, ry:250, rz:180, ondown:function(obj){ obj.properties.scale *= 1.2; update_object_properties(obj); }, onup:function(obj){ obj.properties.scale /= 1.2; update_object_properties(obj); }});
+	// 	load_object_json("horse.js",    true, {ath:-58,  atv:+7,  depth:1000, scale:1.0, rx:180, ry:233, rz:0,   ondown:function(obj){ obj.properties.scale *= 1.2; update_object_properties(obj); }, onup:function(obj){ obj.properties.scale /= 1.2; update_object_properties(obj); }}, function(obj){ obj.material.color.setHex(0xAA5522); } );
 
-		// create a textured 3d box
-		box = new THREEJS_VERSION_KRPANO.Mesh(new THREEJS_VERSION_KRPANO.BoxGeometry(500,500,500), new THREEJS_VERSION_KRPANO.MeshBasicMaterial({map:THREEJS_VERSION_KRPANO.ImageUtils.loadTexture(resolve_url_path("box.jpg"))}));
-		assign_object_properties(box, "box", {ath:160, atv:-3, depth:2000, ondown:function(obj){ obj.properties.scale *= 1.2; }, onup:function(obj){ obj.properties.scale /= 1.2; }});
-		scene.add( box );
+	// 	// create a textured 3d box
+	// 	box = new THREEJS_VERSION_KRPANO.Mesh(new THREEJS_VERSION_KRPANO.BoxGeometry(500,500,500), new THREEJS_VERSION_KRPANO.MeshBasicMaterial({map:THREEJS_VERSION_KRPANO.ImageUtils.loadTexture(resolve_url_path("box.jpg"))}));
+	// 	assign_object_properties(box, "box", {ath:160, atv:-3, depth:2000, ondown:function(obj){ obj.properties.scale *= 1.2; }, onup:function(obj){ obj.properties.scale /= 1.2; }});
+	// 	scene.add( box );
 
-		// sepinaco-code
-		box.name = "box";
-		sceneObjects.push(box);
+	// 	// sepinaco-code
+	// 	box.name = "box";
+	// 	sceneObjects.push(box);
 
-		// add scene lights
-		scene.add( new THREEJS_VERSION_KRPANO.AmbientLight(0x333333) );
+	// 	// add scene lights
+	// 	scene.add( new THREEJS_VERSION_KRPANO.AmbientLight(0x333333) );
 
-		var directionalLight = new THREEJS_VERSION_KRPANO.DirectionalLight(0xFFFFFF);
-		directionalLight.position.x = 0.5;
-		directionalLight.position.y = -1;
-		directionalLight.position.z = 0;
-		directionalLight.position.normalize();
-		scene.add( directionalLight );
-	}
+	// 	var directionalLight = new THREEJS_VERSION_KRPANO.DirectionalLight(0xFFFFFF);
+	// 	directionalLight.position.x = 0.5;
+	// 	directionalLight.position.y = -1;
+	// 	directionalLight.position.z = 0;
+	// 	directionalLight.position.normalize();
+	// 	scene.add( directionalLight );
+	// }
 
 
 	function do_object_hittest(mx, my)
