@@ -33,7 +33,7 @@ var videoPerformance = {
 
         var videoVisible = self.isInFieldOfView(hlookat, vlookat, fov, videoAth, videoAtv);
 
-        console.log({videoVisible});
+        // console.log({videoVisible});
         self.controlVideoPlayback(hotspot.name, videoVisible);
       }
     });
