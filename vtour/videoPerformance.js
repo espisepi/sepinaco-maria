@@ -2,6 +2,8 @@
 
 var videoPerformance = {
 
+  videos_exception: ["portal_linea2"],
+
   krpano: null,
 
   checkVideoVisibility: function() {
@@ -27,7 +29,7 @@ var videoPerformance = {
 
     hotspots.forEach(function(hotspot) {
       // if (hotspot.videourl) {
-      if(hotspot.url === "plugins/videoplayer.js") {
+      if(hotspot.url === "plugins/videoplayer.js" && videos_exception.includes(hotspot.name)) {
         var videoAth = hotspot.ath;
         var videoAtv = hotspot.atv;
 
