@@ -6,7 +6,7 @@ var juego = {
     puntaje: PUNTUACION_INICIAL,
   
     itemClick: function(itemName) {
-        console.log({krpano:window.krpano})
+        // console.log({krpano:window.krpano})
       switch(itemName) {
         case 'item1':
           this.puntaje--;
