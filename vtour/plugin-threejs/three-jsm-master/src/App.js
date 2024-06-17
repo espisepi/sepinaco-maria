@@ -13,6 +13,9 @@ import {
 	Color
 } from 'three';
 
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
+
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 let camera, scene, renderer;
@@ -42,13 +45,27 @@ class App {
 
 		scene = new Scene();
 
+		// Create box
 		const geometry = new BoxGeometry(500,500,500);
 		const material = new MeshBasicMaterial({side:DoubleSide, color: new Color(0xff0000)});
 
 		const mesh = new Mesh( geometry, material );
 		scene.add( mesh );
-
 		mesh.name = "box";
+
+
+		// Create soldier
+		// Cargar el modelo GLTF
+		// const loader = new GLTFLoader();
+		// loader.load(this.resolve_url_path('soldier.glb'), function(gltf) {
+		// 	console.log("LLEGAMOS!",{scene,gltf});
+		// 	scene.add(gltf.scene);
+		// 	gltf.scene.name = "box";
+
+		// }, undefined, function(error) {
+		// 	console.error(error);
+		// });
+
 
 		// renderer = new WebGLRenderer( { antialias: true } );
 		renderer = new WebGLRenderer({canvas:krpano.webGL.canvas, context:krpano.webGL.context});
@@ -69,6 +86,19 @@ class App {
 
 	}
 
+	// Krpano methods
+	resolve_url_path(url)
+	{
+		const path_folder_plugin = 'plugin-threejs/three-jsm-master/assets/';
+		if (url.charAt(0) != "/" && url.indexOf("://") < 0)
+		{
+			// adjust relative url path
+			url = this.krpano.parsepath("%CURRENTXML%/" + path_folder_plugin + url);
+		}
+
+		return url;
+	}
+
 }
 
 function onWindowResize() {
@@ -86,5 +116,7 @@ function animate() {
 	// renderer.render( scene, camera );
 
 }
+
+
 
 export default App;

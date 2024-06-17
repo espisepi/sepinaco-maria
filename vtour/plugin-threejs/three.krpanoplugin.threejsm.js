@@ -117,7 +117,7 @@ function krpanoplugin()
 	function start()
 	{
 		function comprobarThreejsm() {
-			if (typeof window.threejsm !== 'undefined') {
+			if (typeof window.threejsm !== 'undefined' && window.threejsm.scene.children.length > 0) {
 			  clearInterval(intervaloComprobacion); // Detener la comprobación
 	
 			  threejsm = window.threejsm;
@@ -415,6 +415,8 @@ function krpanoplugin()
 		if (properties.onclick  === undefined)	properties.onclick = null;
 		properties.pressed  = false;
 		properties.hovering = false;
+
+		console.log("JODEOTE, ",obj)
 
 		obj.properties = properties;
 
