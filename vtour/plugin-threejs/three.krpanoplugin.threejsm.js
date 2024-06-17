@@ -27,6 +27,9 @@ function krpanoplugin()
 		device = krpano.device;
 		plugin = pluginobject;
 
+		// save global variable
+		window.krpano = krpano;
+
 		if (krpano.version < "1.19")
 		{
 			krpano.trace(3,"ThreeJS plugin - too old krpano version (min. 1.19)");
@@ -110,13 +113,31 @@ function krpanoplugin()
 
 	var box = null;
 
-
+	
 	function start()
 	{
+		function comprobarThreejsm() {
+			if (typeof window.threejsm !== 'undefined') {
+			  clearInterval(intervaloComprobacion); // Detener la comprobación
+	
+			  threejsm = window.threejsm;
+			  console.log("threejskrpano plugin threejsm: ",threejsm);
+			  console.log("KRPANO: ",krpano);
+	
+			  _start();
+			} else {
+			  console.log('Esperando a que window.threejsm esté definido...');
+			}
+		}
+		  
+		// Establecer el intervalo para comprobar cada 1000 ms (1 segundo)
+		const intervaloComprobacion = setInterval(comprobarThreejsm, 1000);
 
+	}
+
+	function _start() {
 		// ===========================================
-		threejsm = window.threejsm;
-		console.log("threejskrpano plugin threejsm: ",threejsm);
+	
 
 		// THREEJS_VERSION_KRPANO = window.THREE;
 		// // delete THREE;
@@ -127,6 +148,22 @@ function krpanoplugin()
 		// // create the ThreeJS WebGL renderer, but use the WebGL context from krpano
 		// renderer = new THREEJS_VERSION_KRPANO.WebGLRenderer({canvas:krpano.webGL.canvas, context:krpano.webGL.context});
 		renderer = threejsm.renderer;
+
+		// IDEA 1: ==========================================
+		// var krpanoCanvas = krpano.webGL.canvas;
+		// var krpanoContext = krpano.webGL.context;
+		// console.log("krpano canvas: ", krpanoCanvas);
+		// console.log("krpano context: ", krpanoContext);
+
+
+		// // Configurar el renderer para usar el nuevo canvas y contexto
+		// renderer.domElement = krpanoCanvas;
+		// renderer.context = krpanoContext;
+
+		// // Ajustar el tamaño del nuevo canvas según sea necesario
+		// renderer.setSize(window.innerWidth, window.innerHeight);
+		// FIN IDEA 1: ==========================================
+
 		console.log("threejskrpano plugin threejsm renderer: ",renderer);
 		renderer.autoClear = false;
 		renderer.setPixelRatio(1);	// krpano handles the pixel ratio scaling
@@ -169,6 +206,7 @@ function krpanoplugin()
 		// sepinaco-code
 		saveGlobalVariables(scene);
 	}
+
 
 	function saveGlobalVariables(scene) 
 	{
@@ -387,7 +425,7 @@ function krpanoplugin()
 	function update_object_properties(obj)
 	{
 		if(obj.position) {
-			console.log("TUUUUUUUU",obj);
+			// console.log("TUUUUUUUU",obj);
 
 			var p = obj.properties;
 
@@ -468,10 +506,11 @@ function krpanoplugin()
 		console.log("LA ESCENA============", scene);
 		
 		// Uso de la función para encontrar objetos en la escena con un nombre específico
-		box = findObjectsByName('box', scene);
+		var arrayResult = findObjectsByName('box', scene);
+		box = arrayResult[0];
 
 		// Ahora 'objectsWithName' contiene una lista de todos los objetos con el nombre especificado
-		console.log(box);
+		console.log("EL BOX============",box);
 
 		assign_object_properties(box, "box", {ath:160, atv:-3, depth:2000, ondown:function(obj){ obj.properties.scale *= 1.2; }, onup:function(obj){ obj.properties.scale /= 1.2; }});
 
