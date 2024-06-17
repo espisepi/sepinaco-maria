@@ -10,7 +10,7 @@
   "license": "MIT",
   "type": "module",
   "dependencies": {
-    "three": "0.161.0"
+    "three": "0.162.0"
   },
   "devDependencies": {
     "rollup": "4.9.6",
