@@ -7,3 +7,6 @@
 krpano videos:
 https://www.youtube.com/watch?v=9xub3_UUGnw
 https://www.youtube.com/watch?v=YQTEdZ7kY30
+
+Plugins interesantes:
+- (postprocessing) https://krpano.com/plugins/userplugins/zfilter/#examples

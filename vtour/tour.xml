@@ -548,10 +548,46 @@
                  capture="false"
                  >
         </hotspot>
+        <!-- sepinaco-code plugin sinvergonson -->
+        <plugin name="zfilter" url="plugins/zfilter.js" preload="true" keep="true"
+			fquality.mobile="5" fquality.tablet="10" fquality.desktop="15"
+			vignettecolor="0x00ff6496" />
+
+	<include url="plugins/zfilter_editor.xml" />
+	<set var="zfilter_editor_toggle" val="69" /><!-- keycode E to toggle the editor -->
+	<set var="zfilter_editor_trace" val="81" /><!-- keycode Q to log all attributes  -->
+	<set var="zfilter_editor_align" val="87" /><!-- keycode W to align the editor -->
+	<set var="zfilter_editor_showall" val="true" /><!-- show all or only licensed filters -->
+	<set var="zfilter_editor_target" val="plugin[zfilter]" /><!-- editor target -->
+
+	<!--
+	note: the editor can work on the plugin and on one or multiple comma separated layers or hotspots
+	zfilter_editor_target must be set on xml level as done above (to be ready when the editor initializes)
+	for more details see example_cssfilters
+	-->
+
+	<action name="framebuffer1x" autorun="onstart">
+		if(device.pixelratio GT 1.0,
+			div(display.framebufferscale, 1, device.pixelratio));
+	</action>
+
+	<view hlookat="0" fov="90" fovmin="60" fovmax="120" />
+
+	<image>
+		<sphere url="pano/lady_elliot.jpg"/>
+	</image>
+
+	<action autorun="onstart">
+		callwhen(plugin[zfilter].ready,
+			// show zfilter editor
+			zfilter_editor(true);
+		);
+	</action>
+
     </scene>
 
     <scene name="scene_menu" title="menu" onstart="" thumburl="panos/menu.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
-        <control bouncinglimits="calc:image.cube ? true : false" />
+       <control bouncinglimits="calc:image.cube ? true : false" />
         <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
         <preview url="panos/menu.tiles/preview.jpg" />
         <image>
