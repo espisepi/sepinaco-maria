@@ -18,6 +18,8 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 import { startWhenDefined } from './utils/startWhenDefined';
+import { VideoPlayer } from './components/videoplayer/VideoPlayer';
+
 
 let camera, scene, renderer;
 
@@ -117,7 +119,10 @@ class App {
     // }, 1000);
   }
 
-  initVideo() {}
+  initVideo() {
+      const videoPlayer = new VideoPlayer(this.resolve_url_path('stayHigh.mp4'));
+      console.log("videoPlayer ejecutado: ",{videoPlayer});
+  }
 }
 
 function onWindowResize() {

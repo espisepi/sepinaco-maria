@@ -1,4 +1,4 @@
-class VideoPlayer {
+export class VideoPlayer {
   constructor(videoSrc, width = 640, height = 360) {
     this.videoSrc = videoSrc;
     this.width = width;
@@ -14,7 +14,7 @@ class VideoPlayer {
   addStyles() {
     const style = document.createElement('style');
     style.textContent = `
-                    body {
+                    /* body {
                         font-family: Arial, sans-serif;
                         display: flex;
                         justify-content: center;
@@ -23,8 +23,13 @@ class VideoPlayer {
                         margin: 0;
                         background-color: #f0f0f0;
                     }
+                    */
                     .video-container {
                         text-align: center;
+                        position: absolute;
+                        top: 0;
+                        width: 100px;
+                        height: 50px;
                     }
                     video {
                         display: block;
