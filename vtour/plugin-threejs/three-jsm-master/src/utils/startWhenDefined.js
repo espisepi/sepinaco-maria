@@ -1,4 +1,4 @@
-function startWhenDefined(variableOrElement, action, interval = 1000) {
+export function startWhenDefined(variableOrElement, action, interval = 1000) {
     // Function to check if the global variable or HTML element is defined
     function checkExistence() {
       let element = null;

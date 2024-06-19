@@ -1,4 +1,5 @@
 import App from './App.js';
+import { startWhenDefined } from './utils/startWhenDefined.js';
 
 startWhenDefined('krpano', function(krpano) {
   const app = new App(krpano);
