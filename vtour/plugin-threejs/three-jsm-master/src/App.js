@@ -18,6 +18,8 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
+import { startWhenDefined } from './utils/startWhenDefined';
+
 let camera, scene, renderer;
 
 class App {
@@ -52,6 +54,8 @@ class App {
 		const mesh = new Mesh( geometry, material );
 		scene.add( mesh );
 		mesh.name = "box";
+
+		this.initVideoPoints();
 
 
 		// Create soldier
@@ -97,6 +101,23 @@ class App {
 		}
 
 		return url;
+	}
+
+	initVideoPoints() {
+		console.log("SETUP VIDEOPOINTS");
+	
+		this.initVideo();
+		// const arrayVideoEl = document.getElementsByTagName('video');
+		// console.log("Video Elements: ",{arrayVideoEl})
+		// startWhenDefined('#video', function(videosEl) {
+		// 	console.log("VIDEOS ELEMENTS FINDED: ", {videosEl});
+		// }, 1000);
+
+
+	}
+
+	initVideo() {
+		
 	}
 
 }

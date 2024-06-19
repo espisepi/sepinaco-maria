@@ -1,0 +1,101 @@
+como formatear con eslint todo mi proyecto js
+
+Para formatear todo tu proyecto JavaScript con ESLint, necesitas seguir estos pasos:
+
+1. **Instalar ESLint**: Si aún no tienes ESLint instalado en tu proyecto, puedes instalarlo usando npm o yarn. Abre tu terminal y ejecuta el siguiente comando:
+
+   ```bash
+   npm install eslint --save-dev
+   ```
+
+   O con yarn:
+
+   ```bash
+   yarn add eslint --dev
+   ```
+
+2. **Configurar ESLint**: Una vez instalado, necesitas configurar ESLint. Puedes crear un archivo de configuración ejecutando:
+
+   ```bash
+   npx eslint --init
+   ```
+
+   Este comando te guiará a través de una serie de preguntas para configurar ESLint según tus necesidades. Al finalizar, se generará un archivo `.eslintrc` en la raíz de tu proyecto.
+
+3. **Instalar Prettier (opcional)**: Si también quieres formatear tu código con Prettier, instálalo con:
+
+   ```bash
+   npm install prettier eslint-config-prettier eslint-plugin-prettier --save-dev
+   ```
+
+   O con yarn:
+
+   ```bash
+   yarn add prettier eslint-config-prettier eslint-plugin-prettier --dev
+   ```
+
+4. **Configurar Prettier junto con ESLint**: Agrega la configuración de Prettier en tu archivo `.eslintrc`:
+
+   ```json
+   {
+     "extends": [
+       "eslint:recommended",
+       "plugin:prettier/recommended"
+     ],
+     "plugins": ["prettier"],
+     "rules": {
+       "prettier/prettier": "error"
+     }
+   }
+   ```
+
+   También, crea un archivo de configuración para Prettier llamado `.prettierrc`:
+
+   ```json
+   {
+     "semi": true,
+     "singleQuote": true,
+     "printWidth": 80,
+     "tabWidth": 2,
+     "trailingComma": "es5"
+   }
+   ```
+
+   Ajusta estos valores según tus preferencias.
+
+5. **Agregar scripts en package.json**: Para facilitar el uso de ESLint, agrega los siguientes scripts en tu `package.json`:
+
+   ```json
+   "scripts": {
+     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix"
+   }
+   ```
+
+6. **Ejecutar ESLint**: Ahora puedes ejecutar ESLint en tu proyecto usando los scripts que agregaste:
+
+   - Para solo revisar los errores y advertencias:
+
+     ```bash
+     npm run lint
+     ```
+
+     O con yarn:
+
+     ```bash
+     yarn lint
+     ```
+
+   - Para revisar y corregir automáticamente los errores donde sea posible:
+
+     ```bash
+     npm run lint:fix
+     ```
+
+     O con yarn:
+
+     ```bash
+     yarn lint:fix
+     ```
+
+Siguiendo estos pasos, podrás formatear y asegurar la calidad de tu código JavaScript con ESLint en todo tu proyecto.
