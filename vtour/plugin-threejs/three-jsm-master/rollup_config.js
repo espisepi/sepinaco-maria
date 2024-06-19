@@ -2,13 +2,13 @@ import resolve from '@rollup/plugin-node-resolve'; // locate and bundle dependen
 import terser from '@rollup/plugin-terser'; // code minification (optional)
 
 export default {
-	input: 'src/main.js',
-	output: [
-		{
-			format: 'umd',
-			name: 'MYAPP',
-			file: 'build/bundle.js'
-		}
-	],
-	plugins: [ resolve(), terser() ]
+  input: 'src/main.js',
+  output: [
+    {
+      format: 'umd',
+      name: 'MYAPP',
+      file: 'build/bundle.js',
+    },
+  ],
+  plugins: [resolve(), terser()],
 };

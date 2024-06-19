@@ -1,0 +1,103 @@
+y como puedo formatear el texto?
+
+Para formatear el texto en tu proyecto JavaScript, puedes utilizar ESLint junto con Prettier. Aquí hay una guía paso a paso para integrar ambos y formatear tu código automáticamente.
+
+### 1. Instalar Prettier y las configuraciones necesarias
+
+Primero, instala Prettier y los paquetes necesarios para integrarlo con ESLint:
+
+```bash
+npm install prettier eslint-config-prettier eslint-plugin-prettier --save-dev
+```
+
+O con yarn:
+
+```bash
+yarn add prettier eslint-config-prettier eslint-plugin-prettier --dev
+```
+
+### 2. Configurar Prettier
+
+Crea un archivo `.prettierrc` en la raíz de tu proyecto para definir las reglas de formateo de Prettier. Aquí tienes un ejemplo básico:
+
+```json
+{
+  "semi": true,
+  "singleQuote": true,
+  "printWidth": 80,
+  "tabWidth": 2,
+  "trailingComma": "es5"
+}
+```
+
+### 3. Configurar ESLint para usar Prettier
+
+Asegúrate de que tu archivo de configuración de ESLint (`.eslintrc.json` o `eslint.config.js`) esté configurado para usar Prettier. Aquí hay un ejemplo usando `.eslintrc.json`:
+
+```json
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "prettier"
+  ],
+  "rules": {
+    "prettier/prettier": "error"
+  }
+}
+```
+
+### 4. Actualizar scripts en `package.json`
+
+Asegúrate de que los scripts en tu `package.json` incluyan comandos para formatear el código:
+
+```json
+"scripts": {
+  "lint": "eslint .",
+  "lint:fix": "eslint . --fix",
+  "format": "prettier --write ."
+}
+```
+
+### 5. Ejecutar el formateo
+
+Para formatear tu código con Prettier, simplemente ejecuta el siguiente comando:
+
+```bash
+npm run format
+```
+
+O con yarn:
+
+```bash
+yarn format
+```
+
+### 6. Opcional: Integrar con tu editor de texto
+
+Muchos editores de texto, como Visual Studio Code, tienen integraciones con ESLint y Prettier. Asegúrate de tener las extensiones necesarias instaladas y configura el editor para que ejecute Prettier al guardar los archivos. Por ejemplo, en VS Code:
+
+1. Instala las extensiones "ESLint" y "Prettier - Code formatter".
+2. Agrega las siguientes configuraciones a tu `settings.json`:
+
+   ```json
+   {
+     "editor.formatOnSave": true,
+     "editor.codeActionsOnSave": {
+       "source.fixAll.eslint": true
+     },
+     "eslint.alwaysShowStatus": true
+   }
+   ```
+
+Con estos pasos, tu código JavaScript será automáticamente formateado y se adherirá a las reglas de estilo que hayas configurado con Prettier y ESLint.

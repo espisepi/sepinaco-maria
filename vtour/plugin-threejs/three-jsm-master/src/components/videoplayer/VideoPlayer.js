@@ -1,20 +1,19 @@
+class VideoPlayer {
+  constructor(videoSrc, width = 640, height = 360) {
+    this.videoSrc = videoSrc;
+    this.width = width;
+    this.height = height;
+    this.init();
+  }
 
-        class VideoPlayer {
-            constructor(videoSrc, width = 640, height = 360) {
-                this.videoSrc = videoSrc;
-                this.width = width;
-                this.height = height;
-                this.init();
-            }
+  init() {
+    this.addStyles();
+    this.createVideoContainer();
+  }
 
-            init() {
-                this.addStyles();
-                this.createVideoContainer();
-            }
-
-            addStyles() {
-                const style = document.createElement('style');
-                style.textContent = `
+  addStyles() {
+    const style = document.createElement('style');
+    style.textContent = `
                     body {
                         font-family: Arial, sans-serif;
                         display: flex;
@@ -40,56 +39,58 @@
                         cursor: pointer;
                     }
                 `;
-                document.head.appendChild(style);
-            }
+    document.head.appendChild(style);
+  }
 
-            createVideoContainer() {
-                const videoContainer = document.createElement('div');
-                videoContainer.className = 'video-container';
+  createVideoContainer() {
+    const videoContainer = document.createElement('div');
+    videoContainer.className = 'video-container';
 
-                const video = document.createElement('video');
-                video.id = 'myVideo';
-                video.width = this.width;
-                video.height = this.height;
-                video.controls = true;
+    const video = document.createElement('video');
+    video.id = 'myVideo';
+    video.width = this.width;
+    video.height = this.height;
+    video.controls = true;
 
-                const source = document.createElement('source');
-                source.src = this.videoSrc;
-                source.type = 'video/mp4';
-                video.appendChild(source);
-                videoContainer.appendChild(video);
+    const source = document.createElement('source');
+    source.src = this.videoSrc;
+    source.type = 'video/mp4';
+    video.appendChild(source);
+    videoContainer.appendChild(video);
 
-                const controls = this.createControls(video);
-                videoContainer.appendChild(controls);
+    const controls = this.createControls(video);
+    videoContainer.appendChild(controls);
 
-                document.body.appendChild(videoContainer);
-            }
+    document.body.appendChild(videoContainer);
+  }
 
-            createControls(video) {
-                const controls = document.createElement('div');
-                controls.className = 'controls';
+  createControls(video) {
+    const controls = document.createElement('div');
+    controls.className = 'controls';
 
-                const playButton = document.createElement('button');
-                playButton.textContent = 'Play';
-                playButton.onclick = () => video.play();
-                controls.appendChild(playButton);
+    const playButton = document.createElement('button');
+    playButton.textContent = 'Play';
+    playButton.onclick = () => video.play();
+    controls.appendChild(playButton);
 
-                const pauseButton = document.createElement('button');
-                pauseButton.textContent = 'Pause';
-                pauseButton.onclick = () => video.pause();
-                controls.appendChild(pauseButton);
+    const pauseButton = document.createElement('button');
+    pauseButton.textContent = 'Pause';
+    pauseButton.onclick = () => video.pause();
+    controls.appendChild(pauseButton);
 
-                const stopButton = document.createElement('button');
-                stopButton.textContent = 'Stop';
-                stopButton.onclick = () => {
-                    video.pause();
-                    video.currentTime = 0;
-                };
-                controls.appendChild(stopButton);
+    const stopButton = document.createElement('button');
+    stopButton.textContent = 'Stop';
+    stopButton.onclick = () => {
+      video.pause();
+      video.currentTime = 0;
+    };
+    controls.appendChild(stopButton);
 
-                return controls;
-            }
-        }
+    return controls;
+  }
+}
 
-        // Inicializa el reproductor de video con el archivo de video 'video.mp4'
-        {/* new VideoPlayer('video.mp4'); */}
+// Inicializa el reproductor de video con el archivo de video 'video.mp4'
+{
+  /* new VideoPlayer('video.mp4'); */
+}

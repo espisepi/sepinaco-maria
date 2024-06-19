@@ -6,7 +6,8 @@
     "build": "rollup -c \"rollup_config.js\"",
     "start": "serve",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write ."
   },
   "author": "Mugen87",
   "license": "MIT",
