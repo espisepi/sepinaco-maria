@@ -22,7 +22,7 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 import { startWhenDefined } from './utils/startWhenDefined';
 import { VideoPlayer } from './components/videoplayer/VideoPlayer';
-
+import { VideoPoints } from './components/videopoints/VideoPoints';
 
 let camera, scene, renderer;
 
@@ -39,6 +39,9 @@ class App {
     this.camera_hittest_raycaster = new Raycaster();
     this.krpano_panoview_euler = new Euler();
     this.clock = new Clock();
+
+    this.videoPlayer = null;
+    this.videoPoints = null;
 
     this.init();
   }
@@ -61,11 +64,10 @@ class App {
       color: new Color(0xff0000),
     });
 
-    const mesh = new Mesh(geometry, material);
-    scene.add(mesh);
-    mesh.name = 'box';
+    // const mesh = new Mesh(geometry, material);
+    // scene.add(mesh);
+    // mesh.name = 'box';
 
-    // this.initVideoPoints();
 
     // Create soldier
     // Cargar el modelo GLTF
@@ -73,14 +75,14 @@ class App {
     // const self = this;
     // loader.load(this.resolve_url_path('Horse.glb'), function(gltf) {
     // 	console.log("LLEGAMOS!",{scene,gltf});
-      // gltf.scene.material = material;
-      // gltf.scene.traverse((child) => {
-      //   if (child.isMesh) {
-      //     // Reemplaza el material con MeshBasicMaterial
-      //     child.material = material;
-      //   }
-      // });
-      // Crear una textura y obtener sus dimensiones
+    // gltf.scene.material = material;
+    // gltf.scene.traverse((child) => {
+    //   if (child.isMesh) {
+    //     // Reemplaza el material con MeshBasicMaterial
+    //     child.material = material;
+    //   }
+    // });
+    // Crear una textura y obtener sus dimensiones
     //   const texture = new TextureLoader().load(self.resolve_url_path("texture.jpg"));
     //   texture.onUpdate = function() {
     //     self.updateMaterials(gltf.scene, texture);
@@ -111,24 +113,30 @@ class App {
     this.scene = scene;
     this.camera = camera;
 
+
+    this.initVideoPoints();
+
     animate();
   }
 
   updateMaterials(scene, texture) {
     // Definir un material básico con un shader compatible con WebGL 1
     var material = new ShaderMaterial({
-        uniforms: {
-            uTexture: { type: 't', value: texture },
-            uTextureSize: { type: 'v2', value: new Vector2(texture.image.width, texture.image.height) }
+      uniforms: {
+        uTexture: { type: 't', value: texture },
+        uTextureSize: {
+          type: 'v2',
+          value: new Vector2(texture.image.width, texture.image.height),
         },
-        vertexShader: `
+      },
+      vertexShader: `
             varying vec2 vUv;
             void main() {
                 vUv = uv;
                 gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
             }
         `,
-        fragmentShader: `
+      fragmentShader: `
             uniform sampler2D uTexture;
             uniform vec2 uTextureSize;
             varying vec2 vUv;
@@ -137,16 +145,16 @@ class App {
                 vec4 color = texture2D(uTexture, texCoord / uTextureSize);
                 gl_FragColor = color;
             }
-        `
+        `,
     });
 
     // Recorrer la escena y reemplazar los materiales de los objetos
     scene.traverse((child) => {
-        if (child.isMesh) {
-            child.material = material;
-        }
+      if (child.isMesh) {
+        child.material = material;
+      }
     });
-}
+  }
 
   // Krpano methods
   resolve_url_path(url) {
@@ -163,6 +171,11 @@ class App {
     console.log('SETUP VIDEOPOINTS');
 
     this.initVideo();
+
+    const videoEl = this.videoPlayer.videoEl;
+    const videoPoints = new VideoPoints(videoEl, this.scene);
+    console.log('videopoints CREADO! :)', { videoPoints });
+    this.videoPoints = videoPoints;
     // const arrayVideoEl = document.getElementsByTagName('video');
     // console.log("Video Elements: ",{arrayVideoEl})
     // startWhenDefined('#video', function(videosEl) {
@@ -171,8 +184,13 @@ class App {
   }
 
   initVideo() {
-      const videoPlayer = new VideoPlayer(this.resolve_url_path('stayHigh.mp4'));
-      console.log("videoPlayer ejecutado: ",{videoPlayer});
+    const videoPlayer = new VideoPlayer(this.resolve_url_path('stayHigh.mp4'));
+    this.videoPlayer = videoPlayer;
+    console.log('videoPlayer ejecutado: ', { videoPlayer });
+  }
+
+  update() {
+    this.videoPoints.update();
   }
 }
 

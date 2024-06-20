@@ -708,6 +708,10 @@ function krpanoplugin()
 				update_object_properties(box);
 			}
 
+			if(threejsm) {
+				threejsm.update();
+			}
+
 			// for (var i=0; i < animatedobjects.length; i++)
 			// {
 			// 	animatedobjects[i].updateAnimation(1000 * delta);

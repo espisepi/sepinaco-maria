@@ -1,5 +1,6 @@
 export class VideoPlayer {
   constructor(videoSrc, width = 640, height = 360) {
+    this.videoEl = null;
     this.videoSrc = videoSrc;
     this.width = width;
     this.height = height;
@@ -56,6 +57,7 @@ export class VideoPlayer {
     video.width = this.width;
     video.height = this.height;
     video.controls = true;
+    this.videoEl = video;
 
     const source = document.createElement('source');
     source.src = this.videoSrc;
