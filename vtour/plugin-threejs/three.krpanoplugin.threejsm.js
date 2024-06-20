@@ -509,12 +509,13 @@ function krpanoplugin()
 		
 		// Uso de la función para encontrar objetos en la escena con un nombre específico
 		var arrayResult = findObjectsByName('box', scene);
+		console.log("Los objetos de escena que se llaman box: ",{arrayResult});
 		box = arrayResult[0];
 
 		// Ahora 'objectsWithName' contiene una lista de todos los objetos con el nombre especificado
 		console.log("EL BOX============",box);
 
-		assign_object_properties(box, "box", {ath:160, atv:-3, depth:2000, ondown:function(obj){ obj.properties.scale *= 1.2; }, onup:function(obj){ obj.properties.scale /= 1.2; }});
+		assign_object_properties(box, "box", {ath:-58,  atv:+7,  depth:1000, scale:1.0, rx:180, ry:233, rz:0, ondown:function(obj){ obj.properties.scale *= 1.2; }, onup:function(obj){ obj.properties.scale /= 1.2; }});
 
 	// 	clock = new THREEJS_VERSION_KRPANO.Clock();
 

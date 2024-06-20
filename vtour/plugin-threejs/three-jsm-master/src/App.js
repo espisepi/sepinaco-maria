@@ -11,6 +11,9 @@ import {
   Clock,
   DoubleSide,
   Color,
+  ShaderMaterial,
+  Vector2,
+  TextureLoader,
 } from 'three';
 
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
@@ -62,13 +65,27 @@ class App {
     scene.add(mesh);
     mesh.name = 'box';
 
-    this.initVideoPoints();
+    // this.initVideoPoints();
 
     // Create soldier
     // Cargar el modelo GLTF
     // const loader = new GLTFLoader();
-    // loader.load(this.resolve_url_path('soldier.glb'), function(gltf) {
+    // const self = this;
+    // loader.load(this.resolve_url_path('Horse.glb'), function(gltf) {
     // 	console.log("LLEGAMOS!",{scene,gltf});
+      // gltf.scene.material = material;
+      // gltf.scene.traverse((child) => {
+      //   if (child.isMesh) {
+      //     // Reemplaza el material con MeshBasicMaterial
+      //     child.material = material;
+      //   }
+      // });
+      // Crear una textura y obtener sus dimensiones
+    //   const texture = new TextureLoader().load(self.resolve_url_path("texture.jpg"));
+    //   texture.onUpdate = function() {
+    //     self.updateMaterials(gltf.scene, texture);
+    //   };
+    //   gltf.scene.scale.set(500,500,500);
     // 	scene.add(gltf.scene);
     // 	gltf.scene.name = "box";
 
@@ -96,6 +113,40 @@ class App {
 
     animate();
   }
+
+  updateMaterials(scene, texture) {
+    // Definir un material básico con un shader compatible con WebGL 1
+    var material = new ShaderMaterial({
+        uniforms: {
+            uTexture: { type: 't', value: texture },
+            uTextureSize: { type: 'v2', value: new Vector2(texture.image.width, texture.image.height) }
+        },
+        vertexShader: `
+            varying vec2 vUv;
+            void main() {
+                vUv = uv;
+                gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+            }
+        `,
+        fragmentShader: `
+            uniform sampler2D uTexture;
+            uniform vec2 uTextureSize;
+            varying vec2 vUv;
+            void main() {
+                vec2 texCoord = vUv * uTextureSize;
+                vec4 color = texture2D(uTexture, texCoord / uTextureSize);
+                gl_FragColor = color;
+            }
+        `
+    });
+
+    // Recorrer la escena y reemplazar los materiales de los objetos
+    scene.traverse((child) => {
+        if (child.isMesh) {
+            child.material = material;
+        }
+    });
+}
 
   // Krpano methods
   resolve_url_path(url) {
