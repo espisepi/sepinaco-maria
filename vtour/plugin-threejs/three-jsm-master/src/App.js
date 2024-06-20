@@ -190,7 +190,9 @@ class App {
   }
 
   update() {
-    this.videoPoints.update();
+    if(this.videoPoints) {
+      this.videoPoints.update();
+    }
   }
 }
 
