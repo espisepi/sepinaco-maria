@@ -561,4 +561,7 @@
 	<plugin name="threejs" url="plugin-threejs/three.krpanoplugin.threejsm.js" keep="true" />
 
 
+    <!-- Include your custom shader -->
+    <!-- <plugin name="particles_shader" url="videopointsPlugin.js" keep="true"/> -->
+
 </krpano>
