@@ -137,7 +137,7 @@
         
         <control bouncinglimits="calc:image.cube ? true : false" />
 
-        <view hlookat="118.15751940681483" vlookat="2.5043904017556424" fov="99.82991670250983" fovtype="MFOV" maxpixelzoom="2.0"  />
+        <view hlookat="119.5956898359671" vlookat="13.954128089007272" fov="67.34103672188499" fovtype="MFOV" maxpixelzoom="2.0" fovmin="70" fovmax="67.34103672188499" limitview="auto" />
 
         <preview url="panos/cabina.tiles/preview.jpg" />
 
@@ -586,9 +586,24 @@
     <!-- Definir la acción para reproducir el sonido y mostrar los hotspots -->
     <action name="play_papel">
         playsound(omega, 'recursos/audio/omega.mp3');
-        delayedcall(15, set(hotspot[hotspot1].visible, true));
-        delayedcall(20, set(hotspot[hotspot2].visible, true));
-        delayedcall(23, set(hotspot[hotspot3].visible, true));
+        delayedcall(1, set(hotspot[hotspot1].visible, true));
+        delayedcall(5, set(hotspot[hotspot3].visible, true));
+        delayedcall(10, set(hotspot[tirao].visible, true));
+        delayedcall(11, set(hotspot[pizza].visible, true));
+        delayedcall(11, set(hotspot[yo].visible, true));
+
+        delayedcall(13, set(hotspot[espisepi].visible, true));
+        delayedcall(14, set(hotspot[niña].visible, true));
+        delayedcall(14, set(hotspot[calvo].visible, true));
+        delayedcall(16, set(hotspot[petertranny].visible, true));
+        delayedcall(17, set(hotspot[amparo].visible, true));
+         delayedcall(18, set(hotspot[noe].visible, true));
+        
+        delayedcall(19, set(hotspot[mesa].visible, true));
+        delayedcall(20, set(hotspot[fiat].visible, true));
+        delayedcall(21, set(hotspot[amparo2].visible, true));
+        delayedcall(21, set(hotspot[hotspot2].visible, true));
+        
     </action>
 
     
@@ -603,10 +618,215 @@
         </image>
 
         <!-- Hotspots -->
-        <hotspot name="hotspot1" url="recursos/imagen/movil.png" ath="-134.8556248485831" atv="4.902570911306532" scale="0.2899999999999998" rx="0" ry="0" rz="0" visible="false" distorted="true" chromakey="0x02FD03|1.4|0.0" />
-        <hotspot name="hotspot2" url="recursos/imagen/movil_apagado.png" ath="-91.35641009967009" atv="9.691576181257602" scale="0.3899999999999999" rx="0" ry="-0.5" rz="0" visible="false" distorted="true" chromakey="0x02FD03|1.4|0.0" />
-        <hotspot name="hotspot3" url="recursos/imagen/movil_llamada.png" ath="-44.33297195856261" atv="7.00674093552712" scale="0.19999999999999973" rx="0" ry="0" rz="0" visible="false" distorted="true" chromakey="0x02FD03|1.4|0.0" />
+        <hotspot name="hotspot1" 
+                 url.html5="plugins/videoplayer.js"
+                 url.flash="plugins/videoplayer.swf"
+                 videourl="recursos/video/cartel1.mp4"
+                 ath="-119.11597588747159" atv="1.3578265027879997" scale="0.16990000000000305" rx="-0.300000000000013" ry="27.65000000000045" rz="-0.10000000000000141"
+                 width="1920"
+                 height="1080"
+                 alpha="1"
+                 chromakey="0x00ff00|1.5|0.15"
+                 distorted="true"
+                 zorder="0"
+                 visible="true"
+                 pausedonstart="false"
+                 loop="true"
+                 volume="1.0"
+                 directionalsound="true"
+                 range="90.0"
+                 rangefalloff="1.0"
+                 outofrangevolume="0.0"
+                 onhover=""
+                 onclick="if(ismedia.paused(hotspot[rata].videourl) == true,
+                        playmedia(hotspot[rata].videourl); playmedia(hotspot[portal].videourl),
+                        pausemedia(hotspot[rata].videourl); pausemedia(hotspot[portal].videourl)
+                    );"
+                 onvideocomplete="set(hotspot[movil_apagado].visible, true); set(hotspot[movil].visible, false); pausevideo(manolo); set(hotspot[play_movil].capture, false);"
+                 onerror=""
+                 handcursor="false"
+                 capture="false">
+        </hotspot>
 
+        <hotspot name="petertranny" 
+                 url.html5="plugins/videoplayer.js"
+                 url.flash="plugins/videoplayer.swf"
+                 videourl="recursos/video/petertranny.mp4"
+                 ath="78.0070890647396" atv="10.983277869440519" scale="0.08990000000000298" rx="8" ry="1.250000000000444" rz="1.7500000000000184"
+                 width="1920"
+                 height="1080"
+                 alpha="1"
+                 chromakey="0x00ff00|1.5|0.15"
+                 distorted="true"
+                 zorder="0"
+                 visible="true"
+                 pausedonstart="false"
+                 loop="true"
+                 volume="1.0"
+                 directionalsound="true"
+                 range="90.0"
+                 rangefalloff="1.0"
+                 outofrangevolume="0.0"
+                 onhover=""
+                 onclick="if(ismedia.paused(hotspot[rata].videourl) == true,
+                        playmedia(hotspot[rata].videourl); playmedia(hotspot[portal].videourl),
+                        pausemedia(hotspot[rata].videourl); pausemedia(hotspot[portal].videourl)
+                    );"
+                 onvideocomplete="set(hotspot[movil_apagado].visible, true); set(hotspot[movil].visible, false); pausevideo(manolo); set(hotspot[play_movil].capture, false);"
+                 onerror=""
+                 handcursor="false"
+                 capture="false">
+        </hotspot>
+
+        <hotspot name="hotspot2" 
+        url="recursos/imagen/portal_menu.png" 
+        ath="179.9397890178019" atv="0.9180821655563322" scale="0.2024000000000017" rx="0" ry="-0.5" rz="0" 
+        visible="false" 
+        distorted="true" 
+        chromakey="0x02FD03|1.4|0.0" 
+        capture="false" 
+        handcursor="false" />
+
+        <hotspot name="espisepi" 
+        url="recursos/imagen/espisepi.jpg" 
+        ath="23.37013693326685" atv="0.5965085479160409" scale="0.0828000000000024" rx="-0.300000000000013" ry="-21.599999999999916" rz="0"
+        visible="false" 
+        distorted="true" 
+        chromakey="0x02FD03|1.4|0.0" 
+        capture="false" 
+        handcursor="false" />
+
+        <hotspot name="niña" 
+        url="recursos/imagen/niña.png" 
+        ath="41.01448946437961" atv="-0.19462440498047065" scale="0.27280000000000254" rx="-0.300000000000013" ry="156.9000000000001" rz="0"
+        visible="false" 
+        distorted="true" 
+        chromakey="0x000000|1.4|0.0" 
+        capture="true" 
+        handcursor="true" />
+
+        <hotspot name="calvo" 
+        url="recursos/imagen/calvo.png" 
+        ath="47.56101306319289" atv="-1.2344755249164485" scale="0.3328000000000026" rx="0" ry="-150" rz="0"
+        visible="false" 
+        distorted="true" 
+        chromakey="0x000000|1.4|0.0" 
+        capture="true" 
+        handcursor="true" />
+
+
+        <hotspot name="tirao" 
+        url="recursos/imagen/tirao.png" 
+        ath="-22.843031525666447" atv="2.3210712288185444" scale="0.512400000000002" rx="0" ry="7.5" rz="0"
+        visible="false" 
+        distorted="true" 
+        chromakey="0x000000|1.4|0.0" 
+        capture="true" 
+        handcursor="true" />
+
+        <hotspot name="yo" 
+        url="recursos/imagen/yo.png" 
+        ath="-6.452359196874454" atv="-2.381909488916584" scale="0.4228000000000027" rx="-0.300000000000013" ry="-384.5999999999999" rz="0"
+        visible="false" 
+        distorted="true" 
+        chromakey="0x000000|1.4|0.0" 
+        capture="true" 
+        handcursor="true" />
+
+        <hotspot name="noe" 
+        url="recursos/imagen/noe.png" 
+        ath="159.32909423733992" atv="0.4636640688262456" scale="0.27280000000000254" rx="-0.300000000000013" ry="193.9000000000001" rz="0.34999999999999853"
+        visible="false" 
+        distorted="true" 
+        chromakey="0x000000|1.4|0.0" 
+        capture="true" 
+        handcursor="true" />
+
+        <hotspot name="amparo2" 
+        url="recursos/imagen/amparo2.png" 
+        ath="171.45046645882405" atv="0.6145810524175929" scale="0.24740000000000478" rx="0.1499999999999997" ry="-5.500000000000066" rz="0"
+        visible="false" 
+        distorted="true"
+        zorder="999" 
+        chromakey="0x02FD03|1.4|0.0" 
+        capture="true" 
+        handcursor="true" />
+
+        <hotspot name="fiat" 
+        url="recursos/imagen/fiat.png" 
+        ath="167.54574349493933" atv="11.1236769561536" scale="0.8524000000000023" rx="0" ry="-0.5" rz="0"
+        visible="false" 
+        distorted="true" 
+        chromakey="0x000000|1.4|0.0" 
+        capture="true" 
+        handcursor="true" />
+
+        <hotspot name="pizza" 
+        url="recursos/imagen/pizza.png" 
+        ath="-17.832407890735908" atv="13.634459634633824" scale="0.4928000000000027" rx="-51.749999999999844" ry="-3.59999999999991" rz="0.5"
+        visible="false" 
+        distorted="true" 
+        chromakey="0x000000|1.4|0.0" 
+        capture="true" 
+        handcursor="true" />
+
+        <hotspot name="mesa" 
+        url="recursos/imagen/mesa.png" 
+        ath="139.384876668117" atv="23.11807049392344" scale="0.6428000000000028" rx="-38.95000000000004" ry="167.4000000000001" rz="-2.7499999999999982"
+        visible="false" 
+        distorted="true" 
+        chromakey="0x000000|1.4|0.0" 
+        capture="true" 
+        handcursor="true" />
+
+        <hotspot name="amparo" 
+        url="recursos/imagen/amparo.png" 
+        ath="87.78679927151427" atv="7.569863639308364" scale="0.31760000000000427" rx="0" ry="208" rz="0"
+        visible="false" 
+        distorted="true" 
+        chromakey="0x000000|1.4|0.0" 
+        capture="true" 
+        handcursor="true" />
+
+
+
+
+        <!-- <hotspot name="hotspot3" url="recursos/imagen/movil_llamada.png" ath="-44.33297195856261" atv="7.00674093552712" scale="0.19999999999999973" rx="0" ry="0" rz="0" visible="false" distorted="true" chromakey="0x02FD03|1.4|0.0" /> -->
+
+        
+
+        <!-- Hotspot con el video de holaquetal -->
+        <hotspot name="hotspot3"
+                 url.html5="plugins/videoplayer.js"
+                 url.flash="plugins/videoplayer.swf"
+                 videourl="recursos/video/lsp.mp4"
+                 ath="-50.81618220151449" atv="-0.7866442622842865" scale="0.3136000000000022" rx="-0.300000000000013" ry="-45.649999999999594" rz="0"
+                 width="1920"
+                 height="1080"
+                 alpha="1"
+                 chromakey="0x00ff00|1.5|0.15"
+                 distorted="true"
+                 zorder="0"
+                 visible="true"
+                 pausedonstart="false"
+                 loop="true"
+                 volume="1.0"
+                 directionalsound="true"
+                 range="90.0"
+                 rangefalloff="1.0"
+                 outofrangevolume="0.0"
+                 onhover=""
+                 onclick="if(ismedia.paused(hotspot[rata].videourl) == true,
+                        playmedia(hotspot[rata].videourl); playmedia(hotspot[portal].videourl),
+                        pausemedia(hotspot[rata].videourl); pausemedia(hotspot[portal].videourl)
+                    );"
+                 onvideocomplete="set(hotspot[movil_apagado].visible, true); set(hotspot[movil].visible, false); pausevideo(manolo); set(hotspot[play_movil].capture, false);"
+                 onerror=""
+                 handcursor="false"
+                 capture="false">
+        </hotspot>
+<!-- Hotspot con el video de vasamorir -->
+        
 
         <!-- Botón de inicio
         <layer name="start_button" url="recursos/imagen/clickstart.png" align="center" onclick="play_papel(); removelayer(start_button);" visible="true" />
