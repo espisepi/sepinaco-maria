@@ -10,9 +10,6 @@
     <include url="toolbox/toolbox.xml" />
 
 
-    
-
-
     <!-- customize skin settings: maps, gyro, webvr, thumbnails, tooltips, layout, design, ... -->
     <skin_settings maps="false"
                    maps_type="google"
@@ -135,6 +132,7 @@
     
 
 
+
     <scene name="scene_cabina" title="cabina" onstart="js(juego.updateHotspotText());" thumburl="panos/cabina.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
         
         <control bouncinglimits="calc:image.cube ? true : false" />
@@ -218,6 +216,7 @@
                  chromakey="0x00ff00|1.5|0.15"
                  distorted="true"
                  zorder="0"
+                 depth="1000"
                  visible="false"
                  pausedonstart="false"
                  loop="false"
@@ -241,7 +240,9 @@
                  chromakey="0x02FD03|1.4|0.0"
                  handcursor="true"
                  capture="true"
-                 visible="true">
+                 visible="true"
+                  zorder="0"
+             depth="1000">
             <style>chromakey</style>
         </hotspot>
 
@@ -539,6 +540,7 @@
                  chromakey="0x00ff00|0.99|0.99"
                  distorted="true"
                  zorder="0"
+                 depth="1000"
                  pausedonstart="false"
                  loop="false"
                  volume="1.0"
@@ -566,14 +568,49 @@
         </image>
     </scene>
 
-    <scene name="scene_papel" title="papel" onstart="" thumburl="panos/papel.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
-        <autorotate enabled="true" waittime="0.5" speed="5.0" horizon="0.0" />
+
+
+    <!-- Cargar el plugin soundinterface -->
+    <plugin name="soundinterface"
+        url="plugins/soundinterface.js"
+        preload="true"
+        rootpath=""
+        volume="1.0"
+        mute="false"
+        panningmodel="simple"
+        worldscale="1.0"
+        autopause="true"
+        autounlock="true"
+        />
+
+    <!-- Definir la acción para reproducir el sonido y mostrar los hotspots -->
+    <action name="play_papel">
+        playsound(omega, 'recursos/audio/omega.mp3');
+        delayedcall(15, set(hotspot[hotspot1].visible, true));
+        delayedcall(20, set(hotspot[hotspot2].visible, true));
+        delayedcall(23, set(hotspot[hotspot3].visible, true));
+    </action>
+
+    
+
+    <scene name="scene_papel" title="papel" onstart="play_papel();" thumburl="panos/papel.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+        <autorotate enabled="true" waittime="0.1" speed="8.0" horizon="0.0" />
         <control bouncinglimits="calc:image.cube ? true : false" />
-        <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+        <view hlookat="-179.51314218265009" vlookat="1.083414593901949" fov="90" fovtype="MFOV" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
         <preview url="panos/papel.tiles/preview.jpg" />
         <image>
             <cube url="panos/papel.tiles/pano_%s.jpg" />
         </image>
+
+        <!-- Hotspots -->
+        <hotspot name="hotspot1" url="recursos/imagen/movil.png" ath="-134.8556248485831" atv="4.902570911306532" scale="0.2899999999999998" rx="0" ry="0" rz="0" visible="false" distorted="true" chromakey="0x02FD03|1.4|0.0" />
+        <hotspot name="hotspot2" url="recursos/imagen/movil_apagado.png" ath="-91.35641009967009" atv="9.691576181257602" scale="0.3899999999999999" rx="0" ry="-0.5" rz="0" visible="false" distorted="true" chromakey="0x02FD03|1.4|0.0" />
+        <hotspot name="hotspot3" url="recursos/imagen/movil_llamada.png" ath="-44.33297195856261" atv="7.00674093552712" scale="0.19999999999999973" rx="0" ry="0" rz="0" visible="false" distorted="true" chromakey="0x02FD03|1.4|0.0" />
+
+
+        <!-- Botón de inicio
+        <layer name="start_button" url="recursos/imagen/clickstart.png" align="center" onclick="play_papel(); removelayer(start_button);" visible="true" />
+     -->
     </scene>
 
 
