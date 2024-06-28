@@ -233,7 +233,7 @@
 <!-- Hotspot con imagen de ventana aula futuro -->
         <hotspot name="ventana"
                  url="recursos/imagen/ventana.png"
-                 ath="148.11568582378732" atv="0.389782586024037" scale="0.5186999999999794" rx="0.7999999999999994" ry="10.699999999999982" rz="0"
+                 ath="148.11568559591086" atv="0.38978257296514146" scale="1.7304999999999588" rx="0.7999999999999994" ry="10.699999999999982" rz="0"
                  width="1141"
                  height="584"
                  distorted="true"
@@ -242,7 +242,7 @@
                  capture="true"
                  visible="true"
                   zorder="0"
-             depth="1500">
+             depth="5000">
             <style>chromakey</style>
         </hotspot>
 
@@ -501,7 +501,7 @@
                  capture="false">
         </hotspot>
 
-        <hotspot name="humo"
+        <!-- <hotspot name="humo"
                  url.html5="plugins/videoplayer.js"
                  url.flash="plugins/videoplayer.swf"
                  videourl="recursos/video/humo.mp4"
@@ -526,7 +526,7 @@
                  visible="true"
                  handcursor="false"
                  capture="false">
-        </hotspot>
+        </hotspot> -->
 
         <!-- Hotspot con el video cristal_roto -->
         <hotspot name="cristal_roto"
