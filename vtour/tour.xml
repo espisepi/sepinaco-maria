@@ -242,7 +242,7 @@
                  capture="true"
                  visible="true"
                   zorder="0"
-             depth="1000">
+             depth="2000">
             <style>chromakey</style>
         </hotspot>
 
