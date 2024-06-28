@@ -9,6 +9,10 @@
     <include url="skin/vtourskin.xml" />
     <include url="toolbox/toolbox.xml" />
 
+
+    
+
+
     <!-- customize skin settings: maps, gyro, webvr, thumbnails, tooltips, layout, design, ... -->
     <skin_settings maps="false"
                    maps_type="google"
@@ -127,6 +131,9 @@
             tween(layer[intro_start].alpha,1);
         );
     </action>
+
+    
+
 
     <scene name="scene_cabina" title="cabina" onstart="js(juego.updateHotspotText());" thumburl="panos/cabina.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
         
@@ -560,6 +567,7 @@
     </scene>
 
     <scene name="scene_papel" title="papel" onstart="" thumburl="panos/papel.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+        <autorotate enabled="true" waittime="0.5" speed="5.0" horizon="0.0" />
         <control bouncinglimits="calc:image.cube ? true : false" />
         <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
         <preview url="panos/papel.tiles/preview.jpg" />
