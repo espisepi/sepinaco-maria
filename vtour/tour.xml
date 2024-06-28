@@ -233,7 +233,7 @@
 <!-- Hotspot con imagen de ventana aula futuro -->
         <hotspot name="ventana"
                  url="recursos/imagen/ventana.png"
-                 ath="148.11568536485441" atv="0.38978257755823204" scale="0.3817999999999945" rx="0.7999999999999994" ry="10.699999999999982" rz="0"
+                 ath="148.11568582378732" atv="0.389782586024037" scale="0.5186999999999794" rx="0.7999999999999994" ry="10.699999999999982" rz="0"
                  width="1141"
                  height="584"
                  distorted="true"
