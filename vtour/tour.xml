@@ -137,7 +137,7 @@
         
         <control bouncinglimits="calc:image.cube ? true : false" />
 
-        <view hlookat="119.5956898359671" vlookat="13.954128089007272" fov="67.34103672188499" fovtype="MFOV" maxpixelzoom="2.0" fovmin="70" fovmax="67.34103672188499" limitview="auto" />
+        <view hlookat="118.15751940681483" vlookat="2.5043904017556424" fov="99.82991670250983" fovtype="MFOV" maxpixelzoom="2.0"  />
 
         <preview url="panos/cabina.tiles/preview.jpg" />
 
