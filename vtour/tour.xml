@@ -799,7 +799,7 @@
         <hotspot name="hotspot3"
                  url.html5="plugins/videoplayer.js"
                  url.flash="plugins/videoplayer.swf"
-                 videourl="recursos/video/lsp.mp4"
+                 videourl="recursos/video/@emocionarte1.mp4"
                  ath="-50.81618220151449" atv="-0.7866442622842865" scale="0.3136000000000022" rx="-0.300000000000013" ry="-45.649999999999594" rz="0"
                  width="1920"
                  height="1080"
