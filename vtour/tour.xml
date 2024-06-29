@@ -220,7 +220,7 @@
                  visible="false"
                  pausedonstart="false"
                  loop="false"
-                 volume="1.0"
+                 volume="0.0"
                  directionalsound="true"
                  range="90.0"
                  rangefalloff="1.0"
@@ -706,8 +706,8 @@
         visible="false" 
         distorted="true" 
         chromakey="0x000000|1.4|0.0" 
-        capture="true" 
-        handcursor="true" />
+        capture="false" 
+        handcursor="false" />
 
         <hotspot name="calvo" 
         url="recursos/imagen/calvo.png" 
@@ -715,8 +715,8 @@
         visible="false" 
         distorted="true" 
         chromakey="0x000000|1.4|0.0" 
-        capture="true" 
-        handcursor="true" />
+        capture="false" 
+        handcursor="false" />
 
 
         <hotspot name="tirao" 
@@ -725,8 +725,8 @@
         visible="false" 
         distorted="true" 
         chromakey="0x000000|1.4|0.0" 
-        capture="true" 
-        handcursor="true" />
+        capture="false" 
+        handcursor="false" />
 
         <hotspot name="yo" 
         url="recursos/imagen/yo.png" 
@@ -734,8 +734,8 @@
         visible="false" 
         distorted="true" 
         chromakey="0x000000|1.4|0.0" 
-        capture="true" 
-        handcursor="true" />
+        capture="false" 
+        handcursor="false" />
 
         <hotspot name="noe" 
         url="recursos/imagen/noe.png" 
@@ -743,8 +743,8 @@
         visible="false" 
         distorted="true" 
         chromakey="0x000000|1.4|0.0" 
-        capture="true" 
-        handcursor="true" />
+        capture="false" 
+        handcursor="false" />
 
         <hotspot name="amparo2" 
         url="recursos/imagen/amparo2.png" 
@@ -753,8 +753,8 @@
         distorted="true"
         zorder="999" 
         chromakey="0x02FD03|1.4|0.0" 
-        capture="true" 
-        handcursor="true" />
+        capture="false" 
+        handcursor="false" />
 
         <hotspot name="fiat" 
         url="recursos/imagen/fiat.png" 
@@ -762,8 +762,8 @@
         visible="false" 
         distorted="true" 
         chromakey="0x000000|1.4|0.0" 
-        capture="true" 
-        handcursor="true" />
+        capture="false" 
+        handcursor="false" />
 
         <hotspot name="pizza" 
         url="recursos/imagen/pizza.png" 
@@ -771,8 +771,8 @@
         visible="false" 
         distorted="true" 
         chromakey="0x000000|1.4|0.0" 
-        capture="true" 
-        handcursor="true" />
+        capture="false" 
+        handcursor="false" />
 
         <hotspot name="mesa" 
         url="recursos/imagen/mesa.png" 
@@ -780,8 +780,8 @@
         visible="false" 
         distorted="true" 
         chromakey="0x000000|1.4|0.0" 
-        capture="true" 
-        handcursor="true" />
+        capture="false" 
+        handcursor="false" />
 
         <hotspot name="amparo" 
         url="recursos/imagen/amparo.png" 
@@ -789,8 +789,8 @@
         visible="false" 
         distorted="true" 
         chromakey="0x000000|1.4|0.0" 
-        capture="true" 
-        handcursor="true" />
+        capture="false" 
+        handcursor="false" />
 
 
 
@@ -854,8 +854,8 @@
                  onclick=""
                  onvideocomplete=""
                  onerror=""
-                 handcursor="true"
-                 capture="true">
+                 handcursor="false"
+                 capture="false">
         </hotspot>
 
 <!-- Hotspot con el video de letra2 -->
@@ -882,8 +882,8 @@
                  onclick=""
                  onvideocomplete=""
                  onerror=""
-                 handcursor="true"
-                 capture="true">
+                 handcursor="false"
+                 capture="false">
         </hotspot>
 
         <!-- Hotspot con el video de letra3 -->
@@ -910,8 +910,8 @@
                  onclick=""
                  onvideocomplete=""
                  onerror=""
-                 handcursor="true"
-                 capture="true">
+                 handcursor="false"
+                 capture="false">
         </hotspot>
 
         <!-- Hotspot con el video de letra4 -->
@@ -938,8 +938,8 @@
                  onclick=""
                  onvideocomplete=""
                  onerror=""
-                 handcursor="true"
-                 capture="true">
+                 handcursor="false"
+                 capture="false">
         </hotspot>
 
        
