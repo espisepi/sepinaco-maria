@@ -744,7 +744,7 @@
 
         <hotspot name="amparo2" 
         url="recursos/imagen/amparo2.png" 
-        ath="171.45046645882405" atv="0.6145810524175929" scale="0.24740000000000478" rx="0.1499999999999997" ry="-5.500000000000066" rz="0"
+        ath="170.74183756660517" atv="1.7483893927660696" scale="0.24740000000000478" rx="0.1499999999999997" ry="-5.500000000000066" rz="0"
         visible="false" 
         distorted="true"
         zorder="999" 
@@ -754,7 +754,7 @@
 
         <hotspot name="fiat" 
         url="recursos/imagen/fiat.png" 
-        ath="167.54574349493933" atv="11.1236769561536" scale="0.8524000000000023" rx="0" ry="-0.5" rz="0"
+        ath="170.7678042904887" atv="10.664891947677017" scale="0.8778999999999995" rx="9.750000000000005" ry="-23.349999999999977" rz="0"
         visible="false" 
         distorted="true" 
         chromakey="0x000000|1.4|0.0" 
