@@ -588,19 +588,23 @@
         playsound(omega, 'recursos/audio/omega.mp3');
         delayedcall(1, set(hotspot[hotspot1].visible, true));
         delayedcall(5, set(hotspot[hotspot3].visible, true));
+        delayedcall(1, set(hotspot[letra1].visible, true));
         delayedcall(10, set(hotspot[tirao].visible, true));
         delayedcall(11, set(hotspot[pizza].visible, true));
         delayedcall(11, set(hotspot[yo].visible, true));
 
         delayedcall(13, set(hotspot[espisepi].visible, true));
+        delayedcall(1, set(hotspot[letra2].visible, true));
         delayedcall(14, set(hotspot[niña].visible, true));
         delayedcall(14, set(hotspot[calvo].visible, true));
         delayedcall(16, set(hotspot[petertranny].visible, true));
         delayedcall(17, set(hotspot[amparo].visible, true));
+        delayedcall(1, set(hotspot[letra3].visible, true));
          delayedcall(18, set(hotspot[noe].visible, true));
         
         delayedcall(19, set(hotspot[mesa].visible, true));
         delayedcall(20, set(hotspot[fiat].visible, true));
+        delayedcall(1, set(hotspot[letra4].visible, true));
         delayedcall(21, set(hotspot[amparo2].visible, true));
         delayedcall(21, set(hotspot[hotspot2].visible, true));
         
@@ -825,6 +829,120 @@
                  handcursor="false"
                  capture="false">
         </hotspot>
+
+        <!-- Hotspot con el video de letra1 -->
+        <hotspot name="letra1"
+                 url.html5="plugins/videoplayer.js"
+                 url.flash="plugins/videoplayer.swf"
+                 videourl="recursos/video/letra1.mp4"
+                 ath="-55.46968151767072" atv="17.067413613791068" scale="0.3136000000000022" rx="-0.300000000000013" ry="-45.649999999999594" rz="0"
+                 width="1920"
+                 height="1080"
+                 alpha="1"
+                 chromakey="0x00ff00|1.5|0.15"
+                 distorted="true"
+                 zorder="0"
+                 visible="true"
+                 pausedonstart="false"
+                 loop="true"
+                 volume="0.0"
+                 directionalsound="true"
+                 range="90.0"
+                 rangefalloff="1.0"
+                 outofrangevolume="0.0"
+                 onhover=""
+                 onclick=""
+                 onvideocomplete=""
+                 onerror=""
+                 handcursor="true"
+                 capture="true">
+        </hotspot>
+
+<!-- Hotspot con el video de letra2 -->
+        <hotspot name="letra2"
+                 url.html5="plugins/videoplayer.js"
+                 url.flash="plugins/videoplayer.swf"
+                 videourl="recursos/video/letra2.mp4"
+                 ath="19.40082310382934" atv="14.660209350359764" scale="0.1936000000000021" rx="-43.80000000000001" ry="-2.4999999999996048" rz="1.0499999999999963"
+                 width="1920"
+                 height="1080"
+                 alpha="1"
+                 chromakey="0x00ff00|1.5|0.15"
+                 distorted="true"
+                 zorder="0"
+                 visible="true"
+                 pausedonstart="false"
+                 loop="true"
+                 volume="0.0"
+                 directionalsound="true"
+                 range="90.0"
+                 rangefalloff="1.0"
+                 outofrangevolume="0.0"
+                 onhover=""
+                 onclick=""
+                 onvideocomplete=""
+                 onerror=""
+                 handcursor="true"
+                 capture="true">
+        </hotspot>
+
+        <!-- Hotspot con el video de letra3 -->
+        <hotspot name="letra3"
+                 url.html5="plugins/videoplayer.js"
+                 url.flash="plugins/videoplayer.swf"
+                 videourl="recursos/video/letra3.mp4"
+                 ath="124.62954166592442" atv="2.6187679034112668" scale="0.1891000000000015" rx="13.900000000000022" ry="-30.59999999999989" rz="5.450000000000023"
+                 width="1920"
+                 height="1080"
+                 alpha="1"
+                 chromakey="0x00ff00|1.5|0.15"
+                 distorted="true"
+                 zorder="0"
+                 visible="true"
+                 pausedonstart="false"
+                 loop="true"
+                 volume="0.0"
+                 directionalsound="true"
+                 range="90.0"
+                 rangefalloff="1.0"
+                 outofrangevolume="0.0"
+                 onhover=""
+                 onclick=""
+                 onvideocomplete=""
+                 onerror=""
+                 handcursor="true"
+                 capture="true">
+        </hotspot>
+
+        <!-- Hotspot con el video de letra4 -->
+        <hotspot name="letra4"
+                 url.html5="plugins/videoplayer.js"
+                 url.flash="plugins/videoplayer.swf"
+                 videourl="recursos/video/letra4.mp4"
+                 ath="-166.52862021316093" atv="-17.872150118234064" scale="0.2786000000000022" rx="59.19999999999999" ry="20.350000000000406" rz="-19"
+                 width="1920"
+                 height="1080"
+                 alpha="1"
+                 chromakey="0x00ff00|1.5|0.15"
+                 distorted="true"
+                 zorder="0"
+                 visible="true"
+                 pausedonstart="false"
+                 loop="true"
+                 volume="0.0"
+                 directionalsound="true"
+                 range="90.0"
+                 rangefalloff="1.0"
+                 outofrangevolume="0.0"
+                 onhover=""
+                 onclick=""
+                 onvideocomplete=""
+                 onerror=""
+                 handcursor="true"
+                 capture="true">
+        </hotspot>
+
+       
 <!-- Hotspot con el video de vasamorir -->
         
 
