@@ -79,7 +79,7 @@
 
 
 	
-	<layer name= "CreditosSIE" url="creditosSIE.jpg" keep= "true" scale="0.5"
+	<!-- <layer name= "CreditosSIE" url="creditosSIE.jpg" keep= "true" scale="0.5"
 		enebled="true"
 		alpha="0.8"
 		onclick="openurl(https://grupo.us.es/gidus/)"
@@ -94,9 +94,9 @@
 		onclick="openurl(https://grupo.us.es/gidus/)"
 		align="topright"
 		edge="topright"
-		x="10" y="10" />
+		x="10" y="10" /> -->
 	
-	<layer name= "logo_USC" url="home.png" keep= "true" scale="0.15"
+	<!-- <layer name= "logo_USC" url="home.png" keep= "true" scale="0.15"
 		enebled="true"
 		alpha="1"
 		onclick="openurl(https://www.usc.gal/es)"
@@ -111,7 +111,7 @@
 		onclick="openurl(https://www.usc.gal/es)"
 		align="topleft"
 		edge="topleft"
-		x="10" y="10" />
+		x="10" y="10" /> -->
 
 	<layer name="intro"
 			type="container"
@@ -127,15 +127,15 @@
 			onclick="on_intro_click()"
 			>
 
-		<layer name="intro_logo" 
+		<!-- <layer name="intro_logo" 
 			enabled="false"
 			alpha="0"
-			url= "gidUSC.png" align="center" y="-80" scale="0.1" />
+			url= "gidUSC.png" align="center" y="-80" scale="0.1" /> -->
 			
 		<layer name="intro_start" url= "clickstart.png"
 			enabled="false"
 			alpha="0"
-			align="center" y="80" scale="0.4" />
+			align="center" y="10" scale="1.0" />
 
 		<layer name="intro_start" url= "clickstart_mobile.png"
 			devices="mobile" 
@@ -371,9 +371,11 @@
     <!-- Definir la acción para reproducir el sonido y mostrar los hotspots -->
 	   <!-- Definir las acciones -->
     <action name="play_papel">
-        delayedcall(0, startVideo1());
-		delayedcall(4, startVideo2());
-		delayedcall(8, startVideo3());
+        delayedcall(3, startVideo1());
+		delayedcall(6.3, startVideo2());
+		delayedcall(18.8, startVideo3());
+		delayedcall(26.17, startVideo4());
+		delayedcall(34, startVideo5());
     </action>
     
     <action name="startVideo1">
@@ -391,6 +393,23 @@
 		hotspot[i3].play();
 		set(hotspot[i3].visible, true);
     </action>
+	<action name="startVideo4">
+        set(hotspot[i4].pausedonstart, false);
+		hotspot[i4].play();
+		set(hotspot[i4].visible, true);
+    </action>
+	<action name="startVideo5">
+	    set(hotspot[i5].pausedonstart, false);
+		hotspot[i5].play();
+		set(hotspot[i5].visible, true);
+    </action>
+	<!-- <action name="startVideo6">
+	    set(hotspot[i6].pausedonstart, false);
+		hotspot[i6].play();
+		set(hotspot[i6].visible, true);
+    </action> -->
+
+
     <!-- <action name="play_papel"> -->
         <!-- playsound(aulasfuturo, 'recursos/audio/aulasfuturo.mp3'); -->
         <!-- delayedcall(3, set(hotspot[i1].play, true));
@@ -438,9 +457,9 @@
 
 
 	<scene name="scene_papel" title="papel" onstart="play_papel();" thumburl="panos/papel.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
-        <autorotate enabled="false" waittime="0.5" speed="1.0" horizon="0.0" />
+        <autorotate enabled="true" waittime="9.3" speed="0.9" horizon="0.0" />
 		<control bouncinglimits="calc:image.cube ? true : false" />
-        <view hlookat="1.6361793606421329" vlookat="0.18442449326715848" fov="56.907548271146155" fovtype="MFOV" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+        <view hlookat="1.6361793606421329" vlookat="0.18442449326715848" fov="69.60905805771031" fovtype="MFOV" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
         <preview url="panos/papel.tiles/preview.jpg" />
         <image>
             <cube url="panos/papel.tiles/pano_%s.jpg" />
@@ -451,7 +470,7 @@
                  url.html5="plugins/videoplayer.js"
                  url.flash="plugins/videoplayer.swf"
                  videourl="recursos/video/i1.mp4"
-                 ath="0.718730637524061" atv="-3.0211470912892002" scale="0.1389000000000048" rx="1.2499999999997584" ry="3.050000000000164" rz="0.25"
+                 ath="-8.998208084425642" atv="-2.424764347374014" scale="0.1389000000000048" rx="1.2499999999997584" ry="3.050000000000164" rz="0.25"
                  width="1920"
                  height="1080"
                  alpha="1"
@@ -478,7 +497,7 @@
                  url.html5="plugins/videoplayer.js"
                  url.flash="plugins/videoplayer.swf"
                  videourl="recursos/video/i2.mp4"
-                 ath="1.7711967274124163" atv="4.034378349113928" scale="0.19960000000000294" rx="0" ry="0" rz="0.14999999999999505"
+                 ath="-8.639481199975535" atv="4.511947381340536" scale="0.19960000000000294" rx="0" ry="4.349999999999993" rz="1.149999999999995"
                  width="1920"
                  height="1080"
                  alpha="1"
@@ -505,7 +524,7 @@
                  url.html5="plugins/videoplayer.js"
                  url.flash="plugins/videoplayer.swf"
                  videourl="recursos/video/i3.mp4"
-                 ath="33.57162016346871" atv="3.680981741453779" scale="0.14059999999999723" rx="0.05000000000006821" ry="-6.1999999999996405" rz="1.5000000000000004"
+                 ath="22.16108640730272" atv="2.846994016439972" scale="0.14059999999999723" rx="0.05000000000006821" ry="-6.1999999999996405" rz="1.5000000000000004"
                  width="1920"
                  height="1080"
                  alpha="1"
@@ -532,7 +551,7 @@
                  url.html5="plugins/videoplayer.js"
                  url.flash="plugins/videoplayer.swf"
                  videourl="recursos/video/i4.mp4"
-                 ath="37.17518445593629" atv="20.672330696802423" scale="0.259700000000005" rx="-38.950000000000045" ry="-8.549999999999667" rz="-10.000000000000014"
+                 ath="32.74222057865887" atv="16.711309811320447" scale="0.18470000000000492" rx="-38.950000000000045" ry="-8.549999999999667" rz="-10.000000000000014"
                  width="1920"
                  height="1080"
                  alpha="1"
@@ -559,7 +578,7 @@
                  url.html5="plugins/videoplayer.js"
                  url.flash="plugins/videoplayer.swf"
                  videourl="recursos/video/i5.mp4"
-                 ath="85.20334356584874" atv="0.26276898164517265" scale="0.11600000000000267" rx="4.5499999999999545" ry="2.8000000000003666" rz="-1.3836154444391013e-14"
+                 ath="65.01041585371956" atv="0.8864636799173125" scale="0.15130000000000002" rx="0.20000000000000034" ry="23.250000000000313" rz="-0.050000000000034295"
                  width="1920"
                  height="1080"
                  alpha="1"
@@ -651,7 +670,7 @@
         </image>
 
 		<!-- Hotspot con el video de manolo -->
-        <hotspot name="manolo"
+        <!-- <hotspot name="manolo"
                  url.html5="plugins/videoplayer.js"
                  url.flash="plugins/videoplayer.swf"
                  videourl="recursos/video/manolo.mp4"
@@ -674,10 +693,10 @@
                  onclick=""
                  onvideocomplete=""
                  onerror="">
-        </hotspot>
+        </hotspot> -->
 
 		<!-- Hotspot con imagen de aula futuro -->
-        <hotspot name="imagen_aulafuturo"
+        <!-- <hotspot name="imagen_aulafuturo"
                  url="recursos/imagen/aulafuturo.webp"
                  ath="-8.600370257405075" atv="-10.90544223161378" scale="0.5852000000000009" rx="-11.149999999999874" ry="0" rz="0"
                  width="1141"
@@ -688,10 +707,10 @@
                  capture="true"
                  visible="false">
             <style>chromakey</style>
-        </hotspot>
+        </hotspot> -->
 
 		 <!-- Hotspot con el video aula del futuro -->
-            <hotspot name="aula_del_futuro"
+            <!-- <hotspot name="aula_del_futuro"
                  url.html5="plugins/videoplayer.js"
                  url.flash="plugins/videoplayer.swf"
                  videourl="recursos/video/auladelfuturo.mp4"
@@ -715,55 +734,10 @@
                  visible="true"
                  handcursor="true"
                  capture="true">
-        </hotspot>
+        </hotspot> -->
 
     </scene>
-
-
-	<scene name="scene_cabina" title="cabina" onstart="js(juego.updateHotspotText());" thumburl="panos/cabina.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
-        
-        <control bouncinglimits="calc:image.cube ? true : false" />
-
-        <view hlookat="119.5956898359671" vlookat="13.954128089007272" fov="67.34103672188499" fovtype="MFOV" maxpixelzoom="2.0" fovmin="70" fovmax="67.34103672188499" limitview="auto" />
-
-        <preview url="panos/cabina.tiles/preview.jpg" />
-
-        <image>
-            <cube url="panos/cabina.tiles/pano_%s.jpg" />
-        </image>
-
-
-        <!-- Hotspot con el video de manolo -->
-        <hotspot name="manolo"
-                 url.html5="plugins/videoplayer.js"
-                 url.flash="plugins/videoplayer.swf"
-                 videourl="recursos/video/manolo.mp4"
-                 ath="109.89443946146719" atv="6.448632800398121" scale="0.09089999999999936" rx="0" ry="0" rz="0"
-                 width="500"
-                 height="1080"
-                 alpha="1"
-                 chromakey="0x00ff00|1.5|0.15"
-                 distorted="true"
-                 zorder="6"
-                 visible="false"
-                 pausedonstart="true"
-                 loop="false"
-                 volume="1.0"
-                 directionalsound="true"
-                 range="90.0"
-                 rangefalloff="1.0"
-                 outofrangevolume="0.0"
-                 onhover=""
-                 onclick=""
-                 onvideocomplete="set(hotspot[movil_apagado].visible, true); set(hotspot[movil].visible, false); pausevideo(manolo); set(hotspot[play_movil].capture, false);"
-                 onerror="">
-        </hotspot>
-    </scene>
-
-   
-
     
-
 
 
 	<scene name="scene_conserjeria" title="Conserjería" onstart="" thumburl="panos/conserjeria.tiles/thumb.jpg" lat="" lng="" heading="" >
@@ -778,10 +752,10 @@
 			<cube url="panos/conserjeria.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,640,1280,2560" />
 		</image>
 		
-		<hotspot name="vid_zocal" url.html5="plugins/videoplayer.js" url.flash="plugins/videoplayer.swf" videourl="recursos/video/manolo.mp4" posterurl="recursos/imagen/play.png" ath="86.560" atv="15.000" scale="0.35" width="450" height="1000" alpha="1" chromakey="0x00ff00|1.5|0.15" distorted="true" zorder="6" visible="true" pausedonstart="false" loop="false" volume="1.0" directionalsound="true" range="90.0" rangefalloff="1.0" outofrangevolume="0.0" onhover="showtext(Play/Pause, default); " onvideoready="" onvideoplay="5" onvideopaused="" onvideocomplete="closevid_zocal();" onerror="" onclick="togglepause(vid_zocal);"/>
+		<!-- <hotspot name="vid_zocal" url.html5="plugins/videoplayer.js" url.flash="plugins/videoplayer.swf" videourl="recursos/video/manolo.mp4" posterurl="recursos/imagen/play.png" ath="86.560" atv="15.000" scale="0.35" width="450" height="1000" alpha="1" chromakey="0x00ff00|1.5|0.15" distorted="true" zorder="6" visible="true" pausedonstart="false" loop="false" volume="1.0" directionalsound="true" range="90.0" rangefalloff="1.0" outofrangevolume="0.0" onhover="showtext(Play/Pause, default); " onvideoready="" onvideoplay="5" onvideopaused="" onvideocomplete="closevid_zocal();" onerror="" onclick="togglepause(vid_zocal);"/>
 		
 		<hotspot name="vid_zocal" devices="mobile" url.html5="plugins/videoplayer.js" url.flash="plugins/videoplayer.swf" videourl="recursos/video/manolo.mp4" posterurl="recursos/imagen/play.png" ath="86.560" atv="15.000" scale="0.35" width="450" height="1000" alpha="1" chromakey="0x00ff00|1.5|0.15" distorted="true" zorder="6" visible="true" pausedonstart="false" loop="false" volume="1.0" directionalsound="true" range="90.0" rangefalloff="1.0" outofrangevolume="0.0" onhover="showtext(Play/Pause, default); " onvideoready="" onvideoplay="" onvideopaused="" onvideocomplete="closevid_zocal();" onerror="" onclick="togglepause(vid_zocal);"/>
-		
+		 -->
 		<hotspot name="spot3" url="hotspotlogoUSC.png"  style="tooltip" distorted="true" tooltip="Entrada ao Módulo C1" ath="-55.6159076029694" atv="12.774010015842821" scale="0.4099999999999999" rx="-44" ry="-24" rz="-22" onclick="goto_scene_pasillo();" />
 	
 	</scene>
@@ -860,7 +834,7 @@
 		
 	</scene>
 
-	<!-- nadir logo (a distorted hotspot) -->
+	<!-- nadir logo (a distorted hotspot)
 	<hotspot name="nadirlogo" keep="true"
 	         url="nadirUSC.png"
 	         ath="0"
@@ -868,7 +842,7 @@
 	         distorted="true"
 	         scale="0.09"
 	         rotate="0.0"
-	         />
+	         /> -->
 
 	<!-- onviewchange event - update logo rotation on pano rotation -->
 	<events name="nadirlogo" keep="true" onviewchange="copy(hotspot[nadirlogo].rotate, view.hlookat);" />
