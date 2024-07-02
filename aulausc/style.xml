@@ -1,0 +1,35 @@
+<krpano>
+<!--  XML GLOBAL PARA VARIABLES DE ESTILO  -->
+<!--  ESTILOS DE TEXTO  -->
+<!--  Texto INICIO  -->
+<textstyle name="inicio" ath="0" atv="0" edge="center" distorted="false" flying="1.0" renderer="webgl" css="font-family:Calibri; font-size:25px; color:#fefefe;" vcenter="false" zorder="10" padding="80" wordwrap="true" bg="true" bgcolor="0xdfbb9f" bgalpha="1" bgborder="12" bgroundedge="30" bgshadow="8" txtshadow="4" mergedalpha="true" oversampling="1.0" mipmapping="false" onautosized=""/>
+<!--  Textos TÍTULO  -->
+<textstyle name="titulo" origin="center" edge="bottom" xoffset="0" yoffset="-3" zorder="5" fadeintime="1" showtime="4" fadetime="2.5" font="MedievalSharp" fontsize="62.0" bold="true" italic="false" textcolor="0xffe4b6" textalign="none" padding="1" css="" width="" height="" vcenter="" background="false" backgroundcolor="0x000000" backgroundalpha="1.0" border="false" bordercolor="0x000000" borderalpha="1.0" borderwidth="1.5" roundedge="0" shadow="0.0" shadowrange="4.0" shadowangle="45" shadowcolor="0x000000" shadowalpha="0.7" textshadow="3.0" textshadowrange="10.0" textshadowangle="45" textshadowcolor="0x000000" textshadowalpha="0.8" alpha="1" parent="" noclip="true"/>
+<textstyle name="subtitulo" origin="center" edge="bottom" xoffset="0" yoffset="40" fadeintime="1" showtime="2" fadetime="2.5" font="MedievalSharp" fontsize="52.0" bold="true" italic="false" textcolor="0xffe4b6" textalign="none" padding="1" css="" width="" height="" vcenter="" background="false" backgroundcolor="0x000000" backgroundalpha="1.0" border="false" bordercolor="0x000000" borderalpha="1.0" borderwidth="1.5" roundedge="0" shadow="0.0" shadowrange="4.0" shadowangle="45" shadowcolor="0x000000" shadowalpha="0.7" textshadow="3.0" textshadowrange="10.0" textshadowangle="45" textshadowcolor="0x000000" textshadowalpha="0.8" alpha="1" parent="" noclip="true"/>
+<textstyle name="default" origin="cursor" edge="bottom" xoffset="0" yoffset="-3" fadeintime="0.0" showtime="0.1" fadetime="0.0" font="Calibri" fontsize="16.0" bold="true" italic="false" textcolor="0xfefefe" textalign="none" padding="6" css="" width="" height="" vcenter="" background="true" backgroundcolor="0x6B7B8B" backgroundalpha="0.8" border="false" bordercolor="0x6B7B8B" borderalpha="0.3" borderwidth="4.0" roundedge="5" shadow="8" shadowrange="8.0" shadowangle="45" shadowcolor="0x000000" shadowalpha="1.0" textshadow="0.0" textshadowrange="4.0" textshadowangle="45" textshadowcolor="0x000000" textshadowalpha="0.5" alpha="1.0" parent="" noclip="true"/>
+<!--  ESTILOS DE LAYER  -->
+<style name="barra" align="rightbottom" edge="rightbottom" keep="true" x="15" y="25" scale="0.07" scale.mobile="0.13" alpha="1" width="-60" height="-10" bgcolor="0x2D3E50" bgalpha="0.3" bgborder="0,0,1,0 0xFEFEFE 1" bgroundedge="300" bgshadow="" padding="0"/>
+<style name="skin_eye" align="left" edge="left" keep="true" x="10" y="0" width="prop" height="27" alpha="1"/>
+<style name="skin_music" align="right" edge="right" keep="true" x="10" y="0" width="prop" height="27" alpha="1"/>
+<!--  ESTILOS DE HOTSPOT  -->
+<!--  LUPAS  -->
+<style name="lupas" type="image" height="prop" edge="center" keep="false" visible="false" url="%BASEDIR%/data/skin/lupa.png" mipmapping="true" zorder="5" distorted="true" scale="0.06" onover="playsound (name=wdrop, url=%BASEDIR%/data/audio/wdrop.mp3, loop=false, 0.5); tween(scale, 0.09, 0.4, easeoutback); tween(rz, 21, 0.4, easeoutback);" onout="tween(scale, 0.06, 0.6); tween(rz, 0, 0.6);"/>
+<!--  BOTÓN VIDEO  -->
+<style name="btn_play" type="image" height="prop" edge="center" keep="false" visible="false" url="%BASEDIR%/recursos/imagenes/play.png" zorder="5" distorted="true" scale="0.05" onover="playsound (name=wdrop, url=%BASEDIR%/data/audio/wdrop.mp3, loop=false, 0.5) ; tween(scale, 0.075, 0.4, easeoutback);" onout="tween(scale, 0.05, 0.6);"/>
+<!--  BOTÓN INFO  -->
+<style name="btn_info" type="image" height="prop" edge="center" keep="false" visible="false" url="%BASEDIR%/data/skin/info.png" zorder="5" distorted="true" scale="0.05" onover="playsound (name=wdrop, url=%BASEDIR%/data/audio/wdrop.mp3, loop=false, 0.5) ; tween(scale, 0.09, 0.4, easeoutback);" onout="tween(scale, 0.065, 0.6);"/>
+<!--  CIERRES (X)    (Normal y versión VR)  -->
+<style name="cierres" type="image" edge="center" keep="false" flying="0.0" url="%BASEDIR%/data/skin/closewhite.png" zorder="1" distorted="true" scale="0.003" onover="playsound (name=wdrop, url=%BASEDIR%/data/audio/wdrop.mp3, loop=false, 0.5) ; tween(scale, 0.004, 0.4, easeoutback);" onout="tween(scale, 0.003, 0.6);"/>
+<style name="cierresvr" type="image" edge="center" keep="false" flying="0.0" url="%BASEDIR%/data/skin/closewhite.png" zorder="1" distorted="false" scale="0.3" onover="playsound (name=wdrop, url=%BASEDIR%/data/audio/wdrop.mp3, loop=false, 0.5) ; tween(scale, 0.5, 0.4, easeoutback);" onout="tween(scale, 0.3, 0.6);"/>
+<style name="cierreretablo" type="image" edge="center" keep="false" flying="0.0" url="%BASEDIR%/data/skin/closewhite.png" zorder="1" distorted="true" scale="0.0015000000000001152" onover="playsound (name=wdrop, url=%BASEDIR%/data/audio/wdrop.mp3, loop=false, 0.5) ; tween(scale, 0.002, 0.4, easeoutback);" onout="tween(scale, 0.0015000000000001152, 0.6);"/>
+<!--  POSICIONALES (Posiciones relevantes de cámara, invisibles)  -->
+<style name="posiciones" type="image" height="prop" edge="center" keep="false" visible="false" url="%BASEDIR%/data/skin/eye.png" mipmapping="true" zorder="5" distorted="false" scale="0.5" onover="" onout=""/>
+<!--  FLARE (Brillo/Destello/Shine)  -->
+<style name="flare" type="image" height="prop" edge="center" keep="false" visible="false" url="%BASEDIR%/data/skin/flare.png" mipmapping="true" zorder="5" distorted="true" alpha="0.7" scale="0.175" onover="" onout=""/>
+<!--  TÍTULO (El título de entrada como foto)  -->
+<style name="titul" type="image" height="prop" edge="center" keep="true" visible="true" url="%BASEDIR%/data/skin/titul.png" flying="1.0" mipmapping="true" zorder="6" distorted="false" alpha="1" scale="0.7" scale.mobile="0.35" onover="" onout=""/>
+<!--  TITUL2 (Texto inicial con el "click para empezar")  -->
+<style name="titul2" type="image" height="prop" edge="center" keep="true" visible="true" url="%BASEDIR%/data/skin/titul2.png" flying="1.0" mipmapping="true" zorder="6" distorted="false" alpha="1" scale="0.3" scale.mobile="0.15" onover="" onout=""/>
+<!--  Easter Egg   -->
+<style name="egg" type="image" url="%BASEDIR%/data/skin/info.png" edge="center" keep="false" visible="true" zorder="1" distorted="true" alpha="0" scale="0.00999999999999918" handcursor="true" onclick="shock();"/>
+</krpano>
