@@ -369,13 +369,47 @@
         />
 
     <!-- Definir la acción para reproducir el sonido y mostrar los hotspots -->
+	   <!-- Definir las acciones -->
     <action name="play_papel">
+        delayedcall(0, startVideo1());
+		delayedcall(4, startVideo2());
+		delayedcall(8, startVideo3());
+    </action>
+    
+    <action name="startVideo1">
+        set(hotspot[i1].pausedonstart, false);
+		hotspot[i1].play();
+		set(hotspot[i1].visible, true);
+    </action>
+	<action name="startVideo2">
+	    set(hotspot[i2].pausedonstart, false);
+		hotspot[i2].play();
+		set(hotspot[i2].visible, true);
+    </action>
+	<action name="startVideo3">
+	    set(hotspot[i3].pausedonstart, false);
+		hotspot[i3].play();
+		set(hotspot[i3].visible, true);
+    </action>
+    <!-- <action name="play_papel"> -->
         <!-- playsound(aulasfuturo, 'recursos/audio/aulasfuturo.mp3'); -->
-        delayedcall(3, set(hotspot[i1].visible, true));
-        delayedcall(6, set(hotspot[i2].visible, true));
-        delayedcall(9, set(hotspot[i3].visible, true));
-        delayedcall(21, set(hotspot[i4].visible, true));
-		delayedcall(28, set(hotspot[i5].visible, true));
+        <!-- delayedcall(3, set(hotspot[i1].play, true));
+        delayedcall(6, set(hotspot[i2].play, true));
+        delayedcall(9, set(hotspot[i3].play, true));
+        delayedcall(21, set(hotspot[i4].play, true));
+		delayedcall(28, set(hotspot[i5].play, true)); -->
+
+		<!--
+		wait(3.0);
+        set(hotspot[i1].play, true);
+		set(hotspot[i1].visible, true);
+		wait(3.0);
+		set(hotspot[i2].play, true);
+		set(hotspot[i2].visible, true); 
+		-->
+
+
+
         <!-- delayedcall(35, set(hotspot[pizarra].visible, true));
         
 
@@ -394,12 +428,12 @@
         delayedcall(21, set(hotspot[amparo2].visible, true));
         delayedcall(21, set(hotspot[hotspot2].visible, true)); -->
         
-    </action>
+    <!-- </action> -->
 
 	<action name="playvideo">
     <!-- Pausar el video anterior si está reproduciendo -->
-    if(%1 != null, if(%1.pausedonstart == false, pausesound(%1)));
-    playsound(%1, %1.videourl);
+    <!-- if(%1 != null, if(%1.pausedonstart == false, pausesound(%1)));
+    playsound(%1, %1.videourl); -->
 </action>
 
 
@@ -425,7 +459,7 @@
                  distorted="true"
                  zorder="0"
                  visible="false"
-                 pausedonstart="false"
+                 pausedonstart="true"
                  loop="false"
                  volume="1.0"
                  directionalsound="true"
@@ -452,7 +486,7 @@
                  distorted="true"
                  zorder="0"
                  visible="false"
-                 pausedonstart="false"
+                 pausedonstart="true"
                  loop="false"
                  volume="1.0"
                  directionalsound="true"
@@ -479,7 +513,7 @@
                  distorted="true"
                  zorder="0"
                  visible="false"
-                 pausedonstart="false"
+                 pausedonstart="true"
                  loop="false"
                  volume="1.0"
                  directionalsound="true"
@@ -506,7 +540,7 @@
                  distorted="true"
                  zorder="0"
                  visible="false"
-                 pausedonstart="false"
+                 pausedonstart="true"
                  loop="false"
                  volume="1.0"
                  directionalsound="true"
@@ -533,7 +567,7 @@
                  distorted="true"
                  zorder="0"
                  visible="false"
-                 pausedonstart="false"
+                 pausedonstart="true"
                  loop="false"
                  volume="1.0"
                  directionalsound="true"
@@ -629,7 +663,7 @@
                  distorted="true"
                  zorder="6"
                  visible="true"
-                 pausedonstart="false"
+                 pausedonstart="true"
                  loop="true"
                  volume="1.0"
                  directionalsound="false"
@@ -667,7 +701,7 @@
                  alpha="1"
                  distorted="true"
                  zorder="6"
-                 pausedonstart="false"
+                 pausedonstart="true"
                  loop="true"
                  volume="1.0"
                  directionalsound="true"
@@ -712,7 +746,7 @@
                  distorted="true"
                  zorder="6"
                  visible="false"
-                 pausedonstart="false"
+                 pausedonstart="true"
                  loop="false"
                  volume="1.0"
                  directionalsound="true"
