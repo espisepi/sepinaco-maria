@@ -220,7 +220,7 @@
                  visible="false"
                  pausedonstart="false"
                  loop="false"
-                 volume="0.0"
+                 volume="1.0"
                  directionalsound="true"
                  range="90.0"
                  rangefalloff="1.0"
