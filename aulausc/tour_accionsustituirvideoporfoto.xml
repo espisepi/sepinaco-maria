@@ -375,7 +375,7 @@
 
     <!-- Definir la acción mostrar los hotspots -->
 	   <!-- Definir las acciones -->
-    <!-- <action name="play_papel">
+    <action name="play_papel">
         delayedcall(0.95, startVideo1());
 		delayedcall(4.3, startVideo2());
 		delayedcall(16.8, startVideo3());
@@ -387,16 +387,9 @@
 		delayedcall(54.3, rv());
 		delayedcall(56.1, ia());
 		delayedcall(58.6, impresora());
-        delayedcall(59, eliminar_hotspots_1());
 		delayedcall(59.6, camara());
 		delayedcall(62.6, estudio());
 		delayedcall(65.7, meet());
-        delayedcall(67.7, f1());
-        delayedcall(73.3, f2());
-        delayedcall(76.9, f3());
-        delayedcall(80.5, eliminar_hotspots_2());
-
-        
 		
     </action>
     
@@ -430,15 +423,6 @@
 		hotspot[flecha].play();
 		set(hotspot[flecha].visible, true);
     </action>
-    <action name="eliminar_hotspots_1">
-		set(hotspot[i1].visible, false);
-        set(hotspot[i2].visible, false);
-        set(hotspot[i3].visible, false);
-        set(hotspot[i4].visible, false);
-        set(hotspot[i5].visible, false);
-        set(hotspot[flecha].visible, false);
-    </action>
-
 	<action name="pizarra">
 		set(hotspot[pizarra].pausedonstart, false);
 		hotspot[pizarra].play();
@@ -479,43 +463,69 @@
 		hotspot[meet].play();
 		set(hotspot[meet].visible, true);
     </action>
-    <action name="f1">
-		set(hotspot[f1].pausedonstart, false);
-		hotspot[f1].play();
-		set(hotspot[f1].visible, true);
-    </action>
-    <action name="f2">
-		set(hotspot[f2].pausedonstart, false);
-		hotspot[f2].play();
-		set(hotspot[f2].visible, true);
-    </action>
-    <action name="f3">
-		set(hotspot[f3].pausedonstart, false);
-		hotspot[f3].play();
-		set(hotspot[f3].visible, true);
-    </action>
-    <action name="eliminar_hotspots_2">
-		set(hotspot[f1].visible, false);
-        set(hotspot[f2].visible, false);
-        set(hotspot[f3].visible, false);
-    </action> -->
 
 
 
 	<action name="start_autorotate">
-		set(autorotate.enabled, false);
+		set(autorotate.enabled, true);
 	</action>
 
-
-    <!-- Definir una acción personalizada para detener todos los hotspots -->
-    <!-- <action name="stop_all_hotspots">
-        if(hotspot.count GT 0,
-            for(hotspot_index, 0, hotspot.count - 1,
-                set(hotspot[get(hotspot_index)].enabled, false);
-            );
-        );
-    </action> -->
-
+	<action name="sustituir_video_i1">
+		set(hotspot[i1].visible, false);
+		set(hotspot[i1_imagen].visible, true);
+	</action>
+	<action name="sustituir_video_i2">
+		set(hotspot[i2].visible, false);
+		set(hotspot[i2_imagen].visible, true);
+	</action>
+	<action name="sustituir_video_i3">
+		set(hotspot[i3].visible, false);
+		set(hotspot[i3_imagen].visible, true);
+	</action>
+	<action name="sustituir_video_i4">
+		set(hotspot[i4].visible, false);
+		set(hotspot[i4_imagen].visible, true);
+	</action>
+	<action name="sustituir_video_i5">
+		set(hotspot[i5].visible, false);
+		set(hotspot[i5_imagen].visible, true);
+	</action>
+	<action name="sustituir_video_flecha">
+		set(hotspot[flecha].visible, false);
+		set(hotspot[flecha_imagen].visible, true);
+	</action>
+	<action name="sustituir_video_pizarra">
+		set(hotspot[pizarra].visible, false);
+		set(hotspot[pizarra_imagen].visible, true);
+	</action>
+	<action name="sustituir_video_moviles">
+		set(hotspot[moviles].visible, false);
+		set(hotspot[moviles_imagen].visible, true);
+	</action>
+	<action name="sustituir_video_rv">
+		set(hotspot[rv].visible, false);
+		set(hotspot[rv_imagen].visible, true);
+	</action>
+	<action name="sustituir_video_ia">
+		set(hotspot[ia].visible, false);
+		set(hotspot[ia_imagen].visible, true);
+	</action>
+	<action name="sustituir_video_impresora">
+		set(hotspot[impresora].visible, false);
+		set(hotspot[impresora_imagen].visible, true);
+	</action>
+	<action name="sustituir_video_camara">
+		set(hotspot[camara].visible, false);
+		set(hotspot[camara_imagen].visible, true);
+	</action>
+	<action name="sustituir_video_estudio">
+		set(hotspot[estudio].visible, false);
+		set(hotspot[estudio_imagen].visible, true);
+	</action>
+		<action name="sustituir_video_meet">
+		set(hotspot[meet].visible, false);
+		set(hotspot[meet_imagen].visible, true);
+	</action>
 
 
 	<scene name="scene_papel" title="INICIO" onstart="" thumburl="panos/papel.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
@@ -550,14 +560,24 @@
                  outofrangevolume="1.0"
                  onhover=""
                  onclick=""
-                 onvideocomplete=""
+                 onvideocomplete="sustituir_video_i1();"
                  onerror=""
                  handcursor="false"
                  capture="false">
         </hotspot>
 
 		
-        
+        <hotspot name="i1_imagen"
+                 url="recursos/imagen/i1.png"
+                 ath="0.5363241875107292" atv="-3.1277515770969195" scale="0.1389000000000048" rx="1.2499999999997584" ry="3.050000000000164" rz="0.25"
+                 width="1920"
+                 height="1080"
+                 distorted="true"
+                 handcursor="false"
+                 capture="false"
+                 visible="false">
+        </hotspot>
+
 		<!-- Hotspots de i2 -->
 
 		<hotspot name="i2" 
@@ -581,13 +601,22 @@
                  outofrangevolume="0.0"
                  onhover=""
                  onclick=""
-                 onvideocomplete=""
+                 onvideocomplete="sustituir_video_i2();"
                  onerror=""
                  handcursor="false"
                  capture="false">
         </hotspot>
 
-    
+        <hotspot name="i2_imagen"
+                 url="recursos/imagen/i2.png"
+                 ath="-0.40054106702530134" atv="3.974326493797957" scale="0.19960000000000294" rx="0" ry="0" rz="0"
+                 width="1920"
+                 height="1080"
+                 distorted="true"
+                 handcursor="false"
+                 capture="false"
+                 visible="false">
+        </hotspot>
 
 		<!-- Hotspots de i3 -->
         <hotspot name="i3" 
@@ -611,10 +640,21 @@
                  outofrangevolume="0.0"
                  onhover=""
                  onclick=""
-                 onvideocomplete=""
+                 onvideocomplete="sustituir_video_i3();"
                  onerror=""
                  handcursor="false"
                  capture="false">
+        </hotspot>
+
+        <hotspot name="i3_imagen"
+                 url="recursos/imagen/i3.png"
+                 ath="29.321256649776217" atv="3.422375329665759" scale="0.14059999999999723" rx="0.05000000000006821" ry="-6.1999999999996405" rz="1.5000000000000004"
+                 width="1920"
+                 height="1080"
+                 distorted="true"
+                 handcursor="false"
+                 capture="false"
+                 visible="false">
         </hotspot>
 
         <!-- Hotspot de i4 -->
@@ -639,13 +679,22 @@
                  outofrangevolume="0.0"
                  onhover=""
                  onclick=""
-                 onvideocomplete=""
+                 onvideocomplete="sustituir_video_i4();"
                  onerror=""
-                 handcursor="true"
-                 capture="true">
+                 handcursor="false"
+                 capture="false">
         </hotspot>
 
-
+        <hotspot name="i4_imagen"
+                 url="recursos/imagen/i4.png"
+                 ath="43.349718724736704" atv="15.064835841990169" scale="0.20430000000000276" rx="-55.55000000000021" ry="-11.199999999999706" rz="-10.000000000000014"
+                 width="1920"
+                 height="1080"
+                 distorted="true"
+                 handcursor="false"
+                 capture="false"
+                 visible="false">
+        </hotspot>
 
 
 		<!-- Hotspot de i5 -->
@@ -670,14 +719,23 @@
                  outofrangevolume="0.0"
                  onhover=""
                  onclick=""
-                 onvideocomplete=""
+                 onvideocomplete="sustituir_video_i5();"
                  onerror=""
                  handcursor="false"
                  capture="false">
         </hotspot>
 
     
-        
+        <hotspot name="i5_imagen"
+                 url="recursos/imagen/i5.png"
+                 ath="70.22778735674126" atv="1.0563308892267622" scale="0.15130000000000002" rx="0.20000000000000034" ry="15.250000000000327" rz="-0.050000000000034295"
+                 width="1920"
+                 height="1080"
+                 distorted="true"
+                 handcursor="false"
+                 capture="false"
+                 visible="false">
+        </hotspot>
 
         <!-- Hotspot de flecha -->
         <hotspot name="flecha" 
@@ -701,13 +759,23 @@
                  outofrangevolume="0.0"
                  onhover=""
                  onclick=""
-                 onvideocomplete=""
+                 onvideocomplete="sustituir_video_flecha();"
                  onerror=""
                  handcursor="false"
                  capture="false">
         </hotspot>
 
-    
+      
+        <hotspot name="flecha_imagen"
+                 url="recursos/imagen/flecha.png"
+                 ath="101.38044987299571" atv="0.13758177928672097" scale="0.15299999999999983" rx="0" ry="-5.849999999999682" rz="0"
+                 width="1920"
+                 height="1080"
+                 distorted="true"
+                 handcursor="false"
+                 capture="false"
+                 visible="false">
+        </hotspot>
 
         <!-- Hotspot de pizarra -->
         <hotspot name="pizarra" 
@@ -731,12 +799,23 @@
                  outofrangevolume="0.0"
                  onhover=""
                  onclick=""
-                 onvideocomplete=""
+                 onvideocomplete="sustituir_video_pizarra();"
                  onerror=""
                  handcursor="false"
                  capture="false">
         </hotspot>
-    
+
+      
+        <hotspot name="pizarra_imagen"
+                 url="recursos/imagen/pizarra.png"
+                 ath="122.40459165119026" atv="-1.7430758063644065" scale="0.1667999999999983" rx="2.8999999999999773" ry="-7.199999999999545" rz="1.5499999999999665"
+                 width="1920"
+                 height="1080"
+                 distorted="true"
+                 handcursor="false"
+                 capture="false"
+                 visible="false">
+        </hotspot>
 
         <!-- Hotspot de moviles -->
         <hotspot name="moviles" 
@@ -760,13 +839,22 @@
                  outofrangevolume="0.0"
                  onhover=""
                  onclick=""
-                 onvideocomplete=""
+                 onvideocomplete="sustituir_video_moviles();"
                  onerror=""
                  handcursor="false"
                  capture="false">
         </hotspot>
 
-       
+        <hotspot name="moviles_imagen"
+                 url="recursos/imagen/moviles.png"
+                 ath="144.88087339428208" atv="12.667659838266477" scale="0.12069999999999939" rx="-13.500000000000059" ry="0" rz="0.49999999999999983"
+                 width="1920"
+                 height="1080"
+                 distorted="true"
+                 handcursor="false"
+                 capture="false"
+                 visible="false">
+        </hotspot>
 
         <!-- Hotspot de rv -->
         <hotspot name="rv" 
@@ -790,13 +878,23 @@
                  outofrangevolume="0.0"
                  onhover=""
                  onclick=""
-                 onvideocomplete=""
+                 onvideocomplete="sustituir_video_rv();"
                  onerror=""
                  handcursor="false"
                  capture="false">
         </hotspot>
 
-    
+        <hotspot name="rv_imagen"
+                 url="recursos/imagen/rv.png"
+                 ath="171.34825229460643" atv="13.019076119010455" scale="0.12029999999999938" rx="-13.500000000000059" ry="0" rz="-0.1500000000000001"
+                 width="1920"
+                 height="1080"
+                 distorted="true"
+                 handcursor="false"
+                 capture="false"
+                 visible="false">
+        </hotspot>
+
         <!-- Hotspot de ia -->
         <hotspot name="ia" 
                  url.html5="plugins/videoplayer.js"
@@ -819,14 +917,23 @@
                  outofrangevolume="0.0"
                  onhover=""
                  onclick=""
-                 onvideocomplete=""
+                 onvideocomplete="sustituir_video_ia();"
                  onerror=""
                  handcursor="false"
                  capture="false">
         </hotspot>
 
     
-
+        <hotspot name="ia_imagen"
+                 url="recursos/imagen/ia.png"
+                 ath="-161.89623492923923" atv="11.936226124616166" scale="0.12029999999999938" rx="-13.500000000000059" ry="0" rz="-0.1500000000000001"
+                 width="1920"
+                 height="1080"
+                 distorted="true"
+                 handcursor="false"
+                 capture="false"
+                 visible="false">
+        </hotspot>
 
         <!-- Hotspot de impresora -->
         <hotspot name="impresora" 
@@ -850,14 +957,23 @@
                  outofrangevolume="0.0"
                  onhover=""
                  onclick=""
-                 onvideocomplete=""
+                 onvideocomplete="sustituir_video_impresora();"
                  onerror=""
                  handcursor="false"
                  capture="false">
         </hotspot>
 
        
-
+        <hotspot name="impresora_imagen"
+                 url="recursos/imagen/impresora.png"
+                 ath="-143.3666166807767" atv="10.920518373275542" scale="0.12029999999999938" rx="0" ry="14" rz="-0.15000000000000033"
+                 width="1920"
+                 height="1080"
+                 distorted="true"
+                 handcursor="false"
+                 capture="false"
+                 visible="false">
+        </hotspot>
 
         <!-- Hotspot de camara -->
         <hotspot name="camara" 
@@ -881,12 +997,23 @@
                  outofrangevolume="0.0"
                  onhover=""
                  onclick=""
-                 onvideocomplete=""
+                 onvideocomplete="sustituir_video_camara();"
                  onerror=""
                  handcursor="false"
                  capture="false">
         </hotspot>
 
+   
+        <hotspot name="camara_imagen"
+                 url="recursos/imagen/camara.png"
+                 ath="-127.70567925418948" atv="11.081589923042962" scale="0.1452999999999994" rx="-13.500000000000059" ry="0" rz="-0.1500000000000001"
+                 width="1920"
+                 height="1080"
+                 distorted="true"
+                 handcursor="false"
+                 capture="false"
+                 visible="false">
+        </hotspot>
 
         <!-- Hotspot de estudio -->
         <hotspot name="estudio" 
@@ -910,10 +1037,22 @@
                  outofrangevolume="0.0"
                  onhover=""
                  onclick=""
-                 onvideocomplete=""
+                 onvideocomplete="sustituir_video_estudio();"
                  onerror=""
                  handcursor="false"
                  capture="false">
+        </hotspot>
+
+        
+        <hotspot name="estudio_imagen"
+                 url="recursos/imagen/estudio.png"
+                 ath="-92.61966206017308" atv="5.999623643456429" scale="0.2292999999999996" rx="8.549999999999986" ry="4.800000000000007" rz="-0.45000000000000007"
+                 width="1920"
+                 height="1080"
+                 distorted="true"
+                 handcursor="false"
+                 capture="false"
+                 visible="false">
         </hotspot>
 
         <!-- Hotspot de meet -->
@@ -938,10 +1077,22 @@
                  outofrangevolume="0.0"
                  onhover=""
                  onclick=""
-                 onvideocomplete=""
+                 onvideocomplete="sustituir_video_meet();"
                  onerror=""
                  handcursor="false"
                  capture="false">
+        </hotspot>
+
+       
+        <hotspot name="meet_imagen"
+                 url="recursos/imagen/meet.png"
+                 ath="-50.79148349655679" atv="5.726734383308371" scale="0.20470000000000396" rx="6.649999999999984" ry="-37.89999999999975" rz="0.4499999999999996"
+                 width="1920"
+                 height="1080"
+                 distorted="true"
+                 handcursor="false"
+                 capture="false"
+                 visible="false">
         </hotspot>
 
 
@@ -950,7 +1101,7 @@
                  url.html5="plugins/videoplayer.js"
                  url.flash="plugins/videoplayer.swf"
                  videourl="recursos/video/f1.mp4|recursos/video/f1.webm"
-                 ath="-47.84242023379642" atv="14.14952154740484" scale="0.15900000000000178" rx="-43.349999999999454" ry="-24.799999999999727" rz="-27.95000000000005"
+                 ath="-50.79148349655679" atv="5.726734383308371" scale="0.20470000000000396" rx="6.649999999999984" ry="-37.89999999999975" rz="0.4499999999999996"
                  width="1920"
                  height="1080"
                  alpha="1"
@@ -967,19 +1118,30 @@
                  outofrangevolume="0.0"
                  onhover=""
                  onclick=""
-                 onvideocomplete=""
+                 onvideocomplete="sustituir_video_f1();"
                  onerror=""
                  handcursor="true"
                  capture="true">
         </hotspot>
 
-    
+       
+        <hotspot name="f1_imagen"
+                 url="recursos/imagen/f1.png"
+                 ath="-50.79148349655679" atv="5.726734383308371" scale="0.20470000000000396" rx="6.649999999999984" ry="-37.89999999999975" rz="0.4499999999999996"
+                 width="1920"
+                 height="1080"
+                 distorted="true"
+                 handcursor="false"
+                 capture="false"
+                 visible="false">
+        </hotspot>
+
 		<!-- Hotspot de f2 -->
         <hotspot name="f2" 
                  url.html5="plugins/videoplayer.js"
                  url.flash="plugins/videoplayer.swf"
                  videourl="recursos/video/f2.mp4|recursos/video/f2.webm"
-                 ath="-47.84242023379642" atv="14.14952154740484" scale="0.15900000000000178" rx="-43.349999999999454" ry="-24.799999999999727" rz="-27.95000000000005"
+                 ath="-50.79148349655679" atv="5.726734383308371" scale="0.20470000000000396" rx="6.649999999999984" ry="-37.89999999999975" rz="0.4499999999999996"
                  width="1920"
                  height="1080"
                  alpha="1"
@@ -996,19 +1158,30 @@
                  outofrangevolume="0.0"
                  onhover=""
                  onclick=""
-                 onvideocomplete=""
+                 onvideocomplete="sustituir_video_meet();"
                  onerror=""
                  handcursor="true"
                  capture="true">
         </hotspot>
 
+       
+        <hotspot name="meet_f2"
+                 url="recursos/imagen/f2.png"
+                 ath="-50.79148349655679" atv="5.726734383308371" scale="0.20470000000000396" rx="6.649999999999984" ry="-37.89999999999975" rz="0.4499999999999996"
+                 width="1920"
+                 height="1080"
+                 distorted="true"
+                 handcursor="false"
+                 capture="false"
+                 visible="false">
+        </hotspot>
 
         <!-- Hotspot de f3 -->
         <hotspot name="f3" 
                  url.html5="plugins/videoplayer.js"
                  url.flash="plugins/videoplayer.swf"
                  videourl="recursos/video/f3.mp4|recursos/video/f3.webm"
-                 ath="-47.84242023379642" atv="14.14952154740484" scale="0.15900000000000178" rx="-43.349999999999454" ry="-24.799999999999727" rz="-27.95000000000005"
+                 ath="-50.79148349655679" atv="5.726734383308371" scale="0.20470000000000396" rx="6.649999999999984" ry="-37.89999999999975" rz="0.4499999999999996"
                  width="1920"
                  height="1080"
                  alpha="1"
@@ -1025,175 +1198,25 @@
                  outofrangevolume="0.0"
                  onhover=""
                  onclick=""
-                 onvideocomplete=""
+                 onvideocomplete="sustituir_video_meet();"
                  onerror=""
                  handcursor="true"
                  capture="true">
         </hotspot>
 
-        <hotspot name="investiga1"
-                 url="recursos/imagen/pi1.png"
-                 ath="19.439013424985035" atv="0.581347580302021" scale="0.2174000000000026" rx="1.600000000000108" ry="-20" rz="0.1499999999999987"
-                 width="1141"
-                 height="584"
+       
+        <hotspot name="f3_imagen"
+                 url="recursos/imagen/f3.png"
+                 ath="-50.79148349655679" atv="5.726734383308371" scale="0.20470000000000396" rx="6.649999999999984" ry="-37.89999999999975" rz="0.4499999999999996"
+                 width="1920"
+                 height="1080"
                  distorted="true"
-                 handcursor="true"
-                 capture="true"
-                 visible="true">
-        </hotspot>
-        <hotspot name="investiga2"
-                 url="recursos/imagen/pi2.png"
-                 ath="39.77570902188029" atv="0.6648958944076286" scale="0.23939999999999018" rx="0.7999999999999962" ry="50.69999999999895" rz="-0.25000000000000033"
-                 width="1141"
-                 height="584"
-                 distorted="true"
-                 handcursor="true"
-                 capture="true"
-                 visible="true">
-        </hotspot>
-        <hotspot name="investiga3"
-                 url="recursos/imagen/pi3.png"
-                 ath="43.5455011426356" atv="0.7960995107772869" scale="0.25940000000001184" rx="178.45000000000488" ry="-132.79999999999842" rz="179.3999999999985"
-                 width="1141"
-                 height="584"
-                 distorted="true"
-                 handcursor="true"
-                 capture="true"
-                 visible="true">
-        </hotspot>
-        <hotspot name="investiga4"
-                 url="recursos/imagen/pi4.png"
-                 ath="45.78769719890278" atv="14.742285604568648" scale="0.7228999999999908" rx="233.9500000000051" ry="-116.00000000000024" rz="251.49999999999545"
-                 width="1141"
-                 height="584"
-                 distorted="true"
-                 handcursor="true"
-                 capture="true"
-                 visible="true">
-        </hotspot>
-
-
-
-        <hotspot name="presenta1"
-                 url="recursos/imagen/pp1.png"
-                 ath="-69.21032855697649" atv="1.2711063263106117" scale="0.37670000000000503" rx="178.20000000000505" ry="-210.04999999999757" rz="179.79999999999916"
-                 width="1141"
-                 height="584"
-                 distorted="true"
-                 handcursor="true"
-                 capture="true"
-                 visible="true">
-        </hotspot>
-        <hotspot name="presenta2"
-                 url="recursos/imagen/pp2.png"
-                 ath="-39.707128786436556" atv="0.6414479798638407" scale="0.23939999999999018" rx="0.49999999999999584" ry="129.89999999999833" rz="-0.25000000000000033"
-                 width="1141"
-                 height="584"
-                 distorted="true"
-                 handcursor="true"
-                 capture="true"
-                 visible="true">
-        </hotspot>
-        <hotspot name="presenta3"
-                 url="recursos/imagen/pp3.png"
-                 ath="-19.010329785155022" atv="0.7000447405451377" scale="0.2174000000000026" rx="1.600000000000108" ry="18.5" rz="-0.3000000000000014"
-                 width="1141"
-                 height="584"
-                 distorted="true"
-                 handcursor="true"
-                 capture="true"
-                 visible="true">
-        </hotspot>
-        <hotspot name="presenta4"
-                 url="recursos/imagen/pp4.png"
-                 ath="-42.731293487416735" atv="14.819684799563252" scale="0.7463999999999998" rx="407.75000000000426" ry="-293.3499999999994" rz="465.84999999999656"
-                 width="1141"
-                 height="584"
-                 distorted="true"
-                 handcursor="true"
-                 capture="true"
-                 visible="true">
-        </hotspot>
-
-
-        <hotspot name="explora1"
-                 url="recursos/imagen/pe1.png"
-                 ath="78.88380855037292" atv="1.1404580687810246" scale="0.3683999999999932" rx="177.00000000000455" ry="-169.59999999999923" rz="179.54999999999512"
-                 width="1141"
-                 height="584"
-                 distorted="true"
-                 handcursor="true"
-                 capture="true"
-                 visible="true">
-        </hotspot>
-        <hotspot name="explora2"
-                 url="recursos/imagen/pe2.png"
-                 ath="88.9691126610345" atv="22.455957430517348" scale="0.6680999999999929" rx="237.50000000000455" ry="-182.59999999999923" rz="177.74999999999596"
-                 width="1141"
-                 height="584"
-                 distorted="true"
-                 handcursor="true"
-                 capture="true"
-                 visible="true">
-        </hotspot>
-        <hotspot name="explora3"
-                 url="recursos/imagen/pe3.png"
-                 ath="95.84496886248883" atv="1.6944978613700579" scale="0.3786000000000048" rx="172.75000000000585" ry="-185.54999999999802" rz="179.0999999999991"
-                 width="1141"
-                 height="584"
-                 distorted="true"
-                 handcursor="true"
-                 capture="true"
-                 visible="true">
-        </hotspot>
-        <hotspot name="explora4"
-                 url="recursos/imagen/pe4.png"
-                 ath="87.30688189132843" atv="0.9539039603514022" scale="0.3731000000000054" rx="178.20000000000505" ry="-175.54999999999734" rz="180.0999999999991"
-                 width="1141"
-                 height="584"
-                 distorted="true"
-                 handcursor="true"
-                 capture="true"
-                 visible="true">
+                 handcursor="false"
+                 capture="false"
+                 visible="false">
         </hotspot>
 
         
-        
-
-        
-        <!-- <hotspot name="a7"
-                 url="recursos/imagen/7.png"
-                 ath="19.439013424985035" atv="0.581347580302021" scale="0.2174000000000026" rx="1.600000000000108" ry="-20" rz="0.1499999999999987"
-                 width="1141"
-                 height="584"
-                 distorted="true"
-                 handcursor="true"
-                 capture="true"
-                 visible="true">
-        </hotspot>
-
-        <hotspot name="a8"
-                 url="recursos/imagen/8.png"
-                 ath="19.439013424985035" atv="0.581347580302021" scale="0.2174000000000026" rx="1.600000000000108" ry="-20" rz="0.1499999999999987"
-                 width="1141"
-                 height="584"
-                 distorted="true"
-                 handcursor="true"
-                 capture="true"
-                 visible="true">
-        </hotspot>
-
-        <hotspot name="a9"
-                 url="recursos/imagen/9.png"
-                 ath="19.439013424985035" atv="0.581347580302021" scale="0.2174000000000026" rx="1.600000000000108" ry="-20" rz="0.1499999999999987"
-                 width="1141"
-                 height="584"
-                 distorted="true"
-                 handcursor="true"
-                 capture="true"
-                 visible="true">
-        </hotspot>
-         -->
   </scene>
 
 
