@@ -1031,9 +1031,9 @@
                  capture="true">
         </hotspot>
 
-        <hotspot name="investiga1"
-                 url="recursos/imagen/pi1.png"
-                 ath="19.439013424985035" atv="0.581347580302021" scale="0.2174000000000026" rx="1.600000000000108" ry="-20" rz="0.1499999999999987"
+        <hotspot name="investiga"
+                 url="recursos/imagen/pi.png"
+                 ath="19.324562816314085" atv="0.6669986501213457" scale="0.2174000000000026" rx="1.600000000000108" ry="-20" rz="0.1499999999999987"
                  width="1141"
                  height="584"
                  distorted="true"
@@ -1041,9 +1041,10 @@
                  capture="true"
                  visible="true">
         </hotspot>
-        <hotspot name="investiga2"
-                 url="recursos/imagen/pi2.png"
-                 ath="39.77570902188029" atv="0.6648958944076286" scale="0.23939999999999018" rx="0.7999999999999962" ry="50.69999999999895" rz="-0.25000000000000033"
+       
+        <hotspot name="presenta"
+                 url="recursos/imagen/pp.png"
+                 ath="-19.0497652919056" atv="0.6592375701893569" scale="0.2174000000000026" rx="1.600000000000108" ry="18.5" rz="-0.3000000000000014"
                  width="1141"
                  height="584"
                  distorted="true"
@@ -1051,32 +1052,23 @@
                  capture="true"
                  visible="true">
         </hotspot>
-        <hotspot name="investiga3"
-                 url="recursos/imagen/pi3.png"
-                 ath="43.5455011426356" atv="0.7960995107772869" scale="0.25940000000001184" rx="178.45000000000488" ry="-132.79999999999842" rz="179.3999999999985"
-                 width="1141"
-                 height="584"
-                 distorted="true"
-                 handcursor="true"
-                 capture="true"
-                 visible="true">
-        </hotspot>
-        <hotspot name="investiga4"
-                 url="recursos/imagen/pi4.png"
-                 ath="45.78769719890278" atv="14.742285604568648" scale="0.7228999999999908" rx="233.9500000000051" ry="-116.00000000000024" rz="251.49999999999545"
-                 width="1141"
-                 height="584"
-                 distorted="true"
-                 handcursor="true"
-                 capture="true"
-                 visible="true">
-        </hotspot>
+     
 
+        <hotspot name="explora"
+                 url="recursos/imagen/pe.png"
+                 ath="39.999682092538364" atv="0.7414157706919126" scale="0.24099999999999333" rx="178.5000000000049" ry="-129.9499999999951" rz="179.39999999999554"
+                 width="1141"
+                 height="584"
+                 distorted="true"
+                 handcursor="true"
+                 capture="true"
+                 visible="true">
+        </hotspot>
+      
 
-
-        <hotspot name="presenta1"
-                 url="recursos/imagen/pp1.png"
-                 ath="-69.21032855697649" atv="1.2711063263106117" scale="0.37670000000000503" rx="178.20000000000505" ry="-210.04999999999757" rz="179.79999999999916"
+    <hotspot name="crea"
+                 url="recursos/imagen/pc.png"
+                 ath="-39.4837176969786" atv="0.5810148969019021" scale="0.23909999999999354" rx="179.70000000000516" ry="-51.6499999999988" rz="179.8499999999952"
                  width="1141"
                  height="584"
                  distorted="true"
@@ -1084,86 +1076,11 @@
                  capture="true"
                  visible="true">
         </hotspot>
-        <hotspot name="presenta2"
-                 url="recursos/imagen/pp2.png"
-                 ath="-39.707128786436556" atv="0.6414479798638407" scale="0.23939999999999018" rx="0.49999999999999584" ry="129.89999999999833" rz="-0.25000000000000033"
-                 width="1141"
-                 height="584"
-                 distorted="true"
-                 handcursor="true"
-                 capture="true"
-                 visible="true">
-        </hotspot>
-        <hotspot name="presenta3"
-                 url="recursos/imagen/pp3.png"
-                 ath="-19.010329785155022" atv="0.7000447405451377" scale="0.2174000000000026" rx="1.600000000000108" ry="18.5" rz="-0.3000000000000014"
-                 width="1141"
-                 height="584"
-                 distorted="true"
-                 handcursor="true"
-                 capture="true"
-                 visible="true">
-        </hotspot>
-        <hotspot name="presenta4"
-                 url="recursos/imagen/pp4.png"
-                 ath="-42.731293487416735" atv="14.819684799563252" scale="0.7463999999999998" rx="407.75000000000426" ry="-293.3499999999994" rz="465.84999999999656"
-                 width="1141"
-                 height="584"
-                 distorted="true"
-                 handcursor="true"
-                 capture="true"
-                 visible="true">
-        </hotspot>
-
-
-        <hotspot name="explora1"
-                 url="recursos/imagen/pe1.png"
-                 ath="78.88380855037292" atv="1.1404580687810246" scale="0.3683999999999932" rx="177.00000000000455" ry="-169.59999999999923" rz="179.54999999999512"
-                 width="1141"
-                 height="584"
-                 distorted="true"
-                 handcursor="true"
-                 capture="true"
-                 visible="true">
-        </hotspot>
-        <hotspot name="explora2"
-                 url="recursos/imagen/pe2.png"
-                 ath="88.9691126610345" atv="22.455957430517348" scale="0.6680999999999929" rx="237.50000000000455" ry="-182.59999999999923" rz="177.74999999999596"
-                 width="1141"
-                 height="584"
-                 distorted="true"
-                 handcursor="true"
-                 capture="true"
-                 visible="true">
-        </hotspot>
-        <hotspot name="explora3"
-                 url="recursos/imagen/pe3.png"
-                 ath="95.84496886248883" atv="1.6944978613700579" scale="0.3786000000000048" rx="172.75000000000585" ry="-185.54999999999802" rz="179.0999999999991"
-                 width="1141"
-                 height="584"
-                 distorted="true"
-                 handcursor="true"
-                 capture="true"
-                 visible="true">
-        </hotspot>
-        <hotspot name="explora4"
-                 url="recursos/imagen/pe4.png"
-                 ath="87.30688189132843" atv="0.9539039603514022" scale="0.3731000000000054" rx="178.20000000000505" ry="-175.54999999999734" rz="180.0999999999991"
-                 width="1141"
-                 height="584"
-                 distorted="true"
-                 handcursor="true"
-                 capture="true"
-                 visible="true">
-        </hotspot>
-
+       
         
-        
-
-        
-        <!-- <hotspot name="a7"
-                 url="recursos/imagen/7.png"
-                 ath="19.439013424985035" atv="0.581347580302021" scale="0.2174000000000026" rx="1.600000000000108" ry="-20" rz="0.1499999999999987"
+        <hotspot name="desarrolla"
+                 url="recursos/imagen/pd.png"
+                 ath="-70.30379394770853" atv="0.99163954676529" scale="0.3566999999999856" rx="1.9999999999999971" ry="160.39999999999662" rz="0.1499999999999996"
                  width="1141"
                  height="584"
                  distorted="true"
@@ -1171,10 +1088,12 @@
                  capture="true"
                  visible="true">
         </hotspot>
+      
 
-        <hotspot name="a8"
-                 url="recursos/imagen/8.png"
-                 ath="19.439013424985035" atv="0.581347580302021" scale="0.2174000000000026" rx="1.600000000000108" ry="-20" rz="0.1499999999999987"
+  
+        <hotspot name="interactua"
+                 url="recursos/imagen/pin.png"
+                 ath="70.98852292117027" atv="1.0154295185699744" scale="0.3551999999999885" rx="1.9999999999999971" ry="200.3499999999989" rz="-0.2500000000000003"
                  width="1141"
                  height="584"
                  distorted="true"
@@ -1182,18 +1101,8 @@
                  capture="true"
                  visible="true">
         </hotspot>
-
-        <hotspot name="a9"
-                 url="recursos/imagen/9.png"
-                 ath="19.439013424985035" atv="0.581347580302021" scale="0.2174000000000026" rx="1.600000000000108" ry="-20" rz="0.1499999999999987"
-                 width="1141"
-                 height="584"
-                 distorted="true"
-                 handcursor="true"
-                 capture="true"
-                 visible="true">
-        </hotspot>
-         -->
+       
+       
   </scene>
 
 
