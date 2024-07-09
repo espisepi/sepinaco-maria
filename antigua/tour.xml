@@ -1,0 +1,421 @@
+﻿<krpano version="1.20.11" title="La Antigua Horno de Leña">
+
+	<include url="skin/vtourskin.xml" />
+
+	<layer name= "logo_antigua" url="logoredondoAntigua.png" keep= "true" scale="0.15"
+		enebled="true"
+		alpha="0.5"
+		onclick="openurl(https://www.instagram.com/laantiguahorno/)"
+		align="topright"
+		edge="topright"
+		x="10" y="10" />
+
+	<layer name="intro"
+			type="container"
+			keep="true"
+			width="100%"
+			height="100%"
+			bgcolor="0x000000"
+			bgalpha="0.8"
+			zorder="9999"
+			enabled="true"
+			bgcapture="true"
+			onloaded="on_intro_loaded()"
+			onclick="on_intro_click()"
+			>
+
+		<layer name="intro_logo" 
+			enabled="false"
+			alpha="0"
+			url= "logoredondoAntigua.png" align="center" y="-80" scale="0.4" />
+			
+		<layer name="intro_start" url= "clickstart.png"
+			enabled="false"
+			alpha="0"
+			align="center" y="80" scale="0.4" />
+
+		<layer name="intro_start" url= "clickstart_mobile.png"
+			devices="mobile" 
+			enabled="false"
+			alpha="0"
+			align="center" y="100" scale="0.2"
+			/>
+		</layer>
+	
+	<action name="on_intro_click">
+		<!--set(layer[intro].alpha,0);-->
+		tween(layer[intro].alpha,0);
+		set (layer[intro].enabled, false);
+	</action> 
+	
+	<action name="on_intro_loaded">
+		delayedcall(1.5, 
+			tween(layer[intro_logo].alpha,1);
+			tween(layer[intro_start].alpha,1);
+		);
+		
+	</action>
+
+
+<!-- active spot image (overlays the normal spot) -->
+
+
+<action name="flyout_hotspot">
+		for(set(i,0), i LT hotspot.count, inc(i),
+			copy(hs, hotspot[get(i)]);
+			if(hs.name != name AND hs.style == 'flyoutimage' AND (hs.flying_state == 'out' OR hs.flying_state == 'flyingout'),
+				callwith(hs, flyout_hotspot() );
+			  );
+		  );
+
+		if(flying_state == 'flyingout',
+			set(flying_state, 'flyingin');
+		  ,
+			if(flying_state == 'flyingin',
+				set(flying_state, 'flyingout');
+		  	  );
+		);
+
+		if(flying_state == 'in',
+			calc(backup_state, '0.0|' + rx + '|' + ry + '|' + rz + '|' + scale);
+			copy(backup_zorder, zorder);
+			set(flying_state, 'flyingout');
+		  );
+
+		if(flying_state == 'out',
+			set(flying_state, 'flyingin');
+		  );
+
+		if(flying_state == 'flyingout',
+			set(zorder, 99);
+			tween(alpha, 1,2);
+					tween(flying|rx|ry|rz|scale, '1.0|0.0|0.0|0.0|0.6',2, default, set(flying_state,'out'); set(capture,true);
+					);
+				);
+			
+		  
+		 if(flying_state == 'flyingout' AND webvr.isenabled,
+			set(zorder, 99);
+			tween(alpha, 1 ,2);
+			tween(flying|rx|ry|rz|scale, '1.0|0.0|0.0|0.0|0.3',2, default, set(flying_state,'in'); set(capture,true);		
+		  	);
+			delayedcall(6.0, set(visible, false); );
+		);
+
+		if(flying_state == 'flyingin',
+			sub(zorder,1);
+			tween(alpha, 0 ,2);
+			set(capture,false);
+			tween(flying|rx|ry|rz|scale, get(backup_state), 1, default, set(flying_state,'in'); copy(zorder,backup_zorder); );
+		  	);
+
+		 if(flying_state == 'flyingin' AND webvr.isenabled,
+			sub(zorder,1);
+			tween(alpha, 0 ,2);
+			set(capture,false);
+			tween(flying|rx|ry|rz|scale, get(backup_state), 1, default, set(flying_state,'in'); copy(zorder,backup_zorder);
+		  	);
+
+		);
+		 
+	    </action>
+
+
+	<layer name="floorplans_container"
+		type="container"
+		bgcolor="0x000000"
+		bgalpha="0.3"
+		alpha="1"
+		width="170"
+		height="230"
+		align="right"
+		keep="true"
+		state="maximized"
+		scalechildren="true"
+		zorder="9997"
+		scale="1"
+		scale.mobile="0.5"
+		>
+		<layer name="floorplan_image" type="image"
+			url="mapaantigua.png"
+			align="center"
+			width="170"
+			height="220"
+			enabled="true"
+			onclick="toggle_floor_plan_size"
+			>
+			<layer name="dot_calle"  
+				style="mapspot"
+				x="77"
+				y="177"
+				onclick="skin_loadscene(scene_Calle, get(skin_settings.loadscene_blend) );"
+			/>
+			<layer name="dot_terraza" 
+				style="mapspot"
+				x="77"
+				y="119"
+				onclick="skin_loadscene(scene_Terraza, get(skin_settings.loadscene_blend) );"
+			/>
+			<layer name="dot_sala" 
+				style="mapspot"
+				x="75"
+				y="81"
+				onclick="skin_loadscene(scene_Interior, get(skin_settings.loadscene_blend) );"
+			/>
+		</layer>
+
+	<plugin name="radar"
+        url.html5="plugins/radar.js"
+        align="center"
+        edge="center"
+        x="0" y="0"
+        scale="0.2"
+        heading="0.0"
+        headingoffset="90.0"
+        fillcolor="0x45bfe3"
+        fillalpha="0.5"
+        linewidth="0.0"
+        linecolor="0xFFFFFF"
+        linealpha="0.3"
+        invert="false"
+        />
+
+	<layer name="activespot"
+		type="container" 
+		width="8"
+		height="8"
+		bgalpha="1"
+		bgroundedge="15"
+		bgborder="2 0x45bfe3 1"
+		bgcolor="0x45bfe3"
+		bgshadow="0 0 10 3 0x000000 0.25"
+		align="center"
+		edge="center"
+		enabled="true"
+		x="0"
+		y="0"
+	 />
+
+	</layer>
+
+	<style name="mapspot"
+		type="container" 
+		width="7.5"
+		height="7.5"
+		bgalpha="1"
+		bgroundedge="15"
+		bgborder="2 0xFF0000 1"
+		bgcolor="0xFFFFFF"
+		bgshadow="0 0 10 3 0x000000 0.25"
+		align="lefttop"
+		edge="center"
+		enabled="true"	
+		bgcapture="true"
+		/>
+
+	<action name="updateradar">
+		trace(%1);
+		set(layer[activespot].parent, %1);
+		set(layer[radar].parent, %1);
+		set(layer[radar].heading, %2);
+	</action>
+
+	<action name="toggle_floor_plan_size">
+		set(state, get(layer[floorplans_container].state));
+
+		if(state == minimized,
+			
+			trace("state is minimized");
+			tween(layer[floorplans_container].scale, 1);
+			set(layer[floorplans_container].state, maximized);
+			,
+			
+			trace("state is maximized");
+			tween(layer[floorplans_container].scale, 0.5);
+			set(layer[floorplans_container].state, minimized);
+		)
+	</action>
+
+	<plugin name="videoplayer" url.html5="%SWFPATH%/plugins/videoplayer.js" url.flash="%SWFPATH%/plugins/videoplayer.swf" />
+
+
+	<!-- customize skin settings: maps, gyro, webvr, thumbnails, tooltips, layout, design, ... -->
+	<skin_settings maps="true"
+	               maps_type="google"
+	               maps_bing_api_key=""
+	               maps_google_api_key=""
+	               maps_zoombuttons="false"
+	               maps_loadonfirstuse="true"
+	               gyro="true"
+	               gyro_keeplookingdirection="false"
+	               webvr="true"
+	               webvr_keeplookingdirection="true"
+	               webvr_prev_next_hotspots="true"
+	               autotour="false"
+	               littleplanetintro="true"
+	               followmousecontrol="false"
+	               title="true"
+	               thumbs="true"
+	               thumbs_width="120" thumbs_height="80" thumbs_padding="10" thumbs_crop="0|40|240|160"
+	               thumbs_opened="false"
+	               thumbs_text="false"
+	               thumbs_dragging="true"
+	               thumbs_onhoverscrolling="false"
+	               thumbs_scrollbuttons="false"
+	               thumbs_scrollindicator="false"
+	               thumbs_loop="false"
+	               tooltips_buttons="false"
+	               tooltips_thumbs="false"
+	               tooltips_hotspots="false"
+	               tooltips_mapspots="false"
+	               deeplinking="false"
+	               loadscene_flags="MERGE"
+	               loadscene_blend="OPENBLEND(0.5, 0.0, 0.75, 0.05, linear)"
+	               loadscene_blend_prev="SLIDEBLEND(0.5, 180, 0.75, linear)"
+	               loadscene_blend_next="SLIDEBLEND(0.5,   0, 0.75, linear)"
+	               loadingtext=""
+	               layout_width="100%"
+	               layout_maxwidth="814"
+	               controlbar_width="-24"
+	               controlbar_height="40"
+	               controlbar_offset="20"
+	               controlbar_offset_closed="-40"
+	               controlbar_overlap.no-fractionalscaling="10"
+	               controlbar_overlap.fractionalscaling="0"
+	               design_skin_images="vtourskin.png"
+	               design_bgcolor="0x2D3E50"
+	               design_bgalpha="0.8"
+	               design_bgborder="0"
+	               design_bgroundedge="1"
+	               design_bgshadow="0 4 10 0x000000 0.3"
+	               design_thumbborder_bgborder="3 0xFFFFFF 1.0"
+	               design_thumbborder_padding="2"
+	               design_thumbborder_bgroundedge="0"
+	               design_text_css="color:#FFFFFF; font-family:Arial;"
+	               design_text_shadow="1"
+	               />
+
+	<!--
+	    For an alternative skin design either change the <skin_settings> values 
+	    from above or optionally include one of the predefined designs from below.
+	-->
+	<!-- <include url="skin/vtourskin_design_flat_light.xml"  /> -->
+	 <include url="skin/vtourskin_design_glass.xml"       /> 
+	<!-- <include url="skin/vtourskin_design_ultra_light.xml" /> -->
+	<!-- <include url="skin/vtourskin_design_117.xml"         /> -->
+	<!-- <include url="skin/vtourskin_design_117round.xml"    /> -->
+	<!-- <include url="skin/vtourskin_design_black.xml"       /> -->
+
+	<layer name="botoncreditos" url="gid.png" keep="true" enabled="true" align="leftbottom" x="10" y="5" scale="0.4" scale.mobile="0.2" onclick="set(layer[creditos].visible,true);"/>
+	
+	<style name="flyoutimage" distorted="true" flying="0.0" backup_state="" backup_zorder="" flying_state="in" capture="false"/>
+	
+	
+		<!-- <scene name="scene_Portada" title="Portada" onstart="" thumburl="panos/Portada.tiles/thumb.jpg" lat="37.40436111" lng="-5.95561111" heading="0.0">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="2.364" vlookat="0.384" fovtype="MFOV" fov="103.546" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Portada.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/Portada.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048" />
+		</image>
+
+		<hotspot name="hotspotantigua1" url="hotspotantigua.png" style="skin_hotspotstyle" ath="-15.377" atv="6.997" linkedscene="scene_calle" />
+		
+		<hotspot name="audio_patio" distorted="true" visible="true" url="icon_sound.png" style="skin_hotspotstyle" ath="26.688" atv="-12.357" onclick="hotspot[patio_audio].play(); set(hotspot[patio_audio].visible,false) ; set(hotspot[audio_patio].visible,false) ; set(hotspot[cerrar].visible,true);"/>
+		<hotspot name="cerrar" distorted="true" visible="false" url="icon_sound.png" style="skin_hotspotstyle" ath="26.688" atv="-12.357" onclick="hotspot[patio_audio].stop(); set(hotspot[patio_audio].visible,true) ; set(hotspot[cerrar].visible,false) ; set(hotspot[audio_patio].visible,true);"/>
+		<hotspot name="patio_audio" distorted="true" visible="false" url.html5="%SWFPATH%/plugins/videoplayer.js" url.flash="%SWFPATH%/plugins/videoplayer.swf" videourl="canciondefondo.mp3" ath="0.000" atv="0.000" edge="center" scale.normal="0.43" scale.mobile="0.43" keep="true" rx="0" ry="0" rz="0" ox="0" oy="0" loop="false" preload="true" pausedonstart="true" onvideoplay="play();" />
+		
+	</scene>-->
+	
+	<scene name="scene_Calle" title="Calle" onstart="hotspot[patio_audio].stop(); hotspot[videopaso_palio].stop(); hotspot[videopaso_palio].stop(); set(hotspot[videopaso_palio].visible,false); updateradar(dot_calle,90);" thumburl="panos/Calle.tiles/thumb.jpg" lat="37.40436111" lng="-5.95561111" heading="0.0">
+
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="179.159" vlookat="0.603" fovtype="MFOV" fov="103.470" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Calle.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/Calle.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048" />
+		</image>
+
+		<hotspot name="hotspotantigua1" url="hotspotantigua.png" style="skin_hotspotstyle" ath="178.810" atv="8.820" linkedscene="scene_terraza" />
+		
+	</scene>
+
+	<scene name="scene_Terraza" title="Terraza" onstart="hotspot[patio_audio].stop(); hotspot[videopaso_palio].stop(); hotspot[videopaso_palio].stop(); set(hotspot[videopaso_palio].visible,false); updateradar(dot_terraza,90);" thumburl="panos/Terraza.tiles/thumb.jpg" lat="37.40444444" lng="-5.95580556" heading="0.0">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="-176.066" vlookat="0.184" fovtype="MFOV" fov="129.688" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Terraza.tiles/preview.jpg" />
+		
+
+
+		
+		<preview type="grid(cube,64,64,512,0xCCCCCC,0xF6F6F6,0x999999);"/>
+
+
+
+		<image>
+			<cube url="panos/Terraza.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048" />
+		</image>
+
+		<hotspot name="carta" distorted="true" visible="true" url="icon_food.png" width="50" height="50" onloaded="do_crop_animation(5,5, 10);"  ath="137.703" atv="-9.528" />
+		<hotspot name="carta_menu" style="flyoutimage" alpha="0" url="cartarestaurante.jpg" distorted="true" visible="true" scale="0.2" ath="137.703" atv="-9.528" onclick="flyout_hotspot();" />
+		
+
+
+		<layer name="image" visible="false" url="cartarestaurante.jpg" scale="1.0" align="center" edge="center" onover=" set(iszoom, true); set(startzoom, true); copy(copy_mousefovchange, control.mousefovchange); copy(copy_touchzoom, control.touchzoom); set(control.mousefovchange, 0); set(control.touchzoom, false); " onout=" set(iszoom, false); copy(control.mousefovchange, copy_mousefovchange); copy(control.touchzoom, copy_touchzoom); " ondown.touch="onover();" onup.touch="onout();"/>
+		<events name="image_zoom_events" onmousewheel="image_onmousewheel();"/>
+		<action name="image_onmousewheel">
+			if(iszoom, if(wheeldelta_touchscale GT 0,
+			<!--  touch zoom  -->
+			if(startzoom, set(startzoom,false); copy(start_wheeldelta_touchscale, wheeldelta_touchscale); copy(start_imagescale, layer[image].scale); ); div(tmp, wheeldelta_touchscale, start_wheeldelta_touchscale); mul(layer[image].scale, start_imagescale, tmp); ,
+			<!--  mouse wheel zoom  -->
+			mul(sit,get(wheeldelta),0.05); mul(sit,layer[image].scale); add(layer[image].scale,sit); ); );
+		</action>
+
+
+		<hotspot name="hotspotantigua1" url="hotspotantigua.png" style="skin_hotspotstyle" ath="-178.095" atv="18.601" linkedscene="scene_Interior"   />
+		<hotspot name="hotspotantigua2" url="hotspotantigua.png" style="skin_hotspotstyle" ath="1.025" atv="10.573" linkedscene="scene_calle"   />
+		
+		
+
+	</scene>
+
+	<scene name="scene_Interior" title="Sala" onstart="hotspot[patio_audio].stop(); hotspot[videopaso_palio].stop(); hotspot[videopaso_palio].stop(); set(hotspot[videopaso_palio].visible,false); updateradar(dot_sala,265);" thumburl="panos/Interior.tiles/thumb.jpg" lat="37.40438889" lng="-5.95580556" heading="0.0">
+
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="-0.524" vlookat="-0.393" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+			rl="panos/Interior.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/Interior.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048" />
+		</image>
+		
+		<hotspot name="hotspotantigua1" url="hotspotantigua.png" style="skin_hotspotstyle" ath="179.535" atv="18.098" linkedscene="scene_terraza"  />
+
+		
+		<hotspot name="pasopalio" distorted="true" visible="true" url="video.png" onloaded="" ath="0.506" atv="3.609" onclick="hotspot[videopaso_palio].play(); set(hotspot[videopaso_palio].visible,true) ; set(hotspot[pasopalio].visible,false) ; set(hotspot[cerrar].visible,true)"/>
+		<hotspot name="cerrar" distorted="false" visible="false" url="cerrar.png" onloaded="" ath="25.000" atv="20.000" onclick="hotspot[videopaso_palio].stop(); set(hotspot[videopaso_palio].visible,false) ; set(hotspot[cerrar].visible,false) ; set(hotspot[pasopalio].visible,true)"/>
+		<hotspot name="videopaso_palio" enabled="false" capture="false" zorder="99" url.html5="%SWFPATH%/plugins/videoplayer.js" url.flash="%SWFPATH%/plugins/videoplayer.swf" videourl="marcopolo1.mp4" distorted="true" ath="0.000" atv="0.000" edge="center" scale.normal="0.43" scale.mobile="0.43" keep="true" rx="0" ry="0" rz="0" ox="0" oy="0" loop="false" preload="true" pausedonstart="true" onvideoplay="play();" visible="false" volume="0.5">
+			<hotspot_property name="html5controls" value="true" />
+		</hotspot>
+	</scene>
+
+	
+
+
+</krpano>
+
+
+
+

@@ -118,13 +118,13 @@
 			keep="true"
 			width="100%"
 			height="100%"
-			bgcolor="0xffffff"
+			bgcolor="0x000000"
 			bgalpha="0.9"
 			zorder="9999"
 			enabled="true"
 			bgcapture="true"
 			onloaded="on_intro_loaded()"
-			onclick="on_intro_click();"
+			onclick=""
 			>
 
 		<!-- <layer name="intro_logo" 
@@ -132,17 +132,29 @@
 			alpha="0"
 			url= "gidUSC.png" align="center" y="-80" scale="0.1" /> -->
 			
-		<layer name="intro_start" url= "clickstart.png"
-			devices="desktop"
+		<layer name="intro_start" url= "recursos/imagen/instrucciones_escritorio.png"
+			type="imagen" 
+            devices="desktop"
 			enabled="false"
 			alpha="0"
-			align="center" y="10" scale="1.0" />
+			align="center" y="10" scale="0.5" />
 
-		<layer name="intro_start_mobile" url= "recursos/imagen/clickstart_mobile.png"
-			devices="mobile" 
+            <layer name="intro_start_x" url= "recursos/imagen/boton_cerrar.png"
+			type="imagen" 
+            devices="desktop"
+			enabled="true"
+			alpha="1"
+			align="topright" y="30" scale="0.1"
+            onclick="on_intro_click();" />
+
+
+
+		<layer name="intro_start_mobile" url= "recursos/imagen/instrucciones_movil.png"
+			type="imagen" 
+            devices="mobile" 
 			enabled="false"
 			alpha="0"
-			align="center" y="30" scale="1.2"
+			align="center" y="30" scale="0.5"
 			/>
 		</layer>
 
@@ -152,8 +164,18 @@
 		<!--set(layer[intro].alpha,0);-->
 		tween(layer[intro].alpha,0);
 		set (layer[intro].enabled, false);
+        set(hotspot[instrucciones_video].pausedonstart, false);
+		hotspot[instrucciones_video].play();
+		set(hotspot[instrucciones_video].visible, true);
+        set(hotspot[boton_cerrar].visible, true);
+		<!-- play_papel();
+		start_autorotate(); -->
+	</action> 
+
+    <action name="playtour">
 		play_papel();
 		start_autorotate();
+        set(hotspot[instrucciones_video].visible, false);
 	</action> 
 	
 	<action name="on_intro_loaded">
@@ -309,7 +331,9 @@
 		);
 	</action>
 
-
+    <action name="goto_scene_menu">
+    loadscene(scene_menu, null, MERGE);
+	</action>
 
 	<action name="goto_scene_pasillo">
     loadscene(scene_pasillo, null, MERGE);
@@ -376,11 +400,12 @@
     <!-- Definir la acción mostrar los hotspots -->
 	   <!-- Definir las acciones -->
     <action name="play_papel">
+    delayedcall(0.95, playsound('aulasfuturo', 'recursos/audio/aulasfuturo.mp3'));
         delayedcall(0.95, startVideo1());
 		delayedcall(4.3, startVideo2());
 		delayedcall(16.8, startVideo3());
 		delayedcall(24.17, startVideo4());
-		delayedcall(32, startVideo5());
+		delayedcall(34, startVideo5());
 		delayedcall(45.9, flecha());
         delayedcall(49.8, stop_autorotate());
 		delayedcall(49.8, pizarra());
@@ -392,23 +417,36 @@
 		delayedcall(59.6, camara());
 		delayedcall(62.6, estudio());
 		delayedcall(65.7, meet());
+        delayedcall(67.7, ver());
         delayedcall(67.7, f1());
+        delayedcall(69.9, no_ver());
         delayedcall(73.3, f2());
         delayedcall(76.9, f3());
         delayedcall(80.5, eliminar_hotspots_2());
+        delayedcall(80.5, zoom_in());
         delayedcall(80.5, parrafo_final());
-        delayedcall(128.5, investiga());
-        delayedcall(133.3, explora());
-        delayedcall(136.8, interactua());
-        delayedcall(141, desarrolla());
-        delayedcall(144.8, crea());
-        delayedcall(149, presenta());
-        
-        
-       
-		
+        delayedcall(82.9, no_zoom_in());
+        delayedcall(125.2, zoom_out());
+        delayedcall(128.3, no_zoom_out());
+        delayedcall(129.5, investiga());
+        delayedcall(134.3, explora());
+        delayedcall(137.8, interactua());
+        delayedcall(142, desarrolla());
+        delayedcall(145.8, crea());
+        delayedcall(150, presenta());
+        delayedcall(154, oreja());
+        delayedcall(152, start_autorotate());
+        delayedcall(167.2, no_oreja());
+        delayedcall(167.2, portal_menu());
+        delayedcall(167.2, menu());
     </action>
     
+    <action name="playsound">
+        playsound(aulasfuturo, 'recursos/audio/aulasfuturo.mp3');
+    </action>
+    <action name="stop_audio">
+    stopsound(aulasfuturo, 'recursos/audio/aulasfuturo.mp3');
+    </action>
     <action name="startVideo1">
         set(hotspot[i1].pausedonstart, false);
 		hotspot[i1].play();
@@ -488,6 +526,12 @@
 		hotspot[meet].play();
 		set(hotspot[meet].visible, true);
     </action>
+    <action name="ver">
+		set(hotspot[ver].visible, true);
+    </action>
+    <action name="no_ver">
+		set(hotspot[ver].visible, false);
+    </action>
     <action name="f1">
 		set(hotspot[f1].pausedonstart, false);
 		hotspot[f1].play();
@@ -508,10 +552,22 @@
         set(hotspot[f2].visible, false);
         set(hotspot[f3].visible, false);
     </action>
+    <action name="zoom_in">
+		set(hotspot[zoom_in].visible, true);
+    </action>
+    <action name="no_zoom_in">
+		set(hotspot[zoom_in].visible, false);
+    </action>
     <action name="parrafo_final">
 		set(hotspot[parrafo_final].pausedonstart, false);
 		hotspot[parrafo_final].play();
 		set(hotspot[parrafo_final].visible, true);
+    </action>
+    <action name="zoom_out">
+		set(hotspot[zoom_out].visible, true);
+    </action>
+    <action name="no_zoom_out">
+		set(hotspot[zoom_out].visible, false);
     </action>
     <action name="investiga">
 		set(hotspot[investiga_pared].visible, true);
@@ -549,7 +605,18 @@
 		hotspot[presenta].play();
 		set(hotspot[presenta].visible, true);
     </action>
-
+    <action name="oreja">
+		set(hotspot[oreja].visible, true);
+    </action>
+    <action name="no_oreja">
+		set(hotspot[oreja].visible, false);
+    </action>
+    <action name="portal_menu">
+		set(hotspot[portal_menu].visible, true);
+    </action>
+    <action name="menu">
+		set(hotspot[menu].visible, true);
+    </action>
 
 
 
@@ -563,17 +630,19 @@
 
 
     <!-- Definir una acción personalizada para detener todos los hotspots -->
-    <action name="stop_all_hotspots">
-        if(hotspot.count GT 0,
-            for(hotspot_index, 0, hotspot.count - 1,
-                set(hotspot[get(hotspot_index)].enabled, false);
+   <action name="stop_all_hotspots">
+    if(hotspot.count GT 0,
+        for(hotspot_index, 0, hotspot.count - 1,
+            if(defined(hotspot[get(hotspot_index)].play),
+                hotspot[get(hotspot_index)].stop();
             );
         );
-    </action>
+    );
+</action>
 
 
 
-	<scene name="scene_papel" title="INICIO" onstart="" thumburl="panos/papel.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+	<scene name="scene_papel" title="INICIO" onstart="stop_all_hotspots();" thumburl="panos/papel.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
         <autorotate enabled="false" waittime="1.0" speed="0.7" horizon="0.0" />
 		<control bouncinglimits="calc:image.cube ? true : false" />
         <view hlookat="1.6361793606421329" vlookat="0.18442449326715848" fov="69.60905805771031" fovtype="MFOV" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
@@ -581,6 +650,53 @@
         <image>
             <cube url="panos/papel.tiles/pano_%s.jpg" />
         </image>
+
+        <!-- Hotspots de instrucciones video -->
+
+		<hotspot name="instrucciones_video" 
+                 url.html5="plugins/videoplayer.js"
+                 url.flash="plugins/videoplayer.swf"
+                 videourl="recursos/video/instrucciones_video.mp4"
+                 ath="1.7806235678771145" atv="0.03142466066969645" scale="0.30420000000001046" rx="0" ry="0" rz="0"
+                 width="1920"
+                 height="1080"
+                 alpha="1"
+                 chromakey="0x00FF00|0.60|0.10"
+                 distorted="true"
+                 zorder="9999"
+                 visible="false"
+                 pausedonstart="true"
+                 loop="true"
+                 volume="0.0"
+                 directionalsound="true"
+                 range="90.0"
+                 rangefalloff="1.0"
+                 outofrangevolume="1.0"
+                 onhover=""
+                 onclick=""
+                 onvideocomplete=""
+                 onerror=""
+                 handcursor="false"
+                 capture="false">
+        </hotspot>
+
+        <!-- Hotspots de boton cerrar -->
+
+        <hotspot name="boton_cerrar"
+                 url="recursos/imagen/boton_cerrar.png"
+                 ath="28.230161551144874" atv="-12.555658953958115" scale="0.04840000000001071" rx="0" ry="0" rz="0"
+                 width="1141"
+                 height="584"
+                 alpha="0"
+                 distorted="true"
+                 handcursor="true"
+                 capture="true"
+                 visible="true"
+                 zorder="999999"
+                 onclick="playtour();"
+                 >
+        </hotspot>
+
 		
 		<!-- Hotspots de i1 -->
 
@@ -598,7 +714,7 @@
                  visible="false"
                  pausedonstart="true"
                  loop="false"
-                 volume="1.0"
+                 volume="0.0"
                  directionalsound="true"
                  range="90.0"
                  rangefalloff="1.0"
@@ -629,7 +745,7 @@
                  visible="false"
                  pausedonstart="true"
                  loop="false"
-                 volume="1.0"
+                 volume="0.0"
                  directionalsound="true"
                  range="90.0"
                  rangefalloff="1.0"
@@ -659,7 +775,7 @@
                  visible="false"
                  pausedonstart="true"
                  loop="false"
-                 volume="1.0"
+                 volume="0.0"
                  directionalsound="true"
                  range="90.0"
                  rangefalloff="1.0"
@@ -687,7 +803,7 @@
                  visible="false"
                  pausedonstart="true"
                  loop="false"
-                 volume="1.0"
+                 volume="0.0"
                  directionalsound="true"
                  range="90.0"
                  rangefalloff="1.0"
@@ -696,8 +812,8 @@
                  onclick=""
                  onvideocomplete=""
                  onerror=""
-                 handcursor="true"
-                 capture="true">
+                 handcursor="false"
+                 capture="false">
         </hotspot>
 
 
@@ -718,7 +834,7 @@
                  visible="false"
                  pausedonstart="true"
                  loop="false"
-                 volume="1.0"
+                 volume="0.0"
                  directionalsound="true"
                  range="90.0"
                  rangefalloff="1.0"
@@ -748,8 +864,8 @@
                  zorder="0"
                  visible="false"
                  pausedonstart="true"
-                 loop="false"
-                 volume="1.0"
+                 loop="true"
+                 volume="0.0"
                  directionalsound="true"
                  range="90.0"
                  rangefalloff="1.0"
@@ -779,7 +895,7 @@
                  visible="false"
                  pausedonstart="true"
                  loop="false"
-                 volume="1.0"
+                 volume="0.0"
                  directionalsound="true"
                  range="90.0"
                  rangefalloff="1.0"
@@ -808,7 +924,7 @@
                  visible="false"
                  pausedonstart="true"
                  loop="false"
-                 volume="1.0"
+                 volume="0.0"
                  directionalsound="true"
                  range="90.0"
                  rangefalloff="1.0"
@@ -838,7 +954,7 @@
                  visible="false"
                  pausedonstart="true"
                  loop="false"
-                 volume="1.0"
+                 volume="0.0"
                  directionalsound="true"
                  range="90.0"
                  rangefalloff="1.0"
@@ -867,7 +983,7 @@
                  visible="false"
                  pausedonstart="true"
                  loop="false"
-                 volume="1.0"
+                 volume="0.0"
                  directionalsound="true"
                  range="90.0"
                  rangefalloff="1.0"
@@ -898,7 +1014,7 @@
                  visible="false"
                  pausedonstart="true"
                  loop="false"
-                 volume="1.0"
+                 volume="0.0"
                  directionalsound="true"
                  range="90.0"
                  rangefalloff="1.0"
@@ -929,7 +1045,7 @@
                  visible="false"
                  pausedonstart="true"
                  loop="false"
-                 volume="1.0"
+                 volume="0.0"
                  directionalsound="true"
                  range="90.0"
                  rangefalloff="1.0"
@@ -958,7 +1074,7 @@
                  visible="false"
                  pausedonstart="true"
                  loop="false"
-                 volume="1.0"
+                 volume="0.0"
                  directionalsound="true"
                  range="90.0"
                  rangefalloff="1.0"
@@ -986,7 +1102,7 @@
                  visible="false"
                  pausedonstart="true"
                  loop="false"
-                 volume="1.0"
+                 volume="0.0"
                  directionalsound="true"
                  range="90.0"
                  rangefalloff="1.0"
@@ -1015,7 +1131,7 @@
                  visible="false"
                  pausedonstart="true"
                  loop="false"
-                 volume="1.0"
+                 volume="0.0"
                  directionalsound="true"
                  range="90.0"
                  rangefalloff="1.0"
@@ -1024,8 +1140,8 @@
                  onclick=""
                  onvideocomplete=""
                  onerror=""
-                 handcursor="true"
-                 capture="true">
+                 handcursor="false"
+                 capture="false">
         </hotspot>
 
     
@@ -1044,7 +1160,7 @@
                  visible="false"
                  pausedonstart="true"
                  loop="false"
-                 volume="1.0"
+                 volume="0.0"
                  directionalsound="true"
                  range="90.0"
                  rangefalloff="1.0"
@@ -1053,8 +1169,8 @@
                  onclick=""
                  onvideocomplete=""
                  onerror=""
-                 handcursor="true"
-                 capture="true">
+                 handcursor="false"
+                 capture="false">
         </hotspot>
 
 
@@ -1073,7 +1189,7 @@
                  visible="false"
                  pausedonstart="true"
                  loop="false"
-                 volume="1.0"
+                 volume="0.0"
                  directionalsound="true"
                  range="90.0"
                  rangefalloff="1.0"
@@ -1082,8 +1198,8 @@
                  onclick=""
                  onvideocomplete=""
                  onerror=""
-                 handcursor="true"
-                 capture="true">
+                 handcursor="false"
+                 capture="false">
         </hotspot>
 
         <!-- Hotspot de parrafo_final -->
@@ -1101,7 +1217,7 @@
                  visible="false"
                  pausedonstart="true"
                  loop="false"
-                 volume="1.0"
+                 volume="0.0"
                  directionalsound="true"
                  range="90.0"
                  rangefalloff="1.0"
@@ -1110,8 +1226,8 @@
                  onclick=""
                  onvideocomplete=""
                  onerror=""
-                 handcursor="true"
-                 capture="true">
+                 handcursor="false"
+                 capture="false">
         </hotspot>
 
         <!-- Hotspot de cartel investiga -->
@@ -1119,7 +1235,7 @@
                  url.html5="plugins/videoplayer.js"
                  url.flash="plugins/videoplayer.swf"
                  videourl="recursos/video/investiga.mp4"
-                 ath="-72.34611693246933" atv="0.07006930563646589" scale="0.15900000000000178" rx="0" ry="0" rz="0.5499999999999452"
+                 ath="-72.34611677590476" atv="0.07006927912999429" scale="0.15900000000000178" rx="0" ry="0" rz="-0.4000000000000671"
                  width="1920"
                  height="1080"
                  alpha="1"
@@ -1129,7 +1245,7 @@
                  visible="false"
                  pausedonstart="true"
                  loop="false"
-                 volume="1.0"
+                 volume="0.0"
                  directionalsound="true"
                  range="90.0"
                  rangefalloff="1.0"
@@ -1138,8 +1254,8 @@
                  onclick=""
                  onvideocomplete=""
                  onerror=""
-                 handcursor="true"
-                 capture="true">
+                 handcursor="false"
+                 capture="false">
         </hotspot>
         <!-- Hotspot de cartel explora -->
         <hotspot name="explora" 
@@ -1156,7 +1272,7 @@
                  visible="false"
                  pausedonstart="true"
                  loop="false"
-                 volume="1.0"
+                 volume="0.0"
                  directionalsound="true"
                  range="90.0"
                  rangefalloff="1.0"
@@ -1165,8 +1281,8 @@
                  onclick=""
                  onvideocomplete=""
                  onerror=""
-                 handcursor="true"
-                 capture="true">
+                 handcursor="false"
+                 capture="false">
         </hotspot>
         <!-- Hotspot de cartel interactua -->
         <hotspot name="interactua" 
@@ -1183,7 +1299,7 @@
                  visible="false"
                  pausedonstart="true"
                  loop="false"
-                 volume="1.0"
+                 volume="0.0"
                  directionalsound="true"
                  range="90.0"
                  rangefalloff="1.0"
@@ -1192,8 +1308,8 @@
                  onclick=""
                  onvideocomplete=""
                  onerror=""
-                 handcursor="true"
-                 capture="true">
+                 handcursor="false"
+                 capture="false">
         </hotspot>
         <!-- Hotspot de cartel desarrolla -->
         <hotspot name="desarrolla" 
@@ -1210,7 +1326,7 @@
                  visible="false"
                  pausedonstart="true"
                  loop="false"
-                 volume="1.0"
+                 volume="0.0"
                  directionalsound="true"
                  range="90.0"
                  rangefalloff="1.0"
@@ -1219,8 +1335,8 @@
                  onclick=""
                  onvideocomplete=""
                  onerror=""
-                 handcursor="true"
-                 capture="true">
+                 handcursor="false"
+                 capture="false">
         </hotspot>
         <!-- Hotspot de cartel crea -->
         <hotspot name="crea" 
@@ -1237,7 +1353,7 @@
                  visible="false"
                  pausedonstart="true"
                  loop="false"
-                 volume="1.0"
+                 volume="0.0"
                  directionalsound="true"
                  range="90.0"
                  rangefalloff="1.0"
@@ -1246,8 +1362,8 @@
                  onclick=""
                  onvideocomplete=""
                  onerror=""
-                 handcursor="true"
-                 capture="true">
+                 handcursor="false"
+                 capture="false">
         </hotspot>
         <!-- Hotspot de cartel presenta -->
         <hotspot name="presenta" 
@@ -1264,7 +1380,7 @@
                  visible="false"
                  pausedonstart="true"
                  loop="false"
-                 volume="1.0"
+                 volume="0.0"
                  directionalsound="true"
                  range="90.0"
                  rangefalloff="1.0"
@@ -1273,12 +1389,41 @@
                  onclick=""
                  onvideocomplete=""
                  onerror=""
-                 handcursor="true"
-                 capture="true">
+                 handcursor="false"
+                 capture="false">
         </hotspot>
+       
 
-
-
+        <hotspot name="ver"
+                 url="recursos/imagen/ver.png"
+                 ath="-70.30379394770853" atv="0.99163954676529" scale="0.2" rx="1.9999999999999971" ry="160.39999999999662" rz="0.1499999999999996"
+                 width="1141"
+                 height="584"
+                 distorted="true"
+                 handcursor="false"
+                 capture="false"
+                 visible="false">
+        </hotspot>
+        <hotspot name="zoom_in"
+                 url="recursos/imagen/zoom_in.png"
+                 ath="-71.11749857401702" atv="0.8663825710768706" scale="0.2" rx="0" ry="0" rz="0.1499999999999996"
+                 width="1141"
+                 height="584"
+                 distorted="true"
+                 handcursor="false"
+                 capture="false"
+                 visible="false">
+        </hotspot>
+        <hotspot name="zoom_out"
+                 url="recursos/imagen/zoom_out.png"
+                 ath="-69.55237756893814" atv="1.554845036396609" scale="0.2" rx="1.9999999999999971" ry="160.39999999999662" rz="0.1499999999999996"
+                 width="1141"
+                 height="584"
+                 distorted="true"
+                 handcursor="false"
+                 capture="false"
+                 visible="false">
+        </hotspot>
 
         <hotspot name="investiga_pared"
                  url="recursos/imagen/pi.png"
@@ -1286,8 +1431,8 @@
                  width="1141"
                  height="584"
                  distorted="true"
-                 handcursor="true"
-                 capture="true"
+                 handcursor="false"
+                 capture="false"
                  visible="false">
         </hotspot>
         <hotspot name="explora_pared"
@@ -1296,8 +1441,8 @@
                  width="1141"
                  height="584"
                  distorted="true"
-                 handcursor="true"
-                 capture="true"
+                 handcursor="false"
+                 capture="false"
                  visible="false">
         </hotspot>
         <hotspot name="interactua_pared"
@@ -1306,8 +1451,8 @@
                  width="1141"
                  height="584"
                  distorted="true"
-                 handcursor="true"
-                 capture="true"
+                 handcursor="false"
+                 capture="false"
                  visible="false">
         </hotspot>
         <hotspot name="desarrolla_pared"
@@ -1316,8 +1461,8 @@
                  width="1141"
                  height="584"
                  distorted="true"
-                 handcursor="true"
-                 capture="true"
+                 handcursor="false"
+                 capture="false"
                  visible="false">
         </hotspot>
         <hotspot name="crea_pared"
@@ -1326,8 +1471,8 @@
                  width="1141"
                  height="584"
                  distorted="true"
-                 handcursor="true"
-                 capture="true"
+                 handcursor="false"
+                 capture="false"
                  visible="false">
         </hotspot>
         <hotspot name="presenta_pared"
@@ -1336,96 +1481,52 @@
                  width="1141"
                  height="584"
                  distorted="true"
-                 handcursor="true"
-                 capture="true"
+                 handcursor="false"
+                 capture="false"
                  visible="false">
         </hotspot>
+        <hotspot name="oreja"
+                 url="recursos/imagen/oreja.png"
+                 ath="104.53560121013729" atv="0.9851883913261958" scale="0.2" rx="-4.066191827689636e-15" ry="165.74999999999875" rz="-0.2500000000000003"
+                 width="1141"
+                 height="584"
+                 distorted="true"
+                 handcursor="false"
+                 capture="false"
+                 visible="false">
+        </hotspot>
+       <hotspot name="portal_menu"
+                 url="recursos/imagen/portal_menu.png"
+                 ath="104.53560121013729" atv="0.9851883913261958" scale="0.4112999999999907" rx="-4.066191827689636e-15" ry="165.74999999999875" rz="-0.2500000000000003"
+                 width="1141"
+                 height="584"
+                 distorted="true"
+                 handcursor="false"
+                 capture="false"
+                 visible="false"
+                 chromakey="0x00FF00|0.5|0.5">
+        </hotspot>
        
-       
+       <hotspot name="menu" url="recursos/imagen/vtourskin_hotspot.png"  style="tooltip" distorted="true" tooltip="MENÚ PRINCIPAL" ath="104.9851363971259" atv="12.036762971647978" scale="0.4112999999999907" rx="-4.066191827689636e-15" ry="165.74999999999875" rz="-0.2500000000000003" onclick="goto_scene_menu();" visible="true" />
   </scene>
 
 
 
-	 <scene name="scene_menu" title="menu" onstart="" thumburl="panos/menu.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+	 <scene name="scene_menu" title="MENÚ PRINCIPAL" onstart="stop_autorotate(); stop_audio();" thumburl="panos/menu.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
         <control bouncinglimits="calc:image.cube ? true : false" />
-        <view hlookat="-0.4591842931905546" vlookat="-2.4828528122694604" fov="100.43433996171316" fovtype="MFOV" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+        <view hlookat="1.4373279418626588" vlookat="0.0640177971607388" fov="128.66933068777604" fovtype="MFOV" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
         <preview url="panos/menu.tiles/preview.jpg" />
         <image>
             <cube url="panos/menu.tiles/pano_%s.jpg" />
         </image>
 
-		<!-- Hotspot con el video de manolo -->
-        <!-- <hotspot name="manolo"
-                 url.html5="plugins/videoplayer.js"
-                 url.flash="plugins/videoplayer.swf"
-                 videourl="recursos/video/manolo.mp4"
-                 ath="34.89143933459724" atv="3.074638236425413" scale="0.3208999999999995" rx="7.7499999999999805" ry="26.900000000000247" rz="0"
-                 width="500"
-                 height="1080"
-                 alpha="1"
-                 chromakey="0x00ff00|1.5|0.15"
-                 distorted="true"
-                 zorder="6"
-                 visible="true"
-                 pausedonstart="true"
-                 loop="true"
-                 volume="1.0"
-                 directionalsound="false"
-                 range="90.0"
-                 rangefalloff="1.0"
-                 outofrangevolume="0.0"
-                 onhover=""
-                 onclick=""
-                 onvideocomplete=""
-                 onerror="">
-        </hotspot> -->
 
-		<!-- Hotspot con imagen de aula futuro -->
-        <!-- <hotspot name="imagen_aulafuturo"
-                 url="recursos/imagen/aulafuturo.webp"
-                 ath="-8.600370257405075" atv="-10.90544223161378" scale="0.5852000000000009" rx="-11.149999999999874" ry="0" rz="0"
-                 width="1141"
-                 height="584"
-                 distorted="true"
-                 chromakey="0x02FD03|1.4|0.0"
-                 handcursor="true"
-                 capture="true"
-                 visible="false">
-            <style>chromakey</style>
-        </hotspot> -->
-
-		 <!-- Hotspot con el video aula del futuro -->
-            <!-- <hotspot name="aula_del_futuro"
-                 url.html5="plugins/videoplayer.js"
-                 url.flash="plugins/videoplayer.swf"
-                 videourl="recursos/video/auladelfuturo.mp4"
-                 ath="-8.600370257405075" atv="-10.90544223161378" scale="0.27020000000000066" rx="-11.149999999999874" ry="0" rz="0"
-                 width="1920"
-                 height="1080"
-                 alpha="1"
-                 distorted="true"
-                 zorder="6"
-                 pausedonstart="true"
-                 loop="true"
-                 volume="1.0"
-                 directionalsound="true"
-                 range="90.0"
-                 rangefalloff="1.0"
-                 outofrangevolume="0.0"
-                 onhover=""
-                 onclick=""
-                 onvideocomplete=""
-                 onerror=""
-                 visible="true"
-                 handcursor="true"
-                 capture="true">
-        </hotspot> -->
 
     </scene>
     
 
 
-	<scene name="scene_conserjeria" title="Conserjería" onstart="" thumburl="panos/conserjeria.tiles/thumb.jpg" lat="" lng="" heading="" >
+	<scene name="scene_conserjeria" title="Conserjería" onstart="stop_all_hotspots();" thumburl="panos/conserjeria.tiles/thumb.jpg" lat="" lng="" heading="" >
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
@@ -1449,7 +1550,7 @@
 
 
 
-	<scene name="scene_pasillo" title="Pasillo" onstart="" thumburl="panos/pasillo.tiles/thumb.jpg" lat="" lng="" heading="">
+	<scene name="scene_pasillo" title="Pasillo" onstart="stop_all_hotspots();" thumburl="panos/pasillo.tiles/thumb.jpg" lat="" lng="" heading="">
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
@@ -1465,7 +1566,7 @@
 	</scene>
 
 
-	<scene name="scene_aula_1_usc" title="Aula 1" onstart="" thumburl="panos/aula_1_usc.tiles/thumb.jpg" lat="" lng="" heading="">
+	<scene name="scene_aula_1_usc" title="Aula 1" onstart="stop_all_hotspots();" thumburl="panos/aula_1_usc.tiles/thumb.jpg" lat="" lng="" heading="">
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
@@ -1487,7 +1588,7 @@
 
 	</scene>
 
-	<scene name="scene_aula_2_usc" title="Aula 2" onstart="" thumburl="panos/aula_2_usc.tiles/thumb.jpg" lat="" lng="" heading="">
+	<scene name="scene_aula_2_usc" title="Aula 2" onstart="stop_all_hotspots();" thumburl="panos/aula_2_usc.tiles/thumb.jpg" lat="" lng="" heading="">
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
@@ -1503,7 +1604,7 @@
 	</scene>
 
 
-	<scene name="scene_conserjeria_sinvideo" title="Conserjería" onstart="" thumburl="panos/conserjeria.tiles/thumb.jpg" lat="" lng="" heading="">
+	<scene name="scene_conserjeria_sinvideo" title="Conserjería" onstart="stop_all_hotspots();" thumburl="panos/conserjeria.tiles/thumb.jpg" lat="" lng="" heading="">
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 

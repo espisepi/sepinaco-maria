@@ -1,0 +1,158 @@
+﻿<krpano version="1.20.11" title="La Antigua Horno de Leña">
+
+	<include url="skin/vtourskin.xml" />
+
+	<!-- customize skin settings: maps, gyro, webvr, thumbnails, tooltips, layout, design, ... -->
+	<skin_settings maps="true"
+	               maps_type="google"
+	               maps_bing_api_key=""
+	               maps_google_api_key=""
+	               maps_zoombuttons="false"
+	               maps_loadonfirstuse="true"
+	               gyro="true"
+	               gyro_keeplookingdirection="false"
+	               webvr="true"
+	               webvr_keeplookingdirection="true"
+	               webvr_prev_next_hotspots="true"
+	               autotour="false"
+	               littleplanetintro="false"
+	               followmousecontrol="false"
+	               title="true"
+	               thumbs="true"
+	               thumbs_width="120" thumbs_height="80" thumbs_padding="10" thumbs_crop="0|40|240|160"
+	               thumbs_opened="false"
+	               thumbs_text="false"
+	               thumbs_dragging="true"
+	               thumbs_onhoverscrolling="false"
+	               thumbs_scrollbuttons="false"
+	               thumbs_scrollindicator="false"
+	               thumbs_loop="false"
+	               tooltips_buttons="false"
+	               tooltips_thumbs="false"
+	               tooltips_hotspots="false"
+	               tooltips_mapspots="false"
+	               deeplinking="false"
+	               loadscene_flags="MERGE"
+	               loadscene_blend="OPENBLEND(0.5, 0.0, 0.75, 0.05, linear)"
+	               loadscene_blend_prev="SLIDEBLEND(0.5, 180, 0.75, linear)"
+	               loadscene_blend_next="SLIDEBLEND(0.5,   0, 0.75, linear)"
+	               loadingtext=""
+	               layout_width="100%"
+	               layout_maxwidth="814"
+	               controlbar_width="-24"
+	               controlbar_height="40"
+	               controlbar_offset="20"
+	               controlbar_offset_closed="-40"
+	               controlbar_overlap.no-fractionalscaling="10"
+	               controlbar_overlap.fractionalscaling="0"
+	               design_skin_images="vtourskin.png"
+	               design_bgcolor="0x2D3E50"
+	               design_bgalpha="0.8"
+	               design_bgborder="0"
+	               design_bgroundedge="1"
+	               design_bgshadow="0 4 10 0x000000 0.3"
+	               design_thumbborder_bgborder="3 0xFFFFFF 1.0"
+	               design_thumbborder_padding="2"
+	               design_thumbborder_bgroundedge="0"
+	               design_text_css="color:#FFFFFF; font-family:Arial;"
+	               design_text_shadow="1"
+	               />
+
+	<!--
+	    For an alternative skin design either change the <skin_settings> values 
+	    from above or optionally include one of the predefined designs from below.
+	-->
+	<!-- <include url="skin/vtourskin_design_flat_light.xml"  /> -->
+	<!-- <include url="skin/vtourskin_design_glass.xml"       /> -->
+	<!-- <include url="skin/vtourskin_design_ultra_light.xml" /> -->
+	<!-- <include url="skin/vtourskin_design_117.xml"         /> -->
+	<!-- <include url="skin/vtourskin_design_117round.xml"    /> -->
+	<!-- <include url="skin/vtourskin_design_black.xml"       /> -->
+
+	<layer name="botoncreditos" url="gid.png" keep="true" enabled="true" align="leftbottom" x="10" y="5" scale="0.4" scale.mobile="0.2" onclick="set(layer[creditos].visible,true);"/>
+	<style name="flyoutimage" distorted="true" flying="0.0" backup_state="" backup_zorder="" flying_state="in" capture="false"/>
+
+
+	<scene name="scene_Portada" title="Portada" onstart="" thumburl="panos/Portada.tiles/thumb.jpg" lat="37.40436111" lng="-5.95561111" heading="0.0">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="1.109" vlookat="1.492" fovtype="MFOV" fov="97.682" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Portada.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/Portada.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048" />
+		</image>
+
+		<hotspot name="hotspotantigua1" url="hotspotantigua.png" style="skin_hotspotstyle" ath="-15.801" atv="6.121" linkedscene="scene_calle" />
+		
+			
+		<hotspot name="audio_patio" distorted="true" visible="true" url="icon_sound.png" style="skin_hotspotstyle" ath="26.749" atv="-12.524" onclick="hotspot[patio_audio].play(); set(hotspot[patio_audio].visible,false) ; set(hotspot[audio_patio].visible,false) ; set(hotspot[cerrar].visible,true);"/>
+		<hotspot name="cerrar" distorted="true" visible="false" url="icon_sound.png" style="skin_hotspotstyle" ath="26.749" atv="-12.524" onclick="hotspot[patio_audio].stop(); set(hotspot[patio_audio].visible,true) ; set(hotspot[cerrar].visible,false) ; set(hotspot[audio_patio].visible,true);"/>
+		<hotspot name="patio_audio" distorted="true" visible="false" url.html5="%SWFPATH%/plugins/videoplayer.js" url.flash="%SWFPATH%/plugins/videoplayer.swf" videourl="canciondefondo.mp3" ath="0.000" atv="0.000" edge="center" scale.normal="0.43" scale.mobile="0.43" keep="true" rx="0" ry="0" rz="0" ox="0" oy="0" loop="false" preload="true" pausedonstart="true" onvideoplay="play();" />
+			
+	</scene>
+	
+	<scene name="scene_Calle" title="Calle" onstart="hotspot[patio_audio].stop(); hotspot[videopaso_palio].stop(); hotspot[videopaso_palio].stop(); set(hotspot[videopaso_palio].visible,false" thumburl="panos/Calle.tiles/thumb.jpg" lat="37.40436111" lng="-5.95561111" heading="0.0">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="180.384" vlookat="-0.926" fovtype="MFOV" fov="97.682" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Calle.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/Calle.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048" />
+		</image>
+
+		<hotspot name="hotspotantigua1" url="hotspotantigua.png" style="skin_hotspotstyle" ath="178.810" atv="8.820" linkedscene="scene_terraza" />
+		
+
+	</scene>
+
+	<scene name="scene_Interior" title="Interior" onstart="hotspot[patio_audio].stop(); hotspot[videopaso_palio].stop(); hotspot[videopaso_palio].stop(); set(hotspot[videopaso_palio].visible,false" thumburl="panos/Interior.tiles/thumb.jpg" lat="37.40438889" lng="-5.95580556" heading="0.0">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="-361.037" vlookat="-0.582" fovtype="MFOV" fov="134.161" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Interior.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/Interior.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048" />
+		</image>
+
+		<hotspot name="hotspotantigua1" url="hotspotantigua.png" style="skin_hotspotstyle" ath="-179.731" atv="23.821" linkedscene="scene_terraza" />
+		
+		<hotspot name="pasopalio" distorted="true" visible="true" url="video.png" onloaded="" ath="0.506" atv="3.609" onclick="hotspot[videopaso_palio].play(); set(hotspot[videopaso_palio].visible,true) ; set(hotspot[pasopalio].visible,false) ; set(hotspot[cerrar].visible,true)"/>
+		<hotspot name="cerrar" distorted="false" visible="false" url="cerrar.png" onloaded="" ath="25.000" atv="20.000" onclick="hotspot[videopaso_palio].stop(); set(hotspot[videopaso_palio].visible,false) ; set(hotspot[cerrar].visible,false) ; set(hotspot[pasopalio].visible,true)"/>
+		<hotspot name="videopaso_palio" enabled="false" capture="false" zorder="99" url.html5="%SWFPATH%/plugins/videoplayer.js" url.flash="%SWFPATH%/plugins/videoplayer.swf" videourl="marcopolo1.mp4" distorted="true" ath="0.000" atv="0.000" edge="center" scale.normal="0.43" scale.mobile="0.43" keep="true" rx="0" ry="0" rz="0" ox="0" oy="0" loop="false" preload="true" pausedonstart="true" onvideoplay="play();" visible="false" volume="0.5"/>
+		<layer name="layervideopaso_palio" enabled="false" capture="false" zorder="90" url.html5="%SWFPATH%/plugins/videoplayer.js" url.flash="%SWFPATH%/plugins/videoplayer.swf" videourl="marcopolo1.mp4" align="lefttop" edge="lefttop" height="-60%" width="prop" loop="false" preload="true" pausedonstart="true" onvideoplay="play();" visible="false" volume="0.5"/>
+		
+
+	</scene>
+
+	<scene name="scene_Terraza" title="Terraza" onstart="hotspot[patio_audio].stop(); hotspot[videopaso_palio].stop(); hotspot[videopaso_palio].stop(); set(hotspot[videopaso_palio].visible,false" thumburl="panos/Terraza.tiles/thumb.jpg" lat="37.40444444" lng="-5.95580556" heading="0.0">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="-177.487" vlookat="0.719" fovtype="MFOV" fov="140.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Terraza.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/Terraza.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048" />
+		</image>
+
+		<hotspot name="techo_palio" distorted="true" visible="true" url="icon_sound.png"  onloaded="do_crop_animation(40,40, 50);"  ath="137.703" atv="-9.528" />
+		<hotspot name="info_techo_palio" style="flyoutimage" alpha="0" url="cartarestaurante.jpg" distorted="true" visible="true" scale="0.2" ath="137.703" atv="-9.528" onclick="flyout_hotspot();"/>
+	
+		<hotspot name="hotspotantigua1" url="hotspotantigua.png" style="skin_hotspotstyle" ath="-178.251" atv="34.867" linkedscene="scene_interior" />
+		<hotspot name="hotspotantigua2" url="hotspotantigua.png" style="skin_hotspotstyle" ath="3.794" atv="26.726" linkedscene="scene_calle" />
+		
+		
+	</scene>
+
+
+</krpano>
