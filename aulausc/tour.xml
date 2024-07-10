@@ -80,7 +80,7 @@
 
 	
 	<!-- <layer name= "CreditosSIE" url="creditosSIE.jpg" keep= "true" scale="0.5"
-		enebled="true"
+		enabled="true"
 		alpha="0.8"
 		onclick="openurl(https://grupo.us.es/gidus/)"
 		align="bottomleft"
@@ -89,7 +89,7 @@
 
 	<layer name= "CreditosSIE" url="creditosSIE.jpg" keep= "true" scale="0.3"
 		devices="mobile"
-		enebled="true"
+		enabled="true"
 		alpha="0.8"
 		onclick="openurl(https://grupo.us.es/gidus/)"
 		align="topright"
@@ -97,7 +97,7 @@
 		x="10" y="10" /> -->
 	
 	<!-- <layer name= "logo_USC" url="home.png" keep= "true" scale="0.15"
-		enebled="true"
+		enabled="true"
 		alpha="1"
 		onclick="openurl(https://www.usc.gal/es)"
 		align="topleft"
@@ -106,7 +106,7 @@
 
 	<layer name= "logo_USC" url="home.png" keep= "true" scale="0.03"
 		devices="mobile"
-		enebled="true"
+		enabled="true"
 		alpha="1"
 		onclick="openurl(https://www.usc.gal/es)"
 		align="topleft"
@@ -147,18 +147,91 @@
 			align="topright" y="30" scale="0.1"
             onclick="on_intro_click();" />
 
-
+    <layer name="intro_start_x_mobile" url= "recursos/imagen/boton_cerrar.png"
+			type="imagen" 
+            devices="mobile"
+			enabled="true"
+			alpha="1"
+			align="topright" x="2.5" y="15" scale="0.05"
+            onclick="on_intro_click();" />
 
 		<layer name="intro_start_mobile" url= "recursos/imagen/instrucciones_movil.png"
 			type="imagen" 
             devices="mobile" 
 			enabled="false"
 			alpha="0"
-			align="center" y="30" scale="0.5"
+			align="center" x="-5" y="0" scale="0.5"
 			/>
 		</layer>
 
+    <layer name= "boton_saltarintro" url="recursos/imagen/boton_saltarintro.png" keep= "true" scale="0.15"
+		enabled="false"
+		alpha="0"
+		onclick="saltar_intro();"
+		align="topleft"
+		edge="topleft"
+		x="-10" y="-30" />
 
+	<layer name= "boton_saltarintro_movil" url="recursos/imagen/boton_saltarintro.png" keep= "true" scale="0.1"
+		devices="mobile"
+		enabled="false"
+		alpha="0"
+		onclick="saltar_intro();"
+		align="topleft"
+		edge="topleft"
+		x="0" y="-30"
+    />
+
+    <layer name= "boton_repetirintro" url="recursos/imagen/boton_repetirintro.png" keep= "true" scale="0.15"
+		enabled="false"
+		alpha="0"
+		onclick="repetir_intro();"
+		align="topleft"
+		edge="topleft"
+		x="-10" y="-30" />
+
+	<layer name= "boton_repetirintro_movil" url="recursos/imagen/boton_repetirintro.png" keep= "true" scale="0.1"
+		devices="mobile"
+		enabled="false"
+		alpha="0"
+		onclick="repetir_intro();"
+		align="topleft"
+		edge="topleft"
+		x="0" y="-30"
+    />
+
+	
+  <action name="repetir_intro">
+    loadscene(scene_papel, null, MERGE);
+    play_papel();
+    start_autorotate();
+    if(device.mobile,
+        tween(layer[boton_repetirintro_movil].alpha, 0);
+        set(layer[boton_repetirintro_movil].enabled, false);
+        tween(layer[boton_saltarintro_movil].alpha, 1);
+        set(layer[boton_saltarintro_movil].enabled, true);
+    ,
+        tween(layer[boton_repetirintro].alpha, 0);
+        set(layer[boton_repetirintro].enabled, false);
+        tween(layer[boton_saltarintro].alpha, 1);
+        set(layer[boton_saltarintro].enabled, true);
+    );
+</action>
+    
+  <action name="saltar_intro">
+    loadscene(scene_menu, null, MERGE);
+    if(device.mobile,
+        tween(layer[boton_saltarintro_movil].alpha, 0);
+        set(layer[boton_saltarintro_movil].enabled, false);
+        tween(layer[boton_repetirintro_movil].alpha, 1);
+        set(layer[boton_repetirintro_movil].enabled, true);
+    ,
+        tween(layer[boton_saltarintro].alpha, 0);
+        set(layer[boton_saltarintro].enabled, false);
+        tween(layer[boton_repetirintro].alpha, 1);
+        set(layer[boton_repetirintro].enabled, true);
+    );
+</action>
 
 	<action name="on_intro_click">
 		<!--set(layer[intro].alpha,0);-->
@@ -173,10 +246,23 @@
 	</action> 
 
     <action name="playtour">
-		play_papel();
-		start_autorotate();
-        set(hotspot[instrucciones_video].visible, false);
-	</action> 
+    play_papel();
+    start_autorotate();
+    set(hotspot[instrucciones_video].visible, false);
+    set(hotspot[boton_cerrar].visible, false);
+
+    if(device.mobile,
+        tween(layer[boton_saltarintro_movil].alpha, 1);
+        set(layer[boton_saltarintro_movil].enabled, true);
+        tween(layer[boton_saltarintro].alpha, 0);
+        set(layer[boton_saltarintro].enabled, false);
+    ,
+        tween(layer[boton_saltarintro].alpha, 1);
+        set(layer[boton_saltarintro].enabled, true);
+        tween(layer[boton_saltarintro_movil].alpha, 0);
+        set(layer[boton_saltarintro_movil].enabled, false);
+    );
+</action>
 	
 	<action name="on_intro_loaded">
 		delayedcall(1.5, 
@@ -629,20 +715,11 @@
 
 
 
-    <!-- Definir una acción personalizada para detener todos los hotspots -->
-   <action name="stop_all_hotspots">
-    if(hotspot.count GT 0,
-        for(hotspot_index, 0, hotspot.count - 1,
-            if(defined(hotspot[get(hotspot_index)].play),
-                hotspot[get(hotspot_index)].stop();
-            );
-        );
-    );
-</action>
+    
 
 
 
-	<scene name="scene_papel" title="INICIO" onstart="stop_all_hotspots();" thumburl="panos/papel.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+	<scene name="scene_papel" title="INICIO" onstart="" thumburl="panos/papel.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
         <autorotate enabled="false" waittime="1.0" speed="0.7" horizon="0.0" />
 		<control bouncinglimits="calc:image.cube ? true : false" />
         <view hlookat="1.6361793606421329" vlookat="0.18442449326715848" fov="69.60905805771031" fovtype="MFOV" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
@@ -656,12 +733,12 @@
 		<hotspot name="instrucciones_video" 
                  url.html5="plugins/videoplayer.js"
                  url.flash="plugins/videoplayer.swf"
-                 videourl="recursos/video/instrucciones_video.mp4"
+                 videourl="recursos/video/instrucciones_video.mp4|recursos/video/instrucciones_video.webm"
                  ath="1.7806235678771145" atv="0.03142466066969645" scale="0.30420000000001046" rx="0" ry="0" rz="0"
                  width="1920"
                  height="1080"
                  alpha="1"
-                 chromakey="0x00FF00|0.60|0.10"
+                 chromakey="0x00ff00|0.5|0.5"
                  distorted="true"
                  zorder="9999"
                  visible="false"
@@ -684,7 +761,7 @@
 
         <hotspot name="boton_cerrar"
                  url="recursos/imagen/boton_cerrar.png"
-                 ath="28.230161551144874" atv="-12.555658953958115" scale="0.04840000000001071" rx="0" ry="0" rz="0"
+                 ath="15.991490654108816" atv="-11.586575519239801" scale="0.13420000000001048" rx="0" ry="0" rz="0"
                  width="1141"
                  height="584"
                  alpha="0"
@@ -1206,7 +1283,7 @@
         <hotspot name="parrafo_final" 
                  url.html5="plugins/videoplayer.js"
                  url.flash="plugins/videoplayer.swf"
-                 videourl="recursos/video/parrafo_final.mp4|recursos/video/f3.webm"
+                 videourl="recursos/video/parrafo_final.mp4|recursos/video/parrafo_final.webm"
                  ath="-73.3101059604603" atv="0.8768737784104024" scale="0.1944000000000051" rx="0" ry="-15" rz="-0.05000000000000002"
                  width="1920"
                  height="1080"
@@ -1234,7 +1311,7 @@
         <hotspot name="investiga" 
                  url.html5="plugins/videoplayer.js"
                  url.flash="plugins/videoplayer.swf"
-                 videourl="recursos/video/investiga.mp4"
+                 videourl="recursos/video/investiga.mp4|recursos/video/investiga.webm"
                  ath="-72.34611677590476" atv="0.07006927912999429" scale="0.15900000000000178" rx="0" ry="0" rz="-0.4000000000000671"
                  width="1920"
                  height="1080"
@@ -1261,7 +1338,7 @@
         <hotspot name="explora" 
                  url.html5="plugins/videoplayer.js"
                  url.flash="plugins/videoplayer.swf"
-                 videourl="recursos/video/explora.mp4"
+                 videourl="recursos/video/explora.mp4|recursos/video/explora.webm"
                  ath="-40.1650557822698" atv="0.2739134798587272" scale="0.11450000000000467" rx="0" ry="-34.5" rz="0.7499999999999454"
                  width="1920"
                  height="1080"
@@ -1288,7 +1365,7 @@
         <hotspot name="interactua" 
                  url.html5="plugins/videoplayer.js"
                  url.flash="plugins/videoplayer.swf"
-                 videourl="recursos/video/interactua.mp4"
+                 videourl="recursos/video/interactua.mp4|recursos/video/interactua.webm"
                  ath="-18.025735867991898" atv="0.4702377507455242" scale="0.11810000000000255" rx="0" ry="0" rz="0.7499999999999454"
                  width="1920"
                  height="1080"
@@ -1315,7 +1392,7 @@
         <hotspot name="desarrolla" 
                  url.html5="plugins/videoplayer.js"
                  url.flash="plugins/videoplayer.swf"
-                 videourl="recursos/video/desarrolla.mp4"
+                 videourl="recursos/video/desarrolla.mp4|recursos/video/desarrolla.webm"
                  ath="18.35687472233701" atv="0.15663113392805117" scale="0.1241000000000055" rx="0" ry="0" rz="0.7499999999999454"
                  width="1920"
                  height="1080"
@@ -1342,7 +1419,7 @@
         <hotspot name="crea" 
                  url.html5="plugins/videoplayer.js"
                  url.flash="plugins/videoplayer.swf"
-                 videourl="recursos/video/crea.mp4"
+                 videourl="recursos/video/crea.mp4|recursos/video/crea.webm"
                  ath="40.33246749492514" atv="0.08313553663249154" scale="0.13120000000000484" rx="0" ry="44.59999999999957" rz="-0.25000000000004313"
                  width="1920"
                  height="1080"
@@ -1369,7 +1446,7 @@
         <hotspot name="presenta" 
                  url.html5="plugins/videoplayer.js"
                  url.flash="plugins/videoplayer.swf"
-                 videourl="recursos/video/presenta.mp4"
+                 videourl="recursos/video/presenta.mp4|recursos/video/presenta.webm"
                  ath="73.40640623978618" atv="0.7981962870066142" scale="0.17030000000000053" rx="0" ry="14.150000000000066" rz="0.7499999999999454"
                  width="1920"
                  height="1080"
@@ -1507,7 +1584,7 @@
                  chromakey="0x00FF00|0.5|0.5">
         </hotspot>
        
-       <hotspot name="menu" url="recursos/imagen/vtourskin_hotspot.png"  style="tooltip" distorted="true" tooltip="MENÚ PRINCIPAL" ath="104.9851363971259" atv="12.036762971647978" scale="0.4112999999999907" rx="-4.066191827689636e-15" ry="165.74999999999875" rz="-0.2500000000000003" onclick="goto_scene_menu();" visible="true" />
+       <hotspot name="menu" url="recursos/imagen/vtourskin_hotspot.png"  style="tooltip" distorted="true" tooltip="MENÚ PRINCIPAL" ath="104.9851363971259" atv="12.036762971647978" scale="0.4112999999999907" rx="-4.066191827689636e-15" ry="165.74999999999875" rz="-0.2500000000000003" onclick="goto_scene_menu();" visible="false" />
   </scene>
 
 
@@ -1526,7 +1603,7 @@
     
 
 
-	<scene name="scene_conserjeria" title="Conserjería" onstart="stop_all_hotspots();" thumburl="panos/conserjeria.tiles/thumb.jpg" lat="" lng="" heading="" >
+	<scene name="scene_conserjeria" title="Conserjería" onstart="" thumburl="panos/conserjeria.tiles/thumb.jpg" lat="" lng="" heading="" >
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
@@ -1550,7 +1627,7 @@
 
 
 
-	<scene name="scene_pasillo" title="Pasillo" onstart="stop_all_hotspots();" thumburl="panos/pasillo.tiles/thumb.jpg" lat="" lng="" heading="">
+	<scene name="scene_pasillo" title="Pasillo" onstart="" thumburl="panos/pasillo.tiles/thumb.jpg" lat="" lng="" heading="">
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
@@ -1566,7 +1643,7 @@
 	</scene>
 
 
-	<scene name="scene_aula_1_usc" title="Aula 1" onstart="stop_all_hotspots();" thumburl="panos/aula_1_usc.tiles/thumb.jpg" lat="" lng="" heading="">
+	<scene name="scene_aula_1_usc" title="Aula 1" onstart="" thumburl="panos/aula_1_usc.tiles/thumb.jpg" lat="" lng="" heading="">
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
@@ -1588,7 +1665,7 @@
 
 	</scene>
 
-	<scene name="scene_aula_2_usc" title="Aula 2" onstart="stop_all_hotspots();" thumburl="panos/aula_2_usc.tiles/thumb.jpg" lat="" lng="" heading="">
+	<scene name="scene_aula_2_usc" title="Aula 2" onstart="" thumburl="panos/aula_2_usc.tiles/thumb.jpg" lat="" lng="" heading="">
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
@@ -1604,7 +1681,7 @@
 	</scene>
 
 
-	<scene name="scene_conserjeria_sinvideo" title="Conserjería" onstart="stop_all_hotspots();" thumburl="panos/conserjeria.tiles/thumb.jpg" lat="" lng="" heading="">
+	<scene name="scene_conserjeria_sinvideo" title="Conserjería" onstart="" thumburl="panos/conserjeria.tiles/thumb.jpg" lat="" lng="" heading="">
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
