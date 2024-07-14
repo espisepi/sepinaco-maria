@@ -118,11 +118,12 @@
 			keep="true"
 			width="100%"
 			height="100%"
-			bgcolor="0x000000"
-			bgalpha="0.9"
+			bgcolor="0xffffff"
+			bgalpha="1.0"
 			zorder="9999"
 			enabled="true"
 			bgcapture="true"
+      handcursor="false"
 			onloaded="on_intro_loaded()"
 			onclick=""
 			>
@@ -131,73 +132,126 @@
 			enabled="false"
 			alpha="0"
 			url= "gidUSC.png" align="center" y="-80" scale="0.1" /> -->
+
+      <layer name="regla" url= "recursos/imagen/regla.png"
+			type="image" 
+      devices="desktop"
+			enabled="true"
+			alpha="0.8"
+			align="leftcenter" y="0" x="0" scale="0.25"
+      onclick=""
+      capture="true"
+      handcursor="false"
+       />
+
+      <layer name="lapiz" url= "recursos/imagen/lapiz.png"
+			type="image" 
+      devices="desktop"
+			enabled="true"
+			alpha="0.8"
+			align="leftcenter" y="0" x="310" scale="0.20"
+      onclick=""
+      capture="true"
+      handcursor="false" />
+
+      <layer name="regla_movil" url= "recursos/imagen/regla_movil.png"
+			type="image" 
+      devices="mobile"
+			enabled="true"
+			alpha="0.8"
+			align="leftcenter" y="0" x="0" scale="0.25"
+      onclick=""
+      capture="true"
+      handcursor="false" />
+
+      <layer name="lapiz_movil" url= "recursos/imagen/lapiz_movil.png"
+			type="image" 
+      devices="mobile"
+			enabled="true"
+			alpha="0.8"
+			align="rightcenter" y="0" x="-30" scale="0.22"
+      onclick=""
+      capture="true"
+      handcursor="false" />
 			
-		<layer name="intro_start" url= "recursos/imagen/instrucciones_escritorio.png"
-			type="imagen" 
+		<layer name="intro_start" url= "recursos/imagen/portada.png"
+			type="image" 
             devices="desktop"
 			enabled="false"
 			alpha="0"
-			align="center" y="10" scale="0.5" />
+			align="center"
+      capture="true"
+      handcursor="false" y="0" scale="0.25" />
 
-            <layer name="intro_start_x" url= "recursos/imagen/boton_cerrar.png"
-			type="imagen" 
-            devices="desktop"
+      <layer name="intro_start_x" url= "recursos/imagen/boton_cerrar.png"
+			type="image" 
+      devices="desktop"
 			enabled="true"
 			alpha="1"
-			align="topright" y="30" scale="0.1"
-            onclick="on_intro_click();" />
+			align="bottomright" y="50" x="53" scale="0.14"
+      onclick="on_intro_click();"
+      capture="true"
+      handcursor="true" />
 
     <layer name="intro_start_x_mobile" url= "recursos/imagen/boton_cerrar.png"
-			type="imagen" 
-            devices="mobile"
+			type="image" 
+      devices="mobile"
+      zorder="999"
 			enabled="true"
 			alpha="1"
-			align="topright" x="2.5" y="15" scale="0.05"
-            onclick="on_intro_click();" />
+			align="bottomcenter" x="0" y="13" scale="0.09"
+            onclick="on_intro_click();"
+            capture="true"
+            handcursor="true" />
 
-		<layer name="intro_start_mobile" url= "recursos/imagen/instrucciones_movil.png"
-			type="imagen" 
+		<layer name="intro_start_mobile" url= "recursos/imagen/portada_movil.png"
+			type="image" 
             devices="mobile" 
 			enabled="false"
 			alpha="0"
-			align="center" x="-5" y="0" scale="0.5"
+			align="center" x="0" y="0" scale="0.33"
+      capture="true"
+      handcursor="false"
 			/>
+      
 		</layer>
 
-    <layer name= "boton_saltarintro" url="recursos/imagen/boton_saltarintro.png" keep= "true" scale="0.15"
-		enabled="false"
+    <layer name= "boton_saltarintro" url="recursos/imagen/boton_saltarintro.png" keep= "true" scale="0.1"
+		devices="desktop"
+    enabled="false"
 		alpha="0"
 		onclick="saltar_intro();"
 		align="topleft"
 		edge="topleft"
-		x="-10" y="-30" />
+		x="-30" y="8"
+     />
 
-	<layer name= "boton_saltarintro_movil" url="recursos/imagen/boton_saltarintro.png" keep= "true" scale="0.1"
+	<layer name= "boton_saltarintro_movil" url="recursos/imagen/boton_saltarintro.png" keep= "true" scale="0.07"
 		devices="mobile"
 		enabled="false"
 		alpha="0"
 		onclick="saltar_intro();"
 		align="topleft"
 		edge="topleft"
-		x="0" y="-30"
+		x="-14" y="10"
     />
 
-    <layer name= "boton_repetirintro" url="recursos/imagen/boton_repetirintro.png" keep= "true" scale="0.15"
+  <layer name= "boton_repetirintro" url="recursos/imagen/boton_repetirintro.png" keep= "true" scale="0.1"
 		enabled="false"
 		alpha="0"
 		onclick="repetir_intro();"
 		align="topleft"
 		edge="topleft"
-		x="-10" y="-30" />
+		x="-30" y="8" />
 
-	<layer name= "boton_repetirintro_movil" url="recursos/imagen/boton_repetirintro.png" keep= "true" scale="0.1"
+	<layer name= "boton_repetirintro_movil" url="recursos/imagen/boton_repetirintro.png" keep= "true" scale="0.07"
 		devices="mobile"
 		enabled="false"
 		alpha="0"
 		onclick="repetir_intro();"
 		align="topleft"
 		edge="topleft"
-		x="0" y="-30"
+		x="-14" y="10"
     />
 
 	
@@ -215,7 +269,14 @@
         set(layer[boton_repetirintro].enabled, false);
         tween(layer[boton_saltarintro].alpha, 1);
         set(layer[boton_saltarintro].enabled, true);
+
+        set(hotspot[instrucciones_video].visible, false);
+    set(hotspot[instrucciones_foto].visible, false);
+    set(hotspot[instrucciones_fotomovil].visible, false);
+        set(hotspot[boton_cerrar].visible, false);
+
     );
+    
 </action>
     
   <action name="saltar_intro">
@@ -231,26 +292,30 @@
         tween(layer[boton_repetirintro].alpha, 1);
         set(layer[boton_repetirintro].enabled, true);
     );
+    cancel_play_papel();
 </action>
 
 	<action name="on_intro_click">
-		<!--set(layer[intro].alpha,0);-->
+		set(layer[intro].alpha,0);
 		tween(layer[intro].alpha,0);
 		set (layer[intro].enabled, false);
-        set(hotspot[instrucciones_video].pausedonstart, false);
+    set(hotspot[instrucciones_video].pausedonstart, false);
 		hotspot[instrucciones_video].play();
 		set(hotspot[instrucciones_video].visible, true);
+    set(hotspot[instrucciones_foto].visible, true);
+    set(hotspot[instrucciones_fotomovil].visible, true);
         set(hotspot[boton_cerrar].visible, true);
-		<!-- play_papel();
-		start_autorotate(); -->
+      
 	</action> 
 
     <action name="playtour">
+    set(hotspot[instrucciones_video].visible, false);
+    set(hotspot[instrucciones_foto].visible, false);
+    set(hotspot[instrucciones_fotomovil].visible, false);
+    set(hotspot[boton_cerrar].visible, false);
     play_papel();
     start_autorotate();
-    set(hotspot[instrucciones_video].visible, false);
-    set(hotspot[boton_cerrar].visible, false);
-
+    
     if(device.mobile,
         tween(layer[boton_saltarintro_movil].alpha, 1);
         set(layer[boton_saltarintro_movil].enabled, true);
@@ -274,6 +339,17 @@
 		
 	</action>
 	
+
+
+
+
+
+
+
+
+
+
+
 
 
 	<plugin name="pp_blur" keep="true"
@@ -417,22 +493,143 @@
 		);
 	</action>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <action name="goto_scene_menu">
+    if(device.mobile,
+        tween(layer[boton_saltarintro_movil].alpha, 0);
+        set(layer[boton_saltarintro_movil].enabled, false);
+        tween(layer[boton_repetirintro_movil].alpha, 1);
+        set(layer[boton_repetirintro_movil].enabled, true);
+    ,
+        tween(layer[boton_saltarintro].alpha, 0);
+        set(layer[boton_saltarintro].enabled, false);
+        tween(layer[boton_repetirintro].alpha, 1);
+        set(layer[boton_repetirintro].enabled, true);
+    );
     loadscene(scene_menu, null, MERGE);
+    cancel_play_papel();
 	</action>
 
 	<action name="goto_scene_pasillo">
     loadscene(scene_pasillo, null, MERGE);
+    cancel_play_papel();
 	</action>
 
 
 	<action name="goto_scene_aula_1_usc">
 	loadscene(scene_aula_1_usc, null, MERGE);
+  cancel_play_papel();
 	</action>
 
-	<action name="goto_scene_conserjeria_sinvideo">
-	loadscene(scene_conserjeria_sinvideo, null, MERGE);
+	<action name="goto_scene_conserjeria">
+	loadscene(scene_conserjeria, null, MERGE);
+  if(device.mobile,
+        tween(layer[boton_saltarintro_movil].alpha, 0);
+        set(layer[boton_saltarintro_movil].enabled, false);
+        tween(layer[boton_repetirintro_movil].alpha, 0);
+        set(layer[boton_repetirintro_movil].enabled, false);
+    ,
+        tween(layer[boton_saltarintro_movil].alpha, 0);
+        set(layer[boton_saltarintro_movil].enabled, false);
+        tween(layer[boton_repetirintro_movil].alpha, 0);
+        set(layer[boton_repetirintro_movil].enabled, false);
+    );
+    cancel_play_papel();
 	</action>
+
+<!-- <action name="stop_all_hotspots_papel">
+    stop(delayedcall);
+    stop(tween);
+    stopsound(aulasfuturo);
+
+    set(hotspot[i1].pausedonstart, true);
+    set(hotspot[i2].pausedonstart, true);
+    set(hotspot[i3].pausedonstart, true);
+    set(hotspot[i4].pausedonstart, true);
+    set(hotspot[i5].pausedonstart, true);
+    set(hotspot[flecha].pausedonstart, true);
+    set(hotspot[pizarra].pausedonstart, true);
+    set(hotspot[moviles].pausedonstart, true);
+    set(hotspot[rv].pausedonstart, true);
+    set(hotspot[ia].pausedonstart, true);
+    set(hotspot[impresora].pausedonstart, true);
+    set(hotspot[camara].pausedonstart, true);
+    set(hotspot[estudio].pausedonstart, true);
+    set(hotspot[meet].pausedonstart, true);
+    set(hotspot[ver].pausedonstart, true);
+    set(hotspot[f1].pausedonstart, true);
+    set(hotspot[f2].pausedonstart, true);
+    set(hotspot[f3].pausedonstart, true);
+    set(hotspot[zoom_in].pausedonstart, true);
+    set(hotspot[parrafo_final].pausedonstart, true);
+    set(hotspot[zoom_out].pausedonstart, true);
+    set(hotspot[investiga].pausedonstart, true);
+    set(hotspot[explora].pausedonstart, true);
+    set(hotspot[interactua].pausedonstart, true);
+    set(hotspot[desarrolla].pausedonstart, true);
+    set(hotspot[crea].pausedonstart, true);
+    set(hotspot[presenta].pausedonstart, true);
+    set(hotspot[oreja].pausedonstart, true);
+    set(hotspot[portal_menu].pausedonstart, true);
+    set(hotspot[menu].pausedonstart, true);
+    set(hotspot[repetirintro_hotspot].pausedonstart, true);
+
+    set(hotspot[i1].visible, false);
+    set(hotspot[i2].visible, false);
+    set(hotspot[i3].visible, false);
+    set(hotspot[i4].visible, false);
+    set(hotspot[i5].visible, false);
+    set(hotspot[flecha].visible, false);
+    set(hotspot[pizarra].visible, false);
+    set(hotspot[moviles].visible, false);
+    set(hotspot[rv].visible, false);
+    set(hotspot[ia].visible, false);
+    set(hotspot[impresora].visible, false);
+    set(hotspot[camara].visible, false);
+    set(hotspot[estudio].visible, false);
+    set(hotspot[meet].visible, false);
+    set(hotspot[ver].visible, false);
+    set(hotspot[f1].visible, false);
+    set(hotspot[f2].visible, false);
+    set(hotspot[f3].visible, false);
+    set(hotspot[zoom_in].visible, false);
+    set(hotspot[parrafo_final].visible, false);
+    set(hotspot[zoom_out].visible, false);
+    set(hotspot[investiga_pared].visible, false);
+    set(hotspot[explora_pared].visible, false);
+    set(hotspot[interactua_pared].visible, false);
+    set(hotspot[desarrolla_pared].visible, false);
+    set(hotspot[crea_pared].visible, false);
+    set(hotspot[presenta_pared].visible, false);
+    set(hotspot[oreja].visible, false);
+    set(hotspot[portal_menu].visible, false);
+    set(hotspot[menu].visible, false);
+    set(hotspot[repetirintro_hotspot].visible, false);
+</action> -->
+
 
 
 
@@ -483,56 +680,99 @@
         autounlock="true"
         />
 
-    <!-- Definir la acción mostrar los hotspots -->
-	   <!-- Definir las acciones -->
     <action name="play_papel">
     delayedcall(0.95, playsound('aulasfuturo', 'recursos/audio/aulasfuturo.mp3'));
-        delayedcall(0.95, startVideo1());
-		delayedcall(4.3, startVideo2());
-		delayedcall(16.8, startVideo3());
-		delayedcall(24.17, startVideo4());
-		delayedcall(34, startVideo5());
-		delayedcall(45.9, flecha());
-        delayedcall(49.8, stop_autorotate());
-		delayedcall(49.8, pizarra());
-		delayedcall(52.8, moviles());
-		delayedcall(54.3, rv());
-		delayedcall(56.1, ia());
-		delayedcall(58.6, impresora());
-        delayedcall(59, eliminar_hotspots_1());
-		delayedcall(59.6, camara());
-		delayedcall(62.6, estudio());
-		delayedcall(65.7, meet());
-        delayedcall(67.7, ver());
-        delayedcall(67.7, f1());
-        delayedcall(69.9, no_ver());
-        delayedcall(73.3, f2());
-        delayedcall(76.9, f3());
-        delayedcall(80.5, eliminar_hotspots_2());
-        delayedcall(80.5, zoom_in());
-        delayedcall(80.5, parrafo_final());
-        delayedcall(82.9, no_zoom_in());
-        delayedcall(125.2, zoom_out());
-        delayedcall(128.3, no_zoom_out());
-        delayedcall(129.5, investiga());
-        delayedcall(134.3, explora());
-        delayedcall(137.8, interactua());
-        delayedcall(142, desarrolla());
-        delayedcall(145.8, crea());
-        delayedcall(150, presenta());
-        delayedcall(154, oreja());
-        delayedcall(152, start_autorotate());
-        delayedcall(167.2, no_oreja());
-        delayedcall(167.2, portal_menu());
-        delayedcall(167.2, menu());
-    </action>
+    delayedcall(idDelayedCallStartvideo1,0.95, startVideo1());
+    delayedcall(idDelayedCallStartvideo2,4.3, startVideo2());
+    delayedcall(idDelayedCallStartvideo3,16.8, startVideo3());
+    delayedcall(24.17, startVideo4());
+    delayedcall(34, startVideo5());
+    delayedcall(45.9, flecha());
+    delayedcall(49.8, stop_autorotate());
+    delayedcall(49.8, pizarra());
+    delayedcall(52.8, moviles());
+    delayedcall(54.3, rv());
+    delayedcall(56.1, ia());
+    delayedcall(58.6, impresora());
+    delayedcall(59, eliminar_hotspots_1());
+    delayedcall(59.6, camara());
+    delayedcall(62.6, estudio());
+    delayedcall(65.7, meet());
+    delayedcall(67.7, ver());
+    delayedcall(67.7, f1());
+    delayedcall(69.9, no_ver());
+    delayedcall(73.3, f2());
+    delayedcall(76.9, f3());
+    delayedcall(80.5, eliminar_hotspots_2());
+    delayedcall(80.5, zoom_in());
+    delayedcall(80.5, parrafo_final());
+    delayedcall(82.9, no_zoom_in());
+    delayedcall(125.2, zoom_out());
+    delayedcall(128.3, no_zoom_out());
+    delayedcall(129.5, investiga());
+    delayedcall(134.3, explora());
+    delayedcall(137.8, interactua());
+    delayedcall(142, desarrolla());
+    delayedcall(145.8, crea());
+    delayedcall(150, presenta());
+    delayedcall(154, oreja());
+    delayedcall(152, start_autorotate());
+    delayedcall(167.2, no_oreja());
+    delayedcall(167.2, portal_menu());
+    delayedcall(167.2, menu());
+    delayedcall(167.2, repetirintro_hotspot());
+</action>
+
+<action name="cancel_play_papel">
+stopsound(aulasfuturo, 'recursos/audio/aulasfuturo.mp3');
+   
+    stopdelayedcall(idDelayedCallStartvideo1);
+    stopdelayedcall(idDelayedCallStartvideo2);
+    stopdelayedcall(idDelayedCallStartvideo3);
+    stopdelayedcall(startVideo4);
+    stopdelayedcall(startVideo5);
+    stopdelayedcall(flecha);
+    stopdelayedcall(stop_autorotate);
+    stopdelayedcall(pizarra);
+    stopdelayedcall(moviles);
+    stopdelayedcall(rv);
+    stopdelayedcall(ia);
+    stopdelayedcall(impresora);
+    stopdelayedcall(eliminar_hotspots_1);
+    stopdelayedcall(camara);
+    stopdelayedcall(estudio);
+    stopdelayedcall(meet);
+    stopdelayedcall(ver);
+    stopdelayedcall(f1);
+    stopdelayedcall(no_ver);
+    stopdelayedcall(f2);
+    stopdelayedcall(f3);
+    stopdelayedcall(eliminar_hotspots_2);
+    stopdelayedcall(zoom_in);
+    stopdelayedcall(parrafo_final);
+    stopdelayedcall(no_zoom_in);
+    stopdelayedcall(zoom_out);
+    stopdelayedcall(no_zoom_out);
+    stopdelayedcall(investiga);
+    stopdelayedcall(explora);
+    stopdelayedcall(interactua);
+    stopdelayedcall(desarrolla);
+    stopdelayedcall(crea);
+    stopdelayedcall(presenta);
+    stopdelayedcall(oreja);
+    stopdelayedcall(start_autorotate);
+    stopdelayedcall(no_oreja);
+    stopdelayedcall(portal_menu);
+    stopdelayedcall(menu);
+    stopdelayedcall(repetirintro_hotspot);
+</action>
     
     <action name="playsound">
         playsound(aulasfuturo, 'recursos/audio/aulasfuturo.mp3');
     </action>
-    <action name="stop_audio">
+    <!-- <action name="stop_audio">
     stopsound(aulasfuturo, 'recursos/audio/aulasfuturo.mp3');
-    </action>
+    </action> -->
     <action name="startVideo1">
         set(hotspot[i1].pausedonstart, false);
 		hotspot[i1].play();
@@ -703,6 +943,16 @@
     <action name="menu">
 		set(hotspot[menu].visible, true);
     </action>
+    <action name="repetirintro_hotspot">
+		set(hotspot[repetirintro_hotspot].visible, true);
+    </action>
+
+    <action name="activar_portal">
+    set(hotspot[portal_menu].alpha, 0.7);
+    </action>
+    <action name="restaurar_portal_menu">
+    set(hotspot[portal_menu].alpha, 1);
+    </action>
 
 
 
@@ -713,9 +963,119 @@
 		set(autorotate.enabled, false);
 	</action>
 
+  
 
 
-    
+
+<action name="pausar_todos_hotspot">
+    hotspot[i1].stop(); 
+    hotspot[i2].stop(); 
+    hotspot[i3].stop(); 
+    hotspot[i4].stop(); 
+    hotspot[i5].stop(); 
+    hotspot[flecha].stop(); 
+    hotspot[pizarra].stop(); 
+    hotspot[moviles].stop(); 
+    hotspot[rv].stop(); 
+    hotspot[ia].stop(); 
+    hotspot[impresora].stop(); 
+    hotspot[camara].stop(); 
+    hotspot[estudio].stop(); 
+    hotspot[meet].stop(); 
+    hotspot[ver].stop(); 
+    hotspot[f1].stop(); 
+    hotspot[f2].stop(); 
+    hotspot[f3].stop(); 
+    hotspot[zoom_in].stop(); 
+    hotspot[parrafo_final].stop(); 
+    hotspot[zoom_out].stop(); 
+    hotspot[investiga_pared].stop(); 
+    hotspot[explora_pared].stop(); 
+    hotspot[interactua_pared].stop(); 
+    hotspot[desarrolla_pared].stop(); 
+    hotspot[crea_pared].stop(); 
+    hotspot[presenta_pared].stop(); 
+    hotspot[oreja].stop(); 
+    hotspot[portal_menu].stop(); 
+    hotspot[menu].stop(); 
+    hotspot[repetirintro_hotspot].stop(); 
+
+    set(hotspot[i1].pausedonstart, true);
+    set(hotspot[i2].pausedonstart, true);
+    set(hotspot[i3].pausedonstart, true);
+    set(hotspot[i4].pausedonstart, true);
+    set(hotspot[i5].pausedonstart, true);
+    set(hotspot[flecha].pausedonstart, true);
+    set(hotspot[pizarra].pausedonstart, true);
+    set(hotspot[moviles].pausedonstart, true);
+    set(hotspot[rv].pausedonstart, true);
+    set(hotspot[ia].pausedonstart, true);
+    set(hotspot[impresora].pausedonstart, true);
+    set(hotspot[camara].pausedonstart, true);
+    set(hotspot[estudio].pausedonstart, true);
+    set(hotspot[meet].pausedonstart, true);
+    set(hotspot[ver].pausedonstart, true);
+    set(hotspot[f1].pausedonstart, true);
+    set(hotspot[f2].pausedonstart, true);
+    set(hotspot[f3].pausedonstart, true);
+    set(hotspot[zoom_in].pausedonstart, true);
+    set(hotspot[parrafo_final].pausedonstart, true);
+    set(hotspot[zoom_out].pausedonstart, true);
+    set(hotspot[investiga_pared].pausedonstart, true);
+    set(hotspot[explora_pared].pausedonstart, true);
+    set(hotspot[interactua_pared].pausedonstart, true);
+    set(hotspot[desarrolla_pared].pausedonstart, true);
+    set(hotspot[crea_pared].pausedonstart, true);
+    set(hotspot[presenta_pared].pausedonstart, true);
+    set(hotspot[oreja].pausedonstart, true);
+    set(hotspot[portal_menu].pausedonstart, true);
+    set(hotspot[menu].pausedonstart, true);
+    set(hotspot[repetirintro_hotspot].pausedonstart, true);
+
+    set(hotspot[i1].visible, false);
+    set(hotspot[i2].visible, false);
+    set(hotspot[i3].visible, false);
+    set(hotspot[i4].visible, false);
+    set(hotspot[i5].visible, false);
+    set(hotspot[flecha].visible, false);
+    set(hotspot[pizarra].visible, false);
+    set(hotspot[moviles].visible, false);
+    set(hotspot[rv].visible, false);
+    set(hotspot[ia].visible, false);
+    set(hotspot[impresora].visible, false);
+    set(hotspot[camara].visible, false);
+    set(hotspot[estudio].visible, false);
+    set(hotspot[meet].visible, false);
+    set(hotspot[ver].visible, false);
+    set(hotspot[f1].visible, false);
+    set(hotspot[f2].visible, false);
+    set(hotspot[f3].visible, false);
+    set(hotspot[zoom_in].visible, false);
+    set(hotspot[parrafo_final].visible, false);
+    set(hotspot[zoom_out].visible, false);
+    set(hotspot[investiga_pared].visible, false);
+    set(hotspot[explora_pared].visible, false);
+    set(hotspot[interactua_pared].visible, false);
+    set(hotspot[desarrolla_pared].visible, false);
+    set(hotspot[crea_pared].visible, false);
+    set(hotspot[presenta_pared].visible, false);
+    set(hotspot[oreja].visible, false);
+    set(hotspot[portal_menu].visible, false);
+    set(hotspot[menu].visible, false);
+    set(hotspot[repetirintro_hotspot].visible, false);
+</action>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -734,7 +1094,7 @@
                  url.html5="plugins/videoplayer.js"
                  url.flash="plugins/videoplayer.swf"
                  videourl="recursos/video/instrucciones_video.mp4|recursos/video/instrucciones_video.webm"
-                 ath="1.7806235678771145" atv="0.03142466066969645" scale="0.30420000000001046" rx="0" ry="0" rz="0"
+                 ath="-18.413638421351266" atv="2.542532816071639" scale="0.15950000000000975" rx="0" ry="-16" rz="0"
                  width="1920"
                  height="1080"
                  alpha="1"
@@ -754,22 +1114,54 @@
                  onvideocomplete=""
                  onerror=""
                  handcursor="false"
-                 capture="false">
+                 capture="false"> 
+        </hotspot>
+
+        <!-- Hotspots de instrucciones foto -->
+
+        <hotspot name="instrucciones_foto"
+                 url="recursos/imagen/instrucciones_foto.png"
+                 ath="18.017633701175953" atv="3.82940360238315" scale="0.3311000000000053" rx="3.549999999999998" ry="27.95000000000016" rz="0"
+                 width="1141"
+                 height="584"
+                 alpha="1"
+                 distorted="true"
+                 handcursor="false"
+                 capture="false"
+                 visible="true"
+                 zorder="999999"
+                 onclick=""
+                 >
+        </hotspot>
+
+        <hotspot name="instrucciones_fotomovil"
+                 url="recursos/imagen/instrucciones_fotomovil.png"
+                 ath="-0.8554359929725024" atv="2.1797523062715745" scale="0.2392000000000104" rx="0" ry="0" rz="0"
+                 width="1141"
+                 height="584"
+                 alpha="1"
+                 distorted="true"
+                 handcursor="false"
+                 capture="false"
+                 visible="true"
+                 zorder="999999"
+                 onclick=""
+                 >
         </hotspot>
 
         <!-- Hotspots de boton cerrar -->
 
         <hotspot name="boton_cerrar"
-                 url="recursos/imagen/boton_cerrar.png"
-                 ath="15.991490654108816" atv="-11.586575519239801" scale="0.13420000000001048" rx="0" ry="0" rz="0"
+                 url="recursos/imagen/boton_play.png"
+                 ath="-11.375074970143032" atv="-3.369150036778843" scale="0.07240000000001157" rx="0" ry="31.600000000000314" rz="0"
                  width="1141"
                  height="584"
-                 alpha="0"
+                 alpha="1"
                  distorted="true"
                  handcursor="true"
                  capture="true"
                  visible="true"
-                 zorder="999999"
+                 zorder="9999999999"
                  onclick="playtour();"
                  >
         </hotspot>
@@ -932,10 +1324,10 @@
                  url.html5="plugins/videoplayer.js"
                  url.flash="plugins/videoplayer.swf"
                  videourl="recursos/video/flecha.mp4|recursos/video/flecha.webm"
-                 ath="101.38044987299571" atv="0.13758177928672097" scale="0.15299999999999983" rx="0" ry="-5.849999999999682" rz="0"
+                 ath="101.38044976404956" atv="0.1375817909930693" scale="0.06580000000000073" rx="0" ry="-5.849999999999682" rz="0"
                  width="1920"
                  height="1080"
-                 alpha="1"
+                 alpha="0.5"
                  chromakey="0x00FF00|0.60|0.10"
                  distorted="true"
                  zorder="0"
@@ -1169,7 +1561,7 @@
                  url.html5="plugins/videoplayer.js"
                  url.flash="plugins/videoplayer.swf"
                  videourl="recursos/video/meet.mp4|recursos/video/meet.webm"
-                 ath="-107.80998764409054" atv="2.9664392721727637" scale="0.16970000000000393" rx="10.149999999999995" ry="11.10000000000025" rz="-1.7500000000000013"
+                 ath="-107.80998548516297" atv="2.966439187878734" scale="0.16970000000000393" rx="0" ry="16.500000000000327" rz="0.1499999999999998"
                  width="1920"
                  height="1080"
                  alpha="1"
@@ -1574,30 +1966,108 @@
         </hotspot>
        <hotspot name="portal_menu"
                  url="recursos/imagen/portal_menu.png"
-                 ath="104.53560121013729" atv="0.9851883913261958" scale="0.4112999999999907" rx="-4.066191827689636e-15" ry="165.74999999999875" rz="-0.2500000000000003"
-                 width="1141"
-                 height="584"
+                 ath="104.53560092873917" atv="0.9851882093151003" scale="0.1099999999999912" rx="-4.066191827689636e-15" ry="165.74999999999875" rz="-0.2500000000000003"
+                 width="1080"
+                 height="1920"
+                 alpha="1"
+                 distorted="true"
+                 handcursor="true"
+                 capture="true"
+                 visible="false"
+                 zorder="999"
+                 onover="activar_portal();"
+                 onout="restaurar_portal_menu();"
+                 ontouchstart="distorsionar_portal_menu();"
+                 ontouchend="restaurar_portal_menu();"
+                onclick="goto_scene_menu();"
+                 >
+        </hotspot>
+        <!-- <hotspot name="portal_menu_on"
+                 url="recursos/imagen/portal_menu_on.png"
+                 ath="104.55288312543843" atv="0.9608024832071446" scale="0.11179999999999056" rx="-4.066191827689636e-15" ry="165.74999999999875" rz="-0.2500000000000003"
+                 width="1080"
+                 height="1920"
+                 alpha="1"
                  distorted="true"
                  handcursor="false"
                  capture="false"
+                 visible="visible"
+                 >
+        </hotspot> -->
+
+        
+        <!-- Hotspots de boton repetir tour hostpot -->
+
+        <hotspot name="repetirintro_hotspot"
+                 url="recursos/imagen/boton_repetirintro.png"
+                 ath="124.94392083762347" atv="1.254999848535447" scale="0.14600000000001356" rx="4.250000000000001" ry="-35.600000000000094" rz="1.5499999999999825"
+                 width="1141"
+                 height="584"
+                 alpha="1"
+                 distorted="true"
+                 handcursor="true"
+                 capture="false"
                  visible="false"
-                 chromakey="0x00FF00|0.5|0.5">
+                 zorder="9999999999"
+                 onclick="repetir_intro();"
+                 >
         </hotspot>
+
        
-       <hotspot name="menu" url="recursos/imagen/vtourskin_hotspot.png"  style="tooltip" distorted="true" tooltip="MENÚ PRINCIPAL" ath="104.9851363971259" atv="12.036762971647978" scale="0.4112999999999907" rx="-4.066191827689636e-15" ry="165.74999999999875" rz="-0.2500000000000003" onclick="goto_scene_menu();" visible="false" />
-  </scene>
+        </scene>
 
 
 
-	 <scene name="scene_menu" title="MENÚ PRINCIPAL" onstart="stop_autorotate(); stop_audio();" thumburl="panos/menu.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+	 <scene name="scene_menu" title="MENÚ PRINCIPAL" onstart="stop_autorotate(); " thumburl="panos/menu.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
         <control bouncinglimits="calc:image.cube ? true : false" />
-        <view hlookat="1.4373279418626588" vlookat="0.0640177971607388" fov="128.66933068777604" fovtype="MFOV" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+        <view hlookat="-36.07252789471742" vlookat="-0.6969344162975248" fov="100.21664357485692" fovtype="MFOV" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
         <preview url="panos/menu.tiles/preview.jpg" />
         <image>
             <cube url="panos/menu.tiles/pano_%s.jpg" />
         </image>
 
-
+      <hotspot name="cartel_usc"
+                 url="recursos/imagen/cartel_usc.png"
+                 ath="15.225866921100419" atv="-0.3705647367032241" scale="0.18240000000001233" rx="0" ry="0" rz="0"
+                 width="1920"
+                 height="1080"
+                 alpha="0.8"
+                 distorted="true"
+                 handcursor="true"
+                 capture="true"
+                 visible="true"
+                 zorder="9999999999"
+                 onclick=""
+                 >
+        </hotspot>
+        <hotspot name="cartel_u1"
+                 url="recursos/imagen/cartel_u1.png"
+                 ath="-88.70504287073823" atv="-0.19851076973124793" scale="0.19250000000001177" rx="0" ry="0" rz="0"
+                 width="1920"
+                 height="1080"
+                 alpha="0.8"
+                 distorted="true"
+                 handcursor="true"
+                 capture="true"
+                 visible="true"
+                 zorder="9999999999"
+                 onclick=""
+                 >
+        </hotspot>
+        <hotspot name="cartel_u2"
+                 url="recursos/imagen/cartel_u2.png"
+                 ath="-36.61086717848866" atv="-0.3997714528558798" scale="0.1772000000000129" rx="0" ry="0" rz="0"
+                 width="1920"
+                 height="1080"
+                 alpha="0.8"
+                 distorted="true"
+                 handcursor="true"
+                 capture="true"
+                 visible="true"
+                 zorder="9999999999"
+                 onclick="goto_scene_conserjeria();"
+                 >
+        </hotspot>
 
     </scene>
     
