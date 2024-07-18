@@ -254,6 +254,25 @@
 		x="-14" y="10"
     />
 
+    <layer name= "boton_home" url="recursos/imagen/boton_home.png" keep= "true" scale="0.1"
+		enabled="false"
+		alpha="0"
+		onclick="goto_scene_menu();"
+		align="topleft"
+		edge="topleft"
+		x="-30" y="8" />
+
+	<layer name= "boton_home_movil" url="recursos/imagen/boton_home.png" keep= "true" scale="0.07"
+		devices="mobile"
+		enabled="false"
+		alpha="0"
+		onclick="goto_scene_menu();"
+		align="topleft"
+		edge="topleft"
+		x="-14" y="10"
+    />
+
+
 	
   <action name="repetir_intro">
     loadscene(scene_papel, null, MERGE);
@@ -264,6 +283,11 @@
         set(layer[boton_repetirintro_movil].enabled, false);
         tween(layer[boton_saltarintro_movil].alpha, 1);
         set(layer[boton_saltarintro_movil].enabled, true);
+        
+        set(hotspot[instrucciones_video].visible, false);
+        set(hotspot[instrucciones_foto].visible, false);
+        set(hotspot[instrucciones_fotomovil].visible, false);
+        set(hotspot[boton_cerrar].visible, false);
     ,
         tween(layer[boton_repetirintro].alpha, 0);
         set(layer[boton_repetirintro].enabled, false);
@@ -271,8 +295,8 @@
         set(layer[boton_saltarintro].enabled, true);
 
         set(hotspot[instrucciones_video].visible, false);
-    set(hotspot[instrucciones_foto].visible, false);
-    set(hotspot[instrucciones_fotomovil].visible, false);
+        set(hotspot[instrucciones_foto].visible, false);
+        set(hotspot[instrucciones_fotomovil].visible, false);
         set(hotspot[boton_cerrar].visible, false);
 
     );
@@ -307,6 +331,35 @@
         set(hotspot[boton_cerrar].visible, true);
       
 	</action> 
+
+  <action name="borrar_botones_intro">
+    if(device.mobile,
+        tween(layer[boton_repetirintro_movil].alpha, 0);
+        set(layer[boton_repetirintro_movil].enabled, false);
+        tween(layer[boton_saltarintro_movil].alpha, 0);
+        set(layer[boton_saltarintro_movil].enabled, false);
+    ,
+        tween(layer[boton_repetirintro].alpha, 0);
+        set(layer[boton_repetirintro].enabled, false);
+        tween(layer[boton_saltarintro].alpha, 0);
+        set(layer[boton_saltarintro].enabled, false);
+    );
+    
+</action>
+
+<action name="añadir_boton_home">
+    if(device.mobile,
+        tween(layer[boton_home_movil].alpha, 1);
+        set(layer[boton_home_movil].enabled, true);
+    ,
+        tween(layer[boton_home].alpha, 1);
+        set(layer[boton_home].enabled, true);
+       
+    );
+    
+</action>
+
+
 
     <action name="playtour">
     set(hotspot[instrucciones_video].visible, false);
@@ -521,11 +574,15 @@
     if(device.mobile,
         tween(layer[boton_saltarintro_movil].alpha, 0);
         set(layer[boton_saltarintro_movil].enabled, false);
+        tween(layer[boton_home_movil].alpha, 0);
+        set(layer[boton_home_movil].enabled, false);
         tween(layer[boton_repetirintro_movil].alpha, 1);
         set(layer[boton_repetirintro_movil].enabled, true);
     ,
         tween(layer[boton_saltarintro].alpha, 0);
         set(layer[boton_saltarintro].enabled, false);
+        tween(layer[boton_home].alpha, 0);
+        set(layer[boton_home].enabled, false);
         tween(layer[boton_repetirintro].alpha, 1);
         set(layer[boton_repetirintro].enabled, true);
     );
@@ -682,90 +739,90 @@
 
     <action name="play_papel">
     delayedcall(0.95, playsound('aulasfuturo', 'recursos/audio/aulasfuturo.mp3'));
-    delayedcall(idDelayedCallStartvideo1,0.95, startVideo1());
-    delayedcall(idDelayedCallStartvideo2,4.3, startVideo2());
-    delayedcall(idDelayedCallStartvideo3,16.8, startVideo3());
-    delayedcall(24.17, startVideo4());
-    delayedcall(34, startVideo5());
-    delayedcall(45.9, flecha());
-    delayedcall(49.8, stop_autorotate());
-    delayedcall(49.8, pizarra());
-    delayedcall(52.8, moviles());
-    delayedcall(54.3, rv());
-    delayedcall(56.1, ia());
-    delayedcall(58.6, impresora());
-    delayedcall(59, eliminar_hotspots_1());
-    delayedcall(59.6, camara());
-    delayedcall(62.6, estudio());
-    delayedcall(65.7, meet());
-    delayedcall(67.7, ver());
-    delayedcall(67.7, f1());
-    delayedcall(69.9, no_ver());
-    delayedcall(73.3, f2());
-    delayedcall(76.9, f3());
-    delayedcall(80.5, eliminar_hotspots_2());
-    delayedcall(80.5, zoom_in());
-    delayedcall(80.5, parrafo_final());
-    delayedcall(82.9, no_zoom_in());
-    delayedcall(125.2, zoom_out());
-    delayedcall(128.3, no_zoom_out());
-    delayedcall(129.5, investiga());
-    delayedcall(134.3, explora());
-    delayedcall(137.8, interactua());
-    delayedcall(142, desarrolla());
-    delayedcall(145.8, crea());
-    delayedcall(150, presenta());
-    delayedcall(154, oreja());
-    delayedcall(152, start_autorotate());
-    delayedcall(167.2, no_oreja());
-    delayedcall(167.2, portal_menu());
-    delayedcall(167.2, menu());
-    delayedcall(167.2, repetirintro_hotspot());
+    delayedcall(idDelayedCallStartvideo1, 0.95, startVideo1());
+    delayedcall(idDelayedCallStartvideo2, 4.3, startVideo2());
+    delayedcall(idDelayedCallStartvideo3, 16.8, startVideo3());
+    delayedcall(idDelayedCallStartvideo4, 24.17, startVideo4());
+    delayedcall(idDelayedCallStartvideo5, 34, startVideo5());
+    delayedcall(idDelayedCallStartvideo6, 45.9, flecha());
+    delayedcall(idDelayedCallStartvideo7, 49.8, stop_autorotate());
+    delayedcall(idDelayedCallStartvideo8, 49.8, pizarra());
+    delayedcall(idDelayedCallStartvideo9, 52.8, moviles());
+    delayedcall(idDelayedCallStartvideo10, 54.3, rv());
+    delayedcall(idDelayedCallStartvideo11, 56.1, ia());
+    delayedcall(idDelayedCallStartvideo12, 58.6, impresora());
+    delayedcall(idDelayedCallStartvideo13, 59, eliminar_hotspots_1());
+    delayedcall(idDelayedCallStartvideo14, 59.6, camara());
+    delayedcall(idDelayedCallStartvideo15, 62.6, estudio());
+    delayedcall(idDelayedCallStartvideo16, 65.7, meet());
+    delayedcall(idDelayedCallStartvideo17, 67.7, ver());
+    delayedcall(idDelayedCallStartvideo18, 67.7, f1());
+    delayedcall(idDelayedCallStartvideo19, 69.9, no_ver());
+    delayedcall(idDelayedCallStartvideo20, 73.3, f2());
+    delayedcall(idDelayedCallStartvideo21, 76.9, f3());
+    delayedcall(idDelayedCallStartvideo22, 80.5, eliminar_hotspots_2());
+    delayedcall(idDelayedCallStartvideo23, 80.5, zoom_in());
+    delayedcall(idDelayedCallStartvideo24, 80.5, parrafo_final());
+    delayedcall(idDelayedCallStartvideo25, 82.9, no_zoom_in());
+    delayedcall(idDelayedCallStartvideo26, 125.2, zoom_out());
+    delayedcall(idDelayedCallStartvideo27, 128.3, no_zoom_out());
+    delayedcall(idDelayedCallStartvideo28, 129.5, investiga());
+    delayedcall(idDelayedCallStartvideo29, 134.3, explora());
+    delayedcall(idDelayedCallStartvideo30, 137.8, interactua());
+    delayedcall(idDelayedCallStartvideo31, 142, desarrolla());
+    delayedcall(idDelayedCallStartvideo32, 145.8, crea());
+    delayedcall(idDelayedCallStartvideo33, 150, presenta());
+    delayedcall(idDelayedCallStartvideo34, 154, oreja());
+    delayedcall(idDelayedCallStartvideo35, 152, start_autorotate());
+    delayedcall(idDelayedCallStartvideo36, 167.2, no_oreja());
+    delayedcall(idDelayedCallStartvideo37, 167.2, portal_menu());
+    delayedcall(idDelayedCallStartvideo38, 167.2, menu());
+    delayedcall(idDelayedCallStartvideo39, 167.2, repetirintro_hotspot());
 </action>
 
 <action name="cancel_play_papel">
-stopsound(aulasfuturo, 'recursos/audio/aulasfuturo.mp3');
-   
+    stopsound(aulasfuturo, 'recursos/audio/aulasfuturo.mp3');
     stopdelayedcall(idDelayedCallStartvideo1);
     stopdelayedcall(idDelayedCallStartvideo2);
     stopdelayedcall(idDelayedCallStartvideo3);
-    stopdelayedcall(startVideo4);
-    stopdelayedcall(startVideo5);
-    stopdelayedcall(flecha);
-    stopdelayedcall(stop_autorotate);
-    stopdelayedcall(pizarra);
-    stopdelayedcall(moviles);
-    stopdelayedcall(rv);
-    stopdelayedcall(ia);
-    stopdelayedcall(impresora);
-    stopdelayedcall(eliminar_hotspots_1);
-    stopdelayedcall(camara);
-    stopdelayedcall(estudio);
-    stopdelayedcall(meet);
-    stopdelayedcall(ver);
-    stopdelayedcall(f1);
-    stopdelayedcall(no_ver);
-    stopdelayedcall(f2);
-    stopdelayedcall(f3);
-    stopdelayedcall(eliminar_hotspots_2);
-    stopdelayedcall(zoom_in);
-    stopdelayedcall(parrafo_final);
-    stopdelayedcall(no_zoom_in);
-    stopdelayedcall(zoom_out);
-    stopdelayedcall(no_zoom_out);
-    stopdelayedcall(investiga);
-    stopdelayedcall(explora);
-    stopdelayedcall(interactua);
-    stopdelayedcall(desarrolla);
-    stopdelayedcall(crea);
-    stopdelayedcall(presenta);
-    stopdelayedcall(oreja);
-    stopdelayedcall(start_autorotate);
-    stopdelayedcall(no_oreja);
-    stopdelayedcall(portal_menu);
-    stopdelayedcall(menu);
-    stopdelayedcall(repetirintro_hotspot);
+    stopdelayedcall(idDelayedCallStartvideo4);
+    stopdelayedcall(idDelayedCallStartvideo5);
+    stopdelayedcall(idDelayedCallStartvideo6);
+    stopdelayedcall(idDelayedCallStartvideo7);
+    stopdelayedcall(idDelayedCallStartvideo8);
+    stopdelayedcall(idDelayedCallStartvideo9);
+    stopdelayedcall(idDelayedCallStartvideo10);
+    stopdelayedcall(idDelayedCallStartvideo11);
+    stopdelayedcall(idDelayedCallStartvideo12);
+    stopdelayedcall(idDelayedCallStartvideo13);
+    stopdelayedcall(idDelayedCallStartvideo14);
+    stopdelayedcall(idDelayedCallStartvideo15);
+    stopdelayedcall(idDelayedCallStartvideo16);
+    stopdelayedcall(idDelayedCallStartvideo17);
+    stopdelayedcall(idDelayedCallStartvideo18);
+    stopdelayedcall(idDelayedCallStartvideo19);
+    stopdelayedcall(idDelayedCallStartvideo20);
+    stopdelayedcall(idDelayedCallStartvideo21);
+    stopdelayedcall(idDelayedCallStartvideo22);
+    stopdelayedcall(idDelayedCallStartvideo23);
+    stopdelayedcall(idDelayedCallStartvideo24);
+    stopdelayedcall(idDelayedCallStartvideo25);
+    stopdelayedcall(idDelayedCallStartvideo26);
+    stopdelayedcall(idDelayedCallStartvideo27);
+    stopdelayedcall(idDelayedCallStartvideo28);
+    stopdelayedcall(idDelayedCallStartvideo29);
+    stopdelayedcall(idDelayedCallStartvideo30);
+    stopdelayedcall(idDelayedCallStartvideo31);
+    stopdelayedcall(idDelayedCallStartvideo32);
+    stopdelayedcall(idDelayedCallStartvideo33);
+    stopdelayedcall(idDelayedCallStartvideo34);
+    stopdelayedcall(idDelayedCallStartvideo35);
+    stopdelayedcall(idDelayedCallStartvideo36);
+    stopdelayedcall(idDelayedCallStartvideo37);
+    stopdelayedcall(idDelayedCallStartvideo38);
+    stopdelayedcall(idDelayedCallStartvideo39);
 </action>
+
     
     <action name="playsound">
         playsound(aulasfuturo, 'recursos/audio/aulasfuturo.mp3');
@@ -2065,7 +2122,7 @@ stopsound(aulasfuturo, 'recursos/audio/aulasfuturo.mp3');
                  capture="true"
                  visible="true"
                  zorder="9999999999"
-                 onclick="goto_scene_conserjeria();"
+                 onclick="goto_scene_conserjeria(); borrar_botones_intro(); añadir_boton_home(); "
                  >
         </hotspot>
 
@@ -2082,17 +2139,16 @@ stopsound(aulasfuturo, 'recursos/audio/aulasfuturo.mp3');
 		<preview url="panos/conserjeria.tiles/preview.jpg" />
 
 		<image>
-			<cube url="panos/conserjeria.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,640,1280,2560" />
+			<cube url="panos/conserjeria.tiles/pano_%s.jpg" />
 		</image>
 		
 		<!-- <hotspot name="vid_zocal" url.html5="plugins/videoplayer.js" url.flash="plugins/videoplayer.swf" videourl="recursos/video/manolo.mp4" posterurl="recursos/imagen/play.png" ath="86.560" atv="15.000" scale="0.35" width="450" height="1000" alpha="1" chromakey="0x00ff00|1.5|0.15" distorted="true" zorder="6" visible="true" pausedonstart="false" loop="false" volume="1.0" directionalsound="true" range="90.0" rangefalloff="1.0" outofrangevolume="0.0" onhover="showtext(Play/Pause, default); " onvideoready="" onvideoplay="5" onvideopaused="" onvideocomplete="closevid_zocal();" onerror="" onclick="togglepause(vid_zocal);"/>
 		
 		<hotspot name="vid_zocal" devices="mobile" url.html5="plugins/videoplayer.js" url.flash="plugins/videoplayer.swf" videourl="recursos/video/manolo.mp4" posterurl="recursos/imagen/play.png" ath="86.560" atv="15.000" scale="0.35" width="450" height="1000" alpha="1" chromakey="0x00ff00|1.5|0.15" distorted="true" zorder="6" visible="true" pausedonstart="false" loop="false" volume="1.0" directionalsound="true" range="90.0" rangefalloff="1.0" outofrangevolume="0.0" onhover="showtext(Play/Pause, default); " onvideoready="" onvideoplay="" onvideopaused="" onvideocomplete="closevid_zocal();" onerror="" onclick="togglepause(vid_zocal);"/>
 		 -->
-		<hotspot name="spot3" url="hotspotlogoUSC.png"  style="tooltip" distorted="true" tooltip="Entrada ao Módulo C1" ath="-55.6159076029694" atv="12.774010015842821" scale="0.4099999999999999" rx="-44" ry="-24" rz="-22" onclick="goto_scene_pasillo();" />
+		<hotspot name="spot3" url="recursos/imagen/vtourskin_hotspot.png"  style="tooltip" distorted="true" tooltip="Ir al laboratorio de Tecnología Educativa Edumaker en el módulo (planta baja)" ath="-55.6159076029694" atv="12.774010015842821" scale="0.4099999999999999" rx="-44" ry="-24" rz="-22" onclick="goto_scene_pasillo();" />
 	
 	</scene>
-
 
 
 
@@ -2106,10 +2162,10 @@ stopsound(aulasfuturo, 'recursos/audio/aulasfuturo.mp3');
 		<preview url="panos/pasillo.tiles/preview.jpg" />
 
 		<image>
-			<cube url="panos/pasillo.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,640,1280,2560" />
+		<cube url="panos/pasillo.tiles/pano_%s.jpg" />
 		</image>
-		<hotspot name="spot1" url="hotspotlogoUSC.png"  style="tooltip" distorted="true" tooltip="Laboratorio de Tecnoloxía Educativa EduMaker" ath="157.19799923377616" atv="10.16899980763132" scale="0.5" rx="0" ry="0" rz="0" onclick="goto_scene_aula_1_usc();"/>
-		<hotspot name="spot2" url="hotspotlogoUSC.png"  style="tooltip" distorted="true" tooltip="Saída" ath="-105.34999941946464" atv="11.182999465521993" scale="0.5" rx="0" ry="0" rz="0" onclick="goto_scene_conserjeria_sinvideo();" />
+		<hotspot name="spot1" url="recursos/imagen/vtourskin_hotspot.png"  style="tooltip" distorted="true" tooltip="Laboratorio de Tecnoloxía Educativa EduMaker" ath="157.19799923377616" atv="10.16899980763132" scale="0.5" rx="0" ry="0" rz="0" onclick="goto_scene_aula_1_usc();"/>
+		<hotspot name="spot2" url="recursos/imagen/vtourskin_hotspot.png"  style="tooltip" distorted="true" tooltip="Saída" ath="-105.34999941946464" atv="11.182999465521993" scale="0.5" rx="0" ry="0" rz="0" onclick="goto_scene_conserjeria_sinvideo();" />
 	</scene>
 
 
@@ -2122,11 +2178,11 @@ stopsound(aulasfuturo, 'recursos/audio/aulasfuturo.mp3');
 		<preview url="panos/aula_1_usc.tiles/preview.jpg" />
 
 		<image>
-			<cube url="panos/aula_1_usc.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,640,1280,2560" />
+			<cube url="panos/aula_1_usc.tiles/pano_%s.jpg" />
 		</image>
-		<hotspot name="spot1" url="hotspotlogoUSC.png" style="skin_hotspotstyle" ath="41.337" atv="6.151" linkedscene="scene_aula_2_usc" />
+		<hotspot name="spot1" url="recursos/imagen/vtourskin_hotspot.png" style="skin_hotspotstyle" ath="41.337" atv="6.151" linkedscene="scene_aula_2_usc" />
 		
-		<hotspot name="spot2" url="hotspotlogoUSC.png"  style="tooltip" distorted="true" tooltip="Saída" ath="-56.022417416813596" atv="9.029220665106548" scale="0.5750000000000001" rx="0" ry="0" rz="0" onclick="goto_scene_pasillo();"/>
+		<hotspot name="spot2" url="recursos/imagen/vtourskin_hotspot.png"  style="tooltip" distorted="true" tooltip="Saída" ath="-56.022417416813596" atv="9.029220665106548" scale="0.5750000000000001" rx="0" ry="0" rz="0" onclick="goto_scene_pasillo();"/>
 		
 		<hotspot name="hs_circle" onloaded="do_crop_animation(128,128, 15);" url="skin/waves.png" tag="Video" ath="74.304" atv="16.505" scale="0.5" onclick="popup('iframe', 'https://www.youtube.com/embed/CYYaNzfDk08?rel=0&amp;hd=1&amp;vq=hd1080&amp;showinfo=0&amp;autoplay=1', 900, 506, false);" />		
 		
@@ -2144,9 +2200,9 @@ stopsound(aulasfuturo, 'recursos/audio/aulasfuturo.mp3');
 		<preview url="panos/aula_2_usc.tiles/preview.jpg" />
 
 		<image>
-			<cube url="panos/aula_2_usc.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,640,1280,2560" />
+			<cube url="panos/aula_2_usc.tiles/pano_%s.jpg" />
 		</image>
-		<hotspot name="spot1" url="hotspotlogoUSC.png" style="skin_hotspotstyle" ath="-119.392" atv="2.349" linkedscene="scene_aula_1_usc" />
+		<hotspot name="spot1" url="recursos/imagen/vtourskin_hotspot.png" style="skin_hotspotstyle" ath="-119.392" atv="2.349" linkedscene="scene_aula_1_usc" />
 
 	</scene>
 
@@ -2162,7 +2218,7 @@ stopsound(aulasfuturo, 'recursos/audio/aulasfuturo.mp3');
 		<image>
 			<cube url="panos/conserjeria.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,640,1280,2560" />
 		</image>
-		<hotspot name="spot1" url="hotspotlogoUSC.png"  style="tooltip" distorted="true" tooltip="Entrada ao Módulo C1" ath="-54.36500057252715" atv="3.753000091265001" scale="0.5" rx="0" ry="0" rz="0" onclick="goto_scene_pasillo();"/>
+		<hotspot name="spot1" url="recursos/imagen/vtourskin_hotspot.png"  style="tooltip" distorted="true" tooltip="Ir al laboratorio de Tecnología Educativa Edumaker en el módulo (planta baja)" ath="-54.36500057252715" atv="3.753000091265001" scale="0.5" rx="0" ry="0" rz="0" onclick="goto_scene_pasillo();"/>
 		
 		
 	</scene>
