@@ -393,7 +393,19 @@
 	</action>
 	
 
+   <action name="closeholograma">
+        set(hotspot[boton_abrir_holograma].visible, true);
+        set(hotspot[boton_cerrar_holograma].visible, false);
+        set(hotspot[holograma].visible, false);
+        hotspot[holograma].stop();
+</action>
 
+<action name="openholograma">
+        set(hotspot[boton_cerrar_holograma].visible, true);
+        set(hotspot[boton_abrir_holograma].visible, false);
+        set(hotspot[holograma].visible, true);
+        hotspot[holograma].play();
+</action>
 
 
 
@@ -738,6 +750,7 @@
         />
 
     <action name="play_papel">
+    <!-- stopsound(aulasfuturo, 'recursos/audio/aulasfuturo.mp3'); -->
     delayedcall(0.95, playsound('aulasfuturo', 'recursos/audio/aulasfuturo.mp3'));
     delayedcall(idDelayedCallStartvideo1, 0.95, startVideo1());
     delayedcall(idDelayedCallStartvideo2, 4.3, startVideo2());
@@ -824,9 +837,9 @@
 </action>
 
     
-    <action name="playsound">
+    <!-- <action name="playsound">
         playsound(aulasfuturo, 'recursos/audio/aulasfuturo.mp3');
-    </action>
+    </action> -->
     <!-- <action name="stop_audio">
     stopsound(aulasfuturo, 'recursos/audio/aulasfuturo.mp3');
     </action> -->
@@ -1021,118 +1034,6 @@
 	</action>
 
   
-
-
-
-<action name="pausar_todos_hotspot">
-    hotspot[i1].stop(); 
-    hotspot[i2].stop(); 
-    hotspot[i3].stop(); 
-    hotspot[i4].stop(); 
-    hotspot[i5].stop(); 
-    hotspot[flecha].stop(); 
-    hotspot[pizarra].stop(); 
-    hotspot[moviles].stop(); 
-    hotspot[rv].stop(); 
-    hotspot[ia].stop(); 
-    hotspot[impresora].stop(); 
-    hotspot[camara].stop(); 
-    hotspot[estudio].stop(); 
-    hotspot[meet].stop(); 
-    hotspot[ver].stop(); 
-    hotspot[f1].stop(); 
-    hotspot[f2].stop(); 
-    hotspot[f3].stop(); 
-    hotspot[zoom_in].stop(); 
-    hotspot[parrafo_final].stop(); 
-    hotspot[zoom_out].stop(); 
-    hotspot[investiga_pared].stop(); 
-    hotspot[explora_pared].stop(); 
-    hotspot[interactua_pared].stop(); 
-    hotspot[desarrolla_pared].stop(); 
-    hotspot[crea_pared].stop(); 
-    hotspot[presenta_pared].stop(); 
-    hotspot[oreja].stop(); 
-    hotspot[portal_menu].stop(); 
-    hotspot[menu].stop(); 
-    hotspot[repetirintro_hotspot].stop(); 
-
-    set(hotspot[i1].pausedonstart, true);
-    set(hotspot[i2].pausedonstart, true);
-    set(hotspot[i3].pausedonstart, true);
-    set(hotspot[i4].pausedonstart, true);
-    set(hotspot[i5].pausedonstart, true);
-    set(hotspot[flecha].pausedonstart, true);
-    set(hotspot[pizarra].pausedonstart, true);
-    set(hotspot[moviles].pausedonstart, true);
-    set(hotspot[rv].pausedonstart, true);
-    set(hotspot[ia].pausedonstart, true);
-    set(hotspot[impresora].pausedonstart, true);
-    set(hotspot[camara].pausedonstart, true);
-    set(hotspot[estudio].pausedonstart, true);
-    set(hotspot[meet].pausedonstart, true);
-    set(hotspot[ver].pausedonstart, true);
-    set(hotspot[f1].pausedonstart, true);
-    set(hotspot[f2].pausedonstart, true);
-    set(hotspot[f3].pausedonstart, true);
-    set(hotspot[zoom_in].pausedonstart, true);
-    set(hotspot[parrafo_final].pausedonstart, true);
-    set(hotspot[zoom_out].pausedonstart, true);
-    set(hotspot[investiga_pared].pausedonstart, true);
-    set(hotspot[explora_pared].pausedonstart, true);
-    set(hotspot[interactua_pared].pausedonstart, true);
-    set(hotspot[desarrolla_pared].pausedonstart, true);
-    set(hotspot[crea_pared].pausedonstart, true);
-    set(hotspot[presenta_pared].pausedonstart, true);
-    set(hotspot[oreja].pausedonstart, true);
-    set(hotspot[portal_menu].pausedonstart, true);
-    set(hotspot[menu].pausedonstart, true);
-    set(hotspot[repetirintro_hotspot].pausedonstart, true);
-
-    set(hotspot[i1].visible, false);
-    set(hotspot[i2].visible, false);
-    set(hotspot[i3].visible, false);
-    set(hotspot[i4].visible, false);
-    set(hotspot[i5].visible, false);
-    set(hotspot[flecha].visible, false);
-    set(hotspot[pizarra].visible, false);
-    set(hotspot[moviles].visible, false);
-    set(hotspot[rv].visible, false);
-    set(hotspot[ia].visible, false);
-    set(hotspot[impresora].visible, false);
-    set(hotspot[camara].visible, false);
-    set(hotspot[estudio].visible, false);
-    set(hotspot[meet].visible, false);
-    set(hotspot[ver].visible, false);
-    set(hotspot[f1].visible, false);
-    set(hotspot[f2].visible, false);
-    set(hotspot[f3].visible, false);
-    set(hotspot[zoom_in].visible, false);
-    set(hotspot[parrafo_final].visible, false);
-    set(hotspot[zoom_out].visible, false);
-    set(hotspot[investiga_pared].visible, false);
-    set(hotspot[explora_pared].visible, false);
-    set(hotspot[interactua_pared].visible, false);
-    set(hotspot[desarrolla_pared].visible, false);
-    set(hotspot[crea_pared].visible, false);
-    set(hotspot[presenta_pared].visible, false);
-    set(hotspot[oreja].visible, false);
-    set(hotspot[portal_menu].visible, false);
-    set(hotspot[menu].visible, false);
-    set(hotspot[repetirintro_hotspot].visible, false);
-</action>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -2134,7 +2035,7 @@
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
-		<view hlookat="64.81722070838748" vlookat="9.012721860070432" fov="92.93519296432203" fovtype="MFOV" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="66.67645222480168" vlookat="7.147936501049596" fov="100.22290715694908" fovtype="MFOV" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
 		<preview url="panos/conserjeria.tiles/preview.jpg" />
 
@@ -2142,12 +2043,78 @@
 			<cube url="panos/conserjeria.tiles/pano_%s.jpg" />
 		</image>
 		
-		<!-- <hotspot name="vid_zocal" url.html5="plugins/videoplayer.js" url.flash="plugins/videoplayer.swf" videourl="recursos/video/manolo.mp4" posterurl="recursos/imagen/play.png" ath="86.560" atv="15.000" scale="0.35" width="450" height="1000" alpha="1" chromakey="0x00ff00|1.5|0.15" distorted="true" zorder="6" visible="true" pausedonstart="false" loop="false" volume="1.0" directionalsound="true" range="90.0" rangefalloff="1.0" outofrangevolume="0.0" onhover="showtext(Play/Pause, default); " onvideoready="" onvideoplay="5" onvideopaused="" onvideocomplete="closevid_zocal();" onerror="" onclick="togglepause(vid_zocal);"/>
+
+     <hotspot name="boton_abrir_holograma"
+                 url="recursos/imagen/boton_info.png"
+                 ath="53.164183638329746" atv="-9.285192622394431" scale="0.04310000000001142" rx="0" ry="22.950000000000017" rz="0"
+                 width="1920"
+                 height="1080"
+                 alpha="1"
+                 distorted="true"
+                 handcursor="true"
+                 capture="true"
+                 visible="false"
+                 zorder="9999999999"
+                 onclick="openholograma();"
+                 >
+        </hotspot>
+      <hotspot name="boton_cerrar_holograma"
+                 url="recursos/imagen/boton_saltarintro.png"
+                 ath="53.164183638329746" atv="-9.285192622394431" scale="0.04310000000001142" rx="0" ry="22.950000000000017" rz="0"
+                 width="1920"
+                 height="1080"
+                 alpha="1"
+                 distorted="true"
+                 handcursor="true"
+                 capture="true"
+                 visible="true"
+                 zorder="9999999999"
+                 onclick="closeholograma();"
+                 >
+        </hotspot>
+        
+
+		<hotspot name="holograma"
+     url.html5="plugins/videoplayer.js" 
+     url.flash="plugins/videoplayer.swf" 
+     videourl="recursos/video/manolo.mp4" 
+     ath="54.232079073745695" atv="13.718356459561953" scale="0.3209000000000176" rx="0" ry="0" rz="-0.8000000000000002" 
+     width="1920" height="1080"
+     alpha="0.7" 
+     chromakey="0xffffff|0.015|0.03" 
+     distorted="true" 
+     zorder="99999" 
+     visible="true" 
+     pausedonstart="false" 
+     loop="false" 
+     volume="1.0" 
+     directionalsound="true" 
+     range="90.0" 
+     capture="false"
+     handcursor="false"
+     rangefalloff="1.0" outofrangevolume="0.0" onhover="showtext(Play/Pause, default); " onvideoready="" onvideoplay="5" onvideopaused="" 
+     onvideocomplete="" onerror="" onclick=""/>
 		
-		<hotspot name="vid_zocal" devices="mobile" url.html5="plugins/videoplayer.js" url.flash="plugins/videoplayer.swf" videourl="recursos/video/manolo.mp4" posterurl="recursos/imagen/play.png" ath="86.560" atv="15.000" scale="0.35" width="450" height="1000" alpha="1" chromakey="0x00ff00|1.5|0.15" distorted="true" zorder="6" visible="true" pausedonstart="false" loop="false" volume="1.0" directionalsound="true" range="90.0" rangefalloff="1.0" outofrangevolume="0.0" onhover="showtext(Play/Pause, default); " onvideoready="" onvideoplay="" onvideopaused="" onvideocomplete="closevid_zocal();" onerror="" onclick="togglepause(vid_zocal);"/>
-		 -->
+		<!-- <hotspot name="holograma_movil" devices="mobile"
+     url.html5="plugins/videoplayer.js" 
+     url.flash="plugins/videoplayer.swf" 
+     videourl="recursos/video/manolo.mp4" 
+     ath="54.232079073745695" atv="13.718356459561953" scale="0.3209000000000176" rx="0" ry="0" rz="-0.8000000000000002"
+     width="450" height="1000" 
+     alpha="1" 
+     capture="false"
+     handcursor="false"
+     chromakey="0xffffff|0.015|0.03" 
+     distorted="true" zorder="99999" 
+     visible="true" pausedonstart="false" 
+     loop="false" volume="1.0" directionalsound="true" 
+     range="90.0" rangefalloff="1.0" outofrangevolume="0.0" 
+     onhover="showtext(Play/Pause, default); " onvideoready="" onvideoplay="" onvideopaused="" 
+     onvideocomplete="" onerror="" onclick="closeholograma();"/> -->
+		
 		<hotspot name="spot3" url="recursos/imagen/vtourskin_hotspot.png"  style="tooltip" distorted="true" tooltip="Ir al laboratorio de Tecnología Educativa Edumaker en el módulo (planta baja)" ath="-55.6159076029694" atv="12.774010015842821" scale="0.4099999999999999" rx="-44" ry="-24" rz="-22" onclick="goto_scene_pasillo();" />
 	
+   
 	</scene>
 
 
@@ -2157,15 +2124,46 @@
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
-		<view hlookat="-154.526" vlookat="8.664" fovtype="MFOV" fov="125.030" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="20.060768884166375" vlookat="10.160264382464664" fov="98.91972187723144" fovtype="MFOV" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
 		<preview url="panos/pasillo.tiles/preview.jpg" />
 
 		<image>
 		<cube url="panos/pasillo.tiles/pano_%s.jpg" />
 		</image>
-		<hotspot name="spot1" url="recursos/imagen/vtourskin_hotspot.png"  style="tooltip" distorted="true" tooltip="Laboratorio de Tecnoloxía Educativa EduMaker" ath="157.19799923377616" atv="10.16899980763132" scale="0.5" rx="0" ry="0" rz="0" onclick="goto_scene_aula_1_usc();"/>
-		<hotspot name="spot2" url="recursos/imagen/vtourskin_hotspot.png"  style="tooltip" distorted="true" tooltip="Saída" ath="-105.34999941946464" atv="11.182999465521993" scale="0.5" rx="0" ry="0" rz="0" onclick="goto_scene_conserjeria_sinvideo();" />
+
+
+    <!-- <hotspot name="taquillas"
+                 url="recursos/imagen/taquillas.png"
+                 ath="48.46018767880588" atv="27.146092457322744" scale="1.4914000000000076" rx="15.950000000000092" ry="-21.50000000000017" rz="-0.8500000000000002"
+                 width="1141"
+                 height="584"
+                 alpha="0.5"
+                 distorted="true"
+                 handcursor="true"
+                 capture="true"
+                 visible="true"
+                 zorder="9999999999"
+                 onclick=""
+                 >
+        </hotspot>
+    <hotspot name="manifiesto"
+                 url="recursos/imagen/manifiesto.png"
+                 ath="48.46018767880588" atv="27.146092457322744" scale="1.4914000000000076" rx="15.950000000000092" ry="-21.50000000000017" rz="-0.8500000000000002"
+                 width="1141"
+                 height="584"
+                 alpha="0.5"
+                 distorted="true"
+                 handcursor="true"
+                 capture="true"
+                 visible="true"
+                 zorder="9999999999"
+                 onclick=""
+                 >
+        </hotspot> -->
+
+		<hotspot name="spot1" url="recursos/imagen/vtourskin_hotspot.png"  style="tooltip" distorted="true" tooltip="Laboratorio de Tecnoloxía Educativa EduMaker" ath="157.27162449250653" atv="12.442093494497788" scale="0.5" rx="0" ry="0" rz="0" onclick="goto_scene_aula_1_usc();"/>
+		<hotspot name="spot2" url="recursos/imagen/vtourskin_hotspot.png"  style="tooltip" distorted="true" tooltip="Saída" ath="-104.05887813071098" atv="12.403162969267202" scale="0.5" rx="0" ry="0" rz="0" onclick="goto_scene_conserjeria();" />
 	</scene>
 
 
@@ -2207,21 +2205,7 @@
 	</scene>
 
 
-	<scene name="scene_conserjeria_sinvideo" title="Conserjería" onstart="" thumburl="panos/conserjeria.tiles/thumb.jpg" lat="" lng="" heading="">
-		
-		<control bouncinglimits="calc:image.cube ? true : false" />
 
-		<view hlookat="86.287" vlookat="5.872" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
-
-		<preview url="panos/conserjeria.tiles/preview.jpg" />
-
-		<image>
-			<cube url="panos/conserjeria.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,640,1280,2560" />
-		</image>
-		<hotspot name="spot1" url="recursos/imagen/vtourskin_hotspot.png"  style="tooltip" distorted="true" tooltip="Ir al laboratorio de Tecnología Educativa Edumaker en el módulo (planta baja)" ath="-54.36500057252715" atv="3.753000091265001" scale="0.5" rx="0" ry="0" rz="0" onclick="goto_scene_pasillo();"/>
-		
-		
-	</scene>
 
 	<!-- nadir logo (a distorted hotspot)
 	<hotspot name="nadirlogo" keep="true"
