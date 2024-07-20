@@ -181,7 +181,7 @@
 			alpha="0"
 			align="center"
       capture="true"
-      handcursor="false" y="0" scale="0.25" />
+      handcursor="false" y="0" scale="0.8" />
 
       <layer name="intro_start_x" url= "recursos/imagen/boton_cerrar.png"
 			type="image" 
@@ -271,8 +271,7 @@
 		edge="topleft"
 		x="-14" y="10"
     />
-
-
+  
 	
   <action name="repetir_intro">
     loadscene(scene_papel, null, MERGE);
@@ -405,6 +404,167 @@
         set(hotspot[boton_abrir_holograma].visible, false);
         set(hotspot[holograma].visible, true);
         hotspot[holograma].play();
+</action>
+
+<action name="close_video_intro_aulausc">
+        set(hotspot[boton_abrir_intro_aulausc].visible, true);
+        set(hotspot[boton_cerrar_intro_aulausc].visible, false);
+        set(hotspot[video_intro_aulausc].visible, false);
+        hotspot[video_intro_aulausc].stop();
+</action>
+
+<action name="open_video_intro_aulausc">
+        set(hotspot[boton_cerrar_intro_aulausc].visible, true);
+        set(hotspot[boton_abrir_intro_aulausc].visible, false);
+        set(hotspot[video_intro_aulausc].visible, true);
+        hotspot[video_intro_aulausc].play();
+</action>
+<action name="open_pc_aulausc1">
+        set(hotspot[pc1_cerrar].visible, false);
+        set(hotspot[pc1].visible, true); 
+        stopsound(audio_pc1, 'recursos/audio/audio_pc1.mp3');
+        set(hotspot[pc2_cerrar].visible, false);
+        set(hotspot[pc2].visible, true); 
+        stopsound(audio_pc2, 'recursos/audio/audio_pc2.mp3');
+        set(hotspot[pc3_cerrar].visible, false);
+        set(hotspot[pc3].visible, true); 
+        stopsound(audio_pc3, 'recursos/audio/audio_pc3.mp3');
+        set(hotspot[pc4_cerrar].visible, false);
+        set(hotspot[pc4].visible, true); 
+        stopsound(audio_pc4, 'recursos/audio/audio_pc4.mp3');
+        set(hotspot[pc5_cerrar].visible, false);
+        set(hotspot[pc5].visible, true); 
+        stopsound(audio_pc5, 'recursos/audio/audio_pc5.mp3');
+</action>
+<action name="open_pc_aulausc2">
+        set(hotspot[pc7_cerrar].visible, false);
+        set(hotspot[pc7].visible, true); 
+        set(hotspot[video_pc7].pausedonstart, true);
+        set(hotspot[video_pc7].visible, false);
+        hotspot[video_pc7].stop();
+        set(hotspot[pc8_cerrar].visible, false);
+        set(hotspot[pc8].visible, true); 
+        stopsound(audio_pc8, 'recursos/audio/audio_pc8.mp3');
+        set(hotspot[pc9_cerrar].visible, false);
+        set(hotspot[pc9].visible, true); 
+        stopsound(audio_pc9, 'recursos/audio/audio_pc9.mp3');
+        set(hotspot[pc10_cerrar].visible, false);
+        set(hotspot[pc10].visible, true); 
+        set(hotspot[video_pc10].pausedonstart, true);
+        set(hotspot[video_pc10].visible, false);
+        hotspot[video_pc10].stop();
+        set(hotspot[pc11_cerrar].visible, false);
+        set(hotspot[pc11].visible, true); 
+        set(hotspot[video_pc11].pausedonstart, true);
+        set(hotspot[video_pc11].visible, false);
+        hotspot[video_pc11].stop();
+        set(hotspot[pc13].visible, true); 
+        set(hotspot[pc14_cerrar].visible, false);
+        set(hotspot[pc14].visible, true); 
+        stopsound(audio_pc14, 'recursos/audio/audio_pc14.mp3');
+</action>
+<action name="open_pc_aulausc3">
+        set(hotspot[pc16_cerrar].visible, false);
+        set(hotspot[pc16].visible, true); 
+        stopsound(audio_pc16, 'recursos/audio/audio_pc16.mp3');
+        set(hotspot[pc17_cerrar].visible, false);
+        set(hotspot[pc17].visible, true); 
+        stopsound(audio_pc17, 'recursos/audio/audio_pc17.mp3');
+        set(hotspot[pc18_imagen].visible, false);
+        set(hotspot[pc18_cerrar].visible, false);
+        set(hotspot[pc18].visible, true); 
+        stopsound(audio_pc18, 'recursos/audio/audio_pc18.mp3');
+        set(hotspot[pc19_imagen].visible, false);
+        set(hotspot[pc19_cerrar].visible, false);
+        set(hotspot[pc19].visible, true); 
+        stopsound(audio_pc19, 'recursos/audio/audio_pc19.mp3');
+        set(hotspot[pc20_cerrar].visible, false);
+        set(hotspot[pc20].visible, true); 
+        stopsound(audio_pc20, 'recursos/audio/audio_pc20.mp3');
+</action>
+<action name="stop_all_pc_aulausc1">
+stopsound_pc1();
+stopsound_pc2();
+stopsound_pc3();
+stopsound_pc4();
+stopsound_pc5();
+stopsound_pc6();
+stopsound_pc7();
+stopsound_pc8();
+stopsound_pc9();
+stopsound_pc10();
+stopsound_pc11();
+stopsound_pc12();
+stopsound_pc13();
+stopsound_pc14();
+
+<!-- set(hotspot[pc1_cerrar].visible, false);
+        set(hotspot[pc1].visible, false); 
+        stopsound(audio_pc1, 'recursos/audio/audio_pc1.mp3');
+ set(hotspot[pc2_cerrar].visible, false);
+        set(hotspot[pc2].visible, false); 
+        stopsound(audio_pc2, 'recursos/audio/audio_pc2.mp3');
+set(hotspot[pc3_cerrar].visible, false);
+        set(hotspot[pc3].visible, false); 
+        stopsound(audio_pc3, 'recursos/audio/audio_pc3.mp3');
+ set(hotspot[pc4_cerrar].visible, false);
+        set(hotspot[pc4].visible, false); 
+        stopsound(audio_pc4, 'recursos/audio/audio_pc4.mp3');
+set(hotspot[pc5_cerrar].visible, false);
+        set(hotspot[pc5].visible, false); 
+        stopsound(audio_pc5, 'recursos/audio/audio_pc5.mp3'); -->
+</action>
+<action name="stop_all_pc_aulausc2">
+stopsound_pc15();
+stopsound_pc16();
+stopsound_pc17();
+stopsound_pc18();
+stopsound_pc19();
+stopsound_pc20();
+<!-- set(hotspot[pc7_cerrar].visible, false);
+        set(hotspot[pc7].visible, false); 
+        set(hotspot[video_pc7].pausedonstart, false);
+        set(hotspot[video_pc7].visible, false);
+        hotspot[video_pc7].stop();
+set(hotspot[pc8_cerrar].visible, false);
+        set(hotspot[pc8].visible, false); 
+        stopsound(audio_pc8, 'recursos/audio/audio_pc8.mp3');
+set(hotspot[pc9_cerrar].visible, false);
+        set(hotspot[pc9].visible, false); 
+        stopsound(audio_pc9, 'recursos/audio/audio_pc9.mp3');
+set(hotspot[pc10_cerrar].visible, false);
+        set(hotspot[pc10].visible, false); 
+        set(hotspot[video_pc10].pausedonstart, false);
+        set(hotspot[video_pc10].visible, false);
+        hotspot[video_pc10].stop();
+set(hotspot[pc11_cerrar].visible, false);
+        set(hotspot[pc11].visible, false); 
+        set(hotspot[video_pc11].pausedonstart, false);
+        set(hotspot[video_pc11].visible, false);
+        hotspot[video_pc11].stop();
+set(hotspot[pc12_cerrar].visible, false);
+        set(hotspot[pc12].visible, false); 
+        stopsound(audio_pc12, 'recursos/audio/audio_pc12.mp3');
+set(hotspot[pc14_cerrar].visible, false);
+        set(hotspot[pc14].visible, false); 
+        stopsound(audio_pc14, 'recursos/audio/audio_pc14.mp3');
+set(hotspot[pc16_cerrar].visible, false);
+        set(hotspot[pc16].visible, false); 
+        stopsound(audio_pc16, 'recursos/audio/audio_pc16.mp3');
+set(hotspot[pc17_cerrar].visible, false);
+        set(hotspot[pc17].visible, false); 
+        stopsound(audio_pc17, 'recursos/audio/audio_pc17.mp3');
+set(hotspot[pc18_imagen].visible, false);
+        set(hotspot[pc18_cerrar].visible, false);
+        set(hotspot[pc18].visible, false); 
+        stopsound(audio_pc18, 'recursos/audio/audio_pc18.mp3');
+set(hotspot[pc19_imagen].visible, false);
+        set(hotspot[pc19_cerrar].visible, false);
+        set(hotspot[pc19].visible, false); 
+        stopsound(audio_pc19, 'recursos/audio/audio_pc19.mp3');
+set(hotspot[pc20_cerrar].visible, false);
+        set(hotspot[pc20].visible, false); 
+        stopsound(audio_pc20, 'recursos/audio/audio_pc20.mp3'); -->
 </action>
 
 
@@ -600,17 +760,20 @@
     );
     loadscene(scene_menu, null, MERGE);
     cancel_play_papel();
+    
 	</action>
 
 	<action name="goto_scene_pasillo">
     loadscene(scene_pasillo, null, MERGE);
     cancel_play_papel();
+    
 	</action>
 
 
 	<action name="goto_scene_aula_1_usc">
 	loadscene(scene_aula_1_usc, null, MERGE);
   cancel_play_papel();
+  
 	</action>
 
 	<action name="goto_scene_conserjeria">
@@ -627,6 +790,7 @@
         set(layer[boton_repetirintro_movil].enabled, false);
     );
     cancel_play_papel();
+    
 	</action>
 
 <!-- <action name="stop_all_hotspots_papel">
@@ -706,6 +870,17 @@
     <hotspot name="spot_estatico" style="skin_hotspotstyle" zoom="false" />
 	</style>
 
+  <style name="flyoutimage"
+	       renderer="webgl"
+	       distorted="true"
+	       flying="0.0"
+	       backup_state=""
+	       backup_zorder=""
+	       flying_state="in"
+	       capture="true"
+	       onclick="flyout_hotspot()"
+	       />
+
 	
 	<!-- the 'tooltip' style - show the tooltip textfield and update its position as long as hovering -->
 	<style name="tooltip"
@@ -751,6 +926,7 @@
 
     <action name="play_papel">
     <!-- stopsound(aulasfuturo, 'recursos/audio/aulasfuturo.mp3'); -->
+    cancel_play_papel();
     delayedcall(0.95, playsound('aulasfuturo', 'recursos/audio/aulasfuturo.mp3'));
     delayedcall(idDelayedCallStartvideo1, 0.95, startVideo1());
     delayedcall(idDelayedCallStartvideo2, 4.3, startVideo2());
@@ -836,13 +1012,8 @@
     stopdelayedcall(idDelayedCallStartvideo39);
 </action>
 
-    
-    <!-- <action name="playsound">
-        playsound(aulasfuturo, 'recursos/audio/aulasfuturo.mp3');
-    </action> -->
-    <!-- <action name="stop_audio">
-    stopsound(aulasfuturo, 'recursos/audio/aulasfuturo.mp3');
-    </action> -->
+
+
     <action name="startVideo1">
         set(hotspot[i1].pausedonstart, false);
 		hotspot[i1].play();
@@ -1024,8 +1195,6 @@
     set(hotspot[portal_menu].alpha, 1);
     </action>
 
-
-
 	<action name="start_autorotate">
 		set(autorotate.enabled, true);
 	</action>
@@ -1033,11 +1202,237 @@
 		set(autorotate.enabled, false);
 	</action>
 
-  
 
 
 
-	<scene name="scene_papel" title="INICIO" onstart="" thumburl="panos/papel.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+   <action name="playsound_taquillas">
+        playsound(audio_taquillas, 'recursos/audio/audio_taquillas.mp3');
+    </action>
+    <action name="stopsound_taquillas">
+    stopsound(audio_taquillas, 'recursos/audio/audio_taquillas.mp3');
+    </action>
+    <action name="playsound_pc1">
+        set(hotspot[pc1].visible, false);
+        set(hotspot[pc1_cerrar].visible, true);
+        playsound(audio_pc1, 'recursos/audio/audio_pc1.mp3');
+    </action>
+    <action name="stopsound_pc1">
+        set(hotspot[pc1_cerrar].visible, false);
+        set(hotspot[pc1].visible, true); 
+        stopsound(audio_pc1, 'recursos/audio/audio_pc1.mp3');
+    </action>
+    <action name="playsound_pc2">
+        set(hotspot[pc2].visible, false);
+        set(hotspot[pc2_cerrar].visible, true);
+        playsound(audio_pc2, 'recursos/audio/audio_pc2.mp3');
+    </action>
+    <action name="stopsound_pc2">
+        set(hotspot[pc2_cerrar].visible, false);
+        set(hotspot[pc2].visible, true); 
+        stopsound(audio_pc2, 'recursos/audio/audio_pc2.mp3');
+    </action>
+    <action name="playsound_pc3">
+        set(hotspot[pc3].visible, false);
+        set(hotspot[pc3_cerrar].visible, true);
+        playsound(audio_pc3, 'recursos/audio/audio_pc3.mp3');
+    </action>
+    <action name="stopsound_pc3">
+        set(hotspot[pc3_cerrar].visible, false);
+        set(hotspot[pc3].visible, true); 
+        stopsound(audio_pc3, 'recursos/audio/audio_pc3.mp3');
+    </action>
+    <action name="playsound_pc4">
+        set(hotspot[pc4].visible, false);
+        set(hotspot[pc4_cerrar].visible, true);
+        playsound(audio_pc4, 'recursos/audio/audio_pc4.mp3');
+    </action>
+    <action name="stopsound_pc4">
+        set(hotspot[pc4_cerrar].visible, false);
+        set(hotspot[pc4].visible, true); 
+        stopsound(audio_pc4, 'recursos/audio/audio_pc4.mp3');
+    </action>
+    <action name="playsound_pc5">
+        set(hotspot[pc5].visible, false);
+        set(hotspot[pc5_cerrar].visible, true);
+        playsound(audio_pc5, 'recursos/audio/audio_pc5.mp3');
+    </action>
+    <action name="stopsound_pc5">
+        set(hotspot[pc5_cerrar].visible, false);
+        set(hotspot[pc5].visible, true); 
+        stopsound(audio_pc5, 'recursos/audio/audio_pc5.mp3');
+    </action>
+    <action name="playsound_pc6">
+        set(hotspot[pc6].visible, false);
+        set(hotspot[pc6_cerrar].visible, true);
+        playsound(audio_pc6, 'recursos/audio/audio_pc6.mp3');
+        <!-- set(hotspot[video_pc6].pausedonstart, false);
+        set(hotspot[video_pc6].visible, true);
+        hotspot[video_pc6].play(); -->
+    </action>
+    <action name="stopsound_pc6">
+        set(hotspot[pc6_cerrar].visible, false);
+        set(hotspot[pc6].visible, true); 
+        stopsound(audio_pc6, 'recursos/audio/audio_pc6.mp3');
+        <!-- set(hotspot[video_pc6].pausedonstart, true);
+        set(hotspot[video_pc6].visible, false);
+        hotspot[video_pc6].stop(); -->
+    </action>
+    <action name="playsound_pc7">
+        set(hotspot[pc7].visible, false);
+        set(hotspot[pc7_cerrar].visible, true);
+        set(hotspot[video_pc7].pausedonstart, false);
+        set(hotspot[video_pc7].visible, true);
+        hotspot[video_pc7].play();
+    </action>
+    <action name="stopsound_pc7">
+        set(hotspot[pc7_cerrar].visible, false);
+        set(hotspot[pc7].visible, true); 
+        set(hotspot[video_pc7].pausedonstart, true);
+        set(hotspot[video_pc7].visible, false);
+        hotspot[video_pc7].stop();
+    </action>
+    <action name="playsound_pc8">
+        set(hotspot[pc8].visible, false);
+        set(hotspot[pc8_cerrar].visible, true);
+        playsound(audio_pc8, 'recursos/audio/audio_pc8.mp3');
+    </action>
+    <action name="stopsound_pc8">
+        set(hotspot[pc8_cerrar].visible, false);
+        set(hotspot[pc8].visible, true); 
+        stopsound(audio_pc8, 'recursos/audio/audio_pc8.mp3');
+    </action>
+    <action name="playsound_pc9">
+        set(hotspot[pc9].visible, false);
+        set(hotspot[pc9_cerrar].visible, true);
+        playsound(audio_pc9, 'recursos/audio/audio_pc9.mp3');
+    </action>
+    <action name="stopsound_pc9">
+        set(hotspot[pc9_cerrar].visible, false);
+        set(hotspot[pc9].visible, true); 
+        stopsound(audio_pc9, 'recursos/audio/audio_pc9.mp3');
+    </action>
+    <action name="playsound_pc10">
+        set(hotspot[pc10].visible, false);
+        set(hotspot[pc10_cerrar].visible, true);
+        set(hotspot[video_pc10].pausedonstart, false);
+        set(hotspot[video_pc10].visible, true);
+        hotspot[video_pc10].play();
+    </action>
+    <action name="stopsound_pc10">
+        set(hotspot[pc10_cerrar].visible, false);
+        set(hotspot[pc10].visible, true); 
+        set(hotspot[video_pc10].pausedonstart, true);
+        set(hotspot[video_pc10].visible, false);
+        hotspot[video_pc10].stop();
+    </action>
+    <action name="playsound_pc11">
+        set(hotspot[pc11].visible, false);
+        set(hotspot[pc11_cerrar].visible, true);
+        set(hotspot[video_pc11].pausedonstart, false);
+        set(hotspot[video_pc11].visible, true);
+        hotspot[video_pc11].play();
+    </action>
+    <action name="stopsound_pc11">
+        set(hotspot[pc11_cerrar].visible, false);
+        set(hotspot[pc11].visible, true); 
+        set(hotspot[video_pc11].pausedonstart, true);
+        set(hotspot[video_pc11].visible, false);
+        hotspot[video_pc11].stop();
+    </action>
+    <action name="playsound_pc12">
+        set(hotspot[pc12].visible, false);
+        set(hotspot[pc12_cerrar].visible, true);
+        playsound(audio_pc12, 'recursos/audio/audio_pc12.mp3');
+    </action>
+    <action name="stopsound_pc12">
+        set(hotspot[pc12_cerrar].visible, false);
+        set(hotspot[pc12].visible, true); 
+        stopsound(audio_pc12, 'recursos/audio/audio_pc12.mp3');
+    </action>
+    <action name="playsound_pc14">
+        set(hotspot[pc14].visible, false);
+        set(hotspot[pc14_cerrar].visible, true);
+        playsound(audio_pc14, 'recursos/audio/audio_pc14.mp3');
+    </action>
+    <action name="stopsound_pc14">
+        set(hotspot[pc14_cerrar].visible, false);
+        set(hotspot[pc14].visible, true); 
+        stopsound(audio_pc14, 'recursos/audio/audio_pc14.mp3');
+    </action>
+    <action name="playsound_pc15">
+        set(hotspot[pc15].visible, false);
+        set(hotspot[pc15_cerrar].visible, true);
+        set(hotspot[video_pc15].pausedonstart, false);
+        set(hotspot[video_pc15].visible, true);
+        hotspot[video_pc15].play();
+    </action>
+    <action name="stopsound_pc15">
+        set(hotspot[pc15_cerrar].visible, false);
+        set(hotspot[pc15].visible, true); 
+        set(hotspot[video_pc15].pausedonstart, true);
+        set(hotspot[video_pc15].visible, false);
+        hotspot[video_pc15].stop();
+    </action>
+    <action name="playsound_pc16">
+        set(hotspot[pc16].visible, false);
+        set(hotspot[pc16_cerrar].visible, true);
+        playsound(audio_pc16, 'recursos/audio/audio_pc16.mp3');
+    </action>
+    <action name="stopsound_pc16">
+        set(hotspot[pc16_cerrar].visible, false);
+        set(hotspot[pc16].visible, true); 
+        stopsound(audio_pc16, 'recursos/audio/audio_pc16.mp3');
+    </action>
+    <action name="playsound_pc17">
+        set(hotspot[pc17].visible, false);
+        set(hotspot[pc17_cerrar].visible, true);
+        playsound(audio_pc17, 'recursos/audio/audio_pc17.mp3');
+    </action>
+    <action name="stopsound_pc17">
+        set(hotspot[pc17_cerrar].visible, false);
+        set(hotspot[pc17].visible, true); 
+        stopsound(audio_pc17, 'recursos/audio/audio_pc17.mp3');
+    </action>
+    <action name="playsound_pc18">
+        set(hotspot[pc18_imagen].visible, true);
+        set(hotspot[pc18].visible, false);
+        set(hotspot[pc18_cerrar].visible, true);
+        playsound(audio_pc18, 'recursos/audio/audio_pc18.mp3');
+    </action>
+    <action name="stopsound_pc18">
+        set(hotspot[pc18_imagen].visible, false);
+        set(hotspot[pc18_cerrar].visible, false);
+        set(hotspot[pc18].visible, true); 
+        stopsound(audio_pc18, 'recursos/audio/audio_pc18.mp3');
+    </action>
+    <action name="playsound_pc19">
+        set(hotspot[pc19_imagen].visible, true);
+        set(hotspot[pc19].visible, false);
+        set(hotspot[pc19_cerrar].visible, true);
+        playsound(audio_pc19, 'recursos/audio/audio_pc19.mp3');
+    </action>
+    <action name="stopsound_pc19">
+        set(hotspot[pc19_imagen].visible, false);
+        set(hotspot[pc19_cerrar].visible, false);
+        set(hotspot[pc19].visible, true); 
+        stopsound(audio_pc19, 'recursos/audio/audio_pc19.mp3');
+    </action>
+    <action name="playsound_pc20">
+        set(hotspot[return_menu].visible, true);
+        set(hotspot[pc20].visible, false);
+        set(hotspot[pc20_cerrar].visible, true);
+        playsound(audio_pc20, 'recursos/audio/audio_pc20.mp3');
+    </action>
+    <action name="stopsound_pc20">
+        set(hotspot[pc20_cerrar].visible, false);
+        set(hotspot[pc20].visible, true); 
+        stopsound(audio_pc20, 'recursos/audio/audio_pc20.mp3');
+    </action>
+
+
+
+
+	<scene name="scene_papel" title="INICIO" onstart="stop_all_pc_aulausc1(); stop_all_pc_aulausc2();" thumburl="panos/papel.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
         <autorotate enabled="false" waittime="1.0" speed="0.7" horizon="0.0" />
 		<control bouncinglimits="calc:image.cube ? true : false" />
         <view hlookat="1.6361793606421329" vlookat="0.18442449326715848" fov="69.60905805771031" fovtype="MFOV" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
@@ -1976,7 +2371,7 @@
 
 
 
-	 <scene name="scene_menu" title="MENÚ PRINCIPAL" onstart="stop_autorotate(); " thumburl="panos/menu.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+	 <scene name="scene_menu" title="MENÚ PRINCIPAL" onstart="stop_autorotate(); stopsound_taquillas(); stop_all_pc_aulausc1(); stop_all_pc_aulausc2();" thumburl="panos/menu.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
         <control bouncinglimits="calc:image.cube ? true : false" />
         <view hlookat="-36.07252789471742" vlookat="-0.6969344162975248" fov="100.21664357485692" fovtype="MFOV" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
         <preview url="panos/menu.tiles/preview.jpg" />
@@ -2031,7 +2426,7 @@
     
 
 
-	<scene name="scene_conserjeria" title="Conserjería" onstart="" thumburl="panos/conserjeria.tiles/thumb.jpg" lat="" lng="" heading="" >
+	<scene name="scene_conserjeria" title="Conserjería" onstart="stopsound_taquillas(); stop_all_pc_aulausc1(); stop_all_pc_aulausc2(); " thumburl="panos/conserjeria.tiles/thumb.jpg" lat="" lng="" heading="" >
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
@@ -2077,7 +2472,7 @@
 		<hotspot name="holograma"
      url.html5="plugins/videoplayer.js" 
      url.flash="plugins/videoplayer.swf" 
-     videourl="recursos/video/manolo.mp4" 
+     videourl="recursos/video/manolo.mp4|recursos/video/manolo.webm" 
      ath="54.232079073745695" atv="13.718356459561953" scale="0.3209000000000176" rx="0" ry="0" rz="-0.8000000000000002" 
      width="1920" height="1080"
      alpha="0.7" 
@@ -2093,7 +2488,7 @@
      capture="false"
      handcursor="false"
      rangefalloff="1.0" outofrangevolume="0.0" onhover="showtext(Play/Pause, default); " onvideoready="" onvideoplay="5" onvideopaused="" 
-     onvideocomplete="" onerror="" onclick=""/>
+     onvideocomplete="closeholograma();" onerror="" onclick=""/>
 		
 		<!-- <hotspot name="holograma_movil" devices="mobile"
      url.html5="plugins/videoplayer.js" 
@@ -2120,7 +2515,7 @@
 
 
 
-	<scene name="scene_pasillo" title="Pasillo" onstart="" thumburl="panos/pasillo.tiles/thumb.jpg" lat="" lng="" heading="">
+	<scene name="scene_pasillo" title="Pasillo" onstart="stop_all_pc_aulausc1();" thumburl="panos/pasillo.tiles/thumb.jpg" lat="" lng="" heading="">
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
@@ -2132,22 +2527,26 @@
 		<cube url="panos/pasillo.tiles/pano_%s.jpg" />
 		</image>
 
+    <hotspot name="manifiesto" url="recursos/imagen/pi.png" style="tooltip" capture="false" handcursor="false" distorted="true" tooltip="Manifiesto del laboratorio de Tecnología Educativa Edumaker" ath="-149.54286676991705" atv="8.247601869360128" scale="0.33960000000000046" rx="3.249999999999986" ry="6.950000000000001" rz="-91.44999999999972" alpha="0" onclick="" visible="true"/>
+		
+    <hotspot name="taquillas" url="recursos/imagen/pi.png" style="tooltip" capture="false" handcursor="false" distorted="true" tooltip="Taquillas individuales" ath="47.472169137841206" atv="18.737078930453787" scale="0.22840000000000438" rx="-184.05" ry="16.450000000000003" rz="-104.4499999999997" alpha="0" onclick="" visible="true"/>
+		
 
-    <!-- <hotspot name="taquillas"
-                 url="recursos/imagen/taquillas.png"
-                 ath="48.46018767880588" atv="27.146092457322744" scale="1.4914000000000076" rx="15.950000000000092" ry="-21.50000000000017" rz="-0.8500000000000002"
+    <hotspot name="audio_taquillas"
+                 url="recursos/imagen/boton_info.png"
+                 ath="55.68759659919522" atv="9.931597839305786" scale="0.14590000000001513" rx="15.950000000000092" ry="-27.05000000000025" rz="-0.8500000000000002"
                  width="1141"
                  height="584"
-                 alpha="0.5"
+                 alpha="1"
                  distorted="true"
                  handcursor="true"
                  capture="true"
                  visible="true"
                  zorder="9999999999"
-                 onclick=""
+                 onclick="playsound_taquillas();"
                  >
         </hotspot>
-    <hotspot name="manifiesto"
+    <!-- <hotspot name="manifiesto"
                  url="recursos/imagen/manifiesto.png"
                  ath="48.46018767880588" atv="27.146092457322744" scale="1.4914000000000076" rx="15.950000000000092" ry="-21.50000000000017" rz="-0.8500000000000002"
                  width="1141"
@@ -2162,49 +2561,854 @@
                  >
         </hotspot> -->
 
-		<hotspot name="spot1" url="recursos/imagen/vtourskin_hotspot.png"  style="tooltip" distorted="true" tooltip="Laboratorio de Tecnoloxía Educativa EduMaker" ath="157.27162449250653" atv="12.442093494497788" scale="0.5" rx="0" ry="0" rz="0" onclick="goto_scene_aula_1_usc();"/>
-		<hotspot name="spot2" url="recursos/imagen/vtourskin_hotspot.png"  style="tooltip" distorted="true" tooltip="Saída" ath="-104.05887813071098" atv="12.403162969267202" scale="0.5" rx="0" ry="0" rz="0" onclick="goto_scene_conserjeria();" />
+		<hotspot name="spot1" url="recursos/imagen/vtourskin_hotspot.png"  style="tooltip" distorted="true" tooltip="Laboratorio de Tecnoloxía Educativa EduMaker" ath="173.7230766265146" atv="14.61163201960503" scale="0.7605000000000011" rx="0" ry="0" rz="-87.5" onclick="goto_scene_aula_1_usc();"/>
+		<hotspot name="spot2" url="recursos/imagen/vtourskin_hotspot.png"  style="tooltip" distorted="true" tooltip="Saída" ath="-119.61481031575619" atv="13.990885662421238" scale="0.7100000000000002" rx="0" ry="0" rz="87" onclick="goto_scene_conserjeria();" />
 	</scene>
 
 
-	<scene name="scene_aula_1_usc" title="Aula 1" onstart="" thumburl="panos/aula_1_usc.tiles/thumb.jpg" lat="" lng="" heading="">
+	<scene name="scene_aula_1_usc" title="Aula 1" onstart="stopsound_taquillas(); stop_all_pc_aulausc2();" thumburl="panos/aula_1_usc.tiles/thumb.jpg" lat="" lng="" heading="">
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
-		<view hlookat="54.994" vlookat="5.353" fovtype="MFOV" fov="124.987" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="-124.22171872872616" vlookat="1.1515533889118466" fov="97.15281464265833" fovtype="MFOV" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
 		<preview url="panos/aula_1_usc.tiles/preview.jpg" />
 
 		<image>
 			<cube url="panos/aula_1_usc.tiles/pano_%s.jpg" />
 		</image>
-		<hotspot name="spot1" url="recursos/imagen/vtourskin_hotspot.png" style="skin_hotspotstyle" ath="41.337" atv="6.151" linkedscene="scene_aula_2_usc" />
+
+		<hotspot name="spot1" url="recursos/imagen/vtourskin_hotspot.png" style="skin_hotspotstyle" ath="41.41168795304134" atv="4.975206542962149" scale="0.5" rx="-304.54999999999865" ry="2.0499999999999936" rz="-1.5499999999996983" linkedscene="scene_aula_2_usc" />
 		
-		<hotspot name="spot2" url="recursos/imagen/vtourskin_hotspot.png"  style="tooltip" distorted="true" tooltip="Saída" ath="-56.022417416813596" atv="9.029220665106548" scale="0.5750000000000001" rx="0" ry="0" rz="0" onclick="goto_scene_pasillo();"/>
+		<hotspot name="spot2" url="recursos/imagen/vtourskin_hotspot.png"  style="tooltip" distorted="true" tooltip="Saída" ath="-57.668756365591264" atv="26.90455915660031" scale="0.5750000000000001" rx="-8" ry="11" rz="7.5" onclick="goto_scene_pasillo();"/>
 		
-		<hotspot name="hs_circle" onloaded="do_crop_animation(128,128, 15);" url="skin/waves.png" tag="Video" ath="74.304" atv="16.505" scale="0.5" onclick="popup('iframe', 'https://www.youtube.com/embed/CYYaNzfDk08?rel=0&amp;hd=1&amp;vq=hd1080&amp;showinfo=0&amp;autoplay=1', 900, 506, false);" />		
 		
-		<!--<hotspot name="hs_circle" style="hs_circle" url="hs_circle.png" tag="Video" ath="74.304" atv="16.505" scale="0.5" onclick="popup('iframe', 'https://www.youtube.com/embed/CYYaNzfDk08?rel=0&amp;hd=1&amp;vq=hd1080&amp;showinfo=0&amp;autoplay=1', 900, 506, false);" />		
-		-->
+    <hotspot name="boton_abrir_intro_aulausc"
+                 url="recursos/imagen/boton_info.png"
+                 ath="-139.09920189062032" atv="-4.73411965003698" scale="0.08680000000001496" rx="0" ry="0" rz="0"
+                 width="1141"
+                 height="584"
+                 alpha="1"
+                 distorted="true"
+                 handcursor="true"
+                 capture="true"
+                 visible="false"
+                 zorder="9999999999"
+                 onclick="open_video_intro_aulausc(); "
+                 >
+        </hotspot>
+
+    <hotspot name="boton_cerrar_intro_aulausc"
+                 url="recursos/imagen/boton_saltarintro.png"
+                 ath="-139.09920189062032" atv="-4.73411965003698" scale="0.08680000000001496" rx="0" ry="0" rz="0"
+                 width="1141"
+                 height="584"
+                 alpha="1"
+                 distorted="true"
+                 handcursor="true"
+                 capture="true"
+                 visible="true"
+                 zorder="9999999999"
+                 onclick="close_video_intro_aulausc(); open_pc_aulausc1();"
+                 >
+        </hotspot>
+
+    <hotspot name="video_intro_aulausc"
+     url.html5="plugins/videoplayer.js" 
+     url.flash="plugins/videoplayer.swf" 
+     videourl="recursos/video/video_beatriz.mp4|recursos/video/video_beatriz.webm" 
+     ath="-122.20293984962083" atv="0.21074167373512775" scale="0.10200000000001799" rx="0" ry="-12.700000000000053" rz="-0.65" 
+     width="1920" height="1080"
+     alpha="1"  
+     distorted="true" 
+     zorder="99999" 
+     visible="true" 
+     pausedonstart="false" 
+     loop="false" 
+     volume="1.0" 
+     directionalsound="true" 
+     range="90.0" 
+     capture="true"
+     handcursor="true"
+     rangefalloff="1.0" outofrangevolume="0.0" onhover="showtext(Play/Pause, default); " onvideoready="" onvideoplay="5" onvideopaused="" 
+     onvideocomplete="" onerror="" onclick=""/>
+
+
+    <hotspot name="pc1"
+                 url="recursos/imagen/1.png"
+                 ath="-153.22830949365266" atv="-7.298837350335245" scale="0.055700000000019234" rx="0" ry="0" rz="0"
+                 width="1141"
+                 height="584"
+                 alpha="1"
+                 distorted="true"
+                 handcursor="true"
+                 capture="true"
+                 visible="false"
+                 zorder="9999999999"
+                 onclick="playsound_pc1();"
+                 >
+        </hotspot>
+        <hotspot name="pc1_cerrar"
+                 url="recursos/imagen/cerrar.png"
+                 ath="-153.22830949365266" atv="-7.298837350335245" scale="0.055700000000019234" rx="0" ry="0" rz="0"
+                 width="1141"
+                 height="584"
+                 alpha="1"
+                 distorted="true"
+                 handcursor="true"
+                 capture="true"
+                 visible="false"
+                 zorder="9999999999"
+                 onclick="stopsound_pc1();"
+                 >
+        </hotspot>
+
+        <hotspot name="pc2"
+                 url="recursos/imagen/2.png"
+                 ath="-109.11730195197225" atv="0.1857997990505691" scale="0.055700000000019234" rx="0" ry="0" rz="0"
+                 width="1141"
+                 height="584"
+                 alpha="1"
+                 distorted="true"
+                 handcursor="true"
+                 capture="true"
+                 visible="false"
+                 zorder="9999999999"
+                 onclick="playsound_pc2();"
+                 >
+        </hotspot>
+        <hotspot name="pc2_cerrar"
+                 url="recursos/imagen/cerrar.png"
+                 ath="-109.11730195197225" atv="0.1857997990505691" scale="0.055700000000019234" rx="0" ry="0" rz="0"
+                 width="1141"
+                 height="584"
+                 alpha="1"
+                 distorted="true"
+                 handcursor="true"
+                 capture="true"
+                 visible="false"
+                 zorder="9999999999"
+                 onclick="stopsound_pc2();"
+                 >
+        </hotspot>
+
+        <hotspot name="pc3"
+                 url="recursos/imagen/3.png"
+                 ath="-82.47096363841888" atv="-2.6248137556855915" scale="0.055700000000019234" rx="0" ry="0" rz="0"
+                 width="1141"
+                 height="584"
+                 alpha="1"
+                 distorted="true"
+                 handcursor="true"
+                 capture="true"
+                 visible="false"
+                 zorder="9999999999"
+                 onclick="playsound_pc3();"
+                 >
+        </hotspot>
+        <hotspot name="pc3_cerrar"
+                 url="recursos/imagen/cerrar.png"
+                 ath="-82.47096363841888" atv="-2.6248137556855915" scale="0.055700000000019234" rx="0" ry="0" rz="0"
+                 width="1141"
+                 height="584"
+                 alpha="1"
+                 distorted="true"
+                 handcursor="true"
+                 capture="true"
+                 visible="false"
+                 zorder="9999999999"
+                 onclick="stopsound_pc3();"
+                 >
+        </hotspot>
+
+        <hotspot name="pc4"
+                 url="recursos/imagen/4.png"
+                 ath="-159.978953450851" atv="16.622996217831822" scale="0.055700000000019234" rx="0" ry="0" rz="0"
+                 width="1141"
+                 height="584"
+                 alpha="1"
+                 distorted="true"
+                 handcursor="true"
+                 capture="true"
+                 visible="false"
+                 zorder="9999999999"
+                 onclick="playsound_pc4();"
+                 >
+        </hotspot>
+        <hotspot name="pc4_cerrar"
+                 url="recursos/imagen/cerrar.png"
+                 ath="-159.978953450851" atv="16.622996217831822" scale="0.055700000000019234" rx="0" ry="0" rz="0"
+                 width="1141"
+                 height="584"
+                 alpha="1"
+                 distorted="true"
+                 handcursor="true"
+                 capture="true"
+                 visible="false"
+                 zorder="9999999999"
+                 onclick="stopsound_pc4();"
+                 >
+        </hotspot>
+
+        <hotspot name="pc5"
+                 url="recursos/imagen/5.png"
+                 ath="-140.47386418142057" atv="22.433149362149468" scale="0.055700000000019234" rx="0" ry="0" rz="0"
+                 width="1141"
+                 height="584"
+                 alpha="1"
+                 distorted="true"
+                 handcursor="true"
+                 capture="true"
+                 visible="false"
+                 zorder="9999999999"
+                 onclick="playsound_pc5();"
+                 >
+        </hotspot>
+        <hotspot name="pc5_cerrar"
+                 url="recursos/imagen/cerrar.png"
+                 ath="-140.47386418142057" atv="22.433149362149468" scale="0.055700000000019234" rx="0" ry="0" rz="0"
+                 width="1141"
+                 height="584"
+                 alpha="1"
+                 distorted="true"
+                 handcursor="true"
+                 capture="true"
+                 visible="false"
+                 zorder="9999999999"
+                 onclick="stopsound_pc5();"
+                 >
+        </hotspot>
+
+        <hotspot name="pc6"
+                 url="recursos/imagen/6.png"
+                 ath="41.64842093529336" atv="-6.694404523716398" scale="0.055700000000019234" rx="0" ry="0" rz="0"
+                 width="1141"
+                 height="584"
+                 alpha="1"
+                 distorted="true"
+                 handcursor="true"
+                 capture="true"
+                 visible="false"
+                 zorder="9999999999"
+                 onclick="playsound_pc6();"
+                 >
+        </hotspot>
+        <hotspot name="pc6_cerrar"
+                 url="recursos/imagen/cerrar.png"
+                 ath="41.64842093529336" atv="-6.694404523716398" scale="0.055700000000019234" rx="0" ry="0" rz="0"
+                 width="1141"
+                 height="584"
+                 alpha="1"
+                 distorted="true"
+                 handcursor="true"
+                 capture="true"
+                 visible="false"
+                 zorder="9999999999"
+                 onclick="stopsound_pc6();"
+                 >
+        </hotspot>
+        <!-- <hotspot name="video_pc6"
+                  url.html5="plugins/videoplayer.js" 
+                  url.flash="plugins/videoplayer.swf" 
+                  videourl="recursos/video/video_pc6.mp4" 
+                  ath="42.21058947791016" atv="-1.2235449970798256" scale="0.2627000000000169" rx="0" ry="0" rz="0"
+                  width="1920" height="1080"
+                  alpha="1"  
+                  distorted="true" 
+                  zorder="9999999999999999999999999999999999999999999999999" 
+                  visible="false" 
+                  pausedonstart="true" 
+                  loop="false" 
+                  volume="1.0" 
+                  directionalsound="true" 
+                  range="90.0" 
+                  capture="false"
+                  handcursor="false"
+                  rangefalloff="1.0" outofrangevolume="0.0" onhover="showtext(Play/Pause, default); " onvideoready="" onvideoplay="5" onvideopaused="" 
+                  onvideocomplete="" onerror="" onclick=""/> -->
+
+        <hotspot name="pc7"
+                 url="recursos/imagen/7.png"
+                 ath="11.188457103509961" atv="0.10031608372470294" scale="0.055700000000019234" rx="0" ry="0" rz="0"
+                 width="1141"
+                 height="584"
+                 alpha="1"
+                 distorted="true"
+                 handcursor="true"
+                 capture="true"
+                 visible="false"
+                 zorder="9999999999"
+                 onclick="playsound_pc7"
+                 >
+        </hotspot>
+        <hotspot name="pc7_cerrar"
+                 url="recursos/imagen/cerrar.png"
+                 ath="11.188457103509961" atv="0.10031608372470294" scale="0.055700000000019234" rx="0" ry="0" rz="0"
+                 width="1141"
+                 height="584"
+                 alpha="1"
+                 distorted="true"
+                 handcursor="true"
+                 capture="true"
+                 visible="false"
+                 zorder="9999999999"
+                 onclick="stopsound_pc7();"
+                 >
+        </hotspot>
+        <hotspot name="video_pc7"
+                  url.html5="plugins/videoplayer.js" 
+                  url.flash="plugins/videoplayer.swf" 
+                  videourl="recursos/video/video_pc7.mp4|recursos/video/video_pc7.webm" 
+                  ath="38.83997687196563" atv="0.04918485989472873" scale="0.2412000000000193" rx="0" ry="0" rz="0"
+                  width="1920" height="1080"
+                  alpha="1"  
+                  distorted="true" 
+                  zorder="9999999999999999999999999999999999999999999999999" 
+                  visible="false" 
+                  pausedonstart="true" 
+                  loop="false" 
+                  volume="1.0" 
+                  directionalsound="true" 
+                  range="90.0" 
+                  capture="false"
+                  handcursor="false"
+                  rangefalloff="1.0" outofrangevolume="0.0" onhover="showtext(Play/Pause, default); " onvideoready="" onvideoplay="5" onvideopaused="" 
+                  onvideocomplete="" onerror="" onclick=""/>
+
+        <hotspot name="pc8"
+                 url="recursos/imagen/8.png"
+                 ath="81.5488427616458" atv="-13.137275720961926" scale="0.055700000000019234" rx="0" ry="0" rz="0"
+                 width="1141"
+                 height="584"
+                 alpha="1"
+                 distorted="true"
+                 handcursor="true"
+                 capture="true"
+                 visible="false"
+                 zorder="9999999999"
+                 onclick="playsound_pc8();"
+                 >
+        </hotspot>
+        <hotspot name="pc8_cerrar"
+                 url="recursos/imagen/cerrar.png"
+                 ath="81.5488427616458" atv="-13.137275720961926" scale="0.055700000000019234" rx="0" ry="0" rz="0"
+                 width="1141"
+                 height="584"
+                 alpha="1"
+                 distorted="true"
+                 handcursor="true"
+                 capture="true"
+                 visible="false"
+                 zorder="9999999999"
+                 onclick="stopsound_pc8();"
+                 >
+        </hotspot>
+
+        <hotspot name="pc9"
+                 url="recursos/imagen/9.png"
+                 ath="61.5037976927066" atv="3.8796818716697623" scale="0.055700000000019234" rx="0" ry="0" rz="0"
+                 width="1141"
+                 height="584"
+                 alpha="1"
+                 distorted="true"
+                 handcursor="true"
+                 capture="true"
+                 visible="false"
+                 zorder="9999999999"
+                 onclick="playsound_pc9();"
+                 >
+        </hotspot>
+        <hotspot name="pc9_cerrar"
+                 url="recursos/imagen/cerrar.png"
+                 ath="61.5037976927066" atv="3.8796818716697623" scale="0.055700000000019234" rx="0" ry="0" rz="0"
+                 width="1141"
+                 height="584"
+                 alpha="1"
+                 distorted="true"
+                 handcursor="true"
+                 capture="true"
+                 visible="false"
+                 zorder="9999999999"
+                 onclick="stopsound_pc9();"
+                 >
+        </hotspot>
+
+        <hotspot name="pc10"
+                 url="recursos/imagen/10.png"
+                 ath="30.823890643512755" atv="5.891189381887874" scale="0.055700000000019234" rx="0" ry="0" rz="0"
+                 width="1141"
+                 height="584"
+                 alpha="1"
+                 distorted="true"
+                 handcursor="true"
+                 capture="true"
+                 visible="false"
+                 zorder="9999999999"
+                 onclick="playsound_pc10();"
+                 >
+        </hotspot>
+        <hotspot name="pc10_cerrar"
+                 url="recursos/imagen/cerrar.png"
+                 ath="30.823890643512755" atv="5.891189381887874" scale="0.055700000000019234" rx="0" ry="0" rz="0"
+                 width="1141"
+                 height="584"
+                 alpha="1"
+                 distorted="true"
+                 handcursor="true"
+                 capture="true"
+                 visible="false"
+                 zorder="9999999999"
+                 onclick="stopsound_pc10();"
+                 >
+        </hotspot>
+        <hotspot name="video_pc10"
+                  url.html5="plugins/videoplayer.js" 
+                  url.flash="plugins/videoplayer.swf" 
+                  videourl="recursos/video/video_pc10.mp4|recursos/video/video_pc10.webm" 
+                  ath="58.308908014589406" atv="3.1720581262209224" scale="0.24130000000001928" rx="0" ry="0" rz="0"
+                  width="1920" height="1080"
+                  alpha="1"  
+                  distorted="true" 
+                  zorder="9999999999999999999999999999999999999999999999999" 
+                  visible="false" 
+                  pausedonstart="true" 
+                  loop="false" 
+                  volume="1.0" 
+                  directionalsound="true" 
+                  range="90.0" 
+                  capture="false"
+                  handcursor="false"
+                  rangefalloff="1.0" outofrangevolume="0.0" onhover="showtext(Play/Pause, default); " onvideoready="" onvideoplay="5" onvideopaused="" 
+                  onvideocomplete="" onerror="" onclick=""/>
+
+        <hotspot name="pc11"
+                 url="recursos/imagen/11.png"
+                 ath="39.725414885542875" atv="-18.66647743439061" scale="0.055700000000019234" rx="0" ry="0" rz="0"
+                 width="1141"
+                 height="584"
+                 alpha="1"
+                 distorted="true"
+                 handcursor="true"
+                 capture="true"
+                 visible="false"
+                 zorder="9999999999"
+                 onclick="playsound_pc11();"
+                 >
+        </hotspot>
+        <hotspot name="pc11_cerrar"
+                 url="recursos/imagen/cerrar.png"
+                 ath="39.725414885542875" atv="-18.66647743439061" scale="0.055700000000019234" rx="0" ry="0" rz="0"
+                 width="1141"
+                 height="584"
+                 alpha="1"
+                 distorted="true"
+                 handcursor="true"
+                 capture="true"
+                 visible="false"
+                 zorder="9999999999"
+                 onclick="stopsound_pc11();"
+                 >
+        </hotspot>
+        <hotspot name="video_pc11"
+                  url.html5="plugins/videoplayer.js" 
+                  url.flash="plugins/videoplayer.swf" 
+                  videourl="recursos/video/video_pc11.mp4|recursos/video/video_pc11.webm" 
+                  ath="39.611462845892106" atv="-1.5374975344355544" scale="0.24130000000001928" rx="0" ry="0" rz="0"
+                  width="1920" height="1080"
+                  alpha="1"  
+                  distorted="true" 
+                  zorder="9999999999999999999999999999999999999999999999999" 
+                  visible="false" 
+                  pausedonstart="true" 
+                  loop="false" 
+                  volume="1.0" 
+                  directionalsound="true" 
+                  range="90.0" 
+                  capture="false"
+                  handcursor="false"
+                  rangefalloff="1.0" outofrangevolume="0.0" onhover="showtext(Play/Pause, default); " onvideoready="" onvideoplay="5" onvideopaused="" 
+                  onvideocomplete="" onerror="" onclick=""/>
+
+        <hotspot name="pc12"
+                 url="recursos/imagen/boton_info.png"
+                 ath="49.60687565749254" atv="-8.395556550631364" scale="0.08680000000001496" rx="0" ry="0" rz="0"
+                 width="1141"
+                 height="584"
+                 alpha="1"
+                 distorted="true"
+                 handcursor="true"
+                 capture="true"
+                 visible="true"
+                 zorder="9999999999"
+                 onclick="playsound_pc12(); open_pc_aulausc2();"
+                 >
+        </hotspot>
+        <hotspot name="pc12_cerrar"
+                 url="recursos/imagen/boton_saltarintro.png"
+                 ath="49.60687565749254" atv="-8.395556550631364" scale="0.08680000000001496" rx="0" ry="0" rz="0"
+                 width="1141"
+                 height="584"
+                 alpha="1"
+                 distorted="true"
+                 handcursor="true"
+                 capture="true"
+                 visible="false"
+                 zorder="9999999999"
+                 onclick="stopsound_pc12();"
+                 >
+        </hotspot>
+
+        <hotspot name="pc13"
+                 url="recursos/imagen/12.png"
+                 ath="71.50616969554335" atv="15.672512932362794" scale="0.055700000000019234" rx="0" ry="0" rz="0"
+                 width="1141"
+                 height="584"
+                 alpha="1"
+                 distorted="true"
+                 handcursor="true"
+                 capture="true"
+                 visible="false"
+                 zorder="9999999999"
+                 tag="Video"
+                 onclick="popup('iframe', 'https://www.youtube.com/embed/CYYaNzfDk08?rel=0&amp;hd=1&amp;vq=hd1080&amp;showinfo=0&amp;autoplay=1', 900, 506, false);"
+                 >
+        </hotspot>
+
+        <hotspot name="pc14"
+                 url="recursos/imagen/13.png"
+                 ath="29.78992091376921" atv="20.88325287505602" scale="0.055700000000019234" rx="0" ry="0" rz="0"
+                 width="1141"
+                 height="584"
+                 alpha="1"
+                 distorted="true"
+                 handcursor="true"
+                 capture="true"
+                 visible="false"
+                 zorder="9999999999"
+                 onclick="playsound_pc14();"
+                 >
+        </hotspot>
+        <hotspot name="pc14_cerrar"
+                 url="recursos/imagen/cerrar.png"
+                 ath="29.78992091376921" atv="20.88325287505602" scale="0.055700000000019234" rx="0" ry="0" rz="0"
+                 width="1141"
+                 height="584"
+                 alpha="1"
+                 distorted="true"
+                 handcursor="true"
+                 capture="true"
+                 visible="false"
+                 zorder="9999999999"
+                 onclick="stopsound_pc14();"
+                 >
+        </hotspot>
 
 	</scene>
 
-	<scene name="scene_aula_2_usc" title="Aula 2" onstart="" thumburl="panos/aula_2_usc.tiles/thumb.jpg" lat="" lng="" heading="">
+	<scene name="scene_aula_2_usc" title="Aula 2" onstart="stopsound_taquillas(); stop_all_pc_aulausc1();" thumburl="panos/aula_2_usc.tiles/thumb.jpg" lat="" lng="" heading="">
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
-		<view hlookat="-19.926" vlookat="16.518" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="-33.071335966977884" vlookat="3.6611257837766917" fov="97.69075122956838" fovtype="MFOV" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
 		<preview url="panos/aula_2_usc.tiles/preview.jpg" />
 
 		<image>
 			<cube url="panos/aula_2_usc.tiles/pano_%s.jpg" />
 		</image>
-		<hotspot name="spot1" url="recursos/imagen/vtourskin_hotspot.png" style="skin_hotspotstyle" ath="-119.392" atv="2.349" linkedscene="scene_aula_1_usc" />
+		<hotspot name="spot1" url="recursos/imagen/vtourskin_hotspot.png" style="skin_hotspotstyle" ath="-74.21271649661674" atv="4.722121272368109" scale="0.55" rx="-373" ry="-33.5" rz="-86" linkedscene="scene_aula_1_usc" />
+
+    <hotspot name="pc15"
+                 url="recursos/imagen/boton_info.png"
+                 ath="-14.018996245525159" atv="-7.1785064323975085" scale="0.08680000000001496" rx="0" ry="0" rz="0"
+                 width="1141"
+                 height="584"
+                 alpha="1"
+                 distorted="true"
+                 handcursor="true"
+                 capture="true"
+                 visible="true"
+                 zorder="9999999999"
+                 onclick="playsound_pc15(); open_pc_aulausc3();"
+                 >
+        </hotspot>
+        <hotspot name="pc15_cerrar"
+                 url="recursos/imagen/boton_saltarintro.png"
+                 ath="-14.018996245525159" atv="-7.1785064323975085" scale="0.08680000000001496" rx="0" ry="0" rz="0"
+                 width="1141"
+                 height="584"
+                 alpha="1"
+                 distorted="true"
+                 handcursor="true"
+                 capture="true"
+                 visible="false"
+                 zorder="9999999999"
+                 onclick="stopsound_pc15();"
+                 >
+        </hotspot>
+        <hotspot name="video_pc15"
+                  url.html5="plugins/videoplayer.js" 
+                  url.flash="plugins/videoplayer.swf" 
+                  videourl="recursos/video/video_pc15.mp4|recursos/video/video_pc15.webm" 
+                  ath="14.339492585175606" atv="3.0454222833158986" scale="0.24130000000001928" rx="0" ry="0" rz="0"
+                  width="1920" height="1080"
+                  alpha="1"  
+                  distorted="true" 
+                  zorder="9999999999999999999999999999999999999999999999999" 
+                  visible="false" 
+                  pausedonstart="true" 
+                  loop="false" 
+                  volume="1.0" 
+                  directionalsound="true" 
+                  range="90.0" 
+                  capture="false"
+                  handcursor="false"
+                  rangefalloff="1.0" outofrangevolume="0.0" onhover="showtext(Play/Pause, default); " onvideoready="" onvideoplay="5" onvideopaused="" 
+                  onvideocomplete="" onerror="" onclick=""/>
+
+    <hotspot name="pc16"
+                 url="recursos/imagen/14.png"
+                 ath="-1.9926428292561695" atv="7.608726305430553" scale="0.055700000000019234" rx="0" ry="0" rz="0"
+                 width="1141"
+                 height="584"
+                 alpha="1"
+                 distorted="true"
+                 handcursor="true"
+                 capture="true"
+                 visible="false"
+                 zorder="9999999999"
+                 onclick="playsound_pc16();"
+                 >
+        </hotspot>
+        <hotspot name="pc16_cerrar"
+                 url="recursos/imagen/cerrar.png"
+                 ath="-1.9926428292561695" atv="7.608726305430553" scale="0.055700000000019234" rx="0" ry="0" rz="0"
+                 width="1141"
+                 height="584"
+                 alpha="1"
+                 distorted="true"
+                 handcursor="true"
+                 capture="true"
+                 visible="false"
+                 zorder="9999999999"
+                 onclick="stopsound_pc16();"
+                 >
+        </hotspot>
+        <hotspot name="pc17"
+                 url="recursos/imagen/15.png"
+                 ath="25.683717247461004" atv="15.971899462999179" scale="0.055700000000019234" rx="0" ry="0" rz="0"
+                 width="1141"
+                 height="584"
+                 alpha="1"
+                 distorted="true"
+                 handcursor="true"
+                 capture="true"
+                 visible="false"
+                 zorder="9999999999"
+                 onclick="playsound_pc17();"
+                 >
+        </hotspot>
+        <hotspot name="pc17_cerrar"
+                 url="recursos/imagen/cerrar.png"
+                 ath="25.683717247461004" atv="15.971899462999179" scale="0.055700000000019234" rx="0" ry="0" rz="0"
+                 width="1141"
+                 height="584"
+                 alpha="1"
+                 distorted="true"
+                 handcursor="true"
+                 capture="true"
+                 visible="false"
+                 zorder="9999999999"
+                 onclick="stopsound_pc17();"
+                 >
+        </hotspot>
+
+        <hotspot name="pc18"
+                 url="recursos/imagen/16.png"
+                 ath="77.58078198310773" atv="4.008467960914762" scale="0.04380000000001523" rx="0" ry="0" rz="0"
+                 width="1141"
+                 height="584"
+                 alpha="1"
+                 distorted="true"
+                 handcursor="true"
+                 capture="true"
+                 visible="false"
+                 zorder="9999999999"
+                 onclick="playsound_pc18();"
+                 >
+        </hotspot>
+        <hotspot name="pc18_cerrar"
+                 url="recursos/imagen/cerrar.png"
+                 ath="77.58078198310773" atv="4.008467960914762" scale="0.04380000000001523" rx="0" ry="0" rz="0"
+                 width="1141"
+                 height="584"
+                 alpha="1"
+                 distorted="true"
+                 handcursor="true"
+                 capture="true"
+                 visible="false"
+                 zorder="9999999999"
+                 onclick="stopsound_pc18();"
+                 >
+        </hotspot>
+        <hotspot name="pc18_imagen"
+                 url="recursos/imagen/imagen_pc18.png"
+                 ath="21.749014749242463" atv="17.85308183772071" scale="0.374800000000012" rx="14.999999999999957" ry="4.149999999999762" rz="1.4000000000000137"
+                 width="3024"
+                 height="4032"
+                 alpha="0.8"
+                 distorted="true"
+                 handcursor="false"
+                 capture="false"
+                 visible="false"
+                 zorder="9999999999"
+                 onclick=""
+                 style="flyoutimage"
+                 >
+        </hotspot>
+
+        <hotspot name="pc19"
+                 url="recursos/imagen/17.png"
+                 ath="170.16033389867437" atv="7.585563981975658" scale="0.0652000000000195" rx="0" ry="0" rz="0"
+                 width="1141"
+                 height="584"
+                 alpha="1"
+                 distorted="true"
+                 handcursor="true"
+                 capture="true"
+                 visible="false"
+                 zorder="9999999999"
+                 onclick="playsound_pc19();"
+                 >
+        </hotspot>
+        <hotspot name="pc19_cerrar"
+                 url="recursos/imagen/cerrar.png"
+                 ath="170.16033389867437" atv="7.585563981975658" scale="0.0652000000000195" rx="0" ry="0" rz="0"
+                 width="1141"
+                 height="584"
+                 alpha="1"
+                 distorted="true"
+                 handcursor="true"
+                 capture="true"
+                 visible="false"
+                 zorder="9999999999"
+                 onclick="stopsound_pc19();"
+                 >
+        </hotspot>
+        <hotspot name="pc19_imagen"
+                 url="recursos/imagen/imagen_pc19.png"
+                 ath="-145.35991717396507" atv="34.233673794735985" scale="0.22650000000003168" rx="19.45000000000014" ry="-10.950000000000022" rz="-1.700000000000001"
+                 width="3024"
+                 height="4032"
+                 alpha="0.8"
+                 distorted="true"
+                 handcursor="false"
+                 capture="false"
+                 visible="false"
+                 zorder="9999999999"
+                 onclick=""
+                 style="flyoutimage"
+                 >
+        </hotspot>
+
+        <hotspot name="pc20"
+                 url="recursos/imagen/18.png"
+                 ath="-117.18154526145364" atv="12.165896919963377" scale="0.055700000000019234" rx="0" ry="0" rz="0"
+                 width="1141"
+                 height="584"
+                 alpha="1"
+                 distorted="true"
+                 handcursor="true"
+                 capture="true"
+                 visible="false"
+                 zorder="9"
+                 onclick="playsound_pc20();"
+                 >
+        </hotspot>
+        <hotspot name="pc20_cerrar"
+                 url="recursos/imagen/cerrar.png"
+                 ath="-117.18154526145364" atv="12.165896919963377" scale="0.055700000000019234" rx="0" ry="0" rz="0"
+                 width="1141"
+                 height="584"
+                 alpha="1"
+                 distorted="true"
+                 handcursor="true"
+                 capture="true"
+                 visible="false"
+                 zorder="9"
+                 onclick="stopsound_pc20();"
+                 >
+        </hotspot>
+
+        <hotspot name="return_menu"
+                 url="recursos/imagen/boton_home.png"
+                 ath="-107.78778469414613" atv="0.5975948005152342" scale="0.12810000000002345" rx="0" ry="0" rz="0"
+                 width="1141"
+                 height="584"
+                 alpha="0.7"
+                 distorted="true"
+                 handcursor="true"
+                 capture="true"
+                 visible="false"
+                 zorder="9999999999"
+                 onclick="goto_scene_menu();"
+                 >
+        </hotspot>
+        <!-- <hotspot name="pc22"
+                 url="recursos/imagen/20.png"
+                 ath="-155.48481505701136" atv="-1.9300580696832372" scale="0.055700000000019234" rx="0" ry="0" rz="0"
+                 width="1141"
+                 height="584"
+                 alpha="1"
+                 distorted="true"
+                 handcursor="false"
+                 capture="false"
+                 visible="false"
+                 zorder="9999999999"
+                 onclick=""
+                 >
+        </hotspot> -->
 
 	</scene>
 
 
+  <!-- flyout hotspot actions -->
+	<action name="flyout_hotspot">
+		for(set(i,0), i LT hotspot.count, inc(i),
+			copy(hs, hotspot[get(i)]);
+			if(hs.name != name AND hs.style == 'flyoutimage' AND (hs.flying_state == 'out' OR hs.flying_state == 'flyingout'),
+				callwith(hs, flyout_hotspot() );
+			  );
+		  );
+
+		if(flying_state == 'flyingout',
+			set(flying_state, 'flyingin');
+		  ,
+			if(flying_state == 'flyingin',
+				set(flying_state, 'flyingout');
+		  	  );
+		  );
+
+		if(flying_state == 'in',
+			calc(backup_state, '0.0|' + rx + '|' + ry + '|' + rz + '|' + scale);
+			copy(backup_zorder, zorder);
+			set(flying_state, 'flyingout');
+		  );
+
+		if(flying_state == 'out',
+			set(flying_state, 'flyingin');
+		  );
+
+		if(flying_state == 'flyingout',
+			set(zorder, 99);
+			tween(flying|rx|ry|rz|scale, ('1.0|0.0|0.0|0.0|'+0.9*min(stagewidth/sourcewidth,stageheight/sourceheight)), 0.5, default, set(flying_state,'out'); );
+		  );
+
+		if(flying_state == 'flyingin',
+			sub(zorder,1);
+			tween(flying|rx|ry|rz|scale, get(backup_state), 0.5, default, set(flying_state,'in'); copy(zorder,backup_zorder); );
+		  );
+	</action>
 
 
 	<!-- nadir logo (a distorted hotspot)
