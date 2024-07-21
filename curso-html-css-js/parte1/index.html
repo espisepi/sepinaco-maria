@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maria</title>
+</head>
+<style>
+    body {
+        background-color: rgb(154, 150, 150);
+    }
+    div {
+        margin: 20px;
+    }
+
+    .rojo {
+        background-color: red;
+    }
+
+    .azul {
+        background-color: blue;
+    }
+
+    .verde {
+        background-color: green;
+    }
+
+    .boton {
+        width: 100px;
+        height: 100px;
+    }
+</style>
+<body>
+    <h1>Hola</h1>
+    <h2>Hola</h2>
+    <button class=" boton " onclick="botonPulsado();">
+        pulsame
+    </button>
+    <div id="div-1" class=" rojo ">
+        <h1>Foto 1</h1>
+        <img height="200px" width="200px" src="https://medias.kamaayurveda.com/cdn-cgi/image/format=auto,width=990/medias/sys_master/images/hc6/h46/10053944967198/Content%20Bloc%201%20(2)/Content-Bloc-1-2-.png" />
+    </div>
+    <div id="div-2" class=" azul " draggable="true">
+        <img height="200px" width="200px" src="https://medias.kamaayurveda.com/cdn-cgi/image/format=auto,width=990/medias/sys_master/images/hc6/h46/10053944967198/Content%20Bloc%201%20(2)/Content-Bloc-1-2-.png" />
+    </div>
+    <div id="div-3" class=" verde ">
+        <img height="200px" width="200px" src="https://medias.kamaayurveda.com/cdn-cgi/image/format=auto,width=990/medias/sys_master/images/hc6/h46/10053944967198/Content%20Bloc%201%20(2)/Content-Bloc-1-2-.png" />
+    </div>
+
+    <script>
+        var div1 = document.getElementById("div-1");
+        var idBloque = 3;
+        function botonPulsado() {
+
+            if( idBloque === 0) {
+                idBloque = 1;
+            }
+
+            if( idBloque === 1) {
+                div1.innerHTML=bloque1();
+            }
+            if( idBloque === 2) {
+                div1.innerHTML=bloque2();
+            }
+            if( idBloque === 3) {
+                div1.innerHTML=bloque3();
+            }
+
+            idBloque = (idBloque + 1) % 4;
+        }
+        function bloque3() {
+            return "<h1>Bloque 3</h1>";
+
+        }
+        function bloque2() {
+            return "<h1>Bloque 2</h1>";
+        }
+        function bloque1() {
+            return `
+                <h1>Bloque 1</h1>
+                <img height="200px" width="200px" src="https://medias.kamaayurveda.com/cdn-cgi/image/format=auto,width=990/medias/sys_master/images/hc6/h46/10053944967198/Content%20Bloc%201%20(2)/Content-Bloc-1-2-.png" />
+            `;
+        }
+    </script>
+</body>
+</html>
