@@ -927,7 +927,6 @@ set(hotspot[pc20_cerrar].visible, false);
         
 
     <action name="play_papel">
-    <!-- stopsound(aulasfuturo, 'recursos/audio/aulasfuturo.mp3'); -->
     cancel_play_papel();
     delayedcall(0.95, playsound('aulasfuturo', 'recursos/audio/aulasfuturo.mp3'));
     delayedcall(idDelayedCallStartvideo1, 0.95, startVideo1());
@@ -935,41 +934,16 @@ set(hotspot[pc20_cerrar].visible, false);
     delayedcall(idDelayedCallStartvideo3, 16.8, startVideo3());
     delayedcall(idDelayedCallStartvideo4, 24.17, startVideo4());
     delayedcall(idDelayedCallStartvideo5, 34, startVideo5());
-    delayedcall(idDelayedCallStartvideo6, 45.9, flecha());
+    delayedcall(idDelayedCallStartvideo6, 45.9, startVideo6());
     delayedcall(idDelayedCallStartvideo7, 49.8, stop_autorotate());
-    delayedcall(idDelayedCallStartvideo8, 49.8, pizarra());
-    delayedcall(idDelayedCallStartvideo9, 52.8, moviles());
-    delayedcall(idDelayedCallStartvideo10, 54.3, rv());
-    delayedcall(idDelayedCallStartvideo11, 56.1, ia());
-    delayedcall(idDelayedCallStartvideo12, 58.6, impresora());
+    delayedcall(idDelayedCallStartvideo8, 49.8, startVideo7());
+    delayedcall(idDelayedCallStartvideo9, 52.8, startVideo8());
+    delayedcall(idDelayedCallStartvideo10, 54.3, startVideo9());
+    delayedcall(idDelayedCallStartvideo11, 56.1, startVideo10());
+    delayedcall(idDelayedCallStartvideo12, 58.6, startVideo11());
     delayedcall(idDelayedCallStartvideo13, 59, eliminar_hotspots_1());
-    delayedcall(idDelayedCallStartvideo14, 59.6, camara());
-    delayedcall(idDelayedCallStartvideo15, 62.6, estudio());
-    delayedcall(idDelayedCallStartvideo16, 65.7, meet());
-    delayedcall(idDelayedCallStartvideo17, 67.7, ver());
-    delayedcall(idDelayedCallStartvideo18, 67.7, f1());
-    delayedcall(idDelayedCallStartvideo19, 69.9, no_ver());
-    delayedcall(idDelayedCallStartvideo20, 73.3, f2());
-    delayedcall(idDelayedCallStartvideo21, 76.9, f3());
-    delayedcall(idDelayedCallStartvideo22, 80.5, eliminar_hotspots_2());
-    delayedcall(idDelayedCallStartvideo23, 80.5, zoom_in());
-    delayedcall(idDelayedCallStartvideo24, 80.5, parrafo_final());
-    delayedcall(idDelayedCallStartvideo25, 82.9, no_zoom_in());
-    delayedcall(idDelayedCallStartvideo26, 125.2, zoom_out());
-    delayedcall(idDelayedCallStartvideo27, 128.3, no_zoom_out());
-    delayedcall(idDelayedCallStartvideo28, 129.5, investiga());
-    delayedcall(idDelayedCallStartvideo29, 134.3, explora());
-    delayedcall(idDelayedCallStartvideo30, 137.8, interactua());
-    delayedcall(idDelayedCallStartvideo31, 142, desarrolla());
-    delayedcall(idDelayedCallStartvideo32, 145.8, crea());
-    delayedcall(idDelayedCallStartvideo33, 150, presenta());
-    delayedcall(idDelayedCallStartvideo34, 154, oreja());
-    delayedcall(idDelayedCallStartvideo35, 152, start_autorotate());
-    delayedcall(idDelayedCallStartvideo36, 167.2, no_oreja());
-    delayedcall(idDelayedCallStartvideo37, 167.2, portal_menu());
-    delayedcall(idDelayedCallStartvideo38, 167.2, menu());
-    delayedcall(idDelayedCallStartvideo39, 167.2, repetirintro_hotspot());
 </action>
+
 
 <action name="cancel_play_papel">
     stopsound(aulasfuturo, 'recursos/audio/aulasfuturo.mp3');
@@ -986,216 +960,67 @@ set(hotspot[pc20_cerrar].visible, false);
     stopdelayedcall(idDelayedCallStartvideo11);
     stopdelayedcall(idDelayedCallStartvideo12);
     stopdelayedcall(idDelayedCallStartvideo13);
-    stopdelayedcall(idDelayedCallStartvideo14);
-    stopdelayedcall(idDelayedCallStartvideo15);
-    stopdelayedcall(idDelayedCallStartvideo16);
-    stopdelayedcall(idDelayedCallStartvideo17);
-    stopdelayedcall(idDelayedCallStartvideo18);
-    stopdelayedcall(idDelayedCallStartvideo19);
-    stopdelayedcall(idDelayedCallStartvideo20);
-    stopdelayedcall(idDelayedCallStartvideo21);
-    stopdelayedcall(idDelayedCallStartvideo22);
-    stopdelayedcall(idDelayedCallStartvideo23);
-    stopdelayedcall(idDelayedCallStartvideo24);
-    stopdelayedcall(idDelayedCallStartvideo25);
-    stopdelayedcall(idDelayedCallStartvideo26);
-    stopdelayedcall(idDelayedCallStartvideo27);
-    stopdelayedcall(idDelayedCallStartvideo28);
-    stopdelayedcall(idDelayedCallStartvideo29);
-    stopdelayedcall(idDelayedCallStartvideo30);
-    stopdelayedcall(idDelayedCallStartvideo31);
-    stopdelayedcall(idDelayedCallStartvideo32);
-    stopdelayedcall(idDelayedCallStartvideo33);
-    stopdelayedcall(idDelayedCallStartvideo34);
-    stopdelayedcall(idDelayedCallStartvideo35);
-    stopdelayedcall(idDelayedCallStartvideo36);
-    stopdelayedcall(idDelayedCallStartvideo37);
-    stopdelayedcall(idDelayedCallStartvideo38);
-    stopdelayedcall(idDelayedCallStartvideo39);
 </action>
 
 
 
-    <action name="startVideo1">
-        set(hotspot[i1].pausedonstart, false);
-		hotspot[i1].play();
-		set(hotspot[i1].visible, true);
-    </action>
-	<action name="startVideo2">
-	    set(hotspot[i2].pausedonstart, false);
-		hotspot[i2].play();
-		set(hotspot[i2].visible, true);
-    </action>
-	<action name="startVideo3">
-	    set(hotspot[i3].pausedonstart, false);
-		hotspot[i3].play();
-		set(hotspot[i3].visible, true);
-    </action>
-	<action name="startVideo4">
-        set(hotspot[i4].pausedonstart, false);
-		hotspot[i4].play();
-		set(hotspot[i4].visible, true);
-    </action>
-	<action name="startVideo5">
-	    set(hotspot[i5].pausedonstart, false);
-		hotspot[i5].play();
-		set(hotspot[i5].visible, true);
-    </action>
-	<action name="flecha">
-		set(hotspot[flecha].pausedonstart, false);
-		hotspot[flecha].play();
-		set(hotspot[flecha].visible, true);
-    </action>
-    <action name="eliminar_hotspots_1">
-		set(hotspot[i1].visible, false);
-        set(hotspot[i2].visible, false);
-        set(hotspot[i3].visible, false);
-        set(hotspot[i4].visible, false);
-        set(hotspot[i5].visible, false);
-        set(hotspot[flecha].visible, false);
-    </action>
-   
-	<action name="pizarra">
-		set(hotspot[pizarra].pausedonstart, false);
-		hotspot[pizarra].play();
-		set(hotspot[pizarra].visible, true);
-    </action>
-	<action name="moviles">
-		set(hotspot[moviles].pausedonstart, false);
-		hotspot[moviles].play();
-		set(hotspot[moviles].visible, true);
-    </action>
-	<action name="rv">
-		set(hotspot[rv].pausedonstart, false);
-		hotspot[rv].play();
-		set(hotspot[rv].visible, true);
-    </action>
-	<action name="ia">
-		set(hotspot[ia].pausedonstart, false);
-		hotspot[ia].play();
-		set(hotspot[ia].visible, true);
-    </action>
-	<action name="impresora">
-		set(hotspot[impresora].pausedonstart, false);
-		hotspot[impresora].play();
-		set(hotspot[impresora].visible, true);
-    </action>
-	<action name="camara">
-		set(hotspot[camara].pausedonstart, false);
-		hotspot[camara].play();
-		set(hotspot[camara].visible, true);
-    </action>
-	<action name="estudio">
-		set(hotspot[estudio].pausedonstart, false);
-		hotspot[estudio].play();
-		set(hotspot[estudio].visible, true);
-    </action>
-	<action name="meet">
-		set(hotspot[meet].pausedonstart, false);
-		hotspot[meet].play();
-		set(hotspot[meet].visible, true);
-    </action>
-    <action name="ver">
-		set(hotspot[ver].visible, true);
-    </action>
-    <action name="no_ver">
-		set(hotspot[ver].visible, false);
-    </action>
-    <action name="f1">
-		set(hotspot[f1].pausedonstart, false);
-		hotspot[f1].play();
-		set(hotspot[f1].visible, true);
-    </action>
-    <action name="f2">
-		set(hotspot[f2].pausedonstart, false);
-		hotspot[f2].play();
-		set(hotspot[f2].visible, true);
-    </action>
-    <action name="f3">
-		set(hotspot[f3].pausedonstart, false);
-		hotspot[f3].play();
-		set(hotspot[f3].visible, true);
-    </action>
-    <action name="eliminar_hotspots_2">
-		set(hotspot[f1].visible, false);
-        set(hotspot[f2].visible, false);
-        set(hotspot[f3].visible, false);
-    </action>
-    <action name="zoom_in">
-		set(hotspot[zoom_in].visible, true);
-    </action>
-    <action name="no_zoom_in">
-		set(hotspot[zoom_in].visible, false);
-    </action>
-    <action name="parrafo_final">
-		set(hotspot[parrafo_final].pausedonstart, false);
-		hotspot[parrafo_final].play();
-		set(hotspot[parrafo_final].visible, true);
-    </action>
-    <action name="zoom_out">
-		set(hotspot[zoom_out].visible, true);
-    </action>
-    <action name="no_zoom_out">
-		set(hotspot[zoom_out].visible, false);
-    </action>
-    <action name="investiga">
-		set(hotspot[investiga_pared].visible, true);
-        set(hotspot[investiga].pausedonstart, false);
-		hotspot[investiga].play();
-		set(hotspot[investiga].visible, true);
-    </action>
-    <action name="explora">
-		set(hotspot[explora_pared].visible, true);
-        set(hotspot[explora].pausedonstart, false);
-		hotspot[explora].play();
-		set(hotspot[explora].visible, true);
-    </action>
-    <action name="interactua">
-		set(hotspot[interactua_pared].visible, true);
-        set(hotspot[interactua].pausedonstart, false);
-		hotspot[interactua].play();
-		set(hotspot[interactua].visible, true);
-    </action>
-    <action name="desarrolla">
-		set(hotspot[desarrolla_pared].visible, true);
-        set(hotspot[desarrolla].pausedonstart, false);
-		hotspot[desarrolla].play();
-		set(hotspot[desarrolla].visible, true);
-    </action>
-    <action name="crea">
-		set(hotspot[crea_pared].visible, true);
-        set(hotspot[crea].pausedonstart, false);
-		hotspot[crea].play();
-		set(hotspot[crea].visible, true);
-    </action>
-    <action name="presenta">
-		set(hotspot[presenta_pared].visible, true);
-        set(hotspot[presenta].pausedonstart, false);
-		hotspot[presenta].play();
-		set(hotspot[presenta].visible, true);
-    </action>
-    <action name="oreja">
-		set(hotspot[oreja].visible, true);
-    </action>
-    <action name="no_oreja">
-		set(hotspot[oreja].visible, false);
-    </action>
-    <action name="portal_menu">
-		set(hotspot[portal_menu].visible, true);
-    </action>
-    <action name="menu">
-		set(hotspot[menu].visible, true);
-    </action>
-    <action name="repetirintro_hotspot">
-		set(hotspot[repetirintro_hotspot].visible, true);
-    </action>
 
-    <action name="activar_portal">
-    set(hotspot[portal_menu].alpha, 0.7);
-    </action>
-    <action name="restaurar_portal_menu">
-    set(hotspot[portal_menu].alpha, 1);
-    </action>
+    <action name="startVideo1">
+    set(hotspot[i1].pausedonstart, false);
+    hotspot[i1].play();
+    set(hotspot[i1].visible, true);
+</action>
+<action name="startVideo2">
+    set(hotspot[i2].pausedonstart, false);
+    hotspot[i2].play();
+    set(hotspot[i2].visible, true);
+</action>
+<action name="startVideo3">
+    set(hotspot[i3].pausedonstart, false);
+    hotspot[i3].play();
+    set(hotspot[i3].visible, true);
+</action>
+<action name="startVideo4">
+    set(hotspot[i4].pausedonstart, false);
+    hotspot[i4].play();
+    set(hotspot[i4].visible, true);
+</action>
+<action name="startVideo5">
+    set(hotspot[i5].pausedonstart, false);
+    hotspot[i5].play();
+    set(hotspot[i5].visible, true);
+</action>
+<action name="startVideo6">
+    set(hotspot[flecha].pausedonstart, false);
+    hotspot[flecha].play();
+    set(hotspot[flecha].visible, true);
+</action>
+<action name="startVideo7">
+    set(hotspot[pizarra].pausedonstart, false);
+    hotspot[pizarra].play();
+    set(hotspot[pizarra].visible, true);
+</action>
+<action name="startVideo8">
+    set(hotspot[moviles].pausedonstart, false);
+    hotspot[moviles].play();
+    set(hotspot[moviles].visible, true);
+</action>
+<action name="startVideo9">
+    set(hotspot[rv].pausedonstart, false);
+    hotspot[rv].play();
+    set(hotspot[rv].visible, true);
+</action>
+<action name="startVideo10">
+    set(hotspot[ia].pausedonstart, false);
+    hotspot[ia].play();
+    set(hotspot[ia].visible, true);
+</action>
+<action name="startVideo11">
+    set(hotspot[impresora].pausedonstart, false);
+    hotspot[impresora].play();
+    set(hotspot[impresora].visible, true);
+</action>
+
 
 	<action name="start_autorotate">
 		set(autorotate.enabled, true);
@@ -1522,851 +1347,292 @@ set(hotspot[pc20_cerrar].visible, false);
         </hotspot>
 
 		
-		<!-- Hotspots de i1 -->
-
 		<hotspot name="i1" 
-                 url.html5="plugins/videoplayer.js"
-                 url.flash="plugins/videoplayer.swf"
-                 videourl="recursos/video/i1.mp4|recursos/video/i1.webm"
-                 ath="0.5363241875107292" atv="-3.1277515770969195" scale="0.2083500000000072" rx="1.2499999999997584" ry="3.050000000000164" rz="0.25"
-                 width="1280"
-         height="720"
-                 alpha="1"
-                 chromakey="0x00FF00|0.60|0.10"
-                 distorted="true"
-                 zorder="0"
-                 visible="false"
-                 pausedonstart="true"
-                 loop="false"
-                 volume="0.0"
-                 directionalsound="true"
-                 range="90.0"
-                 rangefalloff="1.0"
-                 outofrangevolume="1.0"
-                 onhover=""
-                 onclick=""
-                 onvideocomplete=""
-                 onerror=""
-                 handcursor="false"
-                 capture="false">
-        </hotspot>
+         url.html5="plugins/videoplayer.js"
+         url.flash="plugins/videoplayer.swf"
+         videourl="recursos/video/i1.mp4|recursos/video/i1.webm"
+         ath="0.5363241875107292" atv="-3.1277515770969195" scale="0.2083500000000072" rx="1.2499999999997584" ry="3.050000000000164" rz="0.25"
+         width="1280" height="720"
+         alpha="1"
+         chromakey="0x00FF00|0.60|0.10"
+         distorted="true"
+         zorder="0"
+         visible="false"
+         pausedonstart="true"
+         loop="false"
+         volume="0.0"
+         directionalsound="true"
+         range="90.0"
+         rangefalloff="1.0"
+         outofrangevolume="1.0"
+         onhover=""
+         onclick=""
+         onvideocomplete=""
+         onerror=""
+         handcursor="false"
+         capture="false">
+</hotspot>
 
-		
-        
-		<!-- Hotspots de i2 -->
+<hotspot name="i2" 
+         url.html5="plugins/videoplayer.js"
+         url.flash="plugins/videoplayer.swf"
+         videourl="recursos/video/i2.mp4|recursos/video/i2.webm"
+         ath="-0.40054106702530134" atv="3.974326493797957" scale="0.2994000000000044" rx="0" ry="0" rz="0"
+         width="1280" height="720"
+         alpha="1"
+         chromakey="0x00FF00|0.60|0.10"
+         distorted="true"
+         zorder="0"
+         visible="false"
+         pausedonstart="true"
+         loop="false"
+         volume="0.0"
+         directionalsound="true"
+         range="90.0"
+         rangefalloff="1.0"
+         outofrangevolume="0.0"
+         onhover=""
+         onclick=""
+         onvideocomplete=""
+         onerror=""
+         handcursor="false"
+         capture="false">
+</hotspot>
 
-		<hotspot name="i2" 
-                 url.html5="plugins/videoplayer.js"
-                 url.flash="plugins/videoplayer.swf"
-                 videourl="recursos/video/i2.mp4|recursos/video/i2.webm"
-                 ath="-0.40054106702530134" atv="3.974326493797957" scale="0.2994000000000044" rx="0" ry="0" rz="0"
-                 width="1280"
-         height="720"
-                 alpha="1"
-                 chromakey="0x00FF00|0.60|0.10"
-                 distorted="true"
-                 zorder="0"
-                 visible="false"
-                 pausedonstart="true"
-                 loop="false"
-                 volume="0.0"
-                 directionalsound="true"
-                 range="90.0"
-                 rangefalloff="1.0"
-                 outofrangevolume="0.0"
-                 onhover=""
-                 onclick=""
-                 onvideocomplete=""
-                 onerror=""
-                 handcursor="false"
-                 capture="false">
-        </hotspot>
+<hotspot name="i3" 
+         url.html5="plugins/videoplayer.js"
+         url.flash="plugins/videoplayer.swf"
+         videourl="recursos/video/i3.mp4|recursos/video/i3.webm"
+         ath="29.321256649776217" atv="3.422375329665759" scale="0.21089999999999584" rx="0.05000000000006821" ry="-6.1999999999996405" rz="1.5000000000000004"
+         width="1280" height="720"
+         alpha="1"
+         chromakey="0x00FF00|0.60|0.10"
+         distorted="true"
+         zorder="0"
+         visible="false"
+         pausedonstart="true"
+         loop="false"
+         volume="0.0"
+         directionalsound="true"
+         range="90.0"
+         rangefalloff="1.0"
+         outofrangevolume="0.0"
+         onhover=""
+         onclick=""
+         onvideocomplete=""
+         onerror=""
+         handcursor="false"
+         capture="false">
+</hotspot>
 
-    
+<hotspot name="i4" 
+         url.html5="plugins/videoplayer.js"
+         url.flash="plugins/videoplayer.swf"
+         videourl="recursos/video/i4.mp4|recursos/video/i4.webm"
+         ath="43.349718724736704" atv="15.064835841990169" scale="0.3064500000000041" rx="-55.55000000000021" ry="-11.199999999999706" rz="-10.000000000000014"
+         width="1280" height="720"
+         alpha="1"
+         chromakey="0x00FF00|0.60|0.10"
+         distorted="true"
+         zorder="0"
+         visible="false"
+         pausedonstart="true"
+         loop="false"
+         volume="0.0"
+         directionalsound="true"
+         range="90.0"
+         rangefalloff="1.0"
+         outofrangevolume="0.0"
+         onhover=""
+         onclick=""
+         onvideocomplete=""
+         onerror=""
+         handcursor="false"
+         capture="false">
+</hotspot>
 
-		<!-- Hotspots de i3 -->
-        <hotspot name="i3" 
-                 url.html5="plugins/videoplayer.js"
-                 url.flash="plugins/videoplayer.swf"
-                 videourl="recursos/video/i3.mp4|recursos/video/i3.webm"
-                 ath="29.321256649776217" atv="3.422375329665759" scale="0.21089999999999584" rx="0.05000000000006821" ry="-6.1999999999996405" rz="1.5000000000000004"
-                 width="1280"
-         height="720"
-                 alpha="1"
-                 chromakey="0x00FF00|0.60|0.10"
-                 distorted="true"
-                 zorder="0"
-                 visible="false"
-                 pausedonstart="true"
-                 loop="false"
-                 volume="0.0"
-                 directionalsound="true"
-                 range="90.0"
-                 rangefalloff="1.0"
-                 outofrangevolume="0.0"
-                 onhover=""
-                 onclick=""
-                 onvideocomplete=""
-                 onerror=""
-                 handcursor="false"
-                 capture="false">
-        </hotspot>
+<hotspot name="i5" 
+         url.html5="plugins/videoplayer.js"
+         url.flash="plugins/videoplayer.swf"
+         videourl="recursos/video/i5.mp4|recursos/video/i5.webm"
+         ath="70.22778735674126" atv="1.0563308892267622" scale="0.22695000000000004" rx="0.20000000000000034" ry="15.250000000000327" rz="-0.050000000000034295"
+         width="1280" height="720"
+         alpha="1"
+         chromakey="0x00FF00|0.60|0.10"
+         distorted="true"
+         zorder="0"
+         visible="false"
+         pausedonstart="true"
+         loop="false"
+         volume="0.0"
+         directionalsound="true"
+         range="90.0"
+         rangefalloff="1.0"
+         outofrangevolume="0.0"
+         onhover=""
+         onclick=""
+         onvideocomplete=""
+         onerror=""
+         handcursor="false"
+         capture="false">
+</hotspot>
 
-        <!-- Hotspot de i4 -->
-        <hotspot name="i4" 
-                 url.html5="plugins/videoplayer.js"
-                 url.flash="plugins/videoplayer.swf"
-                 videourl="recursos/video/i4.mp4|recursos/video/i4.webm"
-                 ath="43.349718724736704" atv="15.064835841990169" scale="0.3064500000000041" rx="-55.55000000000021" ry="-11.199999999999706" rz="-10.000000000000014"
-                 width="1280"
-         height="720"
-                 alpha="1"
-                 chromakey="0x00FF00|0.60|0.10"
-                 distorted="true"
-                 zorder="0"
-                 visible="false"
-                 pausedonstart="true"
-                 loop="false"
-                 volume="0.0"
-                 directionalsound="true"
-                 range="90.0"
-                 rangefalloff="1.0"
-                 outofrangevolume="0.0"
-                 onhover=""
-                 onclick=""
-                 onvideocomplete=""
-                 onerror=""
-                 handcursor="false"
-                 capture="false">
-        </hotspot>
+<hotspot name="flecha" 
+         url.html5="plugins/videoplayer.js"
+         url.flash="plugins/videoplayer.swf"
+         videourl="recursos/video/flecha.mp4|recursos/video/flecha.webm"
+         ath="101.38044976404956" atv="0.1375817909930693" scale="0.09870000000000109" rx="0" ry="-5.849999999999682" rz="0"
+         width="1280" height="720"
+         alpha="0.5"
+         chromakey="0x00FF00|0.60|0.10"
+         distorted="true"
+         zorder="0"
+         visible="false"
+         pausedonstart="true"
+         loop="true"
+         volume="0.0"
+         directionalsound="true"
+         range="90.0"
+         rangefalloff="1.0"
+         outofrangevolume="0.0"
+         onhover=""
+         onclick=""
+         onvideocomplete=""
+         onerror=""
+         handcursor="false"
+         capture="false">
+</hotspot>
 
+<hotspot name="pizarra" 
+         url.html5="plugins/videoplayer.js"
+         url.flash="plugins/videoplayer.swf"
+         videourl="recursos/video/pizarra.mp4|recursos/video/pizarra.webm"
+         ath="122.40459165119026" atv="-1.7430758063644065" scale="0.2501999999999975" rx="2.8999999999999773" ry="-7.199999999999545" rz="1.5499999999999665"
+         width="1280" height="720"
+         alpha="1"
+         chromakey="0x00FF00|0.9|0.7"
+         distorted="true"
+         zorder="0"
+         visible="false"
+         pausedonstart="true"
+         loop="false"
+         volume="0.0"
+         directionalsound="true"
+         range="90.0"
+         rangefalloff="1.0"
+         outofrangevolume="0.0"
+         onhover=""
+         onclick=""
+         onvideocomplete=""
+         onerror=""
+         handcursor="false"
+         capture="false">
+</hotspot>
 
+<hotspot name="moviles" 
+         url.html5="plugins/videoplayer.js"
+         url.flash="plugins/videoplayer.swf"
+         videourl="recursos/video/moviles.mp4|recursos/video/moviles.webm"
+         ath="135.8352657871382" atv="11.960412691935934" scale="0.1810499999999991" rx="-13.500000000000059" ry="0" rz="0.49999999999999983"
+         width="1280" height="720"
+         alpha="1"
+         chromakey="0x00FF00|0.8|0.10"
+         distorted="true"
+         zorder="0"
+         visible="false"
+         pausedonstart="true"
+         loop="false"
+         volume="0.0"
+         directionalsound="true"
+         range="90.0"
+         rangefalloff="1.0"
+         outofrangevolume="0.0"
+         onhover=""
+         onclick=""
+         onvideocomplete=""
+         onerror=""
+         handcursor="false"
+         capture="false">
+</hotspot>
 
+<hotspot name="rv" 
+         url.html5="plugins/videoplayer.js"
+         url.flash="plugins/videoplayer.swf"
+         videourl="recursos/video/rv.mp4|recursos/video/rv.webm"
+         ath="157.44329391025917" atv="12.152811997137452" scale="0.18044999999999906" rx="-13.500000000000059" ry="0" rz="-0.1500000000000001"
+         width="1280" height="720"
+         alpha="1"
+         chromakey="0x00FF00|0.8|0.10"
+         distorted="true"
+         zorder="0"
+         visible="false"
+         pausedonstart="true"
+         loop="false"
+         volume="0.0"
+         directionalsound="true"
+         range="90.0"
+         rangefalloff="1.0"
+         outofrangevolume="0.0"
+         onhover=""
+         onclick=""
+         onvideocomplete=""
+         onerror=""
+         handcursor="false"
+         capture="false">
+</hotspot>
 
-		<!-- Hotspot de i5 -->
-        <hotspot name="i5" 
-                 url.html5="plugins/videoplayer.js"
-                 url.flash="plugins/videoplayer.swf"
-                 videourl="recursos/video/i5.mp4|recursos/video/i5.webm"
-                 ath="70.22778735674126" atv="1.0563308892267622" scale="0.22695000000000004" rx="0.20000000000000034" ry="15.250000000000327" rz="-0.050000000000034295"
-                 width="1280"
-         height="720"
-                 alpha="1"
-                 chromakey="0x00FF00|0.60|0.10"
-                 distorted="true"
-                 zorder="0"
-                 visible="false"
-                 pausedonstart="true"
-                 loop="false"
-                 volume="0.0"
-                 directionalsound="true"
-                 range="90.0"
-                 rangefalloff="1.0"
-                 outofrangevolume="0.0"
-                 onhover=""
-                 onclick=""
-                 onvideocomplete=""
-                 onerror=""
-                 handcursor="false"
-                 capture="false">
-        </hotspot>
+<hotspot name="ia" 
+         url.html5="plugins/videoplayer.js"
+         url.flash="plugins/videoplayer.swf"
+         videourl="recursos/video/ia.mp4|recursos/video/ia.webm"
+         ath="179.07605976718446" atv="11.306226759078374" scale="0.18044999999999906" rx="-13.500000000000059" ry="0" rz="-0.1500000000000001"
+         width="1280" height="720"
+         alpha="1"
+         chromakey="0x00FF00|0.8|0.10"
+         distorted="true"
+         zorder="0"
+         visible="false"
+         pausedonstart="true"
+         loop="false"
+         volume="0.0"
+         directionalsound="true"
+         range="90.0"
+         rangefalloff="1.0"
+         outofrangevolume="0.0"
+         onhover=""
+         onclick=""
+         onvideocomplete=""
+         onerror=""
+         handcursor="false"
+         capture="false">
+</hotspot>
 
-    
-        
+<hotspot name="impresora" 
+         url.html5="plugins/videoplayer.js"
+         url.flash="plugins/videoplayer.swf"
+         videourl="recursos/video/impresora.mp4|recursos/video/impresora.webm"
+         ath="-159.55642801669418" atv="11.081300046684213" scale="0.18044999999999906" rx="0" ry="14" rz="-0.15000000000000033"
+         width="1280" height="720"
+         alpha="1"
+         chromakey="0x00FF00|0.8|0.10"
+         distorted="true"
+         zorder="0"
+         visible="false"
+         pausedonstart="true"
+         loop="false"
+         volume="0.0"
+         directionalsound="true"
+         range="90.0"
+         rangefalloff="1.0"
+         outofrangevolume="0.0"
+         onhover=""
+         onclick=""
+         onvideocomplete=""
+         onerror=""
+         handcursor="false"
+         capture="false">
+</hotspot>
 
-        <!-- Hotspot de flecha -->
-        <hotspot name="flecha" 
-                 url.html5="plugins/videoplayer.js"
-                 url.flash="plugins/videoplayer.swf"
-                 videourl="recursos/video/flecha.mp4|recursos/video/flecha.webm"
-                 ath="101.38044976404956" atv="0.1375817909930693" scale="0.09870000000000109" rx="0" ry="-5.849999999999682" rz="0"
-                 width="1280"
-         height="720"
-                 alpha="0.5"
-                 chromakey="0x00FF00|0.60|0.10"
-                 distorted="true"
-                 zorder="0"
-                 visible="false"
-                 pausedonstart="true"
-                 loop="true"
-                 volume="0.0"
-                 directionalsound="true"
-                 range="90.0"
-                 rangefalloff="1.0"
-                 outofrangevolume="0.0"
-                 onhover=""
-                 onclick=""
-                 onvideocomplete=""
-                 onerror=""
-                 handcursor="false"
-                 capture="false">
-        </hotspot>
-
-    
-
-        <!-- Hotspot de pizarra -->
-        <hotspot name="pizarra" 
-                 url.html5="plugins/videoplayer.js"
-                 url.flash="plugins/videoplayer.swf"
-                 videourl="recursos/video/pizarra.mp4|recursos/video/pizarra.webm"
-                 ath="122.40459165119026" atv="-1.7430758063644065" scale="0.2501999999999975" rx="2.8999999999999773" ry="-7.199999999999545" rz="1.5499999999999665"
-                 width="1280"
-         height="720"
-                 alpha="1"
-                 chromakey="0x00FF00|0.9|0.7"
-                 distorted="true"
-                 zorder="0"
-                 visible="false"
-                 pausedonstart="true"
-                 loop="false"
-                 volume="0.0"
-                 directionalsound="true"
-                 range="90.0"
-                 rangefalloff="1.0"
-                 outofrangevolume="0.0"
-                 onhover=""
-                 onclick=""
-                 onvideocomplete=""
-                 onerror=""
-                 handcursor="false"
-                 capture="false">
-        </hotspot>
-    
-
-        <!-- Hotspot de moviles -->
-        <hotspot name="moviles" 
-                 url.html5="plugins/videoplayer.js"
-                 url.flash="plugins/videoplayer.swf"
-                 videourl="recursos/video/moviles.mp4|recursos/video/moviles.webm"
-                 ath="135.8352657871382" atv="11.960412691935934" scale="0.1810499999999991" rx="-13.500000000000059" ry="0" rz="0.49999999999999983"
-                width="1280"
-         height="720"
-                 alpha="1"
-                 chromakey="0x00FF00|0.8|0.10"
-                 distorted="true"
-                 zorder="0"
-                 visible="false"
-                 pausedonstart="true"
-                 loop="false"
-                 volume="0.0"
-                 directionalsound="true"
-                 range="90.0"
-                 rangefalloff="1.0"
-                 outofrangevolume="0.0"
-                 onhover=""
-                 onclick=""
-                 onvideocomplete=""
-                 onerror=""
-                 handcursor="false"
-                 capture="false">
-        </hotspot>
-
-       
-
-        <!-- Hotspot de rv -->
-        <hotspot name="rv" 
-                 url.html5="plugins/videoplayer.js"
-                 url.flash="plugins/videoplayer.swf"
-                 videourl="recursos/video/rv.mp4|recursos/video/rv.webm"
-                 ath="157.44329391025917" atv="12.152811997137452" scale="0.18044999999999906" rx="-13.500000000000059" ry="0" rz="-0.1500000000000001"
-                 width="1280"
-         height="720"
-                 alpha="1"
-                 chromakey="0x00FF00|0.8|0.10"
-                 distorted="true"
-                 zorder="0"
-                 visible="false"
-                 pausedonstart="true"
-                 loop="false"
-                 volume="0.0"
-                 directionalsound="true"
-                 range="90.0"
-                 rangefalloff="1.0"
-                 outofrangevolume="0.0"
-                 onhover=""
-                 onclick=""
-                 onvideocomplete=""
-                 onerror=""
-                 handcursor="false"
-                 capture="false">
-        </hotspot>
-
-    
-        <!-- Hotspot de ia -->
-        <hotspot name="ia" 
-                 url.html5="plugins/videoplayer.js"
-                 url.flash="plugins/videoplayer.swf"
-                 videourl="recursos/video/ia.mp4|recursos/video/ia.webm"
-                 ath="179.07605976718446" atv="11.306226759078374" scale="0.18044999999999906" rx="-13.500000000000059" ry="0" rz="-0.1500000000000001"
-                 width="1280"
-         height="720"
-                 alpha="1"
-                 chromakey="0x00FF00|0.8|0.10"
-                 distorted="true"
-                 zorder="0"
-                 visible="false"
-                 pausedonstart="true"
-                 loop="false"
-                 volume="0.0"
-                 directionalsound="true"
-                 range="90.0"
-                 rangefalloff="1.0"
-                 outofrangevolume="0.0"
-                 onhover=""
-                 onclick=""
-                 onvideocomplete=""
-                 onerror=""
-                 handcursor="false"
-                 capture="false">
-        </hotspot>
-
-    
-
-
-        <!-- Hotspot de impresora -->
-        <hotspot name="impresora" 
-                 url.html5="plugins/videoplayer.js"
-                 url.flash="plugins/videoplayer.swf"
-                 videourl="recursos/video/impresora.mp4|recursos/video/impresora.webm"
-                 ath="-159.55642801669418" atv="11.081300046684213" scale="0.18044999999999906" rx="0" ry="14" rz="-0.15000000000000033"
-                 width="1280"
-         height="720"
-                 alpha="1"
-                 chromakey="0x00FF00|0.8|0.10"
-                 distorted="true"
-                 zorder="0"
-                 visible="false"
-                 pausedonstart="true"
-                 loop="false"
-                 volume="0.0"
-                 directionalsound="true"
-                 range="90.0"
-                 rangefalloff="1.0"
-                 outofrangevolume="0.0"
-                 onhover=""
-                 onclick=""
-                 onvideocomplete=""
-                 onerror=""
-                 handcursor="false"
-                 capture="false">
-        </hotspot>
-
-       
-
-
-        <!-- Hotspot de camara -->
-        <hotspot name="camara" 
-                 url.html5="plugins/videoplayer.js"
-                 url.flash="plugins/videoplayer.swf"
-                 videourl="recursos/video/camara.mp4|recursos/video/camara.webm"
-                 ath="-145.29360638280875" atv="11.805905270891481" scale="0.2179499999999991" rx="-13.500000000000059" ry="0" rz="-0.1500000000000001"
-                 width="1280"
-         height="720"
-                 alpha="1"
-                 chromakey="0x00FF00|0.8|0.10"
-                 distorted="true"
-                 zorder="0"
-                 visible="false"
-                 pausedonstart="true"
-                 loop="false"
-                 volume="0.0"
-                 directionalsound="true"
-                 range="90.0"
-                 rangefalloff="1.0"
-                 outofrangevolume="0.0"
-                 onhover=""
-                 onclick=""
-                 onvideocomplete=""
-                 onerror=""
-                 handcursor="false"
-                 capture="false">
-        </hotspot>
-
-
-        <!-- Hotspot de estudio -->
-        <hotspot name="estudio" 
-                 url.html5="plugins/videoplayer.js"
-                 url.flash="plugins/videoplayer.swf"
-                 videourl="recursos/video/estudio.mp4|recursos/video/estudio.webm"
-                 ath="-130.9870583616251" atv="4.842225972341996" scale="0.2314500000000026" rx="4.700000000000007" ry="36.95000000000007" rz="-1.4000000000000004"
-                 width="1280"
-         height="720"
-                 alpha="1"
-                 chromakey="0xFF3131|0.75|0.2"
-                 distorted="true"
-                 zorder="0"
-                 visible="false"
-                 pausedonstart="true"
-                 loop="false"
-                 volume="0.0"
-                 directionalsound="true"
-                 range="90.0"
-                 rangefalloff="1.0"
-                 outofrangevolume="0.0"
-                 onhover=""
-                 onclick=""
-                 onvideocomplete=""
-                 onerror=""
-                 handcursor="false"
-                 capture="false">
-        </hotspot>
-
-        <!-- Hotspot de meet -->
-        <hotspot name="meet" 
-                 url.html5="plugins/videoplayer.js"
-                 url.flash="plugins/videoplayer.swf"
-                 videourl="recursos/video/meet.mp4|recursos/video/meet.webm"
-                 ath="-107.80998548516297" atv="2.966439187878734" scale="0.2545500000000059" rx="0" ry="16.500000000000327" rz="0.1499999999999998"
-                 width="1280"
-         height="720"
-                 alpha="1"
-                 chromakey="0x00FF00|0.8|0.10"
-                 distorted="true"
-                 zorder="0"
-                 visible="false"
-                 pausedonstart="true"
-                 loop="false"
-                 volume="0.0"
-                 directionalsound="true"
-                 range="90.0"
-                 rangefalloff="1.0"
-                 outofrangevolume="0.0"
-                 onhover=""
-                 onclick=""
-                 onvideocomplete=""
-                 onerror=""
-                 handcursor="false"
-                 capture="false">
-        </hotspot>
-
-
-        <!-- Hotspot de f1 -->
-        <hotspot name="f1" 
-                 url.html5="plugins/videoplayer.js"
-                 url.flash="plugins/videoplayer.swf"
-                 videourl="recursos/video/f1.mp4|recursos/video/f1.webm"
-                 ath="-71.95999316200624" atv="-2.5345217432269243" scale="0.23850000000000265" rx="0" ry="-11.300000000000027" rz="0.7000000000000001"
-                 width="1280"
-         height="720"
-                 alpha="1"
-                 chromakey="0x00FF00|0.8|0.10"
-                 distorted="true"
-                 zorder="0"
-                 visible="false"
-                 pausedonstart="true"
-                 loop="false"
-                 volume="0.0"
-                 directionalsound="true"
-                 range="90.0"
-                 rangefalloff="1.0"
-                 outofrangevolume="0.0"
-                 onhover=""
-                 onclick=""
-                 onvideocomplete=""
-                 onerror=""
-                 handcursor="false"
-                 capture="false">
-        </hotspot>
-
-    
-		<!-- Hotspot de f2 -->
-        <hotspot name="f2" 
-                 url.html5="plugins/videoplayer.js"
-                 url.flash="plugins/videoplayer.swf"
-                 videourl="recursos/video/f2.mp4|recursos/video/f2.webm"
-                 ath="-72.83924886324144" atv="-1.6029180227052622" scale="0.23850000000000265" rx="0" ry="2.6499999999999986" rz="0.8500000000000001"
-                 width="1280"
-         height="720"
-                 alpha="1"
-                 chromakey="0x00FF00|0.8|0.10"
-                 distorted="true"
-                 zorder="0"
-                 visible="false"
-                 pausedonstart="true"
-                 loop="false"
-                 volume="0.0"
-                 directionalsound="true"
-                 range="90.0"
-                 rangefalloff="1.0"
-                 outofrangevolume="0.0"
-                 onhover=""
-                 onclick=""
-                 onvideocomplete=""
-                 onerror=""
-                 handcursor="false"
-                 capture="false">
-        </hotspot>
-
-
-        <!-- Hotspot de f3 -->
-        <hotspot name="f3" 
-                 url.html5="plugins/videoplayer.js"
-                 url.flash="plugins/videoplayer.swf"
-                 videourl="recursos/video/f3.mp4|recursos/video/f3.webm"
-                 ath="-72.20414605826272" atv="-0.5586515508258926" scale="0.23850000000000265" rx="0" ry="-2.999999999999998" rz="-0.05000000000000002"
-                 width="1280"
-         height="720"
-                 alpha="1"
-                 chromakey="0x00FF00|0.8|0.10"
-                 distorted="true"
-                 zorder="0"
-                 visible="false"
-                 pausedonstart="true"
-                 loop="false"
-                 volume="0.0"
-                 directionalsound="true"
-                 range="90.0"
-                 rangefalloff="1.0"
-                 outofrangevolume="0.0"
-                 onhover=""
-                 onclick=""
-                 onvideocomplete=""
-                 onerror=""
-                 handcursor="false"
-                 capture="false">
-        </hotspot>
-
-        <!-- Hotspot de parrafo_final -->
-        <hotspot name="parrafo_final" 
-                 url.html5="plugins/videoplayer.js"
-                 url.flash="plugins/videoplayer.swf"
-                 videourl="recursos/video/parrafo_final.mp4|recursos/video/parrafo_final.webm"
-                 ath="-73.3101059604603" atv="0.8768737784104024" scale="0.29160000000000763" rx="0" ry="-15" rz="-0.05000000000000002"
-                 width="1280"
-         height="720"
-                 alpha="1"
-                 chromakey="0x00FF00|0.8|0.10"
-                 distorted="true"
-                 zorder="0"
-                 visible="false"
-                 pausedonstart="true"
-                 loop="false"
-                 volume="0.0"
-                 directionalsound="true"
-                 range="90.0"
-                 rangefalloff="1.0"
-                 outofrangevolume="0.0"
-                 onhover=""
-                 onclick=""
-                 onvideocomplete=""
-                 onerror=""
-                 handcursor="false"
-                 capture="false">
-        </hotspot>
-
-        <!-- Hotspot de cartel investiga -->
-        <hotspot name="investiga" 
-                 url.html5="plugins/videoplayer.js"
-                 url.flash="plugins/videoplayer.swf"
-                 videourl="recursos/video/investiga.mp4|recursos/video/investiga.webm"
-                 ath="-72.34611677590476" atv="0.07006927912999429" scale="0.23850000000000265" rx="0" ry="0" rz="-0.4000000000000671"
-                 width="1280"
-         height="720"
-                 alpha="1"
-                 chromakey="0x00FF00|0.8|0.10"
-                 distorted="true"
-                 zorder="0"
-                 visible="false"
-                 pausedonstart="true"
-                 loop="false"
-                 volume="0.0"
-                 directionalsound="true"
-                 range="90.0"
-                 rangefalloff="1.0"
-                 outofrangevolume="0.0"
-                 onhover=""
-                 onclick=""
-                 onvideocomplete=""
-                 onerror=""
-                 handcursor="false"
-                 capture="false">
-        </hotspot>
-        <!-- Hotspot de cartel explora -->
-        <hotspot name="explora" 
-                 url.html5="plugins/videoplayer.js"
-                 url.flash="plugins/videoplayer.swf"
-                 videourl="recursos/video/explora.mp4|recursos/video/explora.webm"
-                 ath="-40.1650557822698" atv="0.2739134798587272" scale="0.171750000000007" rx="0" ry="-34.5" rz="0.7499999999999454"
-                 width="1280"
-         height="720"
-                 alpha="1"
-                 chromakey="0x00FF00|0.8|0.10"
-                 distorted="true"
-                 zorder="0"
-                 visible="false"
-                 pausedonstart="true"
-                 loop="false"
-                 volume="0.0"
-                 directionalsound="true"
-                 range="90.0"
-                 rangefalloff="1.0"
-                 outofrangevolume="0.0"
-                 onhover=""
-                 onclick=""
-                 onvideocomplete=""
-                 onerror=""
-                 handcursor="false"
-                 capture="false">
-        </hotspot>
-        <!-- Hotspot de cartel interactua -->
-        <hotspot name="interactua" 
-                 url.html5="plugins/videoplayer.js"
-                 url.flash="plugins/videoplayer.swf"
-                 videourl="recursos/video/interactua.mp4|recursos/video/interactua.webm"
-                 ath="-18.025735867991898" atv="0.4702377507455242" scale="0.17715000000000383" rx="0" ry="0" rz="0.7499999999999454"
-                 width="1280"
-         height="720"
-                 alpha="1"
-                 chromakey="0x00FF00|0.8|0.10"
-                 distorted="true"
-                 zorder="0"
-                 visible="false"
-                 pausedonstart="true"
-                 loop="false"
-                 volume="0.0"
-                 directionalsound="true"
-                 range="90.0"
-                 rangefalloff="1.0"
-                 outofrangevolume="0.0"
-                 onhover=""
-                 onclick=""
-                 onvideocomplete=""
-                 onerror=""
-                 handcursor="false"
-                 capture="false">
-        </hotspot>
-        <!-- Hotspot de cartel desarrolla -->
-        <hotspot name="desarrolla" 
-                 url.html5="plugins/videoplayer.js"
-                 url.flash="plugins/videoplayer.swf"
-                 videourl="recursos/video/desarrolla.mp4|recursos/video/desarrolla.webm"
-                 ath="18.35687472233701" atv="0.15663113392805117" scale="0.18615000000000825" rx="0" ry="0" rz="0.7499999999999454"
-                 width="1280"
-         height="720"
-                 alpha="1"
-                 chromakey="0xFF66C4|0.7|0.10"
-                 distorted="true"
-                 zorder="0"
-                 visible="false"
-                 pausedonstart="true"
-                 loop="false"
-                 volume="0.0"
-                 directionalsound="true"
-                 range="90.0"
-                 rangefalloff="1.0"
-                 outofrangevolume="0.0"
-                 onhover=""
-                 onclick=""
-                 onvideocomplete=""
-                 onerror=""
-                 handcursor="false"
-                 capture="false">
-        </hotspot>
-        <!-- Hotspot de cartel crea -->
-        <hotspot name="crea" 
-                 url.html5="plugins/videoplayer.js"
-                 url.flash="plugins/videoplayer.swf"
-                 videourl="recursos/video/crea.mp4|recursos/video/crea.webm"
-                 ath="40.33246749492514" atv="0.08313553663249154" scale="0.19680000000000725" rx="0" ry="44.59999999999957" rz="-0.25000000000004313"
-                 width="1280"
-         height="720"
-                 alpha="1"
-                 chromakey="0x00FF00|0.8|0.10"
-                 distorted="true"
-                 zorder="0"
-                 visible="false"
-                 pausedonstart="true"
-                 loop="false"
-                 volume="0.0"
-                 directionalsound="true"
-                 range="90.0"
-                 rangefalloff="1.0"
-                 outofrangevolume="0.0"
-                 onhover=""
-                 onclick=""
-                 onvideocomplete=""
-                 onerror=""
-                 handcursor="false"
-                 capture="false">
-        </hotspot>
-        <!-- Hotspot de cartel presenta -->
-        <hotspot name="presenta" 
-                 url.html5="plugins/videoplayer.js"
-                 url.flash="plugins/videoplayer.swf"
-                 videourl="recursos/video/presenta.mp4|recursos/video/presenta.webm"
-                 ath="73.40640623978618" atv="0.7981962870066142" scale="0.2554500000000008" rx="0" ry="14.150000000000066" rz="0.7499999999999454"
-                 width="1280"
-         height="720"
-                 alpha="1"
-                 chromakey="0x00FF00|0.8|0.10"
-                 distorted="true"
-                 zorder="0"
-                 visible="false"
-                 pausedonstart="true"
-                 loop="false"
-                 volume="0.0"
-                 directionalsound="true"
-                 range="90.0"
-                 rangefalloff="1.0"
-                 outofrangevolume="0.0"
-                 onhover=""
-                 onclick=""
-                 onvideocomplete=""
-                 onerror=""
-                 handcursor="false"
-                 capture="false">
-        </hotspot>
-       
-
-        <hotspot name="ver"
-                 url="recursos/imagen/ver.png"
-                 ath="-70.30379394770853" atv="0.99163954676529" scale="0.2" rx="1.9999999999999971" ry="160.39999999999662" rz="0.1499999999999996"
-                 width="1141"
-                 height="584"
-                 distorted="true"
-                 handcursor="false"
-                 capture="false"
-                 visible="false">
-        </hotspot>
-        <hotspot name="zoom_in"
-                 url="recursos/imagen/zoom_in.png"
-                 ath="-71.11749857401702" atv="0.8663825710768706" scale="0.2" rx="0" ry="0" rz="0.1499999999999996"
-                 width="1141"
-                 height="584"
-                 distorted="true"
-                 handcursor="false"
-                 capture="false"
-                 visible="false">
-        </hotspot>
-        <hotspot name="zoom_out"
-                 url="recursos/imagen/zoom_out.png"
-                 ath="-69.55237756893814" atv="1.554845036396609" scale="0.2" rx="1.9999999999999971" ry="160.39999999999662" rz="0.1499999999999996"
-                 width="1141"
-                 height="584"
-                 distorted="true"
-                 handcursor="false"
-                 capture="false"
-                 visible="false">
-        </hotspot>
-
-        <hotspot name="investiga_pared"
-                 url="recursos/imagen/pi.png"
-                 ath="-70.30379394770853" atv="0.99163954676529" scale="0.3566999999999856" rx="1.9999999999999971" ry="160.39999999999662" rz="0.1499999999999996"
-                 width="1141"
-                 height="584"
-                 distorted="true"
-                 handcursor="false"
-                 capture="false"
-                 visible="false">
-        </hotspot>
-        <hotspot name="explora_pared"
-                 url="recursos/imagen/pe.png"
-                 ath="-39.4837176969786" atv="0.5810148969019021" scale="0.23909999999999354" rx="179.70000000000516" ry="-51.6499999999988" rz="179.8499999999952"
-                 width="1141"
-                 height="584"
-                 distorted="true"
-                 handcursor="false"
-                 capture="false"
-                 visible="false">
-        </hotspot>
-        <hotspot name="interactua_pared"
-                 url="recursos/imagen/pin.png"
-                 ath="-19.0497652919056" atv="0.6592375701893569" scale="0.2174000000000026" rx="1.600000000000108" ry="18.5" rz="-0.3000000000000014"
-                 width="1141"
-                 height="584"
-                 distorted="true"
-                 handcursor="false"
-                 capture="false"
-                 visible="false">
-        </hotspot>
-        <hotspot name="desarrolla_pared"
-                 url="recursos/imagen/pd.png"
-                 ath="19.324562816314085" atv="0.6669986501213457" scale="0.2174000000000026" rx="1.600000000000108" ry="-20" rz="0.1499999999999987"
-                 width="1141"
-                 height="584"
-                 distorted="true"
-                 handcursor="false"
-                 capture="false"
-                 visible="false">
-        </hotspot>
-        <hotspot name="crea_pared"
-                 url="recursos/imagen/pc.png"
-                 ath="39.999682092538364" atv="0.7414157706919126" scale="0.24099999999999333" rx="178.5000000000049" ry="-129.9499999999951" rz="179.39999999999554"
-                 width="1141"
-                 height="584"
-                 distorted="true"
-                 handcursor="false"
-                 capture="false"
-                 visible="false">
-        </hotspot>
-        <hotspot name="presenta_pared"
-                 url="recursos/imagen/pp.png"
-                 ath="70.98852292117027" atv="1.0154295185699744" scale="0.3551999999999885" rx="1.9999999999999971" ry="200.3499999999989" rz="-0.2500000000000003"
-                 width="1141"
-                 height="584"
-                 distorted="true"
-                 handcursor="false"
-                 capture="false"
-                 visible="false">
-        </hotspot>
-        <hotspot name="oreja"
-                 url="recursos/imagen/oreja.png"
-                 ath="104.53560121013729" atv="0.9851883913261958" scale="0.2" rx="-4.066191827689636e-15" ry="165.74999999999875" rz="-0.2500000000000003"
-                 width="1141"
-                 height="584"
-                 distorted="true"
-                 handcursor="false"
-                 capture="false"
-                 visible="false">
-        </hotspot>
-       <hotspot name="portal_menu"
-                 url="recursos/imagen/portal_menu.png"
-                 ath="104.53560092873917" atv="0.9851882093151003" scale="0.1099999999999912" rx="-4.066191827689636e-15" ry="165.74999999999875" rz="-0.2500000000000003"
-                 width="1080"
-                 height="1920"
-                 alpha="1"
-                 distorted="true"
-                 handcursor="true"
-                 capture="true"
-                 visible="false"
-                 zorder="999"
-                 onover="activar_portal();"
-                 onout="restaurar_portal_menu();"
-                 ontouchstart="distorsionar_portal_menu();"
-                 ontouchend="restaurar_portal_menu();"
-                onclick="goto_scene_menu();"
-                 >
-        </hotspot>
-        <!-- <hotspot name="portal_menu_on"
-                 url="recursos/imagen/portal_menu_on.png"
-                 ath="104.55288312543843" atv="0.9608024832071446" scale="0.11179999999999056" rx="-4.066191827689636e-15" ry="165.74999999999875" rz="-0.2500000000000003"
-                 width="1080"
-                 height="1920"
-                 alpha="1"
-                 distorted="true"
-                 handcursor="false"
-                 capture="false"
-                 visible="visible"
-                 >
-        </hotspot> -->
-
-        
-        <!-- Hotspots de boton repetir tour hostpot -->
-
-        <hotspot name="repetirintro_hotspot"
-                 url="recursos/imagen/boton_repetirintro.png"
-                 ath="124.94392083762347" atv="1.254999848535447" scale="0.14600000000001356" rx="4.250000000000001" ry="-35.600000000000094" rz="1.5499999999999825"
-                 width="1141"
-                 height="584"
-                 alpha="1"
-                 distorted="true"
-                 handcursor="true"
-                 capture="false"
-                 visible="false"
-                 zorder="9999999999"
-                 onclick="repetir_intro();"
-                 >
-        </hotspot>
 
        
         </scene>
