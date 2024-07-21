@@ -925,43 +925,50 @@ set(hotspot[pc20_cerrar].visible, false);
         autounlock="true"
         />
 
+      <action name="loadAndPlayVideo">
+    set(plugin[videoplayer].url, '%2');
+    set(plugin[videoplayer].pausedonstart, false);
+    plugin[videoplayer].play();
+    set(hotspot[%1].visible, true);
+      </action>
+  
+
     <action name="play_papel">
-    <!-- stopsound(aulasfuturo, 'recursos/audio/aulasfuturo.mp3'); -->
     cancel_play_papel();
     delayedcall(0.95, playsound('aulasfuturo', 'recursos/audio/aulasfuturo.mp3'));
-    delayedcall(idDelayedCallStartvideo1, 0.95, startVideo1());
-    delayedcall(idDelayedCallStartvideo2, 4.3, startVideo2());
-    delayedcall(idDelayedCallStartvideo3, 16.8, startVideo3());
-    delayedcall(idDelayedCallStartvideo4, 24.17, startVideo4());
-    delayedcall(idDelayedCallStartvideo5, 34, startVideo5());
-    delayedcall(idDelayedCallStartvideo6, 45.9, flecha());
+    delayedcall(idDelayedCallStartvideo1, 0.95, loadAndPlayVideo(i1, 'recursos/video/video1.mp4'));
+    delayedcall(idDelayedCallStartvideo2, 4.3, loadAndPlayVideo(i2, 'recursos/video/video2.mp4'));
+    delayedcall(idDelayedCallStartvideo3, 16.8, loadAndPlayVideo(i3, 'recursos/video/video3.mp4'));
+    delayedcall(idDelayedCallStartvideo4, 24.17, loadAndPlayVideo(i4, 'recursos/video/video4.mp4'));
+    delayedcall(idDelayedCallStartvideo5, 34, loadAndPlayVideo(i5, 'recursos/video/video5.mp4'));
+    delayedcall(idDelayedCallStartvideo6, 45.9, loadAndPlayVideo(flecha, 'recursos/video/flecha.mp4'));
     delayedcall(idDelayedCallStartvideo7, 49.8, stop_autorotate());
-    delayedcall(idDelayedCallStartvideo8, 49.8, pizarra());
-    delayedcall(idDelayedCallStartvideo9, 52.8, moviles());
-    delayedcall(idDelayedCallStartvideo10, 54.3, rv());
-    delayedcall(idDelayedCallStartvideo11, 56.1, ia());
-    delayedcall(idDelayedCallStartvideo12, 58.6, impresora());
+    delayedcall(idDelayedCallStartvideo8, 49.8, loadAndPlayVideo(pizarra, 'recursos/video/pizarra.mp4'));
+    delayedcall(idDelayedCallStartvideo9, 52.8, loadAndPlayVideo(moviles, 'recursos/video/moviles.mp4'));
+    delayedcall(idDelayedCallStartvideo10, 54.3, loadAndPlayVideo(rv, 'recursos/video/rv.mp4'));
+    delayedcall(idDelayedCallStartvideo11, 56.1, loadAndPlayVideo(ia, 'recursos/video/ia.mp4'));
+    delayedcall(idDelayedCallStartvideo12, 58.6, loadAndPlayVideo(impresora, 'recursos/video/impresora.mp4'));
     delayedcall(idDelayedCallStartvideo13, 59, eliminar_hotspots_1());
-    delayedcall(idDelayedCallStartvideo14, 59.6, camara());
-    delayedcall(idDelayedCallStartvideo15, 62.6, estudio());
-    delayedcall(idDelayedCallStartvideo16, 65.7, meet());
+    delayedcall(idDelayedCallStartvideo14, 59.6, loadAndPlayVideo(camara, 'recursos/video/camara.mp4'));
+    delayedcall(idDelayedCallStartvideo15, 62.6, loadAndPlayVideo(estudio, 'recursos/video/estudio.mp4'));
+    delayedcall(idDelayedCallStartvideo16, 65.7, loadAndPlayVideo(meet, 'recursos/video/meet.mp4'));
     delayedcall(idDelayedCallStartvideo17, 67.7, ver());
-    delayedcall(idDelayedCallStartvideo18, 67.7, f1());
+    delayedcall(idDelayedCallStartvideo18, 67.7, loadAndPlayVideo(f1, 'recursos/video/f1.mp4'));
     delayedcall(idDelayedCallStartvideo19, 69.9, no_ver());
-    delayedcall(idDelayedCallStartvideo20, 73.3, f2());
-    delayedcall(idDelayedCallStartvideo21, 76.9, f3());
+    delayedcall(idDelayedCallStartvideo20, 73.3, loadAndPlayVideo(f2, 'recursos/video/f2.mp4'));
+    delayedcall(idDelayedCallStartvideo21, 76.9, loadAndPlayVideo(f3, 'recursos/video/f3.mp4'));
     delayedcall(idDelayedCallStartvideo22, 80.5, eliminar_hotspots_2());
     delayedcall(idDelayedCallStartvideo23, 80.5, zoom_in());
-    delayedcall(idDelayedCallStartvideo24, 80.5, parrafo_final());
+    delayedcall(idDelayedCallStartvideo24, 80.5, loadAndPlayVideo(parrafo_final, 'recursos/video/parrafo_final.mp4'));
     delayedcall(idDelayedCallStartvideo25, 82.9, no_zoom_in());
     delayedcall(idDelayedCallStartvideo26, 125.2, zoom_out());
     delayedcall(idDelayedCallStartvideo27, 128.3, no_zoom_out());
-    delayedcall(idDelayedCallStartvideo28, 129.5, investiga());
-    delayedcall(idDelayedCallStartvideo29, 134.3, explora());
-    delayedcall(idDelayedCallStartvideo30, 137.8, interactua());
-    delayedcall(idDelayedCallStartvideo31, 142, desarrolla());
-    delayedcall(idDelayedCallStartvideo32, 145.8, crea());
-    delayedcall(idDelayedCallStartvideo33, 150, presenta());
+    delayedcall(idDelayedCallStartvideo28, 129.5, loadAndPlayVideo(investiga, 'recursos/video/investiga.mp4'));
+    delayedcall(idDelayedCallStartvideo29, 134.3, loadAndPlayVideo(explora, 'recursos/video/explora.mp4'));
+    delayedcall(idDelayedCallStartvideo30, 137.8, loadAndPlayVideo(interactua, 'recursos/video/interactua.mp4'));
+    delayedcall(idDelayedCallStartvideo31, 142, loadAndPlayVideo(desarrolla, 'recursos/video/desarrolla.mp4'));
+    delayedcall(idDelayedCallStartvideo32, 145.8, loadAndPlayVideo(crea, 'recursos/video/crea.mp4'));
+    delayedcall(idDelayedCallStartvideo33, 150, loadAndPlayVideo(presenta, 'recursos/video/presenta.mp4'));
     delayedcall(idDelayedCallStartvideo34, 154, oreja());
     delayedcall(idDelayedCallStartvideo35, 152, start_autorotate());
     delayedcall(idDelayedCallStartvideo36, 167.2, no_oreja());
@@ -969,6 +976,7 @@ set(hotspot[pc20_cerrar].visible, false);
     delayedcall(idDelayedCallStartvideo38, 167.2, menu());
     delayedcall(idDelayedCallStartvideo39, 167.2, repetirintro_hotspot());
 </action>
+
 
 <action name="cancel_play_papel">
     stopsound(aulasfuturo, 'recursos/audio/aulasfuturo.mp3');
